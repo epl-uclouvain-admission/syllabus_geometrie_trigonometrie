@@ -1,0 +1,96 @@
+% ============================================================================
+% ANNEXE A : ÉLÉMENTS DE LOGIQUE ET MÉTHODES DE DÉMONSTRATION
+% ============================================================================
+\chapter*{Annexe A : Éléments de Logique et Types de Démonstrations}
+\addcontentsline{toc}{chapter}{Annexe A : Éléments de Logique et Types de Démonstrations}
+\markboth{Annexe A : Logique et Démonstrations}{Annexe A : Logique et Démonstrations}
+
+\emph{Cette annexe est directement adaptée des Annexes A et B de la « Synthèse de trigonométrie » d'Yvan Haine et Pierre Joris (ULiège). Bien que la logique formelle ne fasse pas explicitement partie du programme de l'examen d'admission, la maîtrise des connecteurs logiques (« et », « ou », $\implies$, $\iff$) est essentielle pour rédiger rigoureusement la résolution d'une équation (sans perdre de solutions ni introduire de solutions parasites) ou la démonstration d'une proposition géométrique.}
+
+% ----------------------------------------------------------------------------
+\section*{A.1 Assertions et opérateurs logiques (« non », « et », « ou »)}
+% ----------------------------------------------------------------------------
+
+\begin{itemize}
+    \item Une \textbf{assertion} est un énoncé mathématique non ambigu qui possède une unique valeur de vérité : soit \textbf{Vrai (V)}, soit \textbf{Faux (F)}.
+    \item Une \textbf{proposition} (ou théorème, lemme, corollaire) est une assertion dont on a démontré qu'elle est vraie.
+    \item Deux assertions $P$ et $Q$ sont \textbf{logiquement équivalentes} (noté $P \iff Q$) si elles ont exactement la même table de vérité.
+\end{itemize}
+
+\begin{theoreme}[Négation, conjonction, disjonction et lois de De Morgan]
+Soient $P$ et $Q$ deux assertions :
+\begin{enumerate}
+    \item \textbf{Négation ($\text{non } P$ ou $\neg P$) :} Vraie si $P$ est fausse, et fausse si $P$ est vraie. La double négation redonne $P$ : $\text{non}(\text{non } P) \iff P$.
+    \item \textbf{Conjonction (« $P \text{ et } Q$ », notée $P \wedge Q$ ou par une accolade système $\begin{cases} P \\ Q \end{cases}$) :} Vraie uniquement lorsque $P$ et $Q$ sont \textbf{toutes les deux vraies} simultanément.
+    \item \textbf{Disjonction (« $P \text{ ou } Q$ », notée $P \vee Q$) :} Vraie dès qu'\textbf{au moins une} des deux assertions $P$ ou $Q$ est vraie (le « ou » mathématique est toujours inclusif).
+    \item \textbf{Lois de De Morgan (négation d'un « et » et d'un « ou ») :}
+    \[
+        \boxed{\text{non}(P \text{ ou } Q) \iff (\text{non } P) \text{ et } (\text{non } Q)} \qquad \text{et} \qquad \boxed{\text{non}(P \text{ et } Q) \iff (\text{non } P) \text{ ou } (\text{non } Q)}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{attention}[Erreur d'écriture très fréquente dans les équations et les conditions d'existence !]
+\begin{itemize}
+    \item Lorsqu'on résout une équation produit $A(x)\cdot B(x) = 0$ ou $\cos^2 x = 1$, les solutions sont reliées par \textbf{« ou »} (ce qui correspond à l'\textbf{union} $\cup$ des ensembles de solutions). On écrit :
+    \[
+        \cos^2 x = 1 \iff \cos x = 1 \text{ \textbf{ou} } \cos x = -1, \qquad \text{mais \textbf{JAMAIS} } \cancel{\cos^2 x = 1 \iff \begin{cases} \cos x = 1 \\ \cos x = -1 \end{cases}},
+    \]
+    car l'accolade signifie \textbf{« et »} (et aucun réel $x$ ne peut avoir son cosinus égal à $1$ et à $-1$ en même temps !).
+    \item Inversement, pour les \textbf{conditions d'existence} d'une fraction $\frac{1}{A(x)\cdot B(x)}$ (où le dénominateur ne peut pas s'annuler), la loi de De Morgan transforme le « ou » en \textbf{« et »} :
+    \[
+        A(x)\cdot B(x) \neq 0 \iff \text{non}\bigl(A(x) = 0 \text{ ou } B(x) = 0\bigr) \iff A(x) \neq 0 \text{ \textbf{et} } B(x) \neq 0 \iff \begin{cases} A(x) \neq 0 \\ B(x) \neq 0 \end{cases}.
+    \]
+\end{itemize}
+\end{attention}
+
+% ----------------------------------------------------------------------------
+\section*{A.2 Implication ($\implies$), réciproque, contraposée et équivalence ($\iff$)}
+% ----------------------------------------------------------------------------
+
+\begin{definition}[Implication, contraposée, réciproque et équivalence]
+\begin{enumerate}
+    \item \textbf{Implication ($P \implies Q$, lue « si $P$, alors $Q$ ») :} $P$ est l'\emph{hypothèse} (ou condition suffisante) et $Q$ est la \emph{thèse} (ou condition nécessaire). L'implication $P \implies Q$ n'est fausse que dans un seul cas : lorsque $P$ est vraie et $Q$ est fausse.
+    \item \textbf{Contraposée ($\text{non } Q \implies \text{non } P$) :} L'implication contraposée a \textbf{toujours exactement la même valeur de vérité} que l'implication directe :
+    \[
+        \boxed{(P \implies Q) \iff (\text{non } Q \implies \text{non } P)}.
+    \]
+    \item \textbf{Réciproque ($Q \implies P$) :} Attention, la réciproque d'une proposition vraie \textbf{n'est pas nécessairement vraie} ! Par exemple, $x = \frac{\pi}{6} \implies \sin x = \frac{1}{2}$ est vraie, mais la réciproque $\sin x = \frac{1}{2} \implies x = \frac{\pi}{6}$ est fausse (car on pourrait avoir $x = \frac{5\pi}{6}$).
+    \item \textbf{Équivalence ($P \iff Q$, lue « $P$ si et seulement si $Q$ », en abrégé « ssi ») :} $P \iff Q$ est vraie lorsque l'implication directe $P \implies Q$ \textbf{et} l'implication réciproque $Q \implies P$ sont toutes les deux vraies.
+\end{enumerate}
+\end{definition}
+
+\begin{attention}[Piège lors de la résolution d'équations : élévation au carré et solutions parasites]
+Lorsqu'on résout une équation $E(x)$, chaque étape devrait idéalement être une \textbf{équivalence} ($\iff$) pour garantir que l'ensemble des solutions finales est exactement celui de l'équation de départ.
+Si vous effectuez une opération qui n'est qu'une simple \textbf{implication} ($\implies$), comme \textbf{élever les deux membres au carré} :
+\[
+    A(x) = B(x) \implies \bigl(A(x)\bigr)^2 = \bigl(B(x)\bigr)^2 \iff A(x) = B(x) \text{ ou } A(x) = -B(x),
+\]
+vous introduisez des \textbf{solutions parasites} (celles qui vérifient $A(x) = -B(x)$) ! Si vous élevez une équation au carré (comme dans la Méthode 3 de Juillet 2022 Q1 : $\cos x + \sin x = \sqrt{2}\cos x\sin x$), vous êtes \textbf{obligé} de tester vos solutions finales dans l'équation de départ (ou d'imposer la condition de signe $A(x)$ et $B(x)$ de même signe) pour éliminer les solutions parasites.
+\end{attention}
+
+% ----------------------------------------------------------------------------
+\section*{A.3 Quantificateurs ($\forall$ et $\exists$) et méthodes de démonstration}
+% ----------------------------------------------------------------------------
+
+\begin{itemize}
+    \item \textbf{Quantificateur universel ($\forall x \in E : P(x)$) :} « Pour tout $x$ appartenant à $E$, la propriété $P(x)$ est vraie ».
+    \begin{itemize}
+        \item Pour démontrer qu'une affirmation universelle $\forall x \in E : P(x)$ est \textbf{vraie}, il faut faire une démonstration générale valable pour une lettre $x$ quelconque de $E$ (un exemple numérique particulier ne prouve jamais une identité !).
+        \item Pour démontrer qu'une affirmation universelle $\forall x \in E : P(x)$ est \textbf{fausse}, il suffit d'exhiber \textbf{un seul contre-exemple}, c'est-à-dire une valeur précise $x_0 \in E$ pour laquelle $P(x_0)$ est fausse, car :
+        \[
+            \text{non}\bigl(\forall x \in E : P(x)\bigr) \iff \exists x \in E : \text{non } P(x).
+        \]
+    \end{itemize}
+    \item \textbf{Quantificateur existentiel ($\exists x \in E : P(x)$) :} « Il existe au moins un $x \in E$ tel que $P(x)$ est vraie ». Sa négation est $\forall x \in E : \text{non } P(x)$.
+\end{itemize}
+
+\begin{theoreme}[Récapitulatif des types de démonstrations utiles en trigonométrie]
+\begin{enumerate}
+    \item \textbf{Démonstration d'une identité $A(x) = B(x)$ :} Partir de $A(x)$ et appliquer des formules connues jusqu'à obtenir $B(x)$ (ou transformer $A(x)$ et $B(x)$ séparément vers une même expression $C(x)$).
+    \item \textbf{Démonstration déductive directe de $P \implies Q$ :} On suppose l'hypothèse $P$ vraie, et on enchaîne des déductions logiques (« Or... », « Donc... », « Par conséquent... ») jusqu'à obtenir la thèse $Q$.
+    \item \textbf{Démonstration d'une équivalence $P \iff Q$ :} Soit on procède par double implication (on démontre $P \implies Q$, puis réciproquement on démontre $Q \implies P$), soit on procède par une chaîne ininterrompue d'équivalences $P \iff P_1 \iff P_2 \iff \dots \iff Q$.
+    \item \textbf{Démonstration par contraposition :} Pour prouver $P \implies Q$, on suppose $\text{non } Q$ et on démontre $\text{non } P$.
+    \item \textbf{Démonstration par l'absurde :} Pour prouver une thèse $Q$ à partir d'une hypothèse $P$, on suppose que $P$ est vraie \textbf{et} que $Q$ est fausse ($\text{non } Q$), et on montre que cela conduit à une contradiction logique ou mathématique.
+\end{enumerate}
+\end{theoreme}

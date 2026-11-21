@@ -1,0 +1,297 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=15pt]{geometry}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{icomma}
+\usepackage{cancel}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{angles,quotes,calc,positioning,arrows.meta,patterns,decorations.pathreplacing,babel}
+
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% ============================================================================
+% COULEURS & STYLE UCLOUVAIN
+% ============================================================================
+\definecolor{uclblue}{RGB}{0, 53, 107}
+\definecolor{ucllightblue}{RGB}{235, 243, 250}
+\definecolor{uclaccent}{RGB}{0, 114, 188}
+\definecolor{defgreen}{RGB}{20, 110, 60}
+\definecolor{deflightgreen}{RGB}{238, 248, 242}
+\definecolor{exorange}{RGB}{180, 85, 0}
+\definecolor{exlightorange}{RGB}{253, 246, 238}
+\definecolor{warnred}{RGB}{170, 30, 30}
+\definecolor{warnlightred}{RGB}{253, 240, 240}
+\definecolor{darkgray}{RGB}{60, 60, 60}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=uclblue,
+    urlcolor=uclaccent,
+    citecolor=uclblue,
+    pdftitle={Syllabus de Trigonométrie - Examen d'entrée Ingénieur Civil UCLouvain},
+    pdfauthor={Jean-François Remacle et Pierre Schaus (Prompt Engineers) & IA}
+}
+
+% ============================================================================
+% BOÎTES PÉDAGOGIQUES (TCOLORBOX)
+% ============================================================================
+\newtcolorbox{theoreme}[1][]{
+    enhanced,
+    breakable,
+    colback=ucllightblue,
+    colframe=uclblue,
+    fonttitle=\bfseries,
+    title={#1},
+    arc=3pt,
+    boxrule=0.8pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{definition}[1][]{
+    enhanced,
+    breakable,
+    colback=deflightgreen,
+    colframe=defgreen,
+    fonttitle=\bfseries,
+    title={#1},
+    arc=3pt,
+    boxrule=0.8pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{exemple}[1][]{
+    enhanced,
+    breakable,
+    colback=exlightorange,
+    colframe=exorange,
+    fonttitle=\bfseries,
+    title={#1},
+    arc=3pt,
+    boxrule=0.8pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{attention}[1][Attention]{
+    enhanced,
+    breakable,
+    colback=warnlightred,
+    colframe=warnred,
+    fonttitle=\bfseries,
+    title={#1},
+    arc=3pt,
+    boxrule=0.8pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+\newtcolorbox{astuce}[1][Astuce \& Méthode]{
+    enhanced,
+    breakable,
+    colback=gray!8,
+    colframe=darkgray,
+    fonttitle=\bfseries,
+    title={#1},
+    arc=3pt,
+    boxrule=0.8pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt
+}
+
+% ============================================================================
+% MISE EN PAGE & EN-TÊTES
+% ============================================================================
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist[itemize]{topsep=3pt,itemsep=2pt}
+\setlist[enumerate]{topsep=4pt,itemsep=4pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{uclblue}{\nouppercase{\leftmark}}}
+\fancyhead[R]{\small\textcolor{darkgray}{Trigonométrie \& Géométrie -- UCLouvain}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{uclblue}}
+  {\filright\large\textsc{\chaptertitlename}\ \thechapter}
+  {1ex}
+  {\titlerule\vspace{1.2ex}\filright}
+  [\vspace{1ex}\titlerule]
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{uclblue}}
+  {\thesection}{0.8em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{uclaccent}}
+  {\thesubsection}{0.7em}{}
+
+% ============================================================================
+% COMMANDES MATHÉMATIQUES
+% ============================================================================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\wideparen}[1]{\overset{\frown}{#1}}
+\DeclareMathOperator{\cotg}{cotg}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\cosec}{cosec}
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+\begin{document}
+
+% ----------------------------------------------------------------------------
+% PAGE DE TITRE
+% ----------------------------------------------------------------------------
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\Large \textsc{Université catholique de Louvain (UCLouvain)}}\\[0.3cm]
+    {\large \textsc{École Polytechnique de Louvain (EPL)}}\\[1.5cm]
+
+    \begin{tcolorbox}[colback=ucllightblue,colframe=uclblue,arc=5pt,boxrule=1.5pt,top=15pt,bottom=15pt]
+        \centering
+        {\huge\bfseries\color{uclblue} Syllabus de Trigonométrie\\ et de Géométrie}\\[0.4cm]
+        {\Large\color{uclaccent} Préparation à l'examen d'admission\\ aux études d'ingénieur civil}
+    \end{tcolorbox}
+
+    \vspace{0.9cm}
+
+    % Illustration centrale : cercle trigonométrique esthétique
+    \begin{tikzpicture}[scale=2.1, >=Stealth]
+        \draw[step=0.5, gray!20, very thin] (-1.4,-1.4) grid (1.4,1.4);
+        \draw[->, thick, darkgray] (-1.4,0) -- (1.5,0) node[right] {$\cos\alpha$};
+        \draw[->, thick, darkgray] (0,-1.4) -- (0,1.5) node[above] {$\sin\alpha$};
+        \draw[thick, uclblue] (0,0) circle (1);
+        \draw[thick, defgreen] (1,-1.3) -- (1,1.35) node[above] {$t (\tan)$};
+        
+        \def\ang{38}
+        \coordinate (O) at (0,0);
+        \coordinate (P) at ({\ang}:1);
+        \coordinate (Px) at ({cos(\ang)},0);
+        \coordinate (Py) at (0,{sin(\ang)});
+        \coordinate (T) at (1,{tan(\ang)});
+
+        \fill[uclaccent!15] (0,0) -- (0.35,0) arc (0:\ang:0.35) -- cycle;
+        \draw[uclaccent, thick] (0.35,0) arc (0:\ang:0.35);
+        \node[uclaccent] at ({\ang/2}:0.47) {$\alpha$};
+
+        \draw[dashed, gray] (P) -- (Px);
+        \draw[dashed, gray] (P) -- (Py);
+        \draw[very thick, exorange] (0,0) -- (Px) node[midway, below] {\small $\cos\alpha$};
+        \draw[very thick, warnred] (0,0) -- (Py) node[midway, left] {\small $\sin\alpha$};
+        \draw[very thick, defgreen] (1,0) -- (T) node[midway, right] {\small $\tan\alpha$};
+        \draw[thick, uclaccent] (O) -- (T);
+
+        \fill[uclblue] (P) circle (1.2pt) node[above left] {\small $P(\cos\alpha,\sin\alpha)$};
+        \fill[defgreen] (T) circle (1.2pt) node[right] {\small $T$};
+        \fill[darkgray] (1,0) circle (1pt) node[below right] {\small $I$};
+        \fill[darkgray] (0,1) circle (1pt) node[above left] {\small $J$};
+    \end{tikzpicture}
+
+    \vfill
+
+    {\large \textbf{Direction artistique \& \emph{« Prompt Engineering »} :}}\\[0.2cm]
+    {\Large \textbf{L'équipe trigonométrie \& géométrie de l'examen d'entrée}}\\[0.15cm]
+    {\large \textbf{Jean-François Remacle} et \textbf{Pierre Schaus}}\\[0.3cm]
+    {\normalsize \emph{Rédigé à la sueur des GPU par l'Intelligence Artificielle,\\ sous la supervision bienveillante (et quelques prompts bien sentis) de ses humains.}}
+
+    \vspace{0.6cm}
+    {\small \textbf{Sources fournies à l'IA :}\\
+    L'excellent syllabus \emph{« Synthèse de trigonométrie »} d'Yvan Haine et Pierre Joris (ULiège, 2012)\\
+    a été donné en source principale à l'IA, conjointement aux supports de cours et annales de trigonométrie et de géométrie de l'UCLouvain.}\\[0.4cm]
+    {\normalsize Édition 2026--2027}
+\end{titlepage}
+
+% ----------------------------------------------------------------------------
+% AVANT-PROPOS ET SOURCES
+% ----------------------------------------------------------------------------
+\chapter*{Avant-propos et conseils méthodologiques}
+\addcontentsline{toc}{chapter}{Avant-propos et conseils méthodologiques}
+\markboth{Avant-propos}{Avant-propos}
+
+Ce syllabus a été conçu pour accompagner les étudiantes et étudiants qui préparent l'épreuve fusionnée de \textbf{trigonométrie et de géométrie} de l'examen spécial d'admission aux études d'ingénieur civil à l'\textbf{UCLouvain} (École Polytechnique de Louvain -- EPL). Il est pensé pour être agréable à lire, progressif et directement accessible à toute personne ayant suivi le cours de mathématiques de 5\ieme{} et 6\ieme{} secondaire (en particulier l'option 6h/semaine, ou 4h avec un complément d'investissement) en Communauté française de Belgique (Fédération Wallonie-Bruxelles).
+
+\section*{Origine, auteurs et sources du document}
+
+\begin{theoreme}[« Prompt Engineers », IA et sources du document]
+\begin{itemize}
+    \item \textbf{\emph{Prompt Engineers} en chef :} L'équipe trigonométrie et géométrie de l'examen d'entrée à l'UCLouvain, à savoir les professeurs \textbf{Jean-François Remacle} et \textbf{Pierre Schaus}, qui ont fourni la matière première, les idées, les annales et les instructions nécessaires pour dompter la machine.
+    \item \textbf{Auteur exécutant (Intelligence Artificielle) :} Soyons honnêtes : la rédaction au kilomètre, la mise en forme \LaTeX{}, le tracé millimétré des figures TikZ et la rédaction détaillée des corrigés ont été réalisés \textbf{en très grande partie par l'intelligence artificielle} (qui, contrairement aux candidats à l'examen d'entrée, avait droit à une puissance de calcul illimitée).
+    \item \textbf{Sources et remerciements :} L'excellent syllabus \textbf{\emph{« Synthèse de trigonométrie »} rédigé par Yvan Haine et Pierre Joris (Août 2012) à l'Université de Liège (ULiège)}, suite à une suggestion du Professeur E. Delhez, a été directement donné en source à l'IA pour structurer et inspirer la partie trigonométrique de cet ouvrage. Nous tenons à saluer la grande qualité pédagogique de leur travail, dont nous avons repris la progression ainsi que plusieurs exemples et exercices classiques (identifiés par la mention \emph{ULiège}).
+    \item \textbf{Annales et formulaire UCLouvain :} Ce syllabus intègre également le formulaire officiel des cours préparatoires de l'UCLouvain (étendu à la géométrie synthétique et analytique plane et spatiale), les astuces présentées lors des séances de préparation (\emph{slides 2026}), ainsi que l'intégralité des questions types issues des \textbf{examens d'entrée de Trigonométrie et de Géométrie de l'UCLouvain de 2018 à 2026}. L'origine et l'année de chaque question d'examen sont systématiquement indiquées.
+\end{itemize}
+\end{theoreme}
+
+\section*{Structure de l'épreuve fusionnée de Trigonométrie et Géométrie à l'UCLouvain}
+
+Avec la fusion des épreuves de trigonométrie et de géométrie à l'examen d'admission de l'EPL (UCLouvain), l'épreuve se déroule \textbf{sans calculatrice} et couvre quatre grands piliers complémentaires :
+\begin{enumerate}
+    \item \textbf{Les fondements, formules et équations trigonométriques (Chapitres 1 à 3)} : cercle trigonométrique, fonctions réciproques ($\arcsin, \arccos, \arctan$), formules d'addition, de duplication, de Carnot et de Simpson, et résolution complète d'équations trigonométriques dans $\R$ (avec conditions d'existence et représentation sur le cercle).
+    \item \textbf{La résolution de triangles et la géométrie synthétique plane et spatiale (Chapitres 4 et 5)} : triangles rectangles et quelconques (lois des sinus et des cosinus), angles inscrits et au centre dans le cercle, puissance d'un point par rapport à un cercle, relations métriques, triangles semblables, rapports d'aires et sections planes de solides (sphères, cônes, cylindres).
+    \item \textbf{La géométrie analytique dans le plan et les coniques (Chapitre 6)} : vecteurs et produit scalaire dans $\R^2$, droites, médiatrices, distance d'un point à une droite, cercles, et étude complète des coniques (ellipse, hyperbole, parabole : réduction par complétion du carré, foyers, directrices, excentricité, asymptotes et tangentes par la condition $\Delta = 0$).
+    \item \textbf{La géométrie analytique et vectorielle dans l'espace $\R^3$ (Chapitre 7)} : produit scalaire, produit vectoriel et déterminant, équations paramétriques et cartésiennes de droites et de plans, vecteur normal, point de percée, projections orthogonales, réflexion sur un miroir plan, distances et sphères.
+\end{enumerate}
+
+\section*{Notations et conventions en vigueur à l'examen}
+
+Pour éviter toute ambiguïté le jour de l'examen, familiarisez-vous dès maintenant avec les conventions utilisées dans les énoncés officiels de l'UCLouvain :
+\begin{itemize}
+    \item $\sin^n x$ signifie $(\sin(x))^n$, et de même $\cos^n x = (\cos(x))^n$, $\tan^n x = (\tan(x))^n$. \textbf{Attention :} cette notation ne s'applique qu'aux exposants positifs ($n \ge 2$). La fonction réciproque se note exclusivement $\arcsin(x)$, $\arccos(x)$, $\arctan(x)$ (et non $\sin^{-1}(x)$ qui prête à confusion avec $\frac{1}{\sin x}$).
+    \item La longueur d'un segment reliant les points $A$ et $B$ est notée $\overline{AB}$ ou $|AB|$.
+    \item Un angle géométrique au sommet $A$ entre les segments $[AB]$ et $[AC]$ est noté $\widehat{BAC}$ ou simplement $\widehat{A}$.
+    \item Dans un triangle quelconque $ABC$, les longueurs $a = \overline{BC}$, $b = \overline{AC}$ et $c = \overline{AB}$ désignent toujours les côtés opposés respectivement aux sommets $A$, $B$ et $C$.
+    \item Les angles sont exprimés en \textbf{radians} par défaut, sauf présence explicite du symbole degré (par exemple $15\degree$). \textbf{Ne mélangez jamais degrés et radians dans une même formule !}
+\end{itemize}
+
+\section*{Comment utiliser ce syllabus ?}
+
+Une étude « par cœur » des formules sans compréhension géométrique ne suffit pas pour réussir l'examen. Nous vous conseillons de :
+\begin{enumerate}
+    \item Comprendre comment chaque formule se visualise sur une figure (cercle trigonométrique, coupe plane, schéma vectoriel) ou se retrouve instantanément.
+    \item Étudier attentivement les \textbf{exemples résolus} au fil des chapitres : ce sont d'authentiques questions d'examen de l'UCLouvain dont nous détaillons non seulement le calcul, mais surtout \emph{l'intuition qui guide le choix de la méthode}.
+    \item Utiliser le \textbf{Formulaire imprimable de 4 pages} (Chapitre 8) lors de vos révisions, et chercher par vous-même les \textbf{exercices de fin de chapitre} avant de consulter les \textbf{corrigés détaillés} regroupés au Chapitre 9, en fin d'ouvrage.
+\end{enumerate}
+
+\tableofcontents
+
+% ----------------------------------------------------------------------------
+% CHAPITRES
+% ----------------------------------------------------------------------------
+\input{chap1_fondements}
+\input{chap2_formules}
+\input{chap3_equations}
+\input{chap4_triangles}
+\input{chap5_geo_synthetique}
+\input{chap6_geo_plane}
+\input{chap7_geo_espace}
+\input{chap5_formulaire}
+\input{annexe_logique}
+\input{chap6_correctifs}
+
+\end{document}

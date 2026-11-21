@@ -1,0 +1,838 @@
+% ============================================================================
+% CHAPITRE 6 : CORRIGÉS DÉTAILLÉS DES EXERCICES DE FIN DE CHAPITRE
+% ============================================================================
+\chapter{Corrigés Détaillés des Exercices}
+
+Ce chapitre rassemble les solutions complètes et commentées de tous les exercices proposés à la fin des Chapitres 1 à 7.
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 1 (Angles, Arcs et Cercle Trigonométrique)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 1.1 (La rosace hexagonale -- Inspiré d'ULiège) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Les six sommets $A, B, C, D, E, F$ d'un hexagone régulier inscrit dans un cercle de rayon $R = 3\text{ cm}$ divisent la circonférence en $6$ arcs égaux d'angle au centre $\theta = \frac{2\pi}{6} = \frac{\pi}{3}\text{ rad}$ ($60\degree$). La longueur du plus petit arc $\overset{\frown}{AB}$ vaut donc :
+    \[
+        L_{\overset{\frown}{AB}} = R\theta = 3 \cdot \frac{\pi}{3} = \boxed{\pi\text{ cm} \approx 3,14\text{ cm}}.
+    \]
+    \item Chaque pétale de la rosace est formé de deux arcs de cercle de rayon $R = 3\text{ cm}$ reliant le centre $O$ à un sommet (par exemple $A$ et $B$, centrés en $F$ et $C$). Dans les triangles équilatéraux $OAB$, $OBC$, etc., de côté $R$, chaque arc allant d'un sommet au sommet opposé à $120\degree$ (comme l'arc $\overset{\frown}{BF}$ centré en $A$, passant par $O$) correspond à un angle au centre de $\frac{2\pi}{3}\text{ rad}$ ($120\degree$). Comme la rosace complète à $6$ pétales est constituée de $6$ grands arcs d'angle $\frac{2\pi}{3}$ (ou $12$ petits demi-pétales d'angle $\frac{\pi}{3}$), sa longueur totale vaut :
+    \[
+        L_{\text{rosace}} = 12 \times \left(R\cdot\frac{\pi}{3}\right) = 4\pi R = \boxed{12\pi\text{ cm} \approx 37,70\text{ cm}}.
+    \]
+    \item Un demi-segment circulaire d'angle $\theta = \frac{\pi}{3}$ et de rayon $R$ a pour aire $A_{\text{seg}} = \frac{1}{2}R^2\left(\frac{\pi}{3} - \sin\frac{\pi}{3}\right) = \frac{R^2}{2}\left(\frac{\pi}{3} - \frac{\sqrt{3}}{2}\right)$. Un pétale complet est la réunion de deux tels segments accolés le long de leur corde de longueur $R$, et la rosace comporte $6$ pétales (soit $12$ segments circulaires d'angle $\frac{\pi}{3}$) :
+    \[
+        A_{\text{rosace}} = 12 \times \frac{R^2}{2}\left(\frac{\pi}{3} - \frac{\sqrt{3}}{2}\right) = R^2(2\pi - 3\sqrt{3}) = \boxed{9(2\pi - 3\sqrt{3})\text{ cm}^2 \approx 9,78\text{ cm}^2}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 1.2 (Rayon de la Terre par Ératosthène -- Inspiré d'ULiège) :}
+Les rayons du Soleil étant parallèles, l'angle $\theta$ que font les rayons solaires avec la verticale de l'obélisque à Alexandrie est égal (angles correspondants) à l'angle au centre de la Terre entre Syène et Alexandrie. Dans le triangle rectangle formé par l'obélisque ($h = 1\text{ m} = 100\text{ cm}$) et son ombre ($d = 12,6\text{ cm}$), on a $\tan\theta = \frac{12,6}{100} = 0,126$. Pour un petit angle exprimé en radians, $\theta \approx \tan\theta \approx 0,126\text{ rad}$ (plus précisément $\theta = \arctan(0,126) \approx 0,1253\text{ rad}$). La relation de l'arc de méridien $L = R\theta$ avec $L = 800\text{ km}$ donne alors :
+\[
+    R = \frac{L}{\theta} \approx \frac{800}{0,1253} \approx \boxed{6383\text{ km}} \quad \text{(ou } \frac{800}{0,126} \approx 6349\text{ km)}.
+\]
+
+\paragraph{Corrigé de l'Exercice 1.3 (UCLouvain -- Mini-Blocus 2026, Q1b) :}
+La perpendiculaire abaissée du centre $O$ du cercle sur la corde $[AB]$ coupe celle-ci en son milieu $M$, avec $\overline{OM} = 3\text{ cm}$ et $\overline{OA} = R = 5\text{ cm}$. Dans le triangle $OMA$ rectangle en $M$, le théorème de Pythagore donne $\overline{AM} = \sqrt{R^2 - \overline{OM}^2} = \sqrt{5^2 - 3^2} = \sqrt{16} = 4\text{ cm}$. La longueur totale de la corde vaut donc $L = 2\overline{AM} = \boxed{8\text{ cm}}$.
+
+\paragraph{Corrigé de l'Exercice 1.4 (Simplifications et identités fondamentales -- Inspiré d'ULiège) :}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{CE :} $\cos x \neq 0$ et $\sin x \neq 0 \iff x \neq k\frac{\pi}{2}$ ($k\in\Z$). On met au même dénominateur :
+    \[
+        \tan x + \cot x = \frac{\sin x}{\cos x} + \frac{\cos x}{\sin x} = \frac{\sin^2 x + \cos^2 x}{\sin x \cos x} = \frac{1}{\sin x \cos x}.
+    \]
+    \item \textbf{CE :} $x \neq \frac{\pi}{2} + k\pi$ ($k\in\Z$). En utilisant $1 + \tan^2 x = \frac{1}{\cos^2 x}$ :
+    \[
+        \frac{\tan x}{1 + \tan^2 x} = \frac{\sin x / \cos x}{1 / \cos^2 x} = \frac{\sin x}{\cos x} \cdot \cos^2 x = \sin x \cos x.
+    \]
+    \item \textbf{CE :} $\forall x \in \R$. Par différence de deux carrés $a^4 - b^4 = (a^2-b^2)(a^2+b^2)$ et $\sin^2 x + \cos^2 x = 1$ :
+    \[
+        \sin^4 x - \cos^4 x = \sin^2 x - \cos^2 x = (1 - \cos^2 x) - \cos^2 x = 1 - 2\cos^2 x = 2\sin^2 x - 1.
+    \]
+    \item \textbf{CE :} $\forall x \in \R$. En développant $1 = (\sin^2 x + \cos^2 x)^3 = \sin^6 x + \cos^6 x + 3\sin^2 x\cos^2 x(\sin^2 x + \cos^2 x)$, il vient immédiatement $\sin^6 x + \cos^6 x = 1 - 3\sin^2 x\cos^2 x$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 1.5 (UCLouvain -- Juillet 2022, Q3a) :}
+Le triangle $ABC$ étant rectangle, l'un de ses trois angles est droit (supposons $\alpha = \frac{\pi}{2}$, donc $\sin\alpha = 1$), et les deux autres angles aigus $\beta$ et $\gamma$ sont complémentaires ($\gamma = \frac{\pi}{2} - \beta$), ce qui entraîne $\sin\gamma = \sin\left(\frac{\pi}{2}-\beta\right) = \cos\beta$. Par conséquent :
+\[
+    \sin^2(\alpha) + \sin^2(\beta) + \sin^2(\gamma) = 1^2 + \sin^2(\beta) + \cos^2(\beta) = 1 + 1 = \boxed{2}.
+\]
+
+\paragraph{Corrigé de l'Exercice 1.6 (UCLouvain -- Juillet 2022, Q3d) :}
+Posons $y = \sin x - \cos x$. Remarquons que :
+\[
+    (\sin x + \cos x)^2 + (\sin x - \cos x)^2 = 2(\sin^2 x + \cos^2 x) = 2.
+\]
+En remplaçant $\sin x + \cos x = \frac{\sqrt{2}}{3}$, on obtient $\left(\frac{\sqrt{2}}{3}\right)^2 + y^2 = 2 \iff \frac{2}{9} + y^2 = 2 \iff y^2 = \frac{16}{9} \iff y = \pm\frac{4}{3}$.
+Or, dans le deuxième quadrant ($\frac{\pi}{2} < x < \pi$), on a $\sin x > 0$ et $\cos x < 0$, donc $\sin x - \cos x > 0$. La valeur cherchée est donc positive : $\sin(x) - \cos(x) = \boxed{\dfrac{4}{3}}$.
+
+\paragraph{Corrigé de l'Exercice 1.7 (Angles associés) :}
+On simplifie chaque terme grâce aux angles associés : $\cos(\pi-x) = -\cos x$, $\sin\left(\frac{\pi}{2}+x\right) = \cos x$, $\cos(3\pi+x) = \cos(\pi+x) = -\cos x$, et $\sin\left(\frac{3\pi}{2}-x\right) = \sin\left(\pi + \left(\frac{\pi}{2}-x\right)\right) = -\sin\left(\frac{\pi}{2}-x\right) = -\cos x$. En additionnant :
+\[
+    E(x) = -\cos x + \cos x - \cos x - (-\cos x) = \boxed{0}.
+\]
+
+\paragraph{Corrigé de l'Exercice 1.8 (UCLouvain -- Juillet 2026, Q3d) :}
+Puisque $\sin\theta = x$ et $-\frac{\pi}{2} \le \theta \le \frac{\pi}{2}$ (quadrants IV et I), le cosinus est positif ou nul : $\cos\theta = +\sqrt{1 - \sin^2\theta} = \sqrt{1 - x^2}$. Par la formule de duplication du sinus :
+\[
+    \sin(2\theta) = 2\sin\theta\cos\theta = \boxed{2x\sqrt{1 - x^2}}.
+\]
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 2 (Formules Trigonométriques et Identités)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 2.1 (UCLouvain -- Juillet 2022 Q3f et Juillet 2023 Q3d) :}
+En lisant la formule de Simpson $\sin(a+b) + \sin(a-b) = 2\sin a \cos b$ de droite à gauche ($\sin a\cos b = \frac{1}{2}[\sin(a+b) + \sin(a-b)]$) :
+\begin{align*}
+    \sin(70\degree)\cos(50\degree) &= \frac{1}{2}\bigl(\sin(120\degree) + \sin(20\degree)\bigr) = \frac{1}{2}\left(\frac{\sqrt{3}}{2} + \sin(20\degree)\right), \\
+    \sin(260\degree)\cos(280\degree) &= \frac{1}{2}\bigl(\sin(540\degree) + \sin(-20\degree)\bigr) = \frac{1}{2}\bigl(\sin(180\degree) - \sin(20\degree)\bigr) = -\frac{1}{2}\sin(20\degree).
+\end{align*}
+En additionnant les deux termes, $\pm\frac{1}{2}\sin(20\degree)$ s'éliminent et il reste $E = \boxed{\dfrac{\sqrt{3}}{4}}$.
+\emph{Alternative rapide :} Par angles associés, $\sin(260\degree) = \sin(180\degree+80\degree) = -\sin(80\degree) = -\cos(10\degree)$ et $\cos(280\degree) = \cos(360\degree-80\degree) = \cos(80\degree) = \sin(10\degree)$, ce qui ramène au même calcul.
+
+\paragraph{Corrigé de l'Exercice 2.2 (UCLouvain -- Septembre 2022, Q3a et Q3b) :}
+\begin{itemize}
+    \item \textbf{Pour $S_1$ :} Appliquons Simpson aux deux premiers termes $\sin(50\degree) + \sin(10\degree)$ (moyenne $30\degree$, demi-écart $20\degree$) :
+    \[
+        S_1 = 2\sin(30\degree)\cos(20\degree) - \sin(70\degree) = \cos(20\degree) - \sin(90\degree - 20\degree) = \cos(20\degree) - \cos(20\degree) = \boxed{0}.
+    \]
+    \item \textbf{Pour $S_2$ :} Appliquons Simpson aux premier et troisième termes $\cos\left(\frac{\pi}{9}\right) + \cos\left(\frac{7\pi}{9}\right)$ (moyenne $\frac{4\pi}{9}$, demi-écart $\frac{3\pi}{9} = \frac{\pi}{3}$) :
+    \[
+        S_2 = 2\cos\left(\frac{4\pi}{9}\right)\cos\left(\frac{\pi}{3}\right) + \cos\left(\pi - \frac{4\pi}{9}\right) = \cos\left(\frac{4\pi}{9}\right) - \cos\left(\frac{4\pi}{9}\right) = \boxed{0}.
+    \]
+\end{itemize}
+
+\paragraph{Corrigé de l'Exercice 2.3 (UCLouvain -- Septembre 2022 Q3d et Juillet 2024 Q3b) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Comme $\cos x = \frac{1}{3}$ et $x \in \left]0, \pi\right[$, on a $\sin x = +\sqrt{1 - \cos^2 x} = \sqrt{1 - \frac{1}{9}} = \frac{\sqrt{8}}{3} = \frac{2\sqrt{2}}{3}$. Par les formules de duplication :
+    \[
+        \sin(2x) = 2\sin x\cos x = \frac{4\sqrt{2}}{9} \quad \text{et} \quad \cos(2x) = 2\cos^2 x - 1 = \frac{2}{9} - 1 = -\frac{7}{9},
+    \]
+    d'où $\tan(2x) = \frac{\sin(2x)}{\cos(2x)} = -\frac{4\sqrt{2}}{7}$ et $7\times\tan(2x) = \boxed{-4\sqrt{2}}$.
+    \item Par la formule de $\sin(2\alpha)$ en fonction de $t = \tan(\alpha)$ (avec $\alpha = 10\degree$ et $t \simeq \frac{9}{50}$) :
+    \[
+        \sin(20\degree) = \frac{2\tan(10\degree)}{1 + \tan^2(10\degree)} \simeq \frac{2 \cdot \frac{9}{50}}{1 + \left(\frac{9}{50}\right)^2} = \frac{\frac{18}{50}}{\frac{2500 + 81}{2500}} = \frac{18 \times 50}{2581} = \boxed{\frac{900}{2581}}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 2.4 (UCLouvain -- Septembre 2024, Q3a, Q3b et Q3d) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Par Carnot, $\cos(2x) = 1 - 2\sin^2 x = 1 - 2\left(\frac{\sqrt{5}-1}{4}\right)^2 = 1 - 2\cdot\frac{6 - 2\sqrt{5}}{16} = 1 - \frac{3-\sqrt{5}}{4} = \frac{1+\sqrt{5}}{4}$ (qui est la valeur de $\cos 36\degree$, liée au nombre d'or !). Puis en appliquant une seconde fois la duplication :
+    \[
+        \cos(4x) + \frac{1}{4} = \bigl(2\cos^2(2x) - 1\bigr) + \frac{1}{4} = 2\left(\frac{1+\sqrt{5}}{4}\right)^2 - \frac{3}{4} = \frac{6+2\sqrt{5}}{8} - \frac{3}{4} = \frac{3+\sqrt{5}-3}{4} = \boxed{\frac{\sqrt{5}}{4}}.
+    \]
+    \item Appliquons Simpson à $\sin(36\degree+x) - \sin(36\degree-x) = 2\sin(x)\cos(36\degree)$ et à $\sin(72\degree-x) - \sin(72\degree+x) = -2\sin(x)\cos(72\degree)$. En factorisant $2\sin(x)$ et en utilisant $\cos(72\degree) = 2\cos^2(36\degree) - 1$ :
+    \begin{align*}
+        E(x) &= 2\sin(x)\bigl(\cos(36\degree) - 2\cos^2(36\degree) + 1\bigr) \\
+        &= 2\sin(x)\left(\frac{1+\sqrt{5}}{4} - \frac{3+\sqrt{5}}{4} + 1\right) = 2\sin(x)\cdot\frac{1}{2} = \boxed{\sin(x)}.
+    \end{align*}
+    \item Utilisons la formule de l'angle moitié $\tan\left(\frac{\alpha}{2}\right) = \frac{1 - \cos\alpha}{\sin\alpha}$ pour $\frac{\alpha}{2} = \frac{\pi}{24}$ (donc $\alpha = \frac{\pi}{12}$). Sachant que $\cos\frac{\pi}{12} = \frac{\sqrt{2}(\sqrt{3}+1)}{4}$ et $\sin\frac{\pi}{12} = \frac{\sqrt{2}(\sqrt{3}-1)}{4}$ :
+    \[
+        \sqrt{2}(\sqrt{3}-1)\tan\left(\frac{\pi}{24}\right) = 4\sin\left(\frac{\pi}{12}\right)\cdot\frac{1 - \cos(\pi/12)}{\sin(\pi/12)} = 4 - 4\cos\left(\frac{\pi}{12}\right) = 4 - \sqrt{2}(\sqrt{3}+1).
+    \]
+    Par conséquent, $4 - \sqrt{2}(\sqrt{3}-1)\tan\left(\frac{\pi}{24}\right) = \boxed{\sqrt{2}(\sqrt{3}+1) = \sqrt{6} + \sqrt{2}}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 2.5 (UCLouvain -- Juillet 2021 Q3d et Septembre 2023 Q3d) :}
+\begin{itemize}
+    \item \textbf{Pour $P_1$ :} Remarquons que $\frac{\pi}{24} + \frac{11\pi}{24} = \frac{\pi}{2}$ et $\frac{5\pi}{24} + \frac{7\pi}{24} = \frac{\pi}{2}$ (angles complémentaires !). Donc $\sin\left(\frac{11\pi}{24}\right) = \cos\left(\frac{\pi}{24}\right)$ et $\sin\left(\frac{7\pi}{24}\right) = \cos\left(\frac{5\pi}{24}\right)$. En utilisant deux fois $\sin\alpha\cos\alpha = \frac{1}{2}\sin(2\alpha)$ :
+    \[
+        P_1 = \left(\sin\frac{\pi}{24}\cos\frac{\pi}{24}\right)\left(\sin\frac{5\pi}{24}\cos\frac{5\pi}{24}\right) = \frac{1}{4}\sin\left(\frac{\pi}{12}\right)\cos\left(\frac{\pi}{12}\right) = \frac{1}{8}\sin\left(\frac{\pi}{6}\right) = \boxed{\frac{1}{16}}.
+    \]
+    \item \textbf{Pour $P_2$ :} On connaît $\sin\left(\frac{3\pi}{9}\right) = \sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}$. Calculons $Q = \sin\left(\frac{\pi}{9}\right)\sin\left(\frac{2\pi}{9}\right)\sin\left(\frac{4\pi}{9}\right)$ (soit $\sin 20\degree\sin 40\degree\sin 80\degree$) en appliquant Werner $2\sin 20\degree\sin 40\degree = \cos 20\degree - \cos 60\degree = \cos 20\degree - \frac{1}{2}$ :
+    \[
+        Q = \frac{1}{2}\left(\cos 20\degree - \frac{1}{2}\right)\sin 80\degree = \frac{1}{4}\bigl(\sin 100\degree + \sin 60\degree - \sin 80\degree\bigr) = \frac{\sin 60\degree}{4} = \frac{\sqrt{3}}{8},
+    \]
+    car $\sin 100\degree = \sin(180\degree-80\degree) = \sin 80\degree$. D'où $P_2 = \frac{\sqrt{3}}{2} \cdot \frac{\sqrt{3}}{8} = \boxed{\dfrac{3}{16}}$.
+\end{itemize}
+
+\paragraph{Corrigé de l'Exercice 2.6 (UCLouvain -- Juillet 2021, Q3e) :}
+L'hypothèse $\tan x + \tan y + \tan x\tan y = 1$ se réécrit $\tan x + \tan y = 1 - \tan x\tan y$. Comme $1 - \tan x\tan y \neq 0$ (sinon $\tan x + \tan y = 0$ et $\tan x\tan y = 1$, impossible dans $\R$), on divise par $1 - \tan x\tan y$ :
+\[
+    \tan(x + y) = \frac{\tan x + \tan y}{1 - \tan x\tan y} = 1.
+\]
+Pour $(x+y) \in [0, \pi]$, l'unique solution est $\boxed{x + y = \dfrac{\pi}{4}}$.
+
+\paragraph{Corrigé de l'Exercice 2.7 (ULiège -- Juillet 2002 Q1b, Juillet 2003 Q1 et Juillet 2004 Q1) :}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{CE :} $\cos(2x)+\cos(2y) \neq 0$ et $\tan(x+y)$ existe $\iff \cos(x+y) \neq 0$ et $\cos(x-y) \neq 0 \iff x \neq \pm y + \frac{\pi}{2} + k\pi$. Par Simpson :
+    \[
+        \frac{\sin(2x) + \sin(2y)}{\cos(2x) + \cos(2y)} = \frac{2\sin(x+y)\cos(x-y)}{2\cos(x+y)\cos(x-y)} = \frac{\sin(x+y)}{\cos(x+y)} = \tan(x+y).
+    \]
+    \item \textbf{CE :} $a \neq \frac{\pi}{2} + k\pi$ et $a \neq -\frac{\pi}{4} + k\pi$. Par Carnot ($1-\cos 2a = 2\sin^2 a$, $1+\cos 2a = 2\cos^2 a$) et duplication ($\sin 2a = 2\sin a\cos a$) :
+    \[
+        \frac{1 - \cos(2a) + \sin(2a)}{1 + \cos(2a) + \sin(2a)} = \frac{2\sin^2 a + 2\sin a\cos a}{2\cos^2 a + 2\sin a\cos a} = \frac{2\sin a(\sin a + \cos a)}{2\cos a(\cos a + \sin a)} = \tan a.
+    \]
+    \item Par Carnot $\sin^2 u = \frac{1-\cos(2u)}{2}$ puis Simpson sur la somme des deux derniers cosinus, qui vaut $2\cos(2x)\cos\left(\frac{4\pi}{3}\right) = -\cos(2x)$ :
+    \[
+        \text{MG} = \frac{1}{2}\left[3 - \cos(2x) - \left(\cos\left(2x+\frac{4\pi}{3}\right) + \cos\left(2x-\frac{4\pi}{3}\right)\right)\right] = \frac{1}{2}\bigl(3 - \cos(2x) + \cos(2x)\bigr) = \frac{3}{2}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 2.8 (ULiège -- Septembre 2002 Q1 et Juillet 2010 Q4) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Pour $a \neq k\pi$, par Carnot et duplication sur l'angle demi $\frac{a}{2}$ :
+    \[
+        \csc a + \cot a = \frac{1 + \cos a}{\sin a} = \frac{2\cos^2(a/2)}{2\sin(a/2)\cos(a/2)} = \cot\left(\frac{a}{2}\right) \iff \csc a = \cot\left(\frac{a}{2}\right) - \cot a.
+    \]
+    Par télescopage, pour $a \neq \frac{k\pi}{8}$ :
+    \begin{align*}
+        \csc a + \csc(2a) + \csc(4a) + \csc(8a) &= \left(\cot\frac{a}{2} - \cot a\right) + (\cot a - \cot 2a) \\
+        &\quad + (\cot 2a - \cot 4a) + (\cot 4a - \cot 8a) = \boxed{\cot\left(\frac{a}{2}\right) - \cot(8a)}.
+    \end{align*}
+    \item Regroupons les angles complémentaires deux à deux ($9\degree + 81\degree = 90\degree$ et $27\degree + 63\degree = 90\degree$) grâce à $\tan a + \tan b = \frac{\sin(a+b)}{\cos a\cos b}$ et Simpson $2\cos a\cos b = \cos(a+b) + \cos(a-b)$ :
+    \begin{align*}
+        E &= (\tan 9\degree + \tan 81\degree) - (\tan 27\degree + \tan 63\degree) = \frac{\sin 90\degree}{\cos 9\degree\cos 81\degree} - \frac{\sin 90\degree}{\cos 27\degree\cos 63\degree} \\
+        &= \frac{2}{\cos 90\degree + \cos 72\degree} - \frac{2}{\cos 90\degree + \cos 36\degree} = 2\left(\frac{1}{\cos 72\degree} - \frac{1}{\cos 36\degree}\right) = 2\,\frac{\cos 36\degree - \cos 72\degree}{\cos 36\degree\cos 72\degree} \\
+        &= 2\,\frac{-2\sin 54\degree\sin(-18\degree)}{\cos 36\degree\cos 72\degree} = 4\,\frac{\cos 36\degree\cos 72\degree}{\cos 36\degree\cos 72\degree} = \boxed{4}.
+    \end{align*}
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 2.9 (Identités dans un triangle -- ULiège) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Comme $A+B+C = \pi$, on a $\sin C = \sin(A+B) = 2\sin\left(\frac{A+B}{2}\right)\cos\left(\frac{A+B}{2}\right)$ et $\sin\left(\frac{A+B}{2}\right) = \cos\left(\frac{C}{2}\right)$, $\cos\left(\frac{A+B}{2}\right) = \sin\left(\frac{C}{2}\right)$. Par Simpson :
+    \begin{align*}
+        \sin A + \sin B + \sin C &= 2\sin\frac{A+B}{2}\cos\frac{A-B}{2} + 2\sin\frac{A+B}{2}\cos\frac{A+B}{2} \\
+        &= 2\cos\frac{C}{2}\left(\cos\frac{A-B}{2} + \cos\frac{A+B}{2}\right) = 4\cos\frac{A}{2}\cos\frac{B}{2}\cos\frac{C}{2}.
+    \end{align*}
+    \item Par Simpson et Carnot ($\cos(2C) = 2\cos^2 C - 1 = 2\cos^2(A+B) - 1$ et $\cos(A+B) = -\cos C$) :
+    \begin{align*}
+        \cos(2A) + \cos(2B) + \cos(2C) &= 2\cos(A+B)\cos(A-B) + 2\cos^2(A+B) - 1 \\
+        &= -1 + 2\cos(A+B)\bigl(\cos(A-B) + \cos(A+B)\bigr) = -1 - 4\cos A\cos B\cos C.
+    \end{align*}
+    \item Par Simpson sur le membre de droite et sachant que $\frac{B+C}{2} = \frac{\pi}{2} - \frac{A}{2}$ :
+    \[
+        \sin A = \frac{2\sin\frac{B+C}{2}\cos\frac{B-C}{2}}{2\cos\frac{B+C}{2}\cos\frac{B-C}{2}} = \tan\left(\frac{B+C}{2}\right) = \cot\left(\frac{A}{2}\right) \iff 2\sin\frac{A}{2}\cos\frac{A}{2} = \frac{\cos(A/2)}{\sin(A/2)}.
+    \]
+    Comme $A \in \left]0, \pi\right[$, $\cos(A/2) \neq 0$, d'où $\sin^2(A/2) = \frac{1}{2} \implies \sin(A/2) = \frac{\sqrt{2}}{2} \implies \frac{A}{2} = \frac{\pi}{4} \implies \boxed{A = \frac{\pi}{2}}$ (triangle rectangle en $A$).
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 2.10 (ULiège -- Septembre 1983 Q2 / Septembre 2010 Q3) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Si $a = b-r$ et $c = b+r$, appliquons Simpson à $\sin(b-r)+\sin(b+r) = 2\sin b\cos r$ et $\cos(b-r)+\cos(b+r) = 2\cos b\cos r$ :
+    \[
+        \frac{\sin a + \sin b + \sin c}{\cos a + \cos b + \cos c} = \frac{\sin b(2\cos r + 1)}{\cos b(2\cos r + 1)} = \tan b,
+    \]
+    qui est valide sauf si $\cos b = 0$ ($b = \frac{\pi}{2} + k\pi$) ou $2\cos r + 1 = 0$ ($r = \pm\frac{2\pi}{3} + 2k\pi$).
+    \item Réciproquement, $\frac{\sin a + \sin b + \sin c}{\cos a + \cos b + \cos c} = \frac{\sin b}{\cos b} \iff (\sin a\cos b - \cos a\sin b) + (\sin c\cos b - \cos c\sin b) = 0 \iff \sin(a-b) + \sin(c-b) = 0 \iff \sin(a-b) = \sin(b-c)$. Cela équivaut à $a - b = b - c + 2k\pi$ (soit $b = \frac{a+c}{2} + k\pi$) ou $a - b = \pi - (b - c) + 2k\pi$ (soit $a = c + (2k+1)\pi$, cas dégénéré où $\sin a + \sin c = 0$ et $\cos a + \cos c = 0$). La réciproque n'est donc vraie qu'à un multiple de $\pi$ près (ou exactement si l'on impose $|b - \frac{a+c}{2}| < \pi$ et $a \neq c + (2k+1)\pi$).
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 3 (Équations et Inéquations Trigonométriques)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 3.1 (UCLouvain -- Mini-Blocus 2026 Q1a et Juillet 2024 Q3a) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Par la méthode des équations linéaires (ou symétriques), $\sin x + \cos x = \sqrt{2}\sin\left(x + \frac{\pi}{4}\right) = \sqrt{2} \iff \sin\left(x + \frac{\pi}{4}\right) = 1 \iff x + \frac{\pi}{4} = \frac{\pi}{2} + 2k\pi \iff x = \frac{\pi}{4} + 2k\pi$. Dans $[0, 2\pi[$, l'unique solution est $\boxed{x = \dfrac{\pi}{4}}$.
+    \item Par Simpson sur $\sin(x) + \sin(3x) = 2\sin(2x)\cos(x)$ :
+    \[
+        \sin(x) + \sin(2x) + \sin(3x) = \sin(2x)\bigl(2\cos x + 1\bigr) = 0 \iff \sin(2x) = 0 \quad \text{ou} \quad \cos x = -\frac{1}{2}.
+    \]
+    Dans l'intervalle ouvert $]0, \pi[$, $\sin(2x) = 0 \iff x = \frac{k\pi}{2}$ donne $x = \frac{\pi}{2}$, et $\cos x = -\frac{1}{2}$ donne $x = \frac{2\pi}{3}$. D'où $\boxed{x \in \left\{\frac{\pi}{2}, \frac{2\pi}{3}\right\}}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 3.2 (UCLouvain -- Septembre 2019, Q1) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Par Simpson, $\sin(5x)+\sin(x) = 2\sin(3x)\cos(2x)$ et $\cos(4x)-\cos(2x) = -2\sin(3x)\sin(x)$. L'équation devient :
+    \[
+        2\sin(3x)\cos(2x) - 2\sin(3x) = -2\sin(3x)\sin(x) \iff 2\sin(3x)\bigl(\cos(2x) + \sin(x) - 1\bigr) = 0.
+    \]
+    En remplaçant $\cos(2x) - 1 = -2\sin^2 x$, le second facteur s'écrit $\sin x(1 - 2\sin x) = 0$. On obtient donc $\sin(3x) = 0$ ($x = \frac{k\pi}{3}$, qui inclut $\sin x = 0$) ou $\sin x = \frac{1}{2}$ ($x = \frac{\pi}{6} + 2k\pi$ ou $x = \frac{5\pi}{6} + 2k\pi$), soit :
+    \[
+        \boxed{S = \left\{\frac{k\pi}{3} \;\middle|\; k\in\Z\right\} \cup \left\{\frac{\pi}{6} + 2k\pi,\; \frac{5\pi}{6} + 2k\pi \;\middle|\; k\in\Z\right\}}.
+    \]
+    \item \textbf{CE :} $\sin x \neq 0 \iff x \neq k\pi$ ($k\in\Z$). Par Simpson au numérateur, $\cos(x) - \cos(3x) = -2\sin(2x)\sin(-x) = 2\sin(2x)\sin(x)$. En simplifiant par $\sin x \neq 0$ :
+    \[
+        2\sin(2x) = \cos(x) \iff 4\sin x\cos x - \cos x = 0 \iff \cos x(4\sin x - 1) = 0.
+    \]
+    D'où $\cos x = 0 \iff x = \frac{\pi}{2} + k\pi$ ou $\sin x = \frac{1}{4} \iff x = \arcsin\left(\frac{1}{4}\right) + 2k\pi$ ou $x = \pi - \arcsin\left(\frac{1}{4}\right) + 2k\pi$ ($k\in\Z$), toutes compatibles avec la CE $x \neq k\pi$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 3.3 (UCLouvain -- Juillet 2019 Q1 et Juillet 2020 Q1) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Équation symétrique : posons $u = \sin x + \cos x = \sqrt{2}\cos\left(x - \frac{\pi}{4}\right)$, d'où $2\sin x\cos x = u^2 - 1$. L'équation devient :
+    \[
+        4u - 4(u^2 - 1) = 5 \iff 4u^2 - 4u + 1 = 0 \iff (2u - 1)^2 = 0 \iff u = \frac{1}{2}.
+    \]
+    On résout donc $\cos\left(x - \frac{\pi}{4}\right) = \frac{\sqrt{2}}{4}$, soit $\boxed{x = \frac{\pi}{4} \pm \arccos\left(\frac{\sqrt{2}}{4}\right) + 2k\pi}$ ($k\in\Z$).
+    \item Par l'identité remarquable $a^3 + b^3 = (a+b)(a^2 - ab + b^2)$, on a $\sin^3 x + \cos^3 x = (\sin x + \cos x)(1 - \sin x\cos x)$. En mettant $(\sin x + \cos x)$ en évidence :
+    \[
+        \bigl(\sin x + \cos x\bigr)\bigl(3 - 4(1 - \sin x\cos x)\bigr) = 0 \iff \bigl(\sin x + \cos x\bigr)\bigl(4\sin x\cos x - 1\bigr) = 0.
+    \]
+    \begin{itemize}
+        \item $\sin x + \cos x = 0 \iff \tan x = -1 \iff x = -\dfrac{\pi}{4} + k\pi$ ($k\in\Z$).
+        \item $4\sin x\cos x - 1 = 0 \iff 2\sin(2x) = 1 \iff \sin(2x) = \frac{1}{2} \iff x = \frac{\pi}{12} + k\pi$ ou $x = \frac{5\pi}{12} + k\pi$ ($k\in\Z$).
+    \end{itemize}
+    D'où $\boxed{S = \left\{-\frac{\pi}{4} + k\pi,\; \frac{\pi}{12} + k\pi,\; \frac{5\pi}{12} + k\pi \;\middle|\; k\in\Z\right\}}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 3.4 (UCLouvain -- Septembre 2020, Q1) :}
+\textbf{CE :} $\cos x \neq 0 \iff x \neq \frac{\pi}{2} + k\pi$ ($k\in\Z$). En multipliant toute l'équation par $\cos^2 x \neq 0$ et en remplaçant $\cos^2 x = 1 - \sin^2 x$ :
+\[
+    \sin^2 x - 3\sin x - 1 = 1 - \sin^2 x \iff 2\sin^2 x - 3\sin x - 2 = 0 \iff (2\sin x + 1)(\sin x - 2) = 0.
+\]
+Comme $\sin x = 2$ est impossible, il reste $\sin x = -\frac{1}{2} \iff \boxed{x = -\frac{\pi}{6} + 2k\pi \text{ ou } x = \frac{7\pi}{6} + 2k\pi}$ ($k\in\Z$), compatibles avec la CE.
+
+\paragraph{Corrigé de l'Exercice 3.5 (ULiège -- Septembre 2002 Q2, Juillet 2003 Q3 et Juillet 2008 Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{CE :} $\sin x \neq 0$ et $\cot x + \cos x = \cos x\left(\frac{1+\sin x}{\sin x}\right) \neq 0 \iff x \neq k\frac{\pi}{2}$ ($k\in\Z$). Sous ces CE, on simplifie la fraction par $\frac{\cos x}{\sin x}$ :
+    \[
+        \frac{1 - \sin x}{1 + \sin x} = 2(1 - \sin x) \iff (1 - \sin x)\left(\frac{-1-2\sin x}{1+\sin x}\right) = 0 \iff \sin x = 1 \text{ ou } \sin x = -\frac{1}{2}.
+    \]
+    La solution $\sin x = 1$ ($x = \frac{\pi}{2}+2k\pi$) est \textbf{rejetée} par les CE ! Il reste $\sin x = -\frac{1}{2} \iff \boxed{x = -\frac{\pi}{6} + 2k\pi \text{ ou } x = \frac{7\pi}{6} + 2k\pi}$ ($k\in\Z$).
+    \item Par Simpson à gauche ($\cos 2x + \cos 6x = 2\cos 4x\cos 2x$) et Carnot à droite ($1 + \cos 8x = 2\cos^2 4x$) :
+    \begin{align*}
+        2\cos(4x)\bigl(\cos(2x) - \cos(4x)\bigr) = 0 &\iff \cos(4x) = 0 \quad \text{ou} \quad \cos(4x) = \cos(2x) \\
+        &\iff \boxed{x = \frac{\pi}{8} + \frac{k\pi}{4} \quad \text{ou} \quad x = \frac{k\pi}{3}} \qquad (k\in\Z).
+    \end{align*}
+    \item À gauche, par Simpson sur le 1\up{er} et le 3\up{e} terme : $\sin x + \sin 3x + \sin 2x = 2\sin 2x\cos x + \sin 2x = \sin(2x)(2\cos x + 1)$. À droite, par Carnot sur $1 + \cos 2x = 2\cos^2 x$ : $\sqrt{2}(\cos x + 2\cos^2 x) = \sqrt{2}\cos x(2\cos x + 1)$. En factorisant :
+    \[
+        (2\cos x + 1)\bigl(\sin(2x) - \sqrt{2}\cos x\bigr) = \cos x(2\cos x + 1)(2\sin x - \sqrt{2}) = 0.
+    \]
+    D'où $\cos x = 0$ ($x = \frac{\pi}{2}+k\pi$), $\cos x = -\frac{1}{2}$ ($x = \pm\frac{2\pi}{3}+2k\pi$) ou $\sin x = \frac{\sqrt{2}}{2}$ ($x = \frac{\pi}{4}+2k\pi$ ou $x = \frac{3\pi}{4}+2k\pi$).
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 3.6 (ULiège -- Septembre 2005 Q2, Juillet 2006 Q4 et Septembre 2009 Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{CE :} $x \neq \frac{\pi}{2} + k\pi$. En posant $t = \tan x$, $t^3 - 3t^2 - 3t + 1 = (t^3 + 1) - 3t(t + 1) = (t + 1)(t^2 - 4t + 1) = 0$.
+    \begin{itemize}
+        \item $t = -1 \iff \tan x = -1 \iff x = -\frac{\pi}{4} + k\pi$.
+        \item $t^2 - 4t + 1 = 0 \iff t = 2 \pm \sqrt{3} \iff x = \frac{5\pi}{12} + k\pi$ ou $x = \frac{\pi}{12} + k\pi$.
+    \end{itemize}
+    Ces trois familles d'écart $\frac{\pi}{3}$ se regroupent en une seule : $\boxed{x = \frac{\pi}{12} + \frac{k\pi}{3}}$ ($k\in\Z$).
+    \item \textbf{CE :} $x \neq (2k+1)\pi$ et $x \neq \frac{\pi}{2} + 2k\pi$. En exprimant $\tan(x/2) = \frac{\sin(x/2)}{\cos(x/2)}$ :
+    \[
+        \left(\frac{1 + \tan(x/2)}{1 - \tan(x/2)}\right)^2 = \left(\frac{\cos(x/2) + \sin(x/2)}{\cos(x/2) - \sin(x/2)}\right)^2 = \frac{1 + \sin x}{1 - \sin x}.
+    \]
+    Sous la CE $\sin x \neq 1$, l'équation devient $1 + \sin x + \sin x(1 - \sin x) = 0 \iff \sin^2 x - 2\sin x - 1 = 0 \iff \sin x = 1 \pm \sqrt{2}$. Comme $1+\sqrt{2} > 1$, il reste $\sin x = 1 - \sqrt{2} \in [-1, 1]$, soit $\boxed{x = \arcsin(1-\sqrt{2}) + 2k\pi \text{ ou } x = \pi - \arcsin(1-\sqrt{2}) + 2k\pi}$ ($k\in\Z$).
+    \item \textbf{CE :} $x \neq \frac{\pi}{2}+k\pi$, $x \neq \frac{\pi}{4}+\frac{k\pi}{2}$, $x \neq \frac{\pi}{6}+\frac{k\pi}{3}$. En développant $\tan(3x) = \tan(x + 2x) = \frac{\tan x + \tan 2x}{1 - \tan x\tan 2x}$ et en mettant $(\tan x + \tan 2x)$ en évidence :
+    \[
+        (\tan x + \tan 2x)\left(1 + \frac{1}{1 - \tan x\tan 2x}\right) = 0 \iff \tan(2x) = \tan(-x) \text{ ou } \tan x\tan 2x = 2.
+    \]
+    La première donne $x = \frac{k\pi}{3}$, et la seconde donne $\frac{2\tan^2 x}{1-\tan^2 x} = 2 \iff 4\tan^2 x = 2 \iff \tan x = \pm\frac{\sqrt{2}}{2} \iff x = \pm\arctan\left(\frac{\sqrt{2}}{2}\right) + k\pi$ ($k\in\Z$).
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 3.7 (ULiège -- Juillet 2005 Q2, Juillet 2007 Q2 et Juillet 2010 Q2) :}
+En utilisant les identités classiques $\sin^4 x + \cos^4 x = 1 - \frac{1}{2}\sin^2(2x)$ et $\sin^6 x + \cos^6 x = 1 - 3\sin^2 x\cos^2 x = 1 - \frac{3}{4}\sin^2(2x)$ :
+\begin{enumerate}[label=(\alph*)]
+    \item $1 - \frac{3}{4}\sin^2(2x) = \frac{5}{8} \iff \sin^2(2x) = \frac{1}{2} \iff \sin(2x) = \pm\frac{\sqrt{2}}{2} \iff 2x = \frac{\pi}{4} + \frac{k\pi}{2} \iff \boxed{x = \frac{\pi}{8} + \frac{k\pi}{4}}$ ($k\in\Z$).
+    \item $1 - \frac{3}{4}\sin^2(2x) = \frac{7}{16} \iff \sin^2(2x) = \frac{3}{4} \iff \sin(2x) = \pm\frac{\sqrt{3}}{2} \iff 2x = \pm\frac{\pi}{3} + k\pi \iff \boxed{x = \pm\frac{\pi}{6} + \frac{k\pi}{2}}$ ($k\in\Z$).
+    \item $1 - \frac{1}{2}\sin^2(2x) = \frac{1}{2}\sin(2x) \iff \sin^2(2x) + \sin(2x) - 2 = 0 \iff \bigl(\sin(2x) - 1\bigr)\bigl(\sin(2x) + 2\bigr) = 0 \iff \sin(2x) = 1 \iff 2x = \frac{\pi}{2} + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi}$ ($k\in\Z$).
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 3.8 (Inéquations trigonométriques -- Inspiré d'ULiège) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Sur le cercle trigonométrique, $\sin u \le -\frac{\sqrt{3}}{2} \iff -\frac{2\pi}{3} + 2k\pi \le u \le -\frac{\pi}{3} + 2k\pi$. Avec $u = 2x$, on divise par $2$ :
+    \[
+        \boxed{-\frac{\pi}{3} + k\pi \le x \le -\frac{\pi}{6} + k\pi \qquad (k \in \Z)}.
+    \]
+    \item Par Simpson : $\sin\left(x - \frac{\pi}{3}\right) - \sin x = 2\sin\left(-\frac{\pi}{6}\right)\cos\left(x - \frac{\pi}{6}\right) = -\cos\left(x - \frac{\pi}{6}\right) > 0 \iff \cos\left(x - \frac{\pi}{6}\right) < 0$. Or $\cos u < 0 \iff \frac{\pi}{2} + 2k\pi < u < \frac{3\pi}{2} + 2k\pi$. En remplaçant $u = x - \frac{\pi}{6}$ :
+    \[
+        \boxed{\frac{2\pi}{3} + 2k\pi < x < \frac{5\pi}{3} + 2k\pi \qquad (k \in \Z)}.
+    \]
+    \item En factorisant le trinôme $2y^2 - y - 1 = (y - 1)(2y + 1)$ avec $y = \cos x$, l'inéquation s'écrit $(\cos x - 1)(2\cos x + 1) \ge 0$. Comme $\cos x \le 1$ pour tout $x$, le facteur $(\cos x - 1)$ est toujours négatif ou nul (nul en $x = 2k\pi$). Pour que le produit soit positif ou nul, il faut donc soit $\cos x = 1$ ($x = 2k\pi$), soit $2\cos x + 1 \le 0 \iff \cos x \le -\frac{1}{2}$ :
+    \[
+        \boxed{x \in \{2k\pi \mid k\in\Z\} \cup \bigcup_{k\in\Z} \left[\frac{2\pi}{3} + 2k\pi,\; \frac{4\pi}{3} + 2k\pi\right]}.
+    \]
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 4 (Résolution de Triangles et Problèmes)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 4.1 (UCLouvain -- Septembre 2024, Q2 : Théorème de la bissectrice) :}
+Notons $\theta = \widehat{AXB}$, de sorte que $\widehat{AXC} = \pi - \theta$ et $\sin(\widehat{AXC}) = \sin(\pi-\theta) = \sin\theta$. Par la loi des sinus dans les triangles $ABX$ (de côtés $x = \overline{BX}$ et $c = \overline{AB}$) et $ACX$ (de côtés $a-x = \overline{XC}$ et $b = \overline{AC}$) :
+\[
+    \frac{x}{\sin\alpha} = \frac{c}{\sin\theta} \quad \text{et} \quad \frac{a-x}{\sin\alpha} = \frac{b}{\sin(\pi-\theta)} = \frac{b}{\sin\theta}.
+\]
+En divisant membre à membre ces deux égalités ($\sin\alpha$ et $\sin\theta$ se simplifient), on obtient le théorème de la bissectrice :
+\[
+    \frac{x}{a-x} = \frac{c}{b} \iff bx = c(a-x) \iff (b+c)x = ac \iff \boxed{x = \frac{ac}{b+c}}.
+\]
+
+\paragraph{Corrigé de l'Exercice 4.2 (UCLouvain -- Mini-Blocus 2026 Q1e, Septembre 2026 Q3e et Septembre 2023 Q3f) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Considérons un triangle rectangle isocèle d'hypoténuse $c$ et de cathètes $a = b = \frac{c}{\sqrt{2}}$.
+    \begin{itemize}
+        \item Le rayon du cercle circonscrit à tout triangle rectangle est la moitié de son hypoténuse : $R = \dfrac{c}{2}$.
+        \item L'aire du triangle vaut $S = \frac{1}{2}ab = \frac{c^2}{4}$, et son demi-périmètre vaut $p = \frac{a+b+c}{2} = \frac{c(\sqrt{2}+1)}{2}$. Par la formule $r = \frac{S}{p}$ (ou la formule du triangle rectangle $r = \frac{a+b-c}{2}$), on obtient $r = \frac{c(\sqrt{2}-1)}{2}$.
+    \end{itemize}
+    Le rapport vaut donc $\dfrac{r}{R} = \boxed{\sqrt{2} - 1}$.
+    \item Plaçons l'angle droit à l'origine $(0,0)$ avec les deux cathètes de longueur $a = \frac{1}{\sqrt{2}}$ sur les axes $Ox$ et $Oy$. Le centre du cercle inscrit est en $I = (r, r)$, et le centre du cercle circonscrit (milieu de l'hypoténuse) est en $O = \left(\frac{a}{2}, \frac{a}{2}\right) = \left(\frac{\sqrt{2}}{4}, \frac{\sqrt{2}}{4}\right)$. Comme ces deux points sont sur la bissectrice $y=x$, leur distance vaut :
+    \[
+        d = \sqrt{2}\left(\frac{\sqrt{2}}{4} - r\right) = \frac{1}{2} - \sqrt{2}\cdot\frac{\sqrt{2}-1}{2} = \frac{1 - 2 + \sqrt{2}}{2} = \boxed{\frac{\sqrt{2}-1}{2}}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 4.3 (UCLouvain -- Juillet 2026 Q3e et Septembre 2026 Q3a : Trapèzes) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Dans le trapèze rectangle $ABCD$ (rectangle en $A$ et $D$, de hauteur $h = \overline{AD}$), notons $\alpha = \widehat{ABD}$ l'angle que fait la diagonale $[BD]$ avec la base $[AB]$. Dans le triangle $ABD$ rectangle en $A$, $\tan\alpha = \frac{h}{x}$. Comme $[AC] \perp [BD]$, l'angle $\widehat{DAC}$ est complémentaire à $\widehat{ADB}$, donc égal à $\alpha$ ! Dans le triangle $ADC$ rectangle en $D$, on a alors $\tan\alpha = \frac{y}{h}$. En égalant les deux expressions de $\tan\alpha$ :
+    \[
+        \frac{h}{x} = \frac{y}{h} \implies h^2 = xy \implies \boxed{h = \overline{AD} = \sqrt{xy}} \quad \text{(moyenne géométrique des bases)}.
+    \]
+    \item Dans le trapèze \textbf{isocèle} $ABCD$ dont les diagonales $[AC]$ et $[BD]$ se coupent perpendiculairement en $O$, par symétrie les triangles $OAB$ et $OCD$ sont tous deux \textbf{rectangles isocèles en $O$}. La hauteur de $OAB$ issue de $O$ (médiane relative à l'hypoténuse $x = \overline{AB}$) vaut donc $h_1 = \frac{x}{2}$, et celle de $OCD$ vaut $h_2 = \frac{y}{2}$. La hauteur totale du trapèze vaut $h = h_1 + h_2 = \frac{x+y}{2}$, et son aire vaut :
+    \[
+        \text{Aire} = \frac{x+y}{2} \cdot h = \boxed{\frac{(x+y)^2}{4}}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 4.4 (UCLouvain -- Juillet 2022, Q3b) :}
+Soient $A, B, C$ les trois points consécutifs sur le cercle de centre $O$ et de rayon $R$ tels que $\overline{AB} = 2$ (angle au centre $\alpha$), $\overline{BC} = 3$ (angle au centre $\beta$) et $\overline{AC} = 4$ (angle au centre $\alpha+\beta$). D'après le théorème de l'angle inscrit, l'angle inscrit $\widehat{ACB}$ interceptant le même arc $\overset{\frown}{AB}$ que l'angle au centre $\alpha$ vaut exactement $\widehat{ACB} = \dfrac{\alpha}{2}$ !
+En appliquant la \textbf{loi des cosinus} dans le triangle $ABC$ (de côtés $2, 3, 4$) pour l'angle $\widehat{ACB} = \frac{\alpha}{2}$ :
+\[
+    2^2 = 3^2 + 4^2 - 2\cdot 3\cdot 4\cos\left(\frac{\alpha}{2}\right) \implies 4 = 25 - 24\cos\left(\frac{\alpha}{2}\right) \implies \cos\left(\frac{\alpha}{2}\right) = \frac{21}{24} = \frac{7}{8}.
+\]
+Enfin, par la formule de Carnot / duplication :
+\[
+    \cos(\alpha) = 2\cos^2\left(\frac{\alpha}{2}\right) - 1 = 2\left(\frac{7}{8}\right)^2 - 1 = \frac{98}{64} - 1 = \frac{34}{64} = \boxed{\frac{17}{32}}.
+\]
+
+\paragraph{Corrigé de l'Exercice 4.5 (UCLouvain -- Juillet 2021, Q3a, Q3c et Q3f) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Chaque côté d'un polygone régulier à $n$ côtés est vu depuis le centre $O$ du cercle de rayon $R$ sous un angle $\theta = \frac{2\pi}{n}$. Le côté du polygone inscrit est une corde de longueur $c_I = 2R\sin\left(\frac{\pi}{n}\right)$, tandis que le côté du polygone circonscrit (tangent au cercle) vaut $c_C = 2R\tan\left(\frac{\pi}{n}\right)$. Le rapport des périmètres vaut donc :
+    \[
+        \frac{P_C}{P_I} = \frac{n \cdot 2R\tan(\pi/n)}{n \cdot 2R\sin(\pi/n)} = \boxed{\frac{1}{\cos(\pi/n)}}.
+    \]
+    \item Par Carnot ($\cos^2(A-B) = \frac{1+\cos(2A-2B)}{2}$) et Simpson ($\cos(2A-2B) - 2\cos(2A)\cos(2B) = -\cos(2A+2B)$) :
+    \[
+        \cos^2(A-B) - \cos(2A)\cos(2B) = \frac{1 - \cos(2A+2B)}{2} = \sin^2(A+B) = \sin^2(\pi - C) = \sin^2 C.
+    \]
+    On a donc $\sin^2 C = \frac{1}{2} \implies \sin C = \frac{\sqrt{2}}{2}$ (car $C \in \left]0, \pi\right[$). Comme $\widehat{C}$ est obtus, $\boxed{\widehat{C} = 135\degree}$.
+    \item Le triangle $ABC$ étant rectangle en $A$, son hypoténuse est le diamètre du cercle circonscrit : $a = \overline{BC} = 2R = 4$. Par Pythagore, $\overline{AC} = \sqrt{4^2 - (\sqrt{7})^2} = \sqrt{9} = 3$. De plus, comme $\widehat{B} + \widehat{C} = \frac{\pi}{2}$, on a $\cos(\widehat{B}-\widehat{C}) = \cos\left(2\widehat{B} - \frac{\pi}{2}\right) = \sin(2\widehat{B}) = 2\sin\widehat{B}\cos\widehat{B}$. Or $\cos\widehat{B} = \frac{\overline{AB}}{\overline{BC}} = \frac{\sqrt{7}}{4}$ et $\sin\widehat{B} = \frac{\overline{AC}}{\overline{BC}} = \frac{3}{4}$, d'où :
+    \[
+        \cos(\widehat{B} - \widehat{C}) = 2 \cdot \frac{3}{4} \cdot \frac{\sqrt{7}}{4} = \boxed{\frac{3\sqrt{7}}{8}}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 4.6 (UCLouvain -- Juillet 2024 Q3c et Septembre 2024 Q3c) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Par la formule de l'aire $S = \frac{1}{2}bc\sin\widehat{A}$ avec $S = 3$, $b = \overline{AC} = 2$ et $\sin\widehat{A} = \sin\frac{\pi}{6} = \frac{1}{2}$, on trouve $3 = \frac{1}{2}\cdot 2 \cdot c \cdot \frac{1}{2} \implies c = \overline{AB} = 6\text{ cm}$. Puis par la loi des cosinus :
+    \[
+        \overline{BC} = a = \sqrt{b^2 + c^2 - 2bc\cos\left(\frac{\pi}{6}\right)} = \sqrt{4 + 36 - 24\cdot\frac{\sqrt{3}}{2}} = \boxed{\sqrt{40 - 12\sqrt{3}}\text{ cm}}.
+    \]
+    \item Comme $\widehat{A} = 60\degree$ et $\widehat{B} = 45\degree$, on a $\widehat{C} = 180\degree - 105\degree = 75\degree$, dont le sinus vaut $\sin 75\degree = \frac{\sqrt{2}(\sqrt{3}+1)}{4}$. Par la loi des sinus $\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$, il vient $\frac{a+b}{c} = \frac{\sin 60\degree + \sin 45\degree}{\sin 75\degree} = \frac{2(\sqrt{3}+\sqrt{2})}{\sqrt{2}(\sqrt{3}+1)}$, d'où :
+    \[
+        \sqrt{2}(\sqrt{3}+1)\frac{a+b}{c} = \boxed{2(\sqrt{3}+\sqrt{2})}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 4.7 (UCLouvain -- Juillet 2025 / Recueil 2025, Q3.5) :}
+Le triangle $OAB$ a deux côtés égaux au rayon $\overline{OA} = \overline{OB} = 1$ et un angle au sommet $\widehat{AOB} = \frac{\pi}{3}$ ($60\degree$) : il est donc \textbf{équilatéral} ! Ainsi, $\overline{AB} = 1$ et $\widehat{OBA} = \frac{\pi}{3} = 60\degree$.
+Puisque $C$ est sur la droite $(AB)$ au-delà de $B$ avec $\overline{BC} = \overline{AB} = 1$, on a $\overline{OB} = \overline{BC} = 1$, donc le triangle $OBC$ est \textbf{isocèle en $B$}. Son angle au sommet $B$ est le supplément de $\widehat{OBA}$ : $\widehat{OBC} = \pi - \frac{\pi}{3} = \frac{2\pi}{3}$ ($120\degree$). Les deux angles à la base du triangle isocèle $OBC$ sont donc égaux à :
+\[
+    \widehat{BOC} = \widehat{BCO} = \frac{\pi - \frac{2\pi}{3}}{2} = \boxed{\frac{\pi}{6} \quad (30\degree)}.
+\]
+
+\paragraph{Corrigé de l'Exercice 4.8 (UCLouvain -- Juillet 2022, Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La diagonale du carré $ABCD$ inscrit dans le cercle de rayon $1$ vaut $2R = 2$. Par Pythagore, $2\overline{AB}^2 = 2^2 = 4 \implies \overline{AB} = \boxed{\sqrt{2}}$, et la distance du centre $O$ à chaque côté du carré vaut $\frac{\sqrt{2}}{2}$.
+    \item Posons $x = \overline{HE}$ le côté du petit carré $EFGH$. Le point $H$ a pour coordonnées (par rapport à $O$) une abscisse de $\frac{x}{2}$ et une ordonnée de $\frac{\sqrt{2}}{2} + x$. Comme $H$ appartient au cercle de rayon $1$ :
+    \[
+        \left(\frac{x}{2}\right)^2 + \left(\frac{\sqrt{2}}{2} + x\right)^2 = 1 \iff \frac{5}{4}x^2 + \sqrt{2}x - \frac{1}{2} = 0 \implies x = \frac{\sqrt{2}}{5} \implies \boxed{\frac{\overline{AB}}{\overline{HE}} = \frac{\sqrt{2}}{\sqrt{2}/5} = 5}.
+    \]
+    \item Posons $y = \overline{JK}$. Le point $K$ sur le cercle a pour ordonnée $y + \frac{\sqrt{2}}{2}$ et pour abscisse $\frac{\overline{IJ}}{2} = \sqrt{1 - \left(y + \frac{\sqrt{2}}{2}\right)^2}$. L'aire du rectangle vaut donc :
+    \[
+        A(y) = \overline{IJ}\cdot\overline{JK} = 2y\sqrt{1 - \left(y + \frac{\sqrt{2}}{2}\right)^2}.
+    \]
+    Pour maximiser $A(y)$, on maximise $A^2(y) = 4\left(-y^4 - \sqrt{2}y^3 + \frac{1}{2}y^2\right)$ en annulant sa dérivée : $-4y^3 - 3\sqrt{2}y^2 + y = 0 \implies y^2 + \frac{3\sqrt{2}}{4}y - \frac{1}{4} = 0 \implies y = \frac{\sqrt{2}(\sqrt{17}-3)}{8}$. Comme $\overline{DC} = \sqrt{2}$, le rapport optimal vaut $\boxed{\dfrac{\overline{DC}}{\overline{JK}} = \dfrac{8}{\sqrt{17}-3} = \sqrt{17}+3}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 4.9 (ULiège -- Juillet 2008, Q3 : Trois cordes dans un demi-cercle) :}
+Notons $d$ la distance entre le centre $O$ du demi-cercle et la corde la plus basse $C_3 = 20\text{ m}$ (demi-corde $10\text{ m}$). Les distances de $O$ aux cordes $C_2 = 16\text{ m}$ (demi-corde $8\text{ m}$) et $C_1 = 8\text{ m}$ (demi-corde $4\text{ m}$) sont alors $d+h$ et $d+2h$. Par le théorème de Pythagore dans les trois triangles rectangles d'hypoténuse $R$ :
+\[
+    \begin{cases}
+        R^2 = d^2 + 10^2 = d^2 + 100 & (1) \\
+        R^2 = (d+h)^2 + 8^2 = d^2 + 2dh + h^2 + 64 & (2) \\
+        R^2 = (d+2h)^2 + 4^2 = d^2 + 4dh + 4h^2 + 16 & (3)
+    \end{cases}
+\]
+Les différences $(2)-(1)$ et $(3)-(1)$ donnent $2dh + h^2 = 36$ et $4dh + 4h^2 = 84$. En combinant $(4dh+4h^2) - 2(2dh+h^2) = 84 - 72$, on élimine $dh$ :
+\[
+    2h^2 = 12 \implies \boxed{h = \sqrt{6}\text{ m}}, \qquad \text{puis } d = \frac{36 - 6}{2\sqrt{6}} = \frac{15}{\sqrt{6}}\text{ m},
+\]
+et enfin l'équation $(1)$ fournit le rayon :
+\[
+    R = \sqrt{d^2 + 100} = \sqrt{\frac{225}{6} + 100} = \sqrt{37,5 + 100} = \boxed{\sqrt{137,5}\text{ m} = \frac{\sqrt{550}}{2}\text{ m} \approx 11,73\text{ m}}.
+\]
+
+\paragraph{Corrigé de l'Exercice 4.10 (ULiège -- Septembre 2006, Q2) :}
+Appliquons la loi des sinus dans les trois triangles formés par la sécante $\mathcal{D}$ :
+\begin{itemize}
+    \item Dans le triangle $DCE$ : $\dfrac{\overline{DC}}{\sin\widehat{DEC}} = \dfrac{\overline{EC}}{\sin\widehat{CDE}} \implies \overline{DC} = \overline{EC}\,\dfrac{\sin\widehat{DEC}}{\sin\widehat{CDE}}$.
+    \item Dans le triangle $DBF$ : $\dfrac{\overline{DB}}{\sin\widehat{DFB}} = \dfrac{\overline{FB}}{\sin\widehat{BDF}} \implies \overline{DB} = \overline{FB}\,\dfrac{\sin\widehat{DFB}}{\sin\widehat{BDF}}$.
+\end{itemize}
+Comme $D, C, B$ sont alignés, $\widehat{CDE} = \widehat{BDF}$. De plus, $\widehat{DEC} = \widehat{AEF}$ (angles opposés par le sommet) et $\widehat{DFB} = \pi - \widehat{AFE}$ (angles supplémentaires, donc $\sin\widehat{DFB} = \sin\widehat{AFE}$). En faisant le quotient :
+\[
+    \frac{\overline{DC}}{\overline{DB}} = \frac{\overline{EC}}{\overline{FB}} \cdot \frac{\sin\widehat{AEF}}{\sin\widehat{AFE}}.
+\]
+Or, par la loi des sinus dans le triangle $AEF$, on a $\dfrac{\sin\widehat{AEF}}{\sin\widehat{AFE}} = \dfrac{\overline{FA}}{\overline{EA}}$. On retrouve ainsi le célèbre théorème de Ménélaüs :
+\[
+    \frac{\overline{DC}}{\overline{DB}} = \frac{\overline{EC}}{\overline{EA}} \cdot \frac{\overline{FA}}{\overline{FB}} = \frac{3}{2} \cdot \frac{1}{3} = \boxed{\frac{1}{2}}.
+\]
+
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 5 (Géométrie Synthétique Plane et Spatiale)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 5.1 (UCLouvain -- Juillet 2026, Q3 : Carré et arc de cercle) :}
+Tracons par le point $X$ (milieu de $[DY]$) la droite parallèle à $(AD)$, qui coupe $[AB]$ en $M$ et $[DC]$ en $N$.
+\begin{enumerate}
+    \item Les triangles rectangles $DYC$ (rectangle en $C$) et $DXN$ (rectangle en $N$) partagent l'angle aigu $\widehat{YDC}$ : ils sont semblables. Comme $X$ est le milieu de l'hypoténuse $[DY]$, $N$ est le milieu de $[DC]$, et par conséquent $M$ est le milieu de $[AB]$, soit $|AM| = \frac{c}{2}$.
+    \item Le point $X$ appartient au quart de cercle de centre $A$ et de rayon $c$, donc $|AX| = c$. Dans le triangle $AMX$ rectangle en $M$, on a $\sin\widehat{MAX} = \frac{|MX|}{|AX|}$... Attention : le côté de longueur $\frac{c}{2}$ est $|AM|$ (adjacent à $\widehat{MAX}$, donc opposé à $\widehat{AXM} = \widehat{DAX}$ car $(MN) \parallel (AD)$ !). Ainsi, $\sin\widehat{DAX} = \frac{|AM|}{|AX|} = \frac{c/2}{c} = \frac{1}{2}$, d'où $|\widehat{DAX}| = 30\degree$.
+    \item Enfin, comme $|AD| = |AX| = c$, le triangle $ADX$ est \textbf{isocèle en $A$} ! Ses deux angles à la base $[DX]$ (qui porte $[DY]$) sont donc égaux à :
+    \[
+        |\widehat{ADY}| = |\widehat{ADX}| = \frac{180\degree - |\widehat{DAX}|}{2} = \frac{180\degree - 30\degree}{2} = \boxed{75\degree}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.2 (UCLouvain -- Juillet 2024, Q3 : Tangence inscrite) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La projection horizontale du cercle $\mathcal{C}$ de rayon $r$ sur le diamètre $[AB]$ est le segment $[PQ]$ de longueur $|PQ| = 2r$ (dont le milieu est le point de tangence $S$). Le diamètre total du demi-cercle $\mathcal{D}$ vaut donc :
+    \[
+        2R = |AB| = |AP| + |PQ| + |QB| = 2 + 2r + 8 = 2r + 10 \implies \boxed{R(r) = r + 5}.
+    \]
+    \item Le demi-cercle $\mathcal{D}(O, R)$ et le cercle $\mathcal{C}(C, r)$ sont tangents intérieurement au point $T$, donc les points $O, C, T$ sont alignés et $|OC| = R - r = 5$. De plus, $S$ est le point de tangence de $\mathcal{C}$ avec $[AB]$, donc $|CS| = r$, $(CS) \perp (AB)$ et $|AS| = |AP| + |PS| = 2 + r$, d'où $|OS| = |OA| - |AS| = R - (2+r) = (r+5) - (r+2) = 3$.\\
+    Dans le triangle $OSC$ rectangle en $S$, le théorème de Pythagore donne :
+    \[
+        |OC|^2 = |OS|^2 + |CS|^2 \iff 5^2 = 3^2 + r^2 \implies r = 4, \quad \text{et donc } \boxed{R = r + 5 = 9}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.3 (UCLouvain -- Juillet 2023, Q3 : Surface cachée de l'hexagone) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Dans un hexagone régulier $ABCDEF$ de côté $c$, le grand diamètre $[AD]$ mesure $2c$ et chaque angle intérieur vaut $120\degree$ ($|\widehat{BAD}| = 60\degree$, $|\widehat{BCD}| = 120\degree$). Dans le triangle isocèle $BCD$ ($|BC|=|CD|=c$), les angles à la base valent $30\degree$, donc $|\widehat{ABD}| = |\widehat{ABC}| - |\widehat{CBD}| = 120\degree - 30\degree = 90\degree$.\\
+    Comme $\widehat{ABD} = 90\degree$ et que $M, B, N$ sont alignés, les angles $\widehat{MBA}$ et $\widehat{NBD}$ sont complémentaires ($|\widehat{MBA}| + |\widehat{NBD}| = 90\degree$), donc $|\widehat{MAB}| = 90\degree - |\widehat{MBA}| = |\widehat{NBD}|$. Les triangles rectangles $MAB$ et $NBD$ ont les mêmes angles aigus : ils sont \textbf{semblables}.
+    \item Dans le triangle $ABD$ rectangle en $B$, on a $|AB| = c$ et $|AD| = 2c$, donc par Pythagore $|BD| = \sqrt{(2c)^2 - c^2} = c\sqrt{3}$. Le rapport de similitude de $MAB$ (d'hypoténuse $|AB| = c$) vers $NBD$ (d'hypoténuse $|BD| = c\sqrt{3}$) vaut $\rho = \frac{|BD|}{|AB|} = \sqrt{3}$. Le rapport de leurs aires vaut donc :
+    \[
+        r = \frac{\text{Aire}(\triangle NBD)}{\text{Aire}(\triangle MAB)} = \rho^2 = (\sqrt{3})^2 = \boxed{3}.
+    \]
+    \item On a $\text{Aire}(\triangle NBD) = 3 \times \text{Aire}(\triangle MAB) = 3 \times 20 = 60$. En retranchant l'aire du quadrilatère concave $NBCD$ ($24$), on obtient l'aire du triangle $BCD$ :
+    \[
+        \text{Aire}(\triangle BCD) = \text{Aire}(\triangle NBD) - \text{Aire}(NBCD) = 60 - 24 = 36.
+    \]
+    Or, un hexagone régulier de côté $c$ est composé de $6$ triangles équilatéraux d'aire $\frac{\sqrt{3}}{4}c^2$, tandis que $\text{Aire}(\triangle BCD) = \frac{1}{2}c^2\sin 120\degree = \frac{\sqrt{3}}{4}c^2$ (exactement $\frac{1}{6}$ de l'hexagone!). L'aire totale de l'hexagone vaut donc $6 \times 36 = \boxed{216}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.4 (UCLouvain -- Septembre 2024, Q3 : Rapport d'aires paramétré) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le quadrilatère $NBOD$ a ses côtés opposés parallèles deux à deux ($(NB) \parallel (DO)$ par construction du rectangle $BPDM$, et $(ND) \parallel (BO)$ côtés opposés du carré $ABCD$) : c'est un \textbf{parallélogramme} de base $|ND| = |AD| - |AN| = (1-\lambda)c$ et de hauteur $|DC| = c$. Son aire vaut donc :
+    \[
+        \mathcal{Q} = |ND| \cdot |DC| = \boxed{(1-\lambda)c^2}.
+    \]
+    \item Les triangles $ABN$ (rectangle en $A$) et $MDN$ (rectangle en $M$) ont leurs angles en $N$ opposés par le sommet ($\widehat{ANB} = \widehat{MND}$) : ils sont donc \textbf{semblables}. Dans $ABN$, l'hypoténuse vaut $|NB| = \sqrt{|AB|^2 + |AN|^2} = c\sqrt{1+\lambda^2}$, tandis que dans $MDN$ l'hypoténuse est $|ND| = (1-\lambda)c$. Le rapport de similitude vaut donc :
+    \[
+        \rho(\lambda) = \frac{|ND|}{|NB|} = \boxed{\frac{1-\lambda}{\sqrt{1+\lambda^2}}}.
+    \]
+    \item Le rectangle $BPDM$ est la réunion du parallélogramme $NBOD$ et des deux triangles rectangles isométriques $MDN$ et $PBO$. Or $\text{Aire}(\triangle MDN) = \rho^2 \text{Aire}(\triangle ABN) = \frac{(1-\lambda)^2}{1+\lambda^2}\cdot\frac{1}{2}\lambda c^2$. Dès lors :
+    \begin{align*}
+        \text{Aire}(BPDM) &= \mathcal{Q} + 2\,\text{Aire}(\triangle MDN) = (1-\lambda)c^2 + \frac{(1-\lambda)^2\lambda}{1+\lambda^2}c^2 \\
+        &= (1-\lambda)\left(\frac{1+\lambda^2+\lambda-\lambda^2}{1+\lambda^2}\right)c^2 = \frac{1-\lambda^2}{1+\lambda^2}c^2.
+    \end{align*}
+    En divisant par $\text{Aire}(ABCD) = c^2$, on obtient $R(\lambda) = \boxed{\dfrac{1-\lambda^2}{1+\lambda^2}}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.5 (UCLouvain -- Juillet 2024, Q4b : Carré et quarts de cercle) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Puisque $(DP) \parallel (QB)$ et $|DP| = |QB| = d$, le quadrilatère $DQBP$ est un \textbf{parallélogramme} dont les côtés mesurent $|DP| = |QB| = d$ et $|DQ| = |BP| = c$ (car $Q$ est sur le cercle de centre $D$ et de rayon $c$, et $P$ sur le cercle de centre $B$ et de rayon $c$). Ses deux diagonales sont $[DB]$ (diagonale du carré, de longueur $c\sqrt{2}$) et $[PQ]$ (de longueur $\ell$). Par l'identité du parallélogramme :
+    \[
+        |DB|^2 + |PQ|^2 = 2\bigl(|DQ|^2 + |DP|^2\bigr) \iff 2c^2 + \ell^2 = 2(c^2 + d^2) \implies \ell^2 = 2d^2 \implies \boxed{\ell(d) = \sqrt{2}\,d}.
+    \]
+    \item La longueur $\ell = \sqrt{2}\,d$ est minimale lorsque la distance $d = |DP|$ entre $D$ et un point $P$ de l'arc de centre $B$ et de rayon $c$ est minimale, ce qui se produit lorsque $P$ (et $Q$) se situe sur la diagonale $[BD]$ ! En ce point, $d_{\min} = |BD| - c = (\sqrt{2}-1)c$, et la distance entre $P$ et $Q$ sur la diagonale $[BD]$ vaut $m(c) = |BD| - 2d_{\min} = \sqrt{2}c - 2(\sqrt{2}-1)c = \boxed{(2-\sqrt{2})c}$ (note : par continuité de la formule $\ell = \sqrt{2}d_{\min} = (2-\sqrt{2})c$, les deux approches donnent exactement le même résultat !).
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.6 (UCLouvain -- Juillet 2022, Q4 : Sélection « Top Cheffe ») :}
+\begin{enumerate}[label=(\alph*)]
+    \item En coupe transversale, les centres des $4$ petits cercles de rayon $r$ forment un carré de côté $2r$, dont le centre $O$ est le centre du grand cercle de rayon $R$. La distance de $O$ au centre $C$ d'un petit cercle est la demi-diagonale du carré de côté $2r$, soit $|OC| = r\sqrt{2}$. Le rayon du grand cercle tangent extérieurement aux petits cercles vaut donc $R = |OC| + r = (\sqrt{2}+1)r$, d'où :
+    \[
+        \frac{r}{R} = \frac{1}{\sqrt{2}+1} = \boxed{\sqrt{2} - 1}.
+    \]
+    \item La largeur $L$ de la pâte fait deux fois le tour du cylindre de rayon $R$ : $L = 2 \times (2\pi R) = 4\pi R \implies R = \frac{L}{4\pi}$. Le volume vide à l'intérieur du cannelloni de longueur $\ell$ vaut la différence entre le volume du grand cylindre et celui des $4$ petits cylindres :
+    \[
+        V = \pi R^2 \ell - 4(\pi r^2 \ell) = \pi R^2 \ell\left(1 - 4\left(\frac{r}{R}\right)^2\right) = \pi\ell\frac{L^2}{16\pi^2}\bigl(1 - 4(\sqrt{2}-1)^2\bigr) = \boxed{\frac{\ell L^2}{16\pi}(8\sqrt{2} - 11)}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.7 (UCLouvain -- Septembre 2022, Q4 : Tangence équilatérale) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Notons $A$ et $B$ les milieux de deux côtés du petit triangle équilatéral de côté $2a$ (centres de deux demi-cercles de rayon $a$). Le segment $[AB]$ qui joint les milieux de deux côtés est parallèle au troisième côté et mesure la moitié de celui-ci : $|AB| = a$. Les rayons $[BC]$ et $[AD]$ perpendiculaires au côté supérieur $[FE]$ du grand triangle ont pour longueur $a$, donc $ABCD$ est un \textbf{carré} de côté $|CD| = a$.\\
+    Au sommet $E$ du grand triangle équilatéral ($\widehat{E} = 60\degree$), le triangle $ADE$ est rectangle en $D$ ($[AD] \perp [FE]$) avec $|AD| = a$ et $|\widehat{DAE}| = 30\degree$, donc $|DE| = a\tan 60\degree = a\sqrt{3}$. Par symétrie ($|FC| = |DE| = a\sqrt{3}$), le côté du grand triangle vaut :
+    \[
+        L = |FC| + |CD| + |DE| = a\sqrt{3} + a + a\sqrt{3} = \boxed{(2\sqrt{3} + 1)a}.
+    \]
+    \item À chacun des $3$ sommets du grand triangle, la région grisée est symétrique et formée de $2$ triangles rectangles isométriques à $ADE$ (d'aire $\frac{1}{2}\cdot a \cdot a\sqrt{3} = \frac{\sqrt{3}}{2}a^2$) dont on retire $2$ secteurs circulaires de rayon $a$ et d'angle $|\widehat{DAE}| = 60\degree = \frac{\pi}{3}$ (soit au total $6$ triangles rectangles et $6$ secteurs de $60\degree$ qui forment un disque complet d'aire $\pi a^2$ !). L'aire totale des $3$ régions vaut donc :
+    \[
+        S = 6 \times \frac{\sqrt{3}}{2}a^2 - \pi a^2 = \boxed{(3\sqrt{3} - \pi)a^2}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.8 (UCLouvain -- Juillet 2021, Q1 et Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le rectangle $AGDH$ a ses diagonales $[AD]$ et $[GH]$ de même longueur qui se coupent en leur milieu $O$, qui est le centre du cercle $\mathcal{C}$ circonscrit à l'hexagone régulier $ABCDEF$. Par conséquent, le sommet $G$ (où $\widehat{AGD} = 90\degree$) appartient au cercle $\mathcal{C}$! Sur ce cercle $\mathcal{C}$, l'angle inscrit $\widehat{AGC}$ intercepte le même arc $\wideparen{AC}$ que l'angle inscrit $\widehat{ABC} = 120\degree$ (ou l'angle au centre $\widehat{AOC} = 120\degree$ situé du même côté), donc $|\widehat{AGC}| = 120\degree$. Dès lors :
+    \[
+        \alpha = |\widehat{DGC}| = |\widehat{AGC}| - |\widehat{AGD}| = 120\degree - 90\degree = \boxed{30\degree \quad \left(\frac{\pi}{6}\text{ rad}\right)}.
+    \]
+    \item Soit $T$ le point de tangence de la corde $[AB]$ avec le petit cercle de rayon $r$. Comme $(OT) \perp (AB)$, $T$ est le milieu de $[AB]$, donc $|AT| = L$. Par Pythagore dans $OTA$, $R^2 - r^2 = L^2$. L'aire de l'anneau vaut donc $\mathcal{A} = \pi R^2 - \pi r^2 = \pi(R^2 - r^2) = \boxed{\pi L^2}$.
+    \item Dans le carré de côté $4$, la droite $(NM)$ est parallèle à $(AB)$ à distance $h = 2$ de $(AB)$, donc $\text{Aire}(\triangle ABE) = \frac{1}{2} \times 4 \times 2 = 4$. Comme $F$ est le milieu de $[EB]$, la médiane $[AF]$ partage le triangle $ABE$ en deux triangles $AEF$ et $ABF$ de même aire : $\mathcal{T} = \frac{1}{2}\text{Aire}(\triangle ABE) = \boxed{2}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.9 (UCLouvain -- Septembre 2021, Q3 et Q4) :}
+\begin{enumerate}[label=(\alph*)]
+    \item $[AM]$ est la hauteur du triangle équilatéral de côté $2$, donc $|AM| = \boxed{\sqrt{3}}$. Les deux petits carrés ont pour côté $\frac{|AM|}{2} = \frac{\sqrt{3}}{2}$, donc $|AD| = \frac{\sqrt{3}}{2}$ et $|MB| = 1$. Les triangles rectangles $AMB$ (de cathètes $\sqrt{3}$ et $1$) et $DAM$ (de cathètes $\frac{\sqrt{3}}{2}$ et $\sqrt{3}$) ne sont pas directement ceux de $H$, mais comme $(AD) \perp (AM)$ et $(MB) \perp (AM)$, on a $(AD) \parallel (MB)$ et le rectangle $ADGM$ a pour diagonale $[DG]$... Attention : dans l'énoncé original, les points $D, H, B$ sont alignés (la droite $(DB)$ passe par $H \in [AB]$ ? Non, $H \in [AB]$ est sur la droite $(DG)$ ou $(DM)$ : dans le triangle $AMB$, $\tan\widehat{BAM} = \frac{1}{\sqrt{3}} \implies \widehat{BAM} = 30\degree$, et dans le rectangle $ADGM$ de côtés $\frac{\sqrt{3}}{2}$ et $\sqrt{3}$, $\tan\widehat{ADM} = \frac{\sqrt{3}}{\sqrt{3}/2} = 2$). En fait, sur le dessin de Septembre 2021 Q3, les triangles $AMB$ et $ADH$ sont semblables avec $|\widehat{ADH}| = |\widehat{AMB}| = 90\degree$ et $|\widehat{AHD}| = |\widehat{MAH}| = 30\degree$, ce qui donne $|AH| = |AB|\cdot\frac{|AD|}{|MB|} = 2\cdot\frac{\sqrt{3}/2}{1} = \boxed{\sqrt{3}}$. Le triangle $AMH$ est alors isocèle en $A$ ($|AM| = |AH| = \sqrt{3}$) d'angle au sommet $\widehat{MAH} = 30\degree$, d'où $\alpha = \widehat{MHA} = \frac{180\degree - 30\degree}{2} = \boxed{75\degree}$.
+    \item Les triangles $AEG$ et $GEM$ ont le sommet $G$ en commun et leurs bases $[AE]$ et $[EM]$ alignées et égales ($E$ milieu de $[AM]$), donc le rapport de leurs aires vaut $r = \boxed{1}$. Par symétrie centrale du carré autour de $M$, $(BG) \parallel (DH)$. Dans le triangle $GBC$, la droite $(FH)$ parallèle à $(BG)$ passe par $F$ qui est au tiers de $[EC]$ ($\frac{|CF|}{|CE|} = \frac{1}{3}$), donc par Thalès $\frac{|CH|}{|CB|} = \frac{1}{3}$, soit $\frac{|BH|}{|HC|} = \boxed{2}$. Enfin, l'aire du parallélogramme $GBHD$ de base $|BH| = \frac{2}{3}c$ et de hauteur $c$ occupe la fraction $f = \boxed{\frac{2}{3}}$ de l'aire du carré.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 5.10 (UCLouvain -- Juillet 2023, Q4a et Q4b) :}
+\begin{enumerate}[label=(\alph*)]
+    \item En projetant orthogonalement $A$ et $C$ sur les directions parallèle et perpendiculaire à $(XY)$, la diagonale $[AC]$ du carré $ABCD$ est l'hypoténuse d'un triangle rectangle de côtés $|AX| + |YC| = 13 + 8 = 21$ et $|XY| = 3$. Par Pythagore, $|AC|^2 = 21^2 + 3^2 = 441 + 9 = 450$. Or, dans un carré de côté $c$, $|AC|^2 = 2c^2$, d'où $c^2 = 225 \implies \boxed{c = 15}$.
+    \item Notons $C$ et $D$ les deux régions latérales du rectangle (chacune dans un seul quart de disque). L'hypothèse $\text{Aire}(A) = \text{Aire}(B)$ entraîne que l'aire totale du rectangle $\ell \cdot L = \text{Aire}(A) + \text{Aire}(B) + \text{Aire}(C) + \text{Aire}(D) = \bigl(\text{Aire}(A) + \text{Aire}(C)\bigr) + \bigl(\text{Aire}(A) + \text{Aire}(D)\bigr)$ est exactement égale à la somme des aires des deux quarts de disque de rayon $\ell$ ! Ainsi :
+    \[
+        \ell \cdot L = 2 \times \frac{\pi\ell^2}{4} = \frac{\pi\ell^2}{2} \implies \boxed{L = \frac{\pi\ell}{2}}.
+    \]
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 6 (Géométrie Analytique Plane et Coniques)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 6.1 (UCLouvain -- Septembre 2023, Q1b) :}
+\begin{enumerate}[label=(\alph*)]
+    \item On a $\overrightarrow{AB} = (1-4,\; -2-(-3)) = (-3, 1)$. Tout point $C$ aligné avec $A$ et $B$ s'écrit $C = A + r\overrightarrow{AB} = (4-3r,\; -3+r)$. En imposant $C \in d \equiv y = 1+x$ :
+    \[
+        -3 + r = 1 + (4 - 3r) \iff 4r = 8 \implies r = 2 \implies \boxed{C(-2, -1)}.
+    \]
+    \item Un vecteur directeur orthogonal à $\overrightarrow{AB} = (-3, 1)$ est $\vec{v} = (1, 3)$. Tout point $D$ tel que $(BD) \perp (AB)$ s'écrit $D = B + s\vec{v} = (1+s,\; -2+3s)$. En imposant $D \in d \equiv y = 1+x$ :
+    \[
+        -2 + 3s = 1 + (1 + s) \iff 2s = 4 \implies s = 2 \implies \boxed{D(3, 4)}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 6.2 (UCLouvain -- Septembre 2021, Q1) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La droite $\mathcal{A} \equiv 3x + y + 12 = 0$ a pour vecteur normal $\vec{n}_{\mathcal{A}} = (3, 1)$, qui est donc un vecteur directeur de toute perpendiculaire $\mathcal{B}$. Un vecteur normal à $\mathcal{B}$ est $\vec{n}_{\mathcal{B}} = (1, -3)$. Comme $P(2, -2) \in \mathcal{B}$, on a $1(x-2) - 3(y+2) = 0 \iff \boxed{\mathcal{B} \equiv x - 3y - 8 = 0}$.
+    \item Soit $\Omega(x_c, y_c)$ le centre du cercle de rayon $R = \sqrt{10}$. Sa distance à $\mathcal{A}$ et à $\mathcal{B}$ vaut $\sqrt{10}$ :
+    \[
+        \frac{|3x_c + y_c + 12|}{\sqrt{10}} = \sqrt{10} \quad \text{et} \quad \frac{|x_c - 3y_c - 8|}{\sqrt{10}} = \sqrt{10}.
+    \]
+    Pour le quadrant contenant l'origine $(0,0)$ (où $3(0)+0+12 > 0$ et $0-3(0)-8 < 0$), on a $3x_c + y_c + 12 = 10$ et $x_c - 3y_c - 8 = -10$, soit le système :
+    \[
+        \begin{cases} 3x_c + y_c = -2 \\ x_c - 3y_c = -2 \end{cases} \implies 10x_c = -8 \implies \boxed{\Omega(-0,8\;;\; 0,4) = \left(-\frac{4}{5},\; \frac{2}{5}\right)}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 6.3 (UCLouvain -- Septembre 2022, Q1) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le milieu de $E(-2,-4)$ et $G(-5,5)$ est $M\left(-\frac{7}{2}, \frac{1}{2}\right)$, et $\overrightarrow{EG} = (-3, 9) = -3(1, -3)$. La médiatrice $m$ de $[EG]$ a donc pour vecteur normal $(1, -3)$ et passe par $M$ :
+    \[
+        1\left(x + \frac{7}{2}\right) - 3\left(y - \frac{1}{2}\right) = 0 \iff \boxed{m \equiv x - 3y + 5 = 0}.
+    \]
+    \item Le milieu de $E(-2,-4)$ et $F(3,1)$ est $N\left(\frac{1}{2}, -\frac{3}{2}\right)$ et $\overrightarrow{EF} = (5, 5) = 5(1, 1)$, donc la médiatrice de $[EF]$ est $(x - \frac{1}{2}) + (y + \frac{3}{2}) = 0 \iff x + y + 1 = 0$. L'intersection avec $x - 3y + 5 = 0$ donne $4y = 4 \implies y = 1$ et $x = -2$, soit le centre $\Omega(-2, 1)$. Le rayon vaut $R = |\Omega E| = \sqrt{0^2 + (-5)^2} = 5$, d'où l'équation du cercle circonscrit :
+    \[
+        \boxed{\mathcal{C} \equiv (x + 2)^2 + (y - 1)^2 = 25}.
+    \]
+    \item La distance du centre $\Omega(-2,1)$ au milieu $M(-3,5\;;\; 0,5)$ de la corde $[EG]$ vaut $|\Omega M| = \sqrt{(-1,5)^2 + (-0,5)^2} = \sqrt{2,5} = \sqrt{\frac{5}{2}}$. La flèche (largeur maximale du segment circulaire entre $[EG]$ et l'arc $\wideparen{EG}$) vaut $R - |\Omega M| = 5 - \sqrt{\frac{5}{2}}$, donc le rayon du plus grand cercle inscrit dans cette lunule vaut :
+    \[
+        r = \frac{R - |\Omega M|}{2} = \boxed{\frac{1}{2}\left(5 - \sqrt{\frac{5}{2}}\right) \approx 1,71}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 6.4 (UCLouvain -- Juillet 2021, Q3) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La droite $d \equiv 4x + 3y - 12 = 0$ est tangente au cercle $x^2 + y^2 = a$ (centré à l'origine $O(0,0)$ et de rayon $R = \sqrt{a}$) ssi la distance de $O$ à $d$ est égale à $\sqrt{a}$ :
+    \[
+        a = \bigl(d(O, d)\bigr)^2 = \left(\frac{|0 + 0 - 12|}{\sqrt{4^2 + 3^2}}\right)^2 = \left(\frac{12}{5}\right)^2 = \boxed{\frac{144}{25}}.
+    \]
+    \item La droite $d$ a pour pente $-\frac{4}{3}$, donc toute droite $m \perp d$ a pour pente $\frac{3}{4}$ et s'écrit $y = \frac{3}{4}x + c \iff x = \frac{4}{3}(y - c)$. Substituons $x$ dans la parabole $\mathcal{P} \equiv \frac{y^2}{27} + \frac{x}{6} + \frac{1}{2} = 0$ :
+    \[
+        \frac{y^2}{27} + \frac{2}{9}(y - c) + \frac{1}{2} = 0 \iff y^2 + 6y + \left(\frac{27}{2} - 6c\right) = 0.
+    \]
+    La droite $m$ est tangente à $\mathcal{P}$ ssi le discriminant $\Delta$ est nul :
+    \[
+        \Delta = 6^2 - 4\left(\frac{27}{2} - 6c\right) = 36 - 54 + 24c = 0 \implies c = \frac{18}{24} = \frac{3}{4}.
+    \]
+    D'où $\boxed{m \equiv y = \frac{3}{4}x + \frac{3}{4} \iff 3x - 4y + 3 = 0}$, et le point de tangence (racine double $y = -3$) est $\boxed{T(-5, -3)}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 6.5 (UCLouvain -- Juillet 2022, Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le milieu de $C\left(-\frac{12}{5}, \frac{6}{5}\right)$ et $D(5, -3)$ est $M\left(\frac{13}{10}, -\frac{9}{10}\right)$, et $\overrightarrow{CD} = \left(\frac{37}{5}, -\frac{21}{5}\right) = \frac{1}{5}(37, -21)$. Un vecteur directeur de la médiatrice $m \perp [CD]$ est donc $\vec{u} = (21, 37)$, d'où :
+    \[
+        \boxed{m \equiv \begin{cases} x = \frac{13}{10} + 21k \\ y = -\frac{9}{10} + 37k \end{cases} \quad (k \in \R) \qquad \Longleftrightarrow \qquad 37x - 21y - 67 = 0}.
+    \]
+    \item L'ellipse $\mathcal{E} \equiv \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ passe par $C\left(-\frac{12}{5}, \frac{6}{5}\right)$, donc $\frac{144}{a^2} + \frac{36}{b^2} = 25$. D'autre part, par la règle de dédoublement (ou en annulant le discriminant de l'intersection avec $d \equiv 8x + 9y = 30 \iff \frac{4}{15}x + \frac{3}{10}y = 1$), une droite $ux + vy = 1$ est tangente à $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ ssi $a^2 u^2 + b^2 v^2 = 1$, soit ici :
+    \[
+        \frac{16}{225}a^2 + \frac{9}{100}b^2 = 1.
+    \]
+    En posant $X = \frac{1}{a^2}$ et $Y = \frac{1}{b^2}$, la première équation donne $144X + 36Y = 25$, et la condition de tangence $\Delta = 0$ se réduit à $(4Y - 1)^2 = 0 \implies Y = \frac{1}{b^2} = \frac{1}{4}$ ($b^2 = 4$), puis $144X = 25 - 9 = 16 \implies X = \frac{1}{a^2} = \frac{1}{9}$ ($a^2 = 9$). D'où l'ellipse :
+    \[
+        \boxed{\mathcal{E} \equiv \frac{x^2}{9} + \frac{y^2}{4} = 1}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 6.6 (UCLouvain -- Juillet 2024, Q1a) :}
+En complétant le carré en $x$ : $4(x^2 - 2x) + y^2 = 0 \iff 4\bigl((x-1)^2 - 1\bigr) + y^2 = 0 \iff 4(x-1)^2 + y^2 = 4$, soit :
+\[
+    \boxed{\frac{(x-1)^2}{1} + \frac{y^2}{4} = 1}.
+\]
+C'est une \textbf{ellipse} de centre $C(1, 0)$, de petit axe horizontal $2a = 2$ ($a=1$) et de \textbf{grand axe vertical} $2b = 4$ ($b=2$). La distance focale vaut $c = \sqrt{b^2 - a^2} = \sqrt{4-1} = \sqrt{3}$, les foyers sont $\boxed{F_1(1, -\sqrt{3}) \text{ et } F_2(1, \sqrt{3})}$, l'excentricité vaut $e = \frac{c}{b} = \frac{\sqrt{3}}{2}$ et les directrices sont $y = \pm \frac{b^2}{c} = \pm \frac{4}{\sqrt{3}}$.
+
+\paragraph{Corrigé de l'Exercice 6.7 (UCLouvain -- Septembre 2025, Q1b) :}
+Le segment reliant $A(2,0)$ et $B(2,2)$ est vertical et a pour milieu $M(2,1)$, donc sa médiatrice est la droite horizontale d'équation $\boxed{y = 1}$. En remplaçant $y = 1$ dans l'hyperbole $\frac{x^2}{4} - y^2 = 1$, on obtient $\frac{x^2}{4} - 1 = 1 \iff x^2 = 8 \implies x = \pm 2\sqrt{2}$, soit les deux points d'intersection $\boxed{C(-2\sqrt{2}, 1) \text{ et } D(2\sqrt{2}, 1)}$.
+
+\paragraph{Corrigé de l'Exercice 6.8 (UCLouvain -- Juillet 2023, Q1a) :}
+L'équation s'écrit $(x+2)^2 = 2(y+4) \iff y = \frac{1}{2}(x+2)^2 - 4$. C'est une parabole d'axe vertical $x = -2$, concave vers le haut ($2p = 2 \implies p = 1$ et $\frac{p}{2} = \frac{1}{2}$), de \textbf{sommet} $\boxed{S(-2, -4)}$, de \textbf{foyer} $\boxed{F(-2, -3,5)}$ et de \textbf{directrice} $\boxed{d \equiv y = -4,5}$. Ses intersections avec $Ox$ ($y=0$) vérifient $(x+2)^2 = 8 \implies \boxed{x = -2 \pm 2\sqrt{2}}$.
+
+\paragraph{Corrigé de l'Exercice 6.9 (Classification et réduction de coniques) :}
+\begin{enumerate}[label=(\alph*)]
+    \item $4(x^2-4x) - 9(y^2+2y) = 29 \iff 4(x-2)^2 - 16 - 9(y+1)^2 + 9 = 29 \iff 4(x-2)^2 - 9(y+1)^2 = 36$, soit :
+    \[
+        \boxed{\frac{(x-2)^2}{9} - \frac{(y+1)^2}{4} = 1}.
+    \]
+    C'est une \textbf{hyperbole} de centre $C(2, -1)$, d'axe focal horizontal ($a=3, b=2$), de distance focale $c = \sqrt{9+4} = \sqrt{13}$, de foyers $F_{1,2}(2 \pm \sqrt{13}, -1)$, d'excentricité $e = \frac{\sqrt{13}}{3}$ et d'asymptotes $y + 1 = \pm \frac{2}{3}(x-2)$.
+    \item $(y-3)^2 - 9 - 8x + 17 = 0 \iff \boxed{(y-3)^2 = 8(x-1)}$. C'est une \textbf{parabole} de sommet $S(1, 3)$, d'axe horizontal $y = 3$, avec $2p = 8 \implies p = 4$ ($\frac{p}{2} = 2$), de foyer $F(3, 3)$ et de directrice $x = -1$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 6.10 (Lieu bifocal et tangentes parallèles) :}
+Le centre est $O(0,0)$, la distance focale est $c = 3$ (foyers sur $Ox$) et $2a = 10 \implies a = 5$ ($a^2 = 25$), d'où $b^2 = a^2 - c^2 = 25 - 9 = 16$ et l'ellipse $\boxed{\frac{x^2}{25} + \frac{y^2}{16} = 1}$.\\
+Toute droite parallèle à $4x + 3y = 0$ s'écrit $y = -\frac{4}{3}x + k$. En substituant dans $16x^2 + 25y^2 = 400$ :
+\[
+    16x^2 + 25\left(\frac{16}{9}x^2 - \frac{8}{3}kx + k^2\right) = 400 \iff 544x^2 - 600kx + 9(25k^2 - 400) = 0.
+\]
+L'annulation du discriminant réduit $\Delta' = (-300k)^2 - 544 \cdot 9(25k^2 - 400) = 0$ (ou la formule $k^2 = a^2 m^2 + b^2 = 25\cdot\frac{16}{9} + 16 = \frac{544}{9}$) donne $k = \pm \frac{4\sqrt{34}}{3}$, soit les deux tangentes $\boxed{4x + 3y = \pm 4\sqrt{34}}$.
+
+% ----------------------------------------------------------------------------
+\section{Corrigés du Chapitre 7 (Géométrie Analytique dans l'Espace)}
+% ----------------------------------------------------------------------------
+
+\paragraph{Corrigé de l'Exercice 7.1 (UCLouvain -- Juillet 2025, Q2 : Éboulement rocheux) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La trajectoire a pour équations paramétriques $x(t) = 10 + 4t$, $y(t) = 20 - 2t$, $z(t) = 100 - 4t$. L'altitude $z(t) = 80$ est atteinte lorsque $100 - 4t = 80 \implies t = 5$, ce qui donne le point $\boxed{M(30, 10, 80)}$. Comme $\|\vec{v}\| = \sqrt{4^2 + (-2)^2 + (-4)^2} = \sqrt{36} = 6$, la distance parcourue vaut $|AM| = 5 \times 6 = \boxed{30}$.
+    \item Le plan du versant s'écrit $\Pi \equiv 0,6x - 0,8y + z - 85 = 0$, de vecteur normal $\vec{n} = (0,6\;;\; -0,8\;;\; 1)$. Pour que la trajectoire de vecteur directeur $\vec{w} = (a, b, c)$ suive le plan $\Pi$ (soit parallèle à $\Pi$), il faut que $\vec{w} \cdot \vec{n} = 0$, soit :
+    \[
+        0,6a - 0,8b + c = 0 \iff \boxed{c = 0,8b - 0,6a}.
+    \]
+    \item Pour le vecteur observé $\vec{v} = (4, -2, -4)$, on calcule $0,8b - 0,6a = 0,8(-2) - 0,6(4) = -1,6 - 2,4 = -4 = c$ ! La condition de parallélisme au plan $\Pi$ est donc vérifiée (et de plus $A(10,20,100) \in \Pi$ car $-0,6(10)+0,8(20)+85 = 95 \neq 100$ : le point de départ $A$ est $5\text{ m}$ au-dessus du plan, ou selon le barème officiel de Juillet 2025 Q2c, il suffisait de tester si $(4,-2,-4)$ vérifie la relation 2.b).
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.2 (UCLouvain -- Septembre 2024, Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item On a $\overrightarrow{AB} = (2 - (-7),\; 4 - 10,\; 2 - 5) = (9, -6, -3)$. Tout point $P \in (AB)$ s'écrit $P(s) = A + s\overrightarrow{AB} = (-7+9s,\; 10-6s,\; 5-3s)$, de sorte que $\overrightarrow{CP} = P(s) - C = (-10+9s,\; -6s,\; -2-3s)$. La condition $\overrightarrow{CP} \perp \overrightarrow{AB}$ donne :
+    \[
+        \overrightarrow{AB} \cdot \overrightarrow{CP} = 9(-10+9s) - 6(-6s) - 3(-2-3s) = -84 + 126s = 0 \implies s = \frac{84}{126} = \frac{2}{3}.
+    \]
+    En remplaçant $s = \frac{2}{3}$, on obtient $\boxed{P(-1, 6, 3)}$.
+    \item Le plan médiateur du segment $[AC]$ passe par le milieu $M\left(-2, 10, 6\right)$ de $A(-7,10,5)$ et $C(3,10,7)$ et a pour vecteur normal $\overrightarrow{AC} = (10, 0, 2) = 2(5, 0, 1)$. Son équation cartésienne est donc $5(x+2) + 0 + 1(z-6) = 0 \iff 5x + z + 4 = 0$.\\
+    Or tout point $Q \in (BC)$ (où $\overrightarrow{BC} = (1, 6, 5)$) s'écrit $Q(t) = B + t\overrightarrow{BC} = (2+t,\; 4+6t,\; 2+5t)$. En substituant dans $5x + z + 4 = 0$ :
+    \[
+        5(2+t) + (2+5t) + 4 = 0 \iff 10t + 16 = 0 \implies t = -\frac{8}{5} \implies \boxed{Q\left(\frac{2}{5},\; -\frac{28}{5},\; -6\right)}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.3 (UCLouvain -- Septembre 2023, Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La droite $d_1 \perp \Pi$ a pour vecteur directeur le vecteur normal $\vec{n} = (-2, 1, -3)$ du plan $\Pi$ et passe par $A(5, -1, 7)$ :
+    \[
+        \boxed{d_1 \equiv \begin{cases} x = 5 - 2t \\ y = -1 + t \\ z = 7 - 3t \end{cases} \quad (t \in \R)}.
+    \]
+    Son point de percée $B \in d_1 \cap \Pi$ vérifie $-2(5-2t) + (-1+t) - 3(7-3t) + 4 = 0 \iff 14t - 28 = 0 \implies t = 2$, d'où $\boxed{B(1, 1, 1)}$.
+    \item La droite $d_2 \parallel d_1$ passant par $C(-6, 5, -7)$ est elle aussi perpendiculaire au plan $\Pi$! Ses équations paramétriques sont $x = -6-2u, y = 5+u, z = -7-3u$, et son point de percée $D \in d_2 \cap \Pi$ vérifie $-2(-6-2u) + (5+u) - 3(-7-3u) + 4 = 0 \iff 14u + 42 = 0 \implies u = -3$, soit $D(0, 2, 2)$.\\
+    Puisque le plan $\Pi$ est perpendiculaire aux deux droites parallèles $d_1$ et $d_2$, la distance entre $d_1$ et $d_2$ est exactement la distance entre leurs points de percée $B(1,1,1)$ et $D(0,2,2)$ :
+    \[
+        d(d_1, d_2) = |BD| = \sqrt{(0-1)^2 + (2-1)^2 + (2-1)^2} = \boxed{\sqrt{3}}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.4 (UCLouvain -- Juillet 2023, Q2) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le point d'intersection $B \in d_1$ s'écrit $B(t-3,\; 3t-4,\; -t+5)$, et le vecteur $\overrightarrow{BA} = A - B = (4-t,\; 5-3t,\; t-3)$ doit être orthogonal au vecteur directeur $\vec{d}_1 = (1, 3, -1)$ de $d_1$ :
+    \[
+        \vec{d}_1 \cdot \overrightarrow{BA} = 1(4-t) + 3(5-3t) - 1(t-3) = 22 - 11t = 0 \implies t = 2.
+    \]
+    On a donc $B(-1, 2, 3)$ et $\vec{d}_2 = \overrightarrow{BA} = (2, -1, -1)$, d'où $\boxed{d_2 \equiv \begin{cases} x = -1 + 2s \\ y = 2 - s \\ z = 3 - s \end{cases}}$.
+    \item Le plan $\mathcal{P}$ contenant $d_1$ et $d_2$ a pour vecteur normal $\vec{n} = \vec{d}_1 \wedge \vec{d}_2 = (1, 3, -1) \wedge (2, -1, -1) = (-4, -1, -7) = -(4, 1, 7)$ et passe par $A(1, 1, 2)$ ($4(1)+1+7(2)=19$), d'où $\boxed{\mathcal{P} \equiv 4x + y + 7z = 19}$.
+    \item Dans le plan $\mathcal{P}$, le vecteur $\vec{d}_2 = (2, -1, -1)$ est perpendiculaire à $d_1$ et sa norme vaut justement $\|\vec{d}_2\| = \sqrt{4+1+1} = \sqrt{6}$ ! Par conséquent, l'ensemble des points de $\mathcal{P}$ situés à distance $\sqrt{6}$ de $d_1$ est formé des deux droites $B + r\vec{d}_1 \pm \vec{d}_2$ :
+    \begin{itemize}
+        \item \emph{1\ier{} cas ($+\vec{d}_2$) :} $C = (-1+r+2,\; 2+3r-1,\; 3-r-1) = (1+r,\; 1+3r,\; 2-r)$. L'intersection avec $x = 2z$ donne $1+r = 2(2-r) \implies r = 1 \implies \boxed{C_1(2, 4, 1)}$.
+        \item \emph{2\ieme{} cas ($-\vec{d}_2$) :} $C = (-1+r-2,\; 2+3r+1,\; 3-r+1) = (-3+r,\; 3+3r,\; 4-r)$. L'intersection avec $x = 2z$ donne $-3+r = 2(4-r) \implies r = \frac{11}{3} \implies \boxed{C_2\left(\frac{2}{3},\; 14,\; \frac{1}{3}\right)}$.
+    \end{itemize}
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.5 (UCLouvain -- Juillet 2022, Q1) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La boule ouverte de centre $A(7, -2, 8)$ et de rayon $R = 10$ a pour inéquation :
+    \[
+        \boxed{\mathcal{L} \equiv (x - 7)^2 + (y + 2)^2 + (z - 8)^2 < 100}.
+    \]
+    \item La distance de $A(7, -2, 8)$ au plan $p \equiv 3x - 6y + 2z + 7 = 0$ vaut :
+    \[
+        d = d(A, p) = \frac{|3(7) - 6(-2) + 2(8) + 7|}{\sqrt{3^2 + (-6)^2 + 2^2}} = \frac{|21 + 12 + 16 + 7|}{\sqrt{49}} = \frac{56}{7} = 8\text{ m}.
+    \]
+    Le rayon du disque de section vaut $r = \sqrt{R^2 - d^2} = \sqrt{100 - 64} = 6\text{ m}$, et son aire vaut $\pi r^2 = \boxed{36\pi\text{ m}^2}$.
+    \item Le plan $q \equiv x + ay + bz = c$ a pour normale $\vec{n}_q = (1, a, b)$.
+    \begin{itemize}
+        \item $q \perp p \implies \vec{n}_q \cdot \vec{n}_p = 3 - 6a + 2b = 0 \implies b = 3a - \frac{3}{2}$.
+        \item $q$ fait un angle de $45\degree$ avec le plan horizontal (de normale $\vec{k} = (0,0,1)$) $\implies \frac{|b|}{\sqrt{1+a^2+b^2}} = \cos 45\degree = \frac{\sqrt{2}}{2} \iff b^2 = 1 + a^2$.
+    \end{itemize}
+    En substituant $b = 3a - \frac{3}{2}$ dans $b^2 = 1 + a^2$, on obtient $8a^2 - 9a + \frac{5}{4} = 0 \implies a = \frac{9 \pm \sqrt{41}}{16}$. Pour que $B(5,5,5)$ soit en dessous de $q$ ($z_B = 5 < z_q(5,5)$), on retient $a = \frac{9+\sqrt{41}}{16} \approx 0,96$, $b = \frac{3\sqrt{41}+3}{16} \approx 1,39$ et $c = 7 - 2a + 8b \approx 16,18$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.6 (UCLouvain -- Juillet 2021, Q4 : Alpiniste) :}
+\begin{enumerate}[label=(\alph*)]
+    \item L'alpiniste touche le sol $z(t) = 0$ lorsque $-18t + 144 = 0 \implies t = 8\text{ min}$. Le vecteur déplacement entre $t=0$ et $t=8$ est $\Delta\vec{r} = 8\vec{u} = 8(-1, 6, -18)$, et la distance parcourue vaut :
+    \[
+        d = 8\sqrt{(-1)^2 + 6^2 + (-18)^2} = 8\sqrt{1 + 36 + 324} = 8\sqrt{361} = 8 \times 19 = \boxed{152\text{ m}}.
+    \]
+    \item Une droite horizontale $h$ a un vecteur directeur de composante verticale nulle $\vec{h} = (h_x, h_y, 0)$. Pour qu'elle soit perpendiculaire à la trajectoire de vecteur directeur $\vec{u} = (-1, 6, -18)$, il faut $\vec{h} \cdot \vec{u} = -h_x + 6h_y + 0 = 0$, ce qui donne par exemple $\boxed{\vec{h} = (6, 1, 0)}$.
+    \item Le plan de la paroi passe par le point initial $A(-50, -100, 144)$ et est dirigé par $\vec{u} = (-1, 6, -18)$ et $\vec{h} = (6, 1, 0)$. Leur produit vectoriel donne la normale $\vec{n} = \vec{u} \wedge \vec{h} = (18, -108, -37)$, d'où l'équation cartésienne du plan :
+    \[
+        \boxed{18(x + 50) - 108(y + 100) - 37(z - 144) = 0 \iff 18x - 108y - 37z - 4572 = 0}.
+    \]
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.7 (UCLouvain -- Septembre 2021, Q2 : Pyramide) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le plan médiateur $\mathcal{L}$ de $B(-3,-1,0)$ et $C(4,0,0)$ passe par leur milieu $M\left(\frac{1}{2}, -\frac{1}{2}, 0\right)$ et a pour vecteur normal $\overrightarrow{BC} = (7, 1, 0)$ :
+    \[
+        7\left(x - \frac{1}{2}\right) + 1\left(y + \frac{1}{2}\right) = 0 \iff \boxed{\mathcal{L} \equiv 7x + y - 3 = 0}.
+    \]
+    \item Comme $C(4,0,0)$ ne vérifie pas l'équation du plan $\Pi \equiv -3x + y + z - 8 = 0$ ($-12 - 8 = -20 \neq 0$), la face contenue dans $\Pi$ est nécessairement la face $ABD$ ! Le sommet $D$ appartient donc à la fois à $z = 5$, au plan médiateur $\mathcal{L} \equiv 7x + y - 3 = 0$ (car $|DB| = |DC|$) et au plan $\Pi \equiv -3x + y + z - 8 = 0$. Avec $z = 5$, le système :
+    \[
+        \begin{cases} 7x + y = 3 \\ -3x + y = 3 \end{cases} \implies x = 0 \text{ et } y = 3 \implies \boxed{D(0, 3, 5)}.
+    \]
+    \item Le point $A(x_A, y_A, 0)$ appartient à $z = 0$ et à $\Pi \equiv -3x + y + z - 8 = 0$, donc $y_A = 3x_A + 8$. De plus, $|DA|^2 = |DC|^2 = (4-0)^2 + (0-3)^2 + (0-5)^2 = 16 + 9 + 25 = 50$. Ainsi :
+    \[
+        x_A^2 + (3x_A + 8 - 3)^2 + 5^2 = 50 \iff 10x_A^2 + 30x_A = 0 \iff 10x_A(x_A + 3) = 0.
+    \]
+    La solution $x_A = -3$ correspond au point $B(-3,-1,0)$, et la solution $x_A = 0$ donne $y_A = 8$, soit $\boxed{A(0, 8, 0)}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.8 (Symétrique d'un point par rapport à un plan) :}
+\begin{enumerate}[label=(\alph*)]
+    \item La distance de $A(5, -3, 7)$ au plan $\Pi \equiv 2x - y + 2z - 6 = 0$ vaut :
+    \[
+        d(A, \Pi) = \frac{|2(5) - (-3) + 2(7) - 6|}{\sqrt{2^2 + (-1)^2 + 2^2}} = \frac{|10 + 3 + 14 - 6|}{3} = \frac{21}{3} = \boxed{7}.
+    \]
+    \item La perpendiculaire à $\Pi$ passant par $A$ a pour équations $x = 5 + 2t, y = -3 - t, z = 7 + 2t$. Son point de percée $H \in \Pi$ vérifie $2(5+2t) - (-3-t) + 2(7+2t) - 6 = 0 \iff 9t + 21 = 0 \implies t = -\frac{7}{3}$, d'où $\boxed{H\left(\frac{1}{3},\; -\frac{2}{3},\; \frac{7}{3}\right)}$. Le symétrique $A'$ correspond à $2t = -\frac{14}{3}$, soit $\boxed{A'\left(-\frac{13}{3},\; \frac{5}{3},\; -\frac{7}{3}\right)}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.9 (Intersection de deux plans et distance point--droite) :}
+\begin{enumerate}[label=(\alph*)]
+    \item En additionnant $\Pi_1 \equiv x + y - z = 1$ et $\Pi_2 \equiv 2x - y + z = 2$, on obtient $3x = 3 \implies x = 1$. En posant $z = t$, la première équation donne $y = z + 1 - x = t$. D'où la droite :
+    \[
+        \boxed{d \equiv \begin{cases} x = 1 \\ y = t \\ z = t \end{cases} \quad (t \in \R), \quad \text{passant par } A(1,0,0) \text{ et de vecteur directeur } \vec{u} = (0, 1, 1)}.
+    \]
+    \item Un point $H(1, t, t) \in d$ est le projeté orthogonal de $P(3, 1, 0)$ ssi $\overrightarrow{PH} \cdot \vec{u} = (-2, t-1, t)\cdot(0, 1, 1) = 2t - 1 = 0 \implies t = \frac{1}{2}$, d'où $\boxed{H\left(1, \frac{1}{2}, \frac{1}{2}\right)}$ et $d(P, d) = |PH| = \sqrt{(-2)^2 + \left(-\frac{1}{2}\right)^2 + \left(\frac{1}{2}\right)^2} = \boxed{\frac{3\sqrt{2}}{2}}$.
+\end{enumerate}
+
+\paragraph{Corrigé de l'Exercice 7.10 (Sphère tangente et plan tangent) :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le rayon $R$ de la sphère centrée en $\Omega(1, -2, 3)$ et tangente à $\Pi \equiv 2x + 3y - 6z + 5 = 0$ est la distance de $\Omega$ à $\Pi$ :
+    \[
+        R = d(\Omega, \Pi) = \frac{|2(1) + 3(-2) - 6(3) + 5|}{\sqrt{2^2 + 3^2 + (-6)^2}} = \frac{|-17|}{7} = \frac{17}{7},
+    \]
+    d'où l'équation de la sphère : $\boxed{(x-1)^2 + (y+2)^2 + (z-3)^2 = \frac{289}{49}}$.
+    \item Pour $T(3, 3, 2)$ et la sphère $\mathcal{S}'$ de centre $C(2, 1, -1)$, on a $(3-2)^2 + (3-1)^2 + (2+1)^2 = 1 + 4 + 9 = 14$, donc $T \in \mathcal{S}'$. Le plan tangent en $T$ passe par $T(3,3,2)$ et a pour vecteur normal le rayon $\overrightarrow{CT} = (1, 2, 3)$ :
+    \[
+        1(x - 3) + 2(y - 3) + 3(z - 2) = 0 \iff \boxed{x + 2y + 3z - 15 = 0}.
+    \]
+\end{enumerate}

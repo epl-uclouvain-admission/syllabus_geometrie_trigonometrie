@@ -1,0 +1,412 @@
+% ============================================================================
+% CHAPITRE 2 : FORMULES TRIGONOMÉTRIQUES ET IDENTITÉS
+% ============================================================================
+\chapter{Formules Trigonométriques et Identités}
+
+La maîtrise des formules d'addition, de duplication, de Carnot et de Simpson est le cœur technique de l'épreuve de trigonométrie. Ce chapitre présente non seulement ces formules, mais aussi les moyens mnémotechniques infaillibles pour les retrouver en quelques secondes et les appliquer aux calculs sans calculatrice et aux démonstrations d'identités.
+
+% ----------------------------------------------------------------------------
+\section{Formules d'addition}
+% ----------------------------------------------------------------------------
+
+\subsection{Sinus, cosinus et tangente d'une somme ou d'une différence}
+
+\begin{theoreme}[Formules d'addition]
+Pour tous angles réels $\alpha, \beta \in \R$ :
+\begin{align}
+    \cos(\alpha - \beta) &= \cos\alpha\cos\beta + \sin\alpha\sin\beta \\
+    \cos(\alpha + \beta) &= \cos\alpha\cos\beta - \sin\alpha\sin\beta \\
+    \sin(\alpha - \beta) &= \sin\alpha\cos\beta - \cos\alpha\sin\beta \\
+    \sin(\alpha + \beta) &= \sin\alpha\cos\beta + \cos\alpha\sin\beta
+\end{align}
+Et pour toutes les valeurs de $\alpha$ et $\beta$ pour lesquelles les tangentes sont définies ($\alpha, \beta, \alpha\pm\beta \neq \frac{\pi}{2} + k\pi$) :
+\begin{equation}
+    \boxed{\tan(\alpha + \beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha\tan\beta} \qquad \text{et} \qquad \tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta}}
+\end{equation}
+\end{theoreme}
+
+\begin{astuce}[Retrouver toutes les formules d'addition grâce à la formule d'Euler]
+Si vous connaissez les nombres complexes ($i^2 = -1$) et la \textbf{formule d'Euler} $e^{ix} = \cos x + i\sin x$, vous n'oublierez plus jamais une formule d'addition ou de duplication ! En effet, en utilisant la propriété des exponentielles $e^{i(\alpha+\beta)} = e^{i\alpha} \cdot e^{i\beta}$, on développe simplement le produit :
+\begin{align*}
+    \textcolor{uclblue}{\cos(\alpha+\beta)} + i\,\textcolor{defgreen}{\sin(\alpha+\beta)} &= e^{i(\alpha+\beta)} = e^{i\alpha} e^{i\beta} \\
+    &= (\cos\alpha + i\sin\alpha)(\cos\beta + i\sin\beta) \\
+    &= \textcolor{uclblue}{(\cos\alpha\cos\beta - \sin\alpha\sin\beta)} + i\,\textcolor{defgreen}{(\sin\alpha\cos\beta + \cos\alpha\sin\beta)}.
+\end{align*}
+En identifiant les parties réelles (en bleu) et les parties imaginaires (en vert), on retrouve instantanément $\cos(\alpha+\beta)$ et $\sin(\alpha+\beta)$ ! Les formules en $\alpha-\beta$ s'en déduisent en remplaçant $\beta$ par $-\beta$ (sachant que $\cos(-\beta)=\cos\beta$ et $\sin(-\beta)=-\sin\beta$).
+
+Quant à $\tan(\alpha+\beta)$, elle s'obtient en divisant le numérateur et le dénominateur de $\frac{\sin(\alpha+\beta)}{\cos(\alpha+\beta)}$ par $\cos\alpha\cos\beta$.
+\end{astuce}
+
+\subsection{Application : calcul exact des nombres trigonométriques de $\frac{\pi}{12}$ ($15\degree$) et $\frac{5\pi}{12}$ ($75\degree$)}
+
+Un grand classique des questions à boîtes fermées de l'UCLouvain consiste à calculer les valeurs exactes pour $15\degree = \frac{\pi}{12}$ ou $75\degree = \frac{5\pi}{12}$ en les décomposant à l'aide des angles remarquables $45\degree = \frac{\pi}{4}$ et $30\degree = \frac{\pi}{6}$ (ou $60\degree = \frac{\pi}{3}$) :
+\[
+    \frac{\pi}{12} = \frac{\pi}{4} - \frac{\pi}{6} \quad \text{(ou } \frac{\pi}{3} - \frac{\pi}{4}\text{)} \qquad \text{et} \qquad \frac{5\pi}{12} = \frac{\pi}{4} + \frac{\pi}{6}.
+\]
+
+\begin{exemple}[Calculs exacts : UCLouvain -- Juillet 2021 Q3b, Septembre 2021 Q3a, Juillet 2024 Q3d, Mini-Blocus 2026 Q1c]
+\begin{enumerate}
+    \item \textbf{Calcul de $\cos\left(\frac{\pi}{12}\right)$ (Septembre 2021, Q3a) :}
+    \[
+        \cos\left(\frac{\pi}{12}\right) = \cos\left(\frac{\pi}{4} - \frac{\pi}{6}\right) = \cos\frac{\pi}{4}\cos\frac{\pi}{6} + \sin\frac{\pi}{4}\sin\frac{\pi}{6} = \frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2}\frac{1}{2} = \boxed{\frac{\sqrt{6} + \sqrt{2}}{4}}.
+    \]
+    \item \textbf{Calcul de $\sin\left(\frac{\pi}{12}\right)$ (Mini-Blocus 2026, Q1c) :}
+    \[
+        \sin\left(\frac{\pi}{12}\right) = \sin\left(\frac{\pi}{4} - \frac{\pi}{6}\right) = \sin\frac{\pi}{4}\cos\frac{\pi}{6} - \cos\frac{\pi}{4}\sin\frac{\pi}{6} = \frac{\sqrt{2}}{2}\frac{\sqrt{3}}{2} - \frac{\sqrt{2}}{2}\frac{1}{2} = \boxed{\frac{\sqrt{6} - \sqrt{2}}{4}}.
+    \]
+    \item \textbf{Calcul de $\tan\left(\frac{\pi}{12}\right)$ (Juillet 2024, Q3d) et $\tan(75\degree)$ (Juillet 2021, Q3b) :}
+    \begin{align*}
+        \tan\left(\frac{\pi}{12}\right) &= \tan\left(\frac{\pi}{4} - \frac{\pi}{6}\right) = \frac{\tan\frac{\pi}{4} - \tan\frac{\pi}{6}}{1 + \tan\frac{\pi}{4}\tan\frac{\pi}{6}} = \frac{1 - \frac{\sqrt{3}}{3}}{1 + \frac{\sqrt{3}}{3}} \\
+        &= \frac{3 - \sqrt{3}}{3 + \sqrt{3}} = \frac{(3-\sqrt{3})^2}{9 - 3} = \frac{12 - 6\sqrt{3}}{6} = \boxed{2 - \sqrt{3}}.
+    \end{align*}
+    De même, comme $75\degree = 90\degree - 15\degree$, ou via $\tan(45\degree+30\degree)$, on trouve immédiatement $\tan(75\degree) = \frac{3+\sqrt{3}}{3-\sqrt{3}} = \boxed{2 + \sqrt{3}}$.
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Formules de duplication, de triplication et de Carnot}
+% ----------------------------------------------------------------------------
+
+\subsection{Formules de duplication (angle double $2\alpha$)}
+
+En posant $\beta = \alpha$ dans les formules d'addition, on obtient les formules de duplication qui lient un angle $\alpha$ à son double $2\alpha$ :
+
+\begin{theoreme}[Formules de duplication]
+Pour tout $\alpha \in \R$ :
+\begin{align}
+    \sin(2\alpha) &= 2\sin\alpha\cos\alpha \\
+    \cos(2\alpha) &= \cos^2\alpha - \sin^2\alpha = 2\cos^2\alpha - 1 = 1 - 2\sin^2\alpha \\
+    \tan(2\alpha) &= \frac{2\tan\alpha}{1 - \tan^2\alpha} \qquad \left(\forall \alpha \neq \frac{\pi}{4} + k\frac{\pi}{2} \text{ et } \alpha \neq \frac{\pi}{2} + k\pi\right)
+\end{align}
+\end{theoreme}
+
+\subsection{Formules de Carnot (linéarisation et angle moitié)}
+
+En isolant $\cos^2\alpha$ et $\sin^2\alpha$ dans les deux variantes de $\cos(2\alpha)$, on obtient les \textbf{formules de Carnot}, extrêmement utiles pour abaisser le degré (linéariser un carré) ou factoriser une expression contenant $1 \pm \cos(2\alpha)$ :
+
+\begin{theoreme}[Formules de Carnot]
+Pour tout $\alpha \in \R$ :
+\begin{equation}
+    \boxed{1 + \cos(2\alpha) = 2\cos^2\alpha \iff \cos^2\alpha = \frac{1 + \cos(2\alpha)}{2}}
+\end{equation}
+\begin{equation}
+    \boxed{1 - \cos(2\alpha) = 2\sin^2\alpha \iff \sin^2\alpha = \frac{1 - \cos(2\alpha)}{2}}
+\end{equation}
+En remplaçant $\alpha$ par $\frac{\alpha}{2}$, ces formules s'écrivent pour l'angle moitié :
+\[
+    1 + \cos\alpha = 2\cos^2\left(\frac{\alpha}{2}\right), \qquad 1 - \cos\alpha = 2\sin^2\left(\frac{\alpha}{2}\right), \qquad \tan\left(\frac{\alpha}{2}\right) = \frac{1 - \cos\alpha}{\sin\alpha} = \frac{\sin\alpha}{1 + \cos\alpha}.
+\]
+\end{theoreme}
+
+\begin{exemple}[Applications des formules de duplication et de Carnot aux examens UCLouvain]
+\textbf{1) Calcul de $\cos^4(15\degree) - \sin^4(15\degree)$ (UCLouvain, Juillet 2026, Q3c) et $\cos^4(22,5\degree) - \sin^4(22,5\degree)$ (Septembre 2026, Q3c) :}\\
+\emph{Résolution :} On factorise la différence de deux carrés $a^4 - b^4 = (a^2 - b^2)(a^2 + b^2)$ :
+\[
+    \cos^4\alpha - \sin^4\alpha = \bigl(\cos^2\alpha - \sin^2\alpha\bigr)\underbrace{\bigl(\cos^2\alpha + \sin^2\alpha\bigr)}_{=1} = \cos(2\alpha).
+\]
+Dès lors :
+\begin{itemize}
+    \item Pour $\alpha = 15\degree$ : $\cos^4(15\degree) - \sin^4(15\degree) = \cos(30\degree) = \boxed{\dfrac{\sqrt{3}}{2}}$.
+    \item Pour $\alpha = 22,5\degree$ : $\cos^4(22,5\degree) - \sin^4(22,5\degree) = \cos(45\degree) = \boxed{\dfrac{\sqrt{2}}{2}}$.
+\end{itemize}
+
+\medskip
+\textbf{2) Calcul de $\tan\left(\frac{\pi}{8}\right)$ (UCLouvain, Juillet 2022 Q3e et Juillet 2023 Q3b) :}\\
+\emph{Résolution :} On utilise la formule de l'angle moitié avec $\alpha = \frac{\pi}{4}$ (ou l'équation du second degré issue de $\tan\frac{\pi}{4} = \frac{2\tan(\pi/8)}{1-\tan^2(\pi/8)} = 1$) :
+\[
+    \tan\left(\frac{\pi}{8}\right) = \frac{1 - \cos(\pi/4)}{\sin(\pi/4)} = \frac{1 - \frac{\sqrt{2}}{2}}{\frac{\sqrt{2}}{2}} = \frac{2 - \sqrt{2}}{\sqrt{2}} = \boxed{\sqrt{2} - 1}.
+\]
+\end{exemple}
+
+\subsection{Formules de triplication (angle triple $3\alpha$)}
+
+Les expressions de $\sin(3\alpha)$ en fonction de $\sin\alpha$ et de $\cos(3\alpha)$ en fonction de $\cos\alpha$ reviennent très régulièrement dans les équations et questions courtes de l'UCLouvain (Septembre 2021 Q3c, Juillet 2023 Q1 et Q3a, Septembre 2025 Q1a et Q3, Juillet 2026 Q1, Septembre 2026 Q3d).
+
+\begin{theoreme}[Formules de l'angle triple]
+Pour tout $\alpha \in \R$ :
+\begin{equation}
+    \boxed{\sin(3\alpha) = 3\sin\alpha - 4\sin^3\alpha} \qquad \text{et} \qquad \boxed{\cos(3\alpha) = 4\cos^3\alpha - 3\cos\alpha}
+\end{equation}
+\end{theoreme}
+
+\begin{proof}[Démonstration (deux méthodes à connaître)]
+\textbf{Méthode 1 (par addition et duplication) :}
+\begin{align*}
+    \sin(3\alpha) &= \sin(2\alpha + \alpha) = \sin(2\alpha)\cos\alpha + \cos(2\alpha)\sin\alpha \\
+    &= (2\sin\alpha\cos\alpha)\cos\alpha + (1 - 2\sin^2\alpha)\sin\alpha \\
+    &= 2\sin\alpha(1 - \sin^2\alpha) + \sin\alpha - 2\sin^3\alpha = 3\sin\alpha - 4\sin^3\alpha.
+\end{align*}
+\textbf{Méthode 2 (par la formule d'Euler) :} En développant $(a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3$ avec $i^2 = -1$ et $i^3 = -i$ :
+\begin{align*}
+    \cos(3\alpha) + i\sin(3\alpha) &= (\cos\alpha + i\sin\alpha)^3 \\
+    &= \bigl(\cos^3\alpha - 3\cos\alpha\sin^2\alpha\bigr) + i\bigl(3\cos^2\alpha\sin\alpha - \sin^3\alpha\bigr) \\
+    &= \bigl(4\cos^3\alpha - 3\cos\alpha\bigr) + i\bigl(3\sin\alpha - 4\sin^3\alpha\bigr). \qedhere
+\end{align*}
+\end{proof}
+
+\begin{exemple}[Application : UCLouvain -- Septembre 2026, Question 3d]
+\emph{Énoncé :} Si $\sin(\theta) = x$ avec $-\frac{\pi}{2} \le \theta \le \frac{\pi}{2}$, exprimez $\cos(3\theta)$ en fonction de $x$ uniquement, sans fonction trigonométrique.\\
+\emph{Résolution :} Comme $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$, on a $\cos\theta = \sqrt{1 - \sin^2\theta} = \sqrt{1-x^2}$ et $\cos^2\theta = 1-x^2$. En factorisant $\cos\theta$ dans la formule de triplication :
+\[
+    \cos(3\theta) = 4\cos^3\theta - 3\cos\theta = \cos\theta\bigl(4\cos^2\theta - 3\bigr) = \sqrt{1-x^2}\bigl(4(1-x^2) - 3\bigr) = \boxed{(1 - 4x^2)\sqrt{1 - x^2}}.
+\]
+\end{exemple}
+
+\subsection{Expressions en fonction de $t = \tan\left(\frac{\alpha}{2}\right)$}
+
+Il est parfois très utile de pouvoir exprimer $\cos\alpha$, $\sin\alpha$ et $\tan\alpha$ rationnellement en fonction d'une seule inconnue $t = \tan\left(\frac{\alpha}{2}\right)$ (pour $\alpha \neq (2k+1)\pi$) :
+
+\begin{theoreme}[Formules de l'angle demi en fonction de $t = \tan(\alpha/2)$]
+Pour tout $\alpha \neq (2k+1)\pi$ ($k \in \Z$), en posant $t = \tan\left(\frac{\alpha}{2}\right)$ :
+\[
+    \boxed{\cos\alpha = \frac{1 - t^2}{1 + t^2}, \qquad \sin\alpha = \frac{2t}{1 + t^2}, \qquad \tan\alpha = \frac{2t}{1 - t^2}}
+\]
+\end{theoreme}
+\begin{proof}
+En utilisant la duplication pour l'angle $\frac{\alpha}{2}$ et l'identité $1 + t^2 = \frac{1}{\cos^2(\alpha/2)}$ :
+\[
+    \sin\alpha = 2\sin\frac{\alpha}{2}\cos\frac{\alpha}{2} = 2\tan\frac{\alpha}{2}\cos^2\frac{\alpha}{2} = \frac{2t}{1+t^2}, \qquad
+    \cos\alpha = 2\cos^2\frac{\alpha}{2} - 1 = \frac{2}{1+t^2} - 1 = \frac{1-t^2}{1+t^2}. \qedhere
+\]
+\end{proof}
+
+% ----------------------------------------------------------------------------
+\section{Formules de Simpson (Factorisation)}
+% ----------------------------------------------------------------------------
+
+Les \textbf{formules de Simpson} permettent de transformer une somme ou une différence de deux sinus ou de deux cosinus en un \textbf{produit} (ce qui est crucial pour résoudre des équations par la règle du produit nul ou pour simplifier des fractions).
+
+\begin{theoreme}[Formules de Simpson]
+Pour tous angles réels $p, q \in \R$ :
+\begin{align}
+    \cos p + \cos q &= 2 \cos\left(\frac{p+q}{2}\right) \cos\left(\frac{p-q}{2}\right) \\
+    \cos p - \cos q &= -2 \sin\left(\frac{p+q}{2}\right) \sin\left(\frac{p-q}{2}\right) \\
+    \sin p + \sin q &= 2 \sin\left(\frac{p+q}{2}\right) \cos\left(\frac{p-q}{2}\right) \\
+    \sin p - \sin q &= 2 \sin\left(\frac{p-q}{2}\right) \cos\left(\frac{p+q}{2}\right)
+\end{align}
+Et pour la somme ou la différence de deux tangentes ($p, q \neq \frac{\pi}{2} + k\pi$) :
+\begin{equation}
+    \boxed{\tan p + \tan q = \frac{\sin(p+q)}{\cos p \cos q} \qquad \text{et} \qquad \tan p - \tan q = \frac{\sin(p-q)}{\cos p \cos q}}
+\end{equation}
+\end{theoreme}
+
+\begin{astuce}[Astuce de mémorisation des formules de Simpson (Slides UCLouvain 2026)]
+Tout repose sur deux grandeurs très simples : la \textbf{moyenne} $\text{moy} = \dfrac{p+q}{2}$ et l'\textbf{écart} (demi-différence) $\text{écart} = \dfrac{p-q}{2}$.
+En effet, remarquons que $p = \text{moy} + \text{écart}$ et $q = \text{moy} - \text{écart}$. Dès lors :
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Somme / Différence} & \textbf{Forme factorisée (produit)} & \textbf{Moyen mnémotechnique} \\
+\midrule
+$\cos p + \cos q$ & $2\cos(\text{moy})\cos(\text{écart})$ & $\cos + \cos$ est symétrique ($\cos\cdot\cos$) \\
+$\cos p - \cos q$ & $-2\sin(\text{moy})\sin(\text{écart})$ & $\cos - \cos$ donne $-\sin\cdot\sin$ (signe $-$) \\
+$\sin p + \sin q$ & $2\sin(\text{moy})\cos(\text{écart})$ & $\sin + \sin$ mélange $\sin(\text{moy})\cos(\text{écart})$ \\
+$\sin p - \sin q$ & $2\sin(\text{écart})\cos(\text{moy})$ & remplacer $q$ par $-q$ dans $\sin p + \sin q$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Quant à $\tan p \pm \tan q$, \textbf{aucun besoin de la mémoriser} : il suffit de mettre $\frac{\sin p}{\cos p} \pm \frac{\sin q}{\cos q} = \frac{\sin p \cos q \pm \cos p \sin q}{\cos p \cos q}$ au même dénominateur et de reconnaître $\sin(p \pm q)$ au numérateur !
+\end{astuce}
+
+On peut également lire les formules de Simpson en sens inverse (formules de \textbf{Werner}, qui transforment un produit en somme) en posant $a = \frac{p+q}{2}$ et $b = \frac{p-q}{2}$ (soit $p = a+b$ et $q = a-b$) :
+\begin{align*}
+    2\sin a \cos b &= \sin(a+b) + \sin(a-b), \\
+    2\cos a \cos b &= \cos(a+b) + \cos(a-b), \qquad 2\sin a \sin b = \cos(a-b) - \cos(a+b).
+\end{align*}
+
+\begin{exemple}[Calculs exacts par Simpson aux examens UCLouvain]
+\textbf{1) UCLouvain -- Juillet 2025, Questions 3a et 3b :}\\
+\begin{itemize}
+    \item \emph{Calculer $2\sin(45\degree)\cos(15\degree)$ :} Par la formule produit $\to$ somme $2\sin a\cos b = \sin(a+b)+\sin(a-b)$ :
+    \[
+        2\sin(45\degree)\cos(15\degree) = \sin(60\degree) + \sin(30\degree) = \frac{\sqrt{3}}{2} + \frac{1}{2} = \boxed{\frac{1+\sqrt{3}}{2}}.
+    \]
+    \item \emph{Calculer $\dfrac{\sin(75\degree) - \sin(15\degree)}{\cos(75\degree) + \cos(15\degree)}$ :} La moyenne de $75\degree$ et $15\degree$ est $45\degree$, et leur demi-écart est $30\degree$. Par Simpson :
+    \[
+        \frac{\sin(75\degree) - \sin(15\degree)}{\cos(75\degree) + \cos(15\degree)} = \frac{2\sin(30\degree)\cos(45\degree)}{2\cos(45\degree)\cos(30\degree)} = \tan(30\degree) = \boxed{\frac{\sqrt{3}}{3}}.
+    \]
+\end{itemize}
+
+\medskip
+\textbf{2) UCLouvain -- Septembre 2025, Question 1d :}\\
+\emph{Énoncé :} Calculer exactement $\cos(465\degree) + \cos(165\degree)$.\\
+\emph{Résolution :} D'abord, on enlève un tour complet ($360\degree$) à $465\degree$ : $465\degree - 360\degree = 105\degree$. Ensuite, la moyenne de $165\degree$ et $105\degree$ est $\frac{165\degree+105\degree}{2} = 135\degree$ et leur demi-écart est $\frac{165\degree-105\degree}{2} = 30\degree$. Par Simpson :
+\[
+    \cos(165\degree) + \cos(105\degree) = 2\cos(135\degree)\cos(30\degree) = 2\left(-\frac{\sqrt{2}}{2}\right)\left(\frac{\sqrt{3}}{2}\right) = \boxed{-\frac{\sqrt{6}}{2}}.
+\]
+
+\medskip
+\textbf{3) UCLouvain -- Septembre 2026, Question 3f (L'astuce du produit télescopique) :}\\
+\emph{Énoncé :} Calculer exactement $P = \cos(20\degree)\cos(40\degree)\cos(80\degree)$.\\
+\emph{Résolution :} On remarque que les angles doublent à chaque facteur ($20\degree \to 40\degree \to 80\degree$). L'astuce classique consiste à multiplier et diviser par $2\sin(20\degree)$ pour déclencher une réaction en chaîne de formules de duplication $\sin(2\alpha) = 2\sin\alpha\cos\alpha$ :
+\begin{align*}
+    P &= \frac{2\sin(20\degree)\cos(20\degree)\cos(40\degree)\cos(80\degree)}{2\sin(20\degree)} = \frac{\sin(40\degree)\cos(40\degree)\cos(80\degree)}{2\sin(20\degree)} \\
+    &= \frac{\sin(80\degree)\cos(80\degree)}{4\sin(20\degree)} = \frac{\sin(160\degree)}{8\sin(20\degree)}.
+\end{align*}
+Or $160\degree$ et $20\degree$ sont supplémentaires ($160\degree = 180\degree - 20\degree$), donc $\sin(160\degree) = \sin(20\degree)$, ce qui donne $P = \boxed{\dfrac{1}{8}}$.
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Méthodologie des démonstrations d'identités}
+% ----------------------------------------------------------------------------
+
+Une \textbf{identité trigonométrique} est une égalité entre deux expressions qui est vraie pour toutes les valeurs des variables où ces expressions sont définies.
+
+\begin{attention}[Identité vs Équation]
+Ne confondez jamais \emph{« démontrer une identité $A(x) = B(x)$ »} et \emph{« résoudre une équation $A(x) = B(x)$ »}. Pour démontrer une identité, on ne part \textbf{pas} de l'égalité à prouver en faisant passer des termes d'un membre à l'autre, sauf si l'on justifie rigoureusement que chaque étape est une \textbf{équivalence} ($\iff$). La méthode la plus sûre et la plus élégante consiste à :
+\begin{enumerate}
+    \item Partir du membre le plus complexe (par exemple le membre de gauche, noté $\text{MG}$ ou $\text{lhs}$) et le transformer étape par étape jusqu'à obtenir le membre de droite ($\text{MD}$ ou $\text{rhs}$) ;
+    \item Ou transformer indépendamment $\text{MG}$ et $\text{MD}$ jusqu'à aboutir à une même expression commune $C$.
+\end{enumerate}
+\end{attention}
+
+\subsection{Identités conditionnelles (dans un triangle)}
+
+Une \textbf{identité conditionnelle} est une égalité qui n'est vraie que sous une hypothèse liant les variables, typiquement lorsque $A, B, C$ sont les trois angles d'un triangle :
+\[
+    \boxed{A + B + C = \pi \quad (180\degree)}.
+\]
+Cette hypothèse fournit immédiatement les relations clés suivantes :
+\[
+    \begin{cases}
+        A + B = \pi - C \implies \sin(A+B) = \sin C \quad \text{et} \quad \cos(A+B) = -\cos C, \\[4pt]
+        \dfrac{A+B}{2} = \dfrac{\pi}{2} - \dfrac{C}{2} \implies \sin\left(\dfrac{A+B}{2}\right) = \cos\left(\dfrac{C}{2}\right) \quad \text{et} \quad \cos\left(\dfrac{A+B}{2}\right) = \sin\left(\dfrac{C}{2}\right).
+    \end{cases}
+\]
+
+\begin{exemple}[Identités dans un triangle : UCLouvain -- Septembre 2022 Q3e et ULiège -- Septembre 2009 Q1]
+\textbf{1) Calcul de $\dfrac{\sin(2A) + \sin(2B) + \sin(2C)}{\sin A \sin B \sin C}$ dans un triangle quelconque (UCLouvain, Septembre 2022, Q3e) :}\\
+\emph{Résolution :} Appliquons Simpson aux deux premiers termes du numérateur et la duplication au troisième :
+\[
+    \sin(2A) + \sin(2B) + \sin(2C) = 2\sin(A+B)\cos(A-B) + 2\sin C \cos C.
+\]
+Puisque $A+B = \pi - C$, on a $\sin(A+B) = \sin C$ et $\cos C = -\cos(A+B)$. On met $2\sin C$ en évidence :
+\[
+    \sin(2A) + \sin(2B) + \sin(2C) = 2\sin C\bigl(\cos(A-B) - \cos(A+B)\bigr).
+\]
+Par Simpson (ou en développant $\cos(A\mp B)$), on sait que $\cos(A-B) - \cos(A+B) = 2\sin A \sin B$. Dès lors :
+\[
+    \sin(2A) + \sin(2B) + \sin(2C) = 4\sin A \sin B \sin C \implies \frac{\sin(2A) + \sin(2B) + \sin(2C)}{\sin A \sin B \sin C} = \boxed{4}.
+\]
+
+\medskip
+\textbf{2) Identité des tangentes dans un triangle non rectangle :}\\
+Dans tout triangle $ABC$ non rectangle, on a $A+B = \pi - C$, d'où $\tan(A+B) = \tan(\pi-C) = -\tan C$. En utilisant la formule d'addition de la tangente :
+\[
+    \frac{\tan A + \tan B}{1 - \tan A \tan B} = -\tan C \iff \tan A + \tan B = -\tan C + \tan A \tan B \tan C,
+\]
+ce qui donne la célèbre identité conditionnelle (souvent utilisée à l'examen, par ex. ULiège Juillet 2006 Q2 et Septembre 2009 Q1) :
+\begin{align*}
+    \boxed{\tan A + \tan B + \tan C = \tan A \tan B \tan C} \\[4pt]
+    \text{et, en divisant par } \tan A \tan B \tan C : \qquad \boxed{\cot A \cot B + \cot B \cot C + \cot C \cot A = 1}.
+\end{align*}
+\end{exemple}
+
+\subsection{Identités comportant des fonctions réciproques ($\arcsin, \arccos, \arctan$)}
+
+Lorsqu'on doit calculer ou démontrer une relation du type $\alpha + \beta = \gamma$ où $\alpha, \beta$ sont des $\arcsin$, $\arccos$ ou $\arctan$, la méthode comporte \textbf{deux étapes obligatoires} :
+\begin{enumerate}
+    \item Calculer un nombre trigonométrique de $\alpha + \beta$ (par exemple $\tan(\alpha+\beta)$ ou $\sin(\alpha+\beta)$) à l'aide des formules d'addition.
+    \item \textbf{Encadrer soigneusement l'angle $\alpha + \beta$} à partir des intervalles de définition de $\alpha$ et $\beta$ afin de déterminer à quel multiple de $\pi$ ou $2\pi$ près se situe la valeur exacte !
+\end{enumerate}
+
+\begin{exemple}[Calculs avec $\arctan$ et $\arcsin$ : UCLouvain -- Juillet 2024 Q3e et Septembre 2023 Q3e]
+\textbf{1) Calculer $\arctan(2) - \arctan(-3)$ (UCLouvain, Juillet 2024, Q3e) :}\\
+\emph{Résolution :} Posons $\alpha = \arctan(2)$ et $\beta = \arctan(-3) = -\arctan(3)$.
+\begin{itemize}
+    \item \emph{Étape 1 (Formule d'addition) :} Comme $\tan\alpha = 2$ et $\tan\beta = -3$, on a :
+    \[
+        \tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta} = \frac{2 - (-3)}{1 + 2(-3)} = \frac{5}{-5} = -1.
+    \]
+    Donc $\alpha - \beta = -\frac{\pi}{4} + k\pi$ pour un certain entier $k \in \Z$.
+    \item \emph{Étape 2 (Encadrement de l'angle) :} Comme $2 > 1$, on a $\alpha = \arctan(2) \in \left]\frac{\pi}{4}, \frac{\pi}{2}\right[$. Comme $-3 < -1$, on a $\beta = \arctan(-3) \in \left]-\frac{\pi}{2}, -\frac{\pi}{4}\right[$, soit $-\beta \in \left]\frac{\pi}{4}, \frac{\pi}{2}\right[$. En sommant ces deux encadrements :
+    \[
+        \frac{\pi}{2} < \alpha - \beta < \pi.
+    \]
+    L'unique angle de la famille $-\frac{\pi}{4} + k\pi$ appartenant à $\left]\frac{\pi}{2}, \pi\right[$ correspond à $k=1$, soit :
+    \[
+        \arctan(2) - \arctan(-3) = -\frac{\pi}{4} + \pi = \boxed{\frac{3\pi}{4}}.
+    \]
+\end{itemize}
+
+\medskip
+\textbf{2) Calculer $12\sin\left(\arcsin\left(\frac{1}{4}\right) + \arcsin\left(\frac{1}{3}\right)\right)$ (UCLouvain, Septembre 2023, Q3e) :}\\
+\emph{Résolution :} Posons $\alpha = \arcsin\left(\frac{1}{4}\right)$ et $\beta = \arcsin\left(\frac{1}{3}\right)$. On a $\sin\alpha = \frac{1}{4}$, $\cos\alpha = \sqrt{1 - \frac{1}{16}} = \frac{\sqrt{15}}{4}$, $\sin\beta = \frac{1}{3}$ et $\cos\beta = \sqrt{1 - \frac{1}{9}} = \frac{\sqrt{8}}{3} = \frac{2\sqrt{2}}{3}$. Par la formule d'addition du sinus :
+\[
+    12\sin(\alpha + \beta) = 12\bigl(\sin\alpha\cos\beta + \cos\alpha\sin\beta\bigr) = 12\left(\frac{1}{4}\cdot\frac{2\sqrt{2}}{3} + \frac{\sqrt{15}}{4}\cdot\frac{1}{3}\right) = \boxed{2\sqrt{2} + \sqrt{15}}.
+\]
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 2}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 2.\arabic* --}]
+    \item \textbf{(UCLouvain -- Juillet 2022, Q3f et Juillet 2023, Q3d)} En utilisant les formules de Simpson (ou de Werner), calculez la valeur exacte de :
+    \[
+        E = \sin(70\degree)\cos(50\degree) + \sin(260\degree)\cos(280\degree).
+    \]
+
+    \item \textbf{(UCLouvain -- Septembre 2022, Q3a et Q3b)} Calculez la valeur exacte des deux sommes suivantes :
+    \[
+        S_1 = \sin(50\degree) + \sin(10\degree) - \sin(70\degree) \qquad \text{et} \qquad S_2 = \cos\left(\frac{\pi}{9}\right) + \cos\left(\frac{5\pi}{9}\right) + \cos\left(\frac{7\pi}{9}\right).
+    \]
+
+    \item \textbf{(UCLouvain -- Septembre 2022, Q3d et Juillet 2024, Q3b)}
+    \begin{enumerate}
+        \item Si $\cos x = \frac{1}{3}$ et que $0 < x < \pi$, que vaut exactement $7 \times \tan(2x)$ ?
+        \item Sachant que $\tan(10\degree) \simeq \frac{9}{50}$, donnez la valeur correspondante de $\sin(20\degree)$ sous forme d'une fraction irréductible.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2024, Q3a, Q3b et Q3d)}
+    \begin{enumerate}
+        \item Sachant que $\sin(x) = \dfrac{\sqrt{5}-1}{4}$ (qui est la valeur exacte de $\sin(18\degree) = \sin\frac{\pi}{10}$), calculez la valeur exacte de $\cos(4x) + \dfrac{1}{4}$.
+        \item Sachant que $\cos(36\degree) = \dfrac{1+\sqrt{5}}{4}$, simplifiez au maximum l'expression :
+        \[
+            E(x) = \sin(36\degree + x) - \sin(36\degree - x) + \sin(72\degree - x) - \sin(72\degree + x).
+        \]
+        \item Calculez la valeur exacte de $4 - \sqrt{2}(\sqrt{3}-1)\tan\left(\dfrac{\pi}{24}\right)$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2021, Q3d et Septembre 2023, Q3d)} Calculez la valeur exacte des produits suivants :
+    \begin{align*}
+        P_1 &= \sin\left(\frac{\pi}{24}\right)\sin\left(\frac{5\pi}{24}\right)\sin\left(\frac{7\pi}{24}\right)\sin\left(\frac{11\pi}{24}\right), \\
+        P_2 &= \sin\left(\frac{\pi}{9}\right)\sin\left(\frac{2\pi}{9}\right)\sin\left(\frac{3\pi}{9}\right)\sin\left(\frac{4\pi}{9}\right).
+    \end{align*}
+
+    \item \textbf{(UCLouvain -- Juillet 2021, Q3e)} Sachant que $\tan(x) + \tan(y) + \tan(x)\tan(y) = 1$, que vaut l'angle $(x+y) \in [0, \pi]$ exprimé en radians ?
+
+    \item \textbf{(ULiège -- Juillet 2002 Q1b, Juillet 2003 Q1 et Juillet 2004 Q1)} Démontrer les identités suivantes (en précisant les conditions d'existence pour les deux premières) :
+    \begin{enumerate}
+        \item $\dfrac{\sin(2x) + \sin(2y)}{\cos(2x) + \cos(2y)} = \tan(x+y)$
+        \item $\dfrac{1 - \cos(2a) + \sin(2a)}{1 + \cos(2a) + \sin(2a)} = \tan a$
+        \item $\sin^2 x + \sin^2\left(x + \dfrac{2\pi}{3}\right) + \sin^2\left(x - \dfrac{2\pi}{3}\right) = \dfrac{3}{2}$
+    \end{enumerate}
+
+    \item \textbf{(ULiège -- Septembre 2002 Q1 et Juillet 2010 Q4)}
+    \begin{enumerate}
+        \item Démontrer l'identité $\csc a = \cot\left(\dfrac{a}{2}\right) - \cot a$ (pour $a \neq k\pi$), et en déduire une expression simplifiée de la somme télescopique $\csc a + \csc(2a) + \csc(4a) + \csc(8a)$.
+        \item Calculer sans calculatrice la valeur exacte de $E = \tan 9\degree - \tan 27\degree - \tan 63\degree + \tan 81\degree$.
+    \end{enumerate}
+
+    \item \textbf{(Identités conditionnelles dans un triangle : ULiège -- Septembre 1999 Q2, Septembre 2004 Q1 et Juillet 2008 Q1)} Soient $A, B, C$ les trois angles d'un triangle ($A+B+C = \pi$).
+    \begin{enumerate}
+        \item Démontrer que $\sin A + \sin B + \sin C = 4\cos\left(\dfrac{A}{2}\right)\cos\left(\dfrac{B}{2}\right)\cos\left(\dfrac{C}{2}\right)$.
+        \item Démontrer que $\cos(2A) + \cos(2B) + \cos(2C) = -1 - 4\cos A \cos B \cos C$.
+        \item Démontrer que si les angles du triangle vérifient $\sin A = \dfrac{\sin B + \sin C}{\cos B + \cos C}$, alors le triangle $ABC$ est rectangle en $A$.
+    \end{enumerate}
+
+    \item \textbf{(Identité et réciproque : ULiège -- Septembre 1983 Q2 / Septembre 2010 Q3)}
+    \begin{enumerate}
+        \item Démontrer que si $a, b, c$ sont trois réels en progression arithmétique (c'est-à-dire $a = b-r$ et $c = b+r$), alors :
+        \[
+            \frac{\sin a + \sin b + \sin c}{\cos a + \cos b + \cos c} = \tan b.
+        \]
+        Pour quelles valeurs de la raison $r$ et de $b$ cette propriété est-elle en défaut ?
+        \item La réciproque est-elle toujours vraie ? Déterminer la condition exacte liant $a, b, c$.
+    \end{enumerate}
+\end{enumerate}

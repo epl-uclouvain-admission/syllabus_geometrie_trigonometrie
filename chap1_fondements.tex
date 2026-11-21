@@ -1,0 +1,601 @@
+% ============================================================================
+% CHAPITRE 1 : ANGLES, ARCS ET CERCLE TRIGONOMÉTRIQUE
+% ============================================================================
+\chapter{Angles, Arcs et Cercle Trigonométrique}
+
+Ce premier chapitre pose les bases indispensables de la trigonométrie : la mesure des angles orientés, la géométrie des arcs et secteurs circulaires, la définition rigoureuse des nombres trigonométriques sur le cercle de rayon unité, ainsi que les fonctions trigonométriques réciproques ($\arcsin$, $\arccos$, $\arctan$).
+
+% ----------------------------------------------------------------------------
+\section{Angles orientés et unités de mesure}
+% ----------------------------------------------------------------------------
+
+\subsection{Notion d'angle orienté}
+
+\begin{definition}[Angle orienté et sens trigonométrique]
+Un \textbf{angle orienté} de sommet $O$ est un couple ordonné de deux demi-droites de même origine, noté $([OA, [OB)$. La demi-droite $[OA$ est le \emph{premier côté} (ou côté origine) et $[OB$ est le \emph{second côté} (ou côté extrémité).
+
+Dans le plan, on distingue deux sens de rotation :
+\begin{itemize}
+    \item Le \textbf{sens positif} (ou \textbf{sens trigonométrique}) est le sens \emph{anti-horlogique} (contraire à celui des aiguilles d'une montre).
+    \item Le \textbf{sens négatif} est le sens \emph{horlogique} (celui des aiguilles d'une montre).
+\end{itemize}
+\end{definition}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    % Sens positif
+    \begin{scope}[shift={(0,0)}]
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (2.8,0);
+        \coordinate (B) at (1.5,2.2);
+        \draw[thick] (O) -- (A) node[pos=0.85, below] {$A$};
+        \draw[thick] (O) -- (B) node[pos=0.85, above left] {$B$};
+        \fill (O) circle (1.5pt) node[below left] {$O$};
+        \fill (2.3,0) circle (1.5pt);
+        \fill (1.25,1.83) circle (1.5pt);
+        \draw[->, thick, uclaccent] (1.1,0) arc (0:55.7:1.1);
+        \node[uclaccent, right] at (28:1.15) {$\alpha > 0$ (sens $+$)};
+    \end{scope}
+
+    % Sens négatif
+    \begin{scope}[shift={(6.5,0.8)}]
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (2.8,0);
+        \coordinate (B) at (1.6,-1.8);
+        \draw[thick] (O) -- (A) node[pos=0.85, above] {$A$};
+        \draw[thick] (O) -- (B) node[pos=0.85, below left] {$B$};
+        \fill (O) circle (1.5pt) node[above left] {$O$};
+        \fill (2.3,0) circle (1.5pt);
+        \fill (1.3,-1.46) circle (1.5pt);
+        \draw[->, thick, warnred] (1.1,0) arc (0:-48.4:1.1);
+        \node[warnred, right] at (-24:1.15) {$\beta < 0$ (sens $-$)};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+Rappelons trois angles particuliers fondamentaux :
+\begin{itemize}
+    \item L'\textbf{angle nul} a ses deux côtés superposés (amplitude $0$).
+    \item L'\textbf{angle plat} a ses deux côtés dans le prolongement opposé l'un de l'autre.
+    \item L'\textbf{angle droit} a une amplitude égale à la moitié de celle d'un angle plat.
+\end{itemize}
+
+\subsection{Le degré et le radian}
+
+On utilise deux unités principales pour mesurer l'amplitude d'un angle :
+
+\begin{enumerate}
+    \item \textbf{Le degré ($\degree$) :} C'est l'unité telle que l'angle plat mesure $180\degree$ (et le tour complet $360\degree$, l'angle droit $90\degree$).
+    \begin{itemize}
+        \item En écriture \emph{décimale} (DD), la partie fractionnaire est notée après la virgule : par exemple $3,25\degree$.
+        \item En écriture \emph{sexagésimale} (DMS : degrés, minutes, secondes), on subdivise le degré en $60$ minutes d'arc ($1\degree = 60'$) et la minute en $60$ secondes d'arc ($1' = 60''$). Ainsi :
+        \[
+            3\degree 15' = 3\degree + \frac{15}{60}\degree = 3,25\degree \qquad \text{et} \qquad 1\degree 15' = 1,25\degree = \frac{5}{4}\degree.
+        \]
+    \end{itemize}
+
+    \item \textbf{Le radian ($\text{rad}$) :} C'est l'unité naturelle et incontournable en mathématiques supérieures et en physique.
+\end{enumerate}
+
+\begin{definition}[Le radian]
+Le \textbf{radian} est l'amplitude d'un angle au centre d'un cercle qui intercepte sur la circonférence de ce cercle un arc de longueur égale à celle de son rayon $r$.
+\end{definition}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, >=Stealth]
+    \def\R{1.6}
+    \def\ang{57.2958} % 1 radian en degrés
+    \draw[thick] (0,0) circle (\R);
+    \draw[thick, uclblue] (0,0) -- (\R,0) node[midway, below] {$r$};
+    \draw[thick, uclblue] (0,0) -- (\ang:\R) node[midway, above left] {$r$};
+    \draw[very thick, warnred] (\R,0) arc (0:\ang:\R) node[midway, right=2pt] {arc $L = r$};
+    \draw[->, thick, uclaccent] (0.55,0) arc (0:\ang:0.55);
+    \node[uclaccent] at ({\ang/2}:0.85) {$1\text{ rad}$};
+    \fill (0,0) circle (1.2pt) node[below left] {$O$};
+\end{tikzpicture}
+\end{center}
+
+Puisque la circonférence complète d'un cercle de rayon $r$ vaut $2\pi r$, un tour complet ($360\degree$) correspond à $2\pi$ radians, et un angle plat ($180\degree$) correspond à $\pi$ radians.
+
+\begin{theoreme}[Conversion degrés $\leftrightarrow$ radians]
+La relation de proportionnalité fondamentale est :
+\[
+    \boxed{\pi \text{ radians} \longleftrightarrow 180\degree} \qquad \text{soit} \qquad 1\text{ rad} = \left(\frac{180}{\pi}\right)\degree \approx 57,3\degree \quad \text{et} \quad 1\degree = \frac{\pi}{180}\text{ rad}.
+\]
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+\textbf{Degrés} & $0\degree$ & $30\degree$ & $45\degree$ & $60\degree$ & $90\degree$ & $120\degree$ & $135\degree$ & $150\degree$ & $180\degree$ \\
+\midrule
+\textbf{Radians} & $0$ & $\dfrac{\pi}{6}$ & $\dfrac{\pi}{4}$ & $\dfrac{\pi}{3}$ & $\dfrac{\pi}{2}$ & $\dfrac{2\pi}{3}$ & $\dfrac{3\pi}{4}$ & $\dfrac{5\pi}{6}$ & $\pi$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theoreme}
+
+\begin{attention}[Règle d'or sur les unités]
+Lorsque l'amplitude d'un angle est exprimée sous forme de fraction ou de multiple de $\pi$, on omet l'abréviation « rad ». Surtout, \textbf{on ne mélange jamais les degrés et les radians dans une même expression} ! Ainsi, lors de la résolution d'une équation :
+\[
+    \text{On écrit : } x = \frac{\pi}{6} + 2k\pi \quad \text{(ou } x = 30\degree + k\cdot 360\degree\text{)}, \qquad \text{mais \textbf{JAMAIS} } \cancel{\textcolor{warnred}{x = 30\degree + 2k\pi}}.
+\]
+\end{attention}
+
+% ----------------------------------------------------------------------------
+\section{Longueur d'un arc, aire d'un secteur et corde}
+% ----------------------------------------------------------------------------
+
+Un cercle de rayon $R$ possède une circonférence (périmètre) $P = 2\pi R$ et une aire totale $A = \pi R^2$. Par simple règle de proportionnalité par rapport à un angle au centre $\theta$ exprimé \textbf{en radians} (sur un tour complet de $2\pi$ radians), on obtient les formules suivantes, très fréquemment utilisées à l'examen d'entrée.
+
+\begin{theoreme}[Arc, secteur, corde et segment circulaire]
+Soit un cercle de centre $O$ et de rayon $R$, et soit un angle au centre $AOB$ d'amplitude $\theta$ \textbf{exprimée en radians} ($0 \le \theta \le 2\pi$) :
+\begin{enumerate}
+    \item \textbf{Longueur de l'arc intercepté $\overset{\frown}{AB}$ :}
+    \[
+        \boxed{L = R\theta}
+    \]
+    \item \textbf{Aire du secteur circulaire $OAB$ :}
+    \[
+        \boxed{A_{\text{secteur}} = \frac{1}{2} R^2 \theta}
+    \]
+    \item \textbf{Longueur de la corde $\overline{AB}$ (pour $0 \le \theta \le \pi$) :} En traçant la bissectrice issue de $O$ qui coupe perpendiculairement $[AB]$ en son milieu $M$, on forme deux triangles rectangles d'angle $\theta/2$, d'où :
+    \[
+        \boxed{c = \overline{AB} = 2R\sin\left(\frac{\theta}{2}\right)}
+    \]
+    \item \textbf{Aire du segment circulaire (lunule entre la corde $[AB]$ et l'arc $\overset{\frown}{AB}$) :}
+    \[
+        \boxed{A_{\text{segment}} = A_{\text{secteur}} - A_{\triangle OAB} = \frac{1}{2}R^2\bigl(\theta - \sin\theta\bigr)}
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.25, >=Stealth]
+    \def\R{2.4}
+    \def\ang{64}
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (\R,0);
+    \coordinate (B) at (\ang:\R);
+    \coordinate (M) at ($(A)!0.5!(B)$);
+
+    % Aire du segment circulaire
+    \fill[uclaccent!20] (A) arc (0:\ang:\R) -- (A) -- cycle;
+    % Aire du triangle OAB
+    \fill[ucllightblue] (O) -- (A) -- (B) -- cycle;
+
+    \draw[thick, uclblue] (O) -- (A) node[midway, below] {$R$};
+    \draw[thick, uclblue] (O) -- (B) node[midway, above left] {$R$};
+    \draw[very thick, warnred] (A) arc (0:\ang:\R) node[midway, right=4pt] {$L = R\theta$};
+    \draw[thick, defgreen] (A) -- (B) node[midway, below left=-2pt] {$c = 2R\sin(\theta/2)$};
+    \draw[dashed, gray] (O) -- (M);
+
+    \draw[->, thick, uclblue] (0.65,0) arc (0:\ang:0.65);
+    \node[uclblue] at ({\ang/2}:0.88) {$\theta$};
+
+    \fill (O) circle (1.5pt) node[below left] {$O$};
+    \fill (A) circle (1.5pt) node[below right] {$A$};
+    \fill (B) circle (1.5pt) node[above] {$B$};
+    \node[uclaccent!80!black] at ({\ang/2}:2.05) {\footnotesize Segment};
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Application directe : UCLouvain -- Juillet 2025, Question 3c et Juillet 2026, Question 3a]
+\textbf{1) Aire d'un segment circulaire (UCLouvain, Juillet 2025, Q3c) :}\\
+\emph{Énoncé :} Considérons un triangle $OAB$ tel que $\overline{OA} = \overline{OB} = r$ et $\widehat{AOB} = \alpha$ (en radians). Déterminer l'aire de la région plane délimitée par le secteur circulaire de centre $O$, de rayon $r$ et d'angle $\alpha$, et le triangle $OAB$.\\
+\emph{Résolution :} L'aire du secteur circulaire vaut $A_{\text{secteur}} = \frac{1}{2}r^2\alpha$. L'aire du triangle isocèle $OAB$ vaut $A_{\triangle OAB} = \frac{1}{2}\overline{OA}\cdot\overline{OB}\sin\alpha = \frac{1}{2}r^2\sin\alpha$ (voir Chapitre 4). La différence vaut donc :
+\[
+    \text{Aire} = \frac{1}{2}r^2(\alpha - \sin\alpha).
+\]
+
+\medskip
+\textbf{2) Tangentes et arc majeur (UCLouvain, Juillet 2026, Q3a) :}\\
+\emph{Énoncé :} Soit $\mathcal{C}$ un cercle de centre $O$ et de rayon $R=1$, et $P$ un point extérieur à $\mathcal{C}$. Les deux tangentes à $\mathcal{C}$ issues de $P$ touchent le cercle en $A$ et $B$. La longueur du plus grand des deux arcs délimités par $A$ et $B$ vaut $\frac{4\pi}{3}$. Déterminer la longueur commune $\overline{PA} = \overline{PB}$.\\
+\emph{Résolution :} La circonférence totale du cercle de rayon $1$ vaut $2\pi$. Puisque l'arc majeur mesure $\frac{4\pi}{3}$, l'arc mineur $\overset{\frown}{AB}$ mesure $2\pi - \frac{4\pi}{3} = \frac{2\pi}{3}$. Comme $R=1$, l'angle au centre $\widehat{AOB}$ vaut $\theta = \frac{L}{R} = \frac{2\pi}{3}$.
+Par symétrie, la demi-droite $[OP)$ est bissectrice de $\widehat{AOB}$, donc $\widehat{AOP} = \frac{\theta}{2} = \frac{\pi}{3}$. De plus, la tangente $(PA)$ est perpendiculaire au rayon $[OA]$, de sorte que le triangle $OAP$ est rectangle en $A$. On en déduit :
+\[
+    \tan\left(\widehat{AOP}\right) = \frac{\overline{PA}}{\overline{OA}} \implies \overline{PA} = 1 \cdot \tan\left(\frac{\pi}{3}\right) = \sqrt{3}.
+\]
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Cercle trigonométrique et nombres trigonométriques}
+% ----------------------------------------------------------------------------
+
+\subsection{Le cercle trigonométrique et les quatre quadrants}
+
+\begin{definition}[Cercle trigonométrique et point-image]
+Dans le plan muni d'un repère orthonormé $(O; \vec{OI}, \vec{OJ})$, le \textbf{cercle trigonométrique} est le cercle centré à l'origine $O(0,0)$ et de rayon $R = 1$.
+\begin{itemize}
+    \item Un angle orienté $\alpha$ est \emph{rapporté au cercle trigonométrique} lorsque son sommet est $O$ et son premier côté est la demi-droite $[OI$ (axe horizontal positif, où $I(1,0)$ et $J(0,1)$).
+    \item Le \textbf{point-image} $P$ de l'angle $\alpha$ est l'unique point d'intersection du second côté de l'angle avec le cercle trigonométrique.
+\end{itemize}
+\end{definition}
+
+À chaque angle $\alpha$ correspond un unique point-image $P$, mais la réciproque est fausse : \textbf{tous les angles de la forme $\alpha + 2k\pi$ ($k \in \Z$) possèdent exactement le même point-image $P$} sur le cercle trigonométrique.
+
+Les axes de coordonnées divisent le cercle trigonométrique en quatre régions appelées \textbf{quadrants}, numérotées de $I$ à $IV$ dans le sens trigonométrique :
+\begin{itemize}
+    \item \textbf{Quadrant I :} $\alpha \in \left]0, \frac{\pi}{2}\right[$ (modulo $2\pi$) ; abscisse $>0$, ordonnée $>0$.
+    \item \textbf{Quadrant II :} $\alpha \in \left]\frac{\pi}{2}, \pi\right[$ (modulo $2\pi$) ; abscisse $<0$, ordonnée $>0$.
+    \item \textbf{Quadrant III :} $\alpha \in \left]\pi, \frac{3\pi}{2}\right[$ (modulo $2\pi$) ; abscisse $<0$, ordonnée $<0$.
+    \item \textbf{Quadrant IV :} $\alpha \in \left]\frac{3\pi}{2}, 2\pi\right[$ (ou $\left]-\frac{\pi}{2}, 0\right[$) ; abscisse $>0$, ordonnée $<0$.
+\end{itemize}
+
+\subsection{Sinus, cosinus, tangente, cotangente, sécante et cosécante}
+
+\begin{definition}[Nombres trigonométriques d'un angle orienté $\alpha$]
+Soit $P$ le point-image de l'angle orienté $\alpha$ sur le cercle trigonométrique :
+\begin{enumerate}
+    \item Le \textbf{cosinus} de $\alpha$, noté $\cos\alpha$, est l'\textbf{abscisse} du point $P$.
+    \item Le \textbf{sinus} de $\alpha$, noté $\sin\alpha$, est l'\textbf{ordonnée} du point $P$. Ainsi, $P = (\cos\alpha, \sin\alpha)$.
+    \item Soit $t$ la droite tangente au cercle au point $I(1,0)$ (d'équation $x=1$). Lorsque $\alpha \neq \frac{\pi}{2} + k\pi$ ($k\in\Z$), la droite $(OP)$ coupe $t$ en un point $T$ d'abscisse $1$ : la \textbf{tangente} de $\alpha$, notée $\tan\alpha$ (ou $\tg\alpha$), est l'\textbf{ordonnée} de $T$.
+    \item Soit $t'$ la droite tangente au cercle au point $J(0,1)$ (d'équation $y=1$). Lorsque $\alpha \neq k\pi$ ($k\in\Z$), la droite $(OP)$ coupe $t'$ en un point $T'$ d'ordonnée $1$ : la \textbf{cotangente} de $\alpha$, notée $\cot\alpha$ (ou $\cotg\alpha$), est l'\textbf{abscisse} de $T'$.
+\end{enumerate}
+\end{definition}
+
+\begin{center}
+\begin{tikzpicture}[scale=2.3, >=Stealth]
+    % Axes
+    \draw[->, thick, gray] (-1.3,0) -- (1.6,0) node[right, black] {$x$};
+    \draw[->, thick, gray] (0,-1.3) -- (0,1.5) node[above, black] {$y$};
+    \draw[thick, uclblue] (0,0) circle (1);
+
+    % Droites tangentes t et t'
+    \draw[thick, defgreen] (1,-1.25) -- (1,1.4) node[above] {$t$};
+    \draw[thick, purple] (-1.2,1) -- (1.55,1) node[right] {$t'$};
+
+    \def\ang{38}
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (\ang:1);
+    \coordinate (Px) at ({cos(\ang)},0);
+    \coordinate (Py) at (0,{sin(\ang)});
+    \coordinate (T) at (1,{tan(\ang)});
+    \coordinate (Tp) at ({1/tan(\ang)},1);
+
+    % Droite OP prolongée jusqu'à T'
+    \draw[thick, uclaccent] (O) -- (Tp);
+
+    % Angle
+    \fill[uclaccent!15] (0,0) -- (0.3,0) arc (0:\ang:0.3) -- cycle;
+    \draw[uclaccent, thick] (0.3,0) arc (0:\ang:0.3);
+    \node[uclaccent] at ({\ang/2}:0.42) {$\alpha$};
+
+    % Projections
+    \draw[dashed, gray] (P) -- (Px);
+    \draw[dashed, gray] (P) -- (Py);
+
+    % Segments colorés
+    \draw[very thick, exorange] (O) -- (Px) node[midway, below] {$\cos\alpha$};
+    \draw[very thick, warnred] (O) -- (Py) node[midway, left] {$\sin\alpha$};
+    \draw[very thick, defgreen] (1,0) -- (T) node[midway, right] {$\tan\alpha$};
+    \draw[very thick, purple] (0,1) -- (Tp) node[midway, above] {$\cot\alpha$};
+
+    % Points
+    \fill[uclblue] (P) circle (1.2pt) node[above left=-1pt] {$P$};
+    \fill[defgreen] (T) circle (1.2pt) node[right] {$T(1,\tan\alpha)$};
+    \fill[purple] (Tp) circle (1.2pt) node[above right] {$T'(\cot\alpha,1)$};
+    \fill (1,0) circle (1pt) node[below right] {$I(1,0)$};
+    \fill (0,1) circle (1pt) node[above left] {$J(0,1)$};
+    \fill (0,0) circle (1pt) node[below left] {$O$};
+\end{tikzpicture}
+\end{center}
+
+\begin{attention}[Abscisse et ordonnée vs longueur]
+Ne dites jamais que $\cos\alpha$, $\sin\alpha$, $\tan\alpha$ ou $\cot\alpha$ sont les « longueurs » des segments correspondants ! Une longueur géométrique est toujours positive ou nulle, tandis qu'un nombre trigonométrique est une \textbf{coordonnée algébrique} (abscisse ou ordonnée) qui peut être \textbf{négative} selon le quadrant où se situe le point-image $P$.
+\end{attention}
+
+\subsection{Propriétés, signes et relations fondamentales}
+
+Par théorème de Thalès dans les triangles semblables $OP'P$, $OIT$ et $OJT'$, et par le théorème de Pythagore appliqué au triangle rectangle $OP'P$ d'hypoténuse $\overline{OP} = 1$, on établit immédiatement toutes les relations fondamentales :
+
+\begin{theoreme}[Relations fondamentales et conditions d'existence]
+Pour tout angle orienté $\alpha \in \R$ :
+\begin{enumerate}
+    \item \textbf{Bornes du sinus et du cosinus :}
+    \[
+        \boxed{-1 \le \cos\alpha \le 1 \qquad \text{et} \qquad -1 \le \sin\alpha \le 1}
+    \]
+    \item \textbf{Relation fondamentale de la trigonométrie (Pythagore sur le cercle unité) :}
+    \[
+        \boxed{\cos^2\alpha + \sin^2\alpha = 1}
+    \]
+    \item \textbf{Expressions de la tangente et de la cotangente :}
+    \begin{align*}
+        \boxed{\tan\alpha = \frac{\sin\alpha}{\cos\alpha} \quad \left(\forall \alpha \neq \frac{\pi}{2} + k\pi,\; k\in\Z\right)} \\[4pt]
+        \boxed{\cot\alpha = \frac{\cos\alpha}{\sin\alpha} = \frac{1}{\tan\alpha} \quad \left(\forall \alpha \neq k\pi,\; k\in\Z\right)}
+    \end{align*}
+    \item \textbf{Identités dérivées (obtenues en divisant $\cos^2\alpha + \sin^2\alpha = 1$ par $\cos^2\alpha$ ou $\sin^2\alpha$) :}
+    \[
+        \boxed{1 + \tan^2\alpha = \frac{1}{\cos^2\alpha} \quad \left(\alpha \neq \frac{\pi}{2}+k\pi\right)}
+        \quad \text{et} \quad
+        \boxed{1 + \cot^2\alpha = \frac{1}{\sin^2\alpha} \quad \left(\alpha \neq k\pi\right)}
+    \]
+\end{enumerate}
+\end{theoreme}
+
+À titre de complément (ces notations apparaissent parfois dans certains énoncés), on définit aussi la \textbf{sécante} et la \textbf{cosécante} comme les inverses respectifs du cosinus et du sinus :
+\[
+    \sec\alpha = \frac{1}{\cos\alpha} \quad \left(\alpha \neq \frac{\pi}{2}+k\pi\right)
+    \qquad \text{et} \qquad
+    \csc\alpha \text{ (ou } \cosec\alpha\text{)} = \frac{1}{\sin\alpha} \quad \left(\alpha \neq k\pi\right).
+\]
+
+Le tableau suivant résume le signe des nombres trigonométriques dans chacun des quatre quadrants ainsi que leurs valeurs aux frontières :
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\small
+\begin{tabular}{@{}cccccccccc@{}}
+\toprule
+$\alpha$ ($\degree$) & $0\degree$ & \textit{Quad. I} & $90\degree$ & \textit{Quad. II} & $180\degree$ & \textit{Quad. III} & $270\degree$ & \textit{Quad. IV} & $360\degree$ \\
+$\alpha$ (rad) & $0$ & $\left]0, \frac{\pi}{2}\right[$ & $\dfrac{\pi}{2}$ & $\left]\frac{\pi}{2}, \pi\right[$ & $\pi$ & $\left]\pi, \frac{3\pi}{2}\right[$ & $\dfrac{3\pi}{2}$ & $\left]\frac{3\pi}{2}, 2\pi\right[$ & $2\pi$ \\
+\midrule
+$\sin\alpha$ & $0$ & $+$ & $1$ & $+$ & $0$ & $-$ & $-1$ & $-$ & $0$ \\
+$\cos\alpha$ & $1$ & $+$ & $0$ & $-$ & $-1$ & $-$ & $0$ & $+$ & $1$ \\
+$\tan\alpha$ & $0$ & $+$ & $\nexists$ & $-$ & $0$ & $+$ & $\nexists$ & $-$ & $0$ \\
+$\cot\alpha$ & $\nexists$ & $+$ & $0$ & $-$ & $\nexists$ & $+$ & $0$ & $-$ & $\nexists$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ----------------------------------------------------------------------------
+\section{Angles remarquables et angles associés}
+% ----------------------------------------------------------------------------
+
+\subsection{Valeurs des angles remarquables}
+
+L'examen d'entrée se déroulant \textbf{sans calculatrice}, la connaissance instantanée des valeurs trigonométriques des angles remarquables du premier quadrant est indispensable.
+
+\begin{theoreme}[Tableau des angles remarquables]
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+\textbf{Angle $\alpha$ (degrés)} & $0\degree$ & $30\degree$ & $45\degree$ & $60\degree$ & $90\degree$ \\
+\textbf{Angle $\alpha$ (radians)} & $0$ & $\dfrac{\pi}{6}$ & $\dfrac{\pi}{4}$ & $\dfrac{\pi}{3}$ & $\dfrac{\pi}{2}$ \\
+\midrule
+$\sin\alpha$ & $0 = \dfrac{\sqrt{0}}{2}$ & $\dfrac{1}{2} = \dfrac{\sqrt{1}}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{\sqrt{3}}{2}$ & $1 = \dfrac{\sqrt{4}}{2}$ \\
+$\cos\alpha$ & $1 = \dfrac{\sqrt{4}}{2}$ & $\dfrac{\sqrt{3}}{2}$ & $\dfrac{\sqrt{2}}{2}$ & $\dfrac{1}{2} = \dfrac{\sqrt{1}}{2}$ & $0 = \dfrac{\sqrt{0}}{2}$ \\
+$\tan\alpha = \dfrac{\sin\alpha}{\cos\alpha}$ & $0$ & $\dfrac{\sqrt{3}}{3} = \dfrac{1}{\sqrt{3}}$ & $1$ & $\sqrt{3}$ & $\nexists$ \\
+$\cot\alpha = \dfrac{\cos\alpha}{\sin\alpha}$ & $\nexists$ & $\sqrt{3}$ & $1$ & $\dfrac{\sqrt{3}}{3} = \dfrac{1}{\sqrt{3}}$ & $0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theoreme}
+
+\begin{astuce}[Comment ne jamais hésiter sur le tableau des valeurs remarquables]
+\begin{itemize}
+    \item Pour la ligne $\sin\alpha$ de $0$ à $\frac{\pi}{2}$, il suffit de compter de $0$ à $4$ sous la racine divisée par $2$ : $\frac{\sqrt{0}}{2}, \frac{\sqrt{1}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}, \frac{\sqrt{4}}{2}$.
+    \item Pour $\cos\alpha$, on lit la même suite en sens inverse (de $\frac{\sqrt{4}}{2}$ à $\frac{\sqrt{0}}{2}$).
+    \item Pour $\tan\alpha$, inutile d'apprendre par cœur : on divise mentalement $\sin\alpha$ par $\cos\alpha$ (les dénominateurs $2$ se simplifient !). Par exemple, $\tan\frac{\pi}{6} = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}$.
+    \item Géométriquement : les valeurs de $\frac{\pi}{4}$ ($45\degree$) proviennent d'un demi-carré de côté $1$ (diagonale $\sqrt{2}$), et celles de $\frac{\pi}{6}$ ($30\degree$) et $\frac{\pi}{3}$ ($60\degree$) proviennent d'un demi-triangle équilatéral de côté $1$ (hauteur $\frac{\sqrt{3}}{2}$).
+\end{itemize}
+\end{astuce}
+
+\subsection{Angles associés sur le cercle trigonométrique}
+
+Les \textbf{angles associés} à un angle $\alpha$ permettent de ramener le calcul des nombres trigonométriques de n'importe quel quadrant au premier quadrant. Au lieu de les mémoriser mécaniquement, visualisez toujours la symétrie du point-image sur le cercle trigonométrique (en imaginant $\alpha$ petit dans le premier quadrant, par exemple $\alpha \approx 30\degree$) !
+
+\begin{theoreme}[Formules des angles associés]
+\begin{enumerate}
+    \item \textbf{Angles opposés ($\alpha$ et $-\alpha$, symétrie par rapport à l'axe $Ox$) :}
+    \[
+        \cos(-\alpha) = \cos\alpha, \quad \sin(-\alpha) = -\sin\alpha, \quad \tan(-\alpha) = -\tan\alpha, \quad \cot(-\alpha) = -\cot\alpha.
+    \]
+    \item \textbf{Angles supplémentaires ($\alpha$ et $\pi - \alpha$, symétrie par rapport à l'axe $Oy$) :}
+    \[
+        \cos(\pi-\alpha) = -\cos\alpha, \quad \sin(\pi-\alpha) = \sin\alpha, \quad \tan(\pi-\alpha) = -\tan\alpha, \quad \cot(\pi-\alpha) = -\cot\alpha.
+    \]
+    \item \textbf{Angles antisupplémentaires ($\alpha$ et $\pi + \alpha$, symétrie centrale par rapport à $O$) :}
+    \[
+        \cos(\pi+\alpha) = -\cos\alpha, \quad \sin(\pi+\alpha) = -\sin\alpha, \quad \tan(\pi+\alpha) = \tan\alpha, \quad \cot(\pi+\alpha) = \cot\alpha.
+    \]
+    \item \textbf{Angles complémentaires ($\alpha$ et $\frac{\pi}{2} - \alpha$, symétrie par rapport à la bissectrice $y=x$) :}
+    \[
+        \cos\left(\frac{\pi}{2}-\alpha\right) = \sin\alpha, \quad \sin\left(\frac{\pi}{2}-\alpha\right) = \cos\alpha, \quad \tan\left(\frac{\pi}{2}-\alpha\right) = \cot\alpha, \quad \cot\left(\frac{\pi}{2}-\alpha\right) = \tan\alpha.
+    \]
+    \item \textbf{Angles anticomplémentaires ($\alpha$ et $\frac{\pi}{2} + \alpha$, rotation d'un quart de tour $+\frac{\pi}{2}$) :}
+    \[
+        \cos\left(\frac{\pi}{2}+\alpha\right) = -\sin\alpha, \quad \sin\left(\frac{\pi}{2}+\alpha\right) = \cos\alpha, \quad \tan\left(\frac{\pi}{2}+\alpha\right) = -\cot\alpha, \quad \cot\left(\frac{\pi}{2}+\alpha\right) = -\tan\alpha.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.65, >=Stealth]
+    % Figure 1 : Opposés, supplémentaires, antisupplémentaires
+    \begin{scope}[shift={(0,0)}]
+        \draw[->, gray] (-1.3,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.3) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, uclblue] (0,0) circle (1);
+        \def\a{32}
+        \coordinate (P1) at (\a:1);
+        \coordinate (P2) at ({180-\a}:1);
+        \coordinate (P3) at ({180+\a}:1);
+        \coordinate (P4) at ({-\a}:1);
+
+        \draw[dashed, gray] (P1) -- (P2) -- (P3) -- (P4) -- cycle;
+        \draw[thick, uclaccent] (0,0) -- (P1) node[above right] {\small $\alpha$};
+        \draw[thick, defgreen] (0,0) -- (P2) node[above left] {\small $\pi-\alpha$};
+        \draw[thick, exorange] (0,0) -- (P3) node[below left] {\small $\pi+\alpha$};
+        \draw[thick, warnred] (0,0) -- (P4) node[below right] {\small $-\alpha$};
+
+        \fill[uclaccent] (P1) circle (1.3pt);
+        \fill[defgreen] (P2) circle (1.3pt);
+        \fill[exorange] (P3) circle (1.3pt);
+        \fill[warnred] (P4) circle (1.3pt);
+        \node[below, align=center] at (0,-1.45) {\small \textbf{(a)} Symétries par rapport\\[-2pt]\small aux axes et à $O$};
+    \end{scope}
+
+    % Figure 2 : Complémentaires et anticomplémentaires
+    \begin{scope}[shift={(4.8,0)}]
+        \draw[->, gray] (-1.3,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.3) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, uclblue] (0,0) circle (1);
+        \draw[dashed, gray!70] (-0.9,-0.9) -- (1.05,1.05) node[above right] {\tiny $y=x$};
+        \def\a{25}
+        \coordinate (P1) at (\a:1);
+        \coordinate (P2) at ({90-\a}:1);
+        \coordinate (P3) at ({90+\a}:1);
+
+        \draw[thick, uclaccent] (0,0) -- (P1) node[above right] {\small $\alpha$};
+        \draw[thick, defgreen] (0,0) -- (P2) node[above right] {\small $\frac{\pi}{2}-\alpha$};
+        \draw[thick, warnred] (0,0) -- (P3) node[above left] {\small $\frac{\pi}{2}+\alpha$};
+
+        \draw[dashed, uclaccent] (P1) -- ({cos(\a)},0);
+        \draw[dashed, defgreen] (P2) -- (0,{sin(90-\a)});
+
+        \fill[uclaccent] (P1) circle (1.3pt);
+        \fill[defgreen] (P2) circle (1.3pt);
+        \fill[warnred] (P3) circle (1.3pt);
+        \node[below, align=center] at (0,-1.45) {\small \textbf{(b)} Angles complémentaires\\[-2pt]\small et anticomplémentaires};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Calcul avec un grand angle : UCLouvain -- Septembre 2023, Question 3b]
+\emph{Énoncé :} Calculez la valeur exacte de $\sin\left(\frac{28\pi}{6}\right)$.\\
+\emph{Résolution :} On simplifie d'abord la fraction : $\frac{28\pi}{6} = \frac{14\pi}{3}$. On extrait ensuite le plus grand multiple pair de $\pi$ (c'est-à-dire les tours complets $2k\pi$) :
+\[
+    \frac{14\pi}{3} = \frac{12\pi + 2\pi}{3} = 4\pi + \frac{2\pi}{3}.
+\]
+Par périodicité de période $2\pi$, puis par propriété des angles supplémentaires ($\frac{2\pi}{3} = \pi - \frac{\pi}{3}$) :
+\[
+    \sin\left(\frac{28\pi}{6}\right) = \sin\left(\frac{2\pi}{3}\right) = \sin\left(\pi - \frac{\pi}{3}\right) = \sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}.
+\]
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Fonctions trigonométriques et fonctions réciproques}
+% ----------------------------------------------------------------------------
+
+\subsection{Graphes et périodicité des fonctions trigonométriques}
+
+En associant à tout réel $x \in \R$ (interprété comme une mesure d'angle en radians) son sinus, son cosinus ou sa tangente, on définit les fonctions trigonométriques :
+\begin{itemize}
+    \item $f(x) = \sin x$ : définie sur $\R$, à valeurs dans $[-1, 1]$, \textbf{impaire} ($\sin(-x) = -\sin x$) et \textbf{périodique de période $2\pi$} ($\sin(x+2\pi) = \sin x$).
+    \item $g(x) = \cos x$ : définie sur $\R$, à valeurs dans $[-1, 1]$, \textbf{paire} ($\cos(-x) = \cos x$) et \textbf{périodique de période $2\pi$} ($\cos(x+2\pi) = \cos x$).
+    \item $h(x) = \tan x$ : définie sur $\R \setminus \left\{\frac{\pi}{2} + k\pi \mid k \in \Z\right\}$, à valeurs dans $\R$, \textbf{impaire} ($\tan(-x) = -\tan x$) et \textbf{périodique de période $\pi$} ($\tan(x+\pi) = \tan x$).
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=14cm, height=5.5cm,
+    axis lines=middle,
+    xmin=-6.6, xmax=6.6,
+    ymin=-1.4, ymax=1.4,
+    xtick={-6.283,-4.712,-3.1415,-1.5708,0,1.5708,3.1415,4.712,6.283},
+    xticklabels={$-2\pi$,$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,$0$,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1,1},
+    grid=both,
+    grid style={gray!20},
+    samples=200,
+    legend style={at={(0.98,0.98)},anchor=north east,font=\small}
+]
+    \addplot[thick, uclblue, domain=-6.4:6.4] {sin(deg(x))};
+    \addlegendentry{$\sin(x)$}
+    \addplot[thick, warnred, dashed, domain=-6.4:6.4] {cos(deg(x))};
+    \addlegendentry{$\cos(x)$}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Fonctions réciproques : $\arcsin$, $\arccos$, $\arctan$}
+
+Comme les fonctions $\sin$, $\cos$ et $\tan$ sont périodiques, elles ne sont pas injectives sur leur domaine complet. Pour définir leurs \textbf{fonctions réciproques} (ou fonctions cyclométriques), on restreint chacune d'elles à un intervalle standard où elle est strictement monotone et bijective :
+
+\begin{definition}[Définition et domaine des fonctions $\arcsin$, $\arccos$ et $\arctan$]
+\begin{enumerate}
+    \item \textbf{Arcsinus :} Pour tout $x \in [-1, 1]$, $\arcsin(x)$ est \textbf{l'unique angle $\theta \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$} (quadrants IV et I) tel que $\sin\theta = x$ :
+    \[
+        y = \arcsin(x) \iff \sin(y) = x \quad \text{avec } x \in [-1, 1] \text{ et } y \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right].
+    \]
+    \item \textbf{Arccosinus :} Pour tout $x \in [-1, 1]$, $\arccos(x)$ est \textbf{l'unique angle $\theta \in [0, \pi]$} (quadrants I et II) tel que $\cos\theta = x$ :
+    \[
+        y = \arccos(x) \iff \cos(y) = x \quad \text{avec } x \in [-1, 1] \text{ et } y \in [0, \pi].
+    \]
+    \item \textbf{Arctangente :} Pour tout $x \in \R$, $\arctan(x)$ est \textbf{l'unique angle $\theta \in \left]-\frac{\pi}{2}, \frac{\pi}{2}\right[$} (quadrants IV et I ouverts) tel que $\tan\theta = x$ :
+    \[
+        y = \arctan(x) \iff \tan(y) = x \quad \text{avec } x \in \R \text{ et } y \in \left]-\frac{\pi}{2}, \frac{\pi}{2}\right[.
+    \]
+\end{enumerate}
+\end{definition}
+
+\begin{theoreme}[Identités classiques sur les fonctions réciproques]
+\begin{itemize}
+    \item \textbf{Parité :} $\arcsin(-x) = -\arcsin(x)$, $\arctan(-x) = -\arctan(x)$, mais $\arccos(-x) = \pi - \arccos(x)$.
+    \item \textbf{Angles complémentaires :} Pour tout $x \in [-1, 1]$, $\arcsin(x) + \arccos(x) = \dfrac{\pi}{2}$, et pour $x > 0$, $\arctan(x) + \arctan\left(\frac{1}{x}\right) = \dfrac{\pi}{2}$.
+    \item \textbf{Composition d'une fonction trigonométrique et d'une fonction réciproque :} Pour tout $x \in [-1, 1]$, en posant $\theta = \arcsin(x) \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$, on a $\cos\theta \ge 0$, donc $\cos\theta = +\sqrt{1-\sin^2\theta} = \sqrt{1-x^2}$. De même pour $\arccos(x) \in [0, \pi]$ où $\sin\theta \ge 0$ :
+    \[
+        \boxed{\cos\bigl(\arcsin(x)\bigr) = \sqrt{1 - x^2}} \qquad \text{et} \qquad \boxed{\sin\bigl(\arccos(x)\bigr) = \sqrt{1 - x^2}} \qquad (\forall x \in [-1, 1]).
+    \]
+\end{itemize}
+\end{theoreme}
+
+\begin{astuce}[L'astuce du triangle rectangle pour simplifier $\cos(\arcsin x)$, $\sin(\arctan x)$, etc.]
+Pour simplifier une expression du type $\cos(\arcsin u)$ ou $\sin(\arctan u)$ (lorsque $u > 0$), dessinez un petit \textbf{triangle rectangle} d'angle aigu $\theta$ :
+\begin{itemize}
+    \item Si $\theta = \arcsin(u) = \arcsin\left(\frac{u}{1}\right)$, placez le côté opposé égal à $u$ et l'hypoténuse égale à $1$. Par Pythagore, le côté adjacent vaut $\sqrt{1-u^2}$, donc $\cos\theta = \frac{\text{adjacent}}{\text{hypoténuse}} = \sqrt{1-u^2}$.
+    \item Si $\theta = \arctan(u) = \arctan\left(\frac{u}{1}\right)$, placez le côté opposé égal à $u$ et l'adjacent égal à $1$. L'hypoténuse vaut $\sqrt{1+u^2}$, d'où $\cos(\arctan u) = \frac{1}{\sqrt{1+u^2}}$ et $\sin(\arctan u) = \frac{u}{\sqrt{1+u^2}}$.
+\end{itemize}
+\end{astuce}
+
+\begin{exemple}[Questions d'examen UCLouvain sur les fonctions réciproques]
+\textbf{1) UCLouvain -- Septembre 2025, Question 1b (et Septembre 2023, Question 3c) :}\\
+\emph{Énoncé :} Simplifier $\cos(\arcsin(x))$ (Septembre 2025) et $\cos(\arcsin(x^{2023}))$ pour $|x| \le 1$ (Septembre 2023) afin qu'il n'apparaisse plus de fonction trigonométrique.\\
+\emph{Résolution :} Soit $\theta = \arcsin(u)$ avec $u \in [-1, 1]$. Par définition, $\sin\theta = u$ et $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$. Sur cet intervalle, le cosinus est toujours positif ou nul ($\cos\theta \ge 0$). La relation fondamentale $\cos^2\theta + \sin^2\theta = 1$ donne donc :
+\[
+    \cos(\arcsin(x)) = \sqrt{1 - x^2} \quad \text{et, pour } u = x^{2023} : \quad \cos\bigl(\arcsin(x^{2023})\bigr) = \sqrt{1 - (x^{2023})^2} = \sqrt{1 - x^{4046}}.
+\]
+
+\medskip
+\textbf{2) UCLouvain -- Mini-Blocus 2026, Question 1d :}\\
+\emph{Énoncé :} Simplifier $\arcsin(\cos(2x))$ (pour $2x \in [0, \pi]$).\\
+\emph{Résolution :} Par la relation des angles complémentaires, $\cos(2x) = \sin\left(\frac{\pi}{2} - 2x\right)$. Lorsque $2x \in [0, \pi]$, l'angle $\frac{\pi}{2} - 2x$ appartient bien à l'intervalle image $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ de la fonction $\arcsin$. Dès lors :
+\[
+    \arcsin\bigl(\cos(2x)\bigr) = \arcsin\left(\sin\left(\frac{\pi}{2} - 2x\right)\right) = \frac{\pi}{2} - 2x.
+\]
+\emph{Remarque :} Si $2x$ n'appartient pas à $[0, \pi]$, il faut d'abord ramener l'angle dans $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ par périodicité et supplémentarité car $\arcsin(\sin\alpha)$ vaut toujours l'unique représentant dans $\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ ayant le même sinus que $\alpha$.
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 1}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 1.\arabic* --}]
+    \item \textbf{(Inspiré d'ULiège -- La rosace hexagonale)} On considère une rosace tracée à l'intérieur d'un cercle de rayon $R = 3\text{ cm}$, dont les six pétales relient les sommets $A, B, C, D, E, F$ d'un hexagone régulier inscrit dans ce cercle (chaque arc de la rosace est centré sur un des sommets de l'hexagone et passe par le centre $O$ du cercle et les deux sommets voisins).
+    \begin{enumerate}
+        \item Calculer la longueur du plus petit arc $\overset{\frown}{AB}$ sur le cercle extérieur.
+        \item Calculer la longueur totale des arcs formant les six pétales de la rosace.
+        \item Calculer l'aire totale des six pétales de la rosace.
+    \end{enumerate}
+
+    \item \textbf{(Inspiré d'ULiège -- Mesure du rayon de la Terre par Ératosthène)} Vers 240 av. J.-C., Ératosthène savait qu'au solstice d'été à midi, le Soleil éclairait le fond des puits à Syène (à la verticale), tandis qu'à Alexandrie, située sur le même méridien à $800\text{ km}$ au nord de Syène, un obélisque vertical de $1\text{ m}$ de haut projetait une ombre de $12,6\text{ cm}$. En approximant l'angle en radians par sa tangente pour un petit angle, estimer le rayon terrestre $R$.
+
+    \item \textbf{(UCLouvain -- Mini-Blocus 2026, Q1b)} Dans un cercle de rayon $5\text{ cm}$, une corde est située à une distance de $3\text{ cm}$ du centre. Calculez exactement la longueur $L$ de cette corde.
+
+    \item \textbf{(Inspiré d'ULiège -- Simplifications et identités fondamentales)} Démontrer les identités suivantes en précisant leurs conditions d'existence :
+    \begin{enumerate}
+        \item $\tan x + \cot x = \dfrac{1}{\sin x \cos x}$
+        \item $\dfrac{\tan x}{1 + \tan^2 x} = \sin x \cos x$
+        \item $\sin^4 x - \cos^4 x = 1 - 2\cos^2 x = 2\sin^2 x - 1$
+        \item $\sin^6 x + \cos^6 x = 1 - 3\sin^2 x \cos^2 x$
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q3a)} Soit $ABC$ un triangle rectangle. On note $\alpha, \beta$ et $\gamma$ les angles aux sommets $A, B$ et $C$. Calculez la valeur exacte de :
+    \[
+        \sin^2(\alpha) + \sin^2(\beta) + \sin^2(\gamma).
+    \]
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q3d)} Si l'on suppose que $\sin(x) + \cos(x) = \dfrac{\sqrt{2}}{3}$ et que $\dfrac{\pi}{2} < x < \pi$, que vaut exactement $\sin(x) - \cos(x)$ ?
+
+    \item \textbf{(Angles associés et réduction)} Simplifier au maximum l'expression suivante pour tout $x \in \R$ :
+    \[
+        E(x) = \cos(\pi - x) + \sin\left(\frac{\pi}{2} + x\right) + \cos(3\pi + x) - \sin\left(\frac{3\pi}{2} - x\right).
+    \]
+
+    \item \textbf{(UCLouvain -- Juillet 2026, Q3d)} Si $\sin(\theta) = x$ avec $-\dfrac{\pi}{2} \le \theta \le \dfrac{\pi}{2}$, exprimez $\sin(2\theta) = 2\sin\theta\cos\theta$ en fonction de $x$ uniquement (sans fonction trigonométrique).
+\end{enumerate}

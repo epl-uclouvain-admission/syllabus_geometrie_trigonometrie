@@ -1,0 +1,51 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          args: -pdf -interaction=nonstopmode -file-line-error
+
+      - name: Rename PDF for readability
+        run: cp main.pdf syllabus_geometrie_trigonometrie_uclouvain.pdf
+
+      - name: Upload PDF as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: syllabus-geometrie-trigonometrie-pdf
+          path: |
+            main.pdf
+            syllabus_geometrie_trigonometrie_uclouvain.pdf
+
+      - name: Publish PDF to GitHub Release (latest)
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Dernière version du syllabus (compilation automatique)"
+          body: "Compilation automatique du syllabus de Trigonométrie et de Géométrie (Examen d'admission Ingénieur Civil - UCLouvain) à partir de la branche `main`."
+          prerelease: false
+          files: |
+            main.pdf
+            syllabus_geometrie_trigonometrie_uclouvain.pdf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

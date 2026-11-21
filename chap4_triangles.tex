@@ -1,0 +1,663 @@
+% ============================================================================
+% CHAPITRE 4 : RÉSOLUTION DE TRIANGLES ET PROBLÈMES GÉOMÉTRIQUES
+% ============================================================================
+\chapter[Résolution de Triangles et Problèmes]{Résolution de Triangles et Problèmes Géométriques}
+
+La deuxième grande question ouverte de l'examen d'entrée à l'UCLouvain (ainsi que plusieurs questions courtes) consiste en un \textbf{problème géométrique et trigonométrique}. Qu'il s'agisse d'un système mécanique, d'un satellite en orbite, d'un pliage de papier, de cercles tangents ou d'un quadrilatère, la clé consiste toujours à identifier les bons triangles (rectangles ou quelconques) et à leur appliquer méthodiquement les théorèmes de ce chapitre.
+
+Dans tout ce chapitre, pour un triangle $ABC$, nous notons $a = \overline{BC}$, $b = \overline{AC}$ et $c = \overline{AB}$ les longueurs des côtés opposés aux sommets $A, B, C$, et $\alpha = \widehat{A}$, $\beta = \widehat{B}$, $\gamma = \widehat{C}$ les amplitudes des angles correspondants. N'oubliez jamais la relation fondamentale de la géométrie euclidienne plane :
+\[
+    \boxed{\alpha + \beta + \gamma = \pi \text{ radians} = 180\degree}.
+\]
+
+% ----------------------------------------------------------------------------
+\section{Triangles rectangles, triangles semblables et théorème de Thalès}
+% ----------------------------------------------------------------------------
+
+\subsection{Relations dans le triangle rectangle (Pythagore et SOH-CAH-TOA)}
+
+Considérons un triangle $ABC$ rectangle en $B$ ($\beta = 90\degree = \frac{\pi}{2}$), de sorte que le côté opposé $b = \overline{AC}$ est l'\textbf{hypoténuse}, et les angles aigus $\alpha$ et $\gamma$ sont complémentaires ($\alpha + \gamma = 90\degree$).
+
+\begin{theoreme}[Théorème de Pythagore et trigonométrie du triangle rectangle]
+Dans un triangle rectangle d'hypoténuse $H$, pour tout angle aigu $\theta$ :
+\begin{enumerate}
+    \item \textbf{Théorème de Pythagore :} Le carré de la longueur de l'hypoténuse est égal à la somme des carrés des longueurs des deux côtés de l'angle droit (cathètes).
+    \item \textbf{Nombres trigonométriques (moyen mnémotechnique \textcolor{warnred}{SOH -- CAH -- TOA}) :}
+    \[
+        \boxed{\textbf{\textcolor{warnred}{S}OH : } \sin\theta = \frac{\text{\textcolor{warnred}{O}pposé}}{\text{\textcolor{warnred}{H}ypoténuse}}, \qquad \textbf{\textcolor{warnred}{C}AH : } \cos\theta = \frac{\text{\textcolor{warnred}{A}djacent}}{\text{\textcolor{warnred}{H}ypoténuse}}, \qquad \textbf{\textcolor{warnred}{T}OA : } \tan\theta = \frac{\text{\textcolor{warnred}{O}pposé}}{\text{\textcolor{warnred}{A}djacent}}}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05, >=Stealth]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (4.8,0);
+    \coordinate (C) at (4.8,2.4);
+
+    \draw[very thick, defgreen] (A) -- (B) node[midway, below=3pt] {Côté \textbf{A}djacent ($c = b\cos\theta$)};
+    \draw[very thick, uclaccent] (B) -- (C) node[midway, right=4pt] {Côté \textbf{O}pposé ($a = b\sin\theta$)};
+    \draw[very thick, warnred] (A) -- (C) node[midway, sloped, above=3pt] {\textbf{H}ypoténuse ($b$)};
+
+    \draw[fill=defgreen!20, draw=defgreen] (4.8,0) -- (4.45,0) -- (4.45,0.35) -- (4.8,0.35) -- cycle;
+    \pic [draw, thick, uclblue, "$\theta$", angle radius=0.9cm, angle eccentricity=1.25] {angle = B--A--C};
+
+    \fill (A) circle (1.5pt) node[below left] {$A$};
+    \fill (B) circle (1.5pt) node[below right] {$B$};
+    \fill (C) circle (1.5pt) node[above right] {$C$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Théorème de Thalès et triangles semblables}
+
+Deux triangles sont \textbf{semblables} s'ils ont les mêmes angles deux à deux (il suffit que deux angles soient égaux, par exemple un angle droit et un angle aigu commun ou alterne-interne). Leurs côtés homologues sont alors proportionnels.
+
+\begin{theoreme}[Théorème de Thalès]
+Soit un triangle $ABC$, et soient $D \in (AB)$ et $E \in (AC)$ deux points tels que la droite $(DE)$ soit parallèle à la droite $(BC)$. Alors les triangles $ADE$ et $ABC$ sont semblables et :
+\[
+    \boxed{\frac{\overline{AD}}{\overline{AB}} = \frac{\overline{AE}}{\overline{AC}} = \frac{\overline{DE}}{\overline{BC}}}.
+\]
+\end{theoreme}
+
+\begin{exemple}[Problèmes d'examen UCLouvain sur les triangles rectangles]
+\textbf{1) Topographie et double visée (UCLouvain -- Juillet 2021, Question 2 et Septembre 2024, Question 3e) :}\\
+\emph{Énoncé (Juillet 2021, Q2) :} On désire mesurer la hauteur $H$ d'un grand arbre dont le pied $P$ n'est pas accessible. Deux graphomètres $A$ et $B$, placés au niveau du sol horizontal, alignés avec le pied de l'arbre et séparés d'une distance connue $\overline{AB} = d$, visent le sommet $S$ de l'arbre sous des angles d'élévation respectifs $\widehat{A}$ et $\widehat{B}$ (avec $A$ plus proche de l'arbre que $B$, donc $\widehat{A} > \widehat{B}$). Exprimer $H$ en fonction de $d = \overline{AB}$, $\widehat{A}$ et $\widehat{B}$.\\
+\emph{Résolution :} Notons $x = \overline{PA}$ la distance inconnue entre le pied de l'arbre et le point $A$. Dans les triangles rectangles $SPA$ et $SPB$ (rectangles en $P$), on a :
+\[
+    \tan\widehat{A} = \frac{H}{x} \implies x = \frac{H}{\tan\widehat{A}} = H\cot\widehat{A}, \qquad \text{et} \qquad \tan\widehat{B} = \frac{H}{x + d} \implies x + d = \frac{H}{\tan\widehat{B}} = H\cot\widehat{B}.
+\]
+En soustrayant la première équation de la seconde pour éliminer l'inconnue intermédiaire $x$ :
+\[
+    d = H\left(\frac{1}{\tan\widehat{B}} - \frac{1}{\tan\widehat{A}}\right) = H\left(\frac{\tan\widehat{A} - \tan\widehat{B}}{\tan\widehat{A}\tan\widehat{B}}\right) \implies \boxed{H = d\,\frac{\tan\widehat{A}\tan\widehat{B}}{\tan\widehat{A} - \tan\widehat{B}} = \frac{d}{\cot\widehat{B} - \cot\widehat{A}}}.
+\]
+\emph{Application numérique (Septembre 2024, Q3e) :} Pour un château entouré de douves avec $d = 30\text{ m}$, $\widehat{A} = 60\degree$, $\widehat{B} = 30\degree$ et $\sqrt{3} \simeq 1,7$ : $H = \frac{30}{\cot 30\degree - \cot 60\degree} = \frac{30}{\sqrt{3} - \frac{1}{\sqrt{3}}} = 15\sqrt{3} \simeq \boxed{25,5\text{ m}}$.
+
+\medskip
+\textbf{2) Carré inscrit dans un triangle rectangle et optimisation (UCLouvain -- Septembre 2021, Question 2) :}\\
+\emph{Énoncé :} Soit $ABC$ un triangle rectangle en $A$, d'hypoténuse $a = \overline{BC}$ et d'angle aigu $\gamma = \widehat{ACB}$. On inscrit un carré $XYPQ$ de côté $x = \overline{XY}$ avec $X, Y \in [BC]$, $P \in [AC]$ et $Q \in [AB]$. (a) Identifier les triangles semblables à $ABC$ et démontrer que $\overline{BX}\cdot\overline{CY} = x^2$. (b) Exprimer $x$ en fonction de $a$ et $\gamma$. (c) Pour quelle valeur de $\gamma$ l'aire du carré est-elle maximale ?
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    \def\angC{32}
+    \def\hyp{6}
+    \pgfmathsetmacro{\b}{\hyp*cos(\angC)}
+    \pgfmathsetmacro{\c}{\hyp*sin(\angC)}
+    \coordinate (C) at (0,0);
+    \coordinate (B) at (-\hyp,0);
+    \coordinate (A) at ({-\b*cos(\angC)},{\b*sin(\angC)});
+
+    % Carré de côté x = a / (1 + tan + cot)
+    \pgfmathsetmacro{\x}{\hyp / (1 + tan(\angC) + 1/tan(\angC))}
+    \pgfmathsetmacro{\CY}{\x / tan(\angC)}
+    \pgfmathsetmacro{\BX}{\x * tan(\angC)}
+    \coordinate (Y) at (-\CY, 0);
+    \coordinate (X) at ({-\CY-\x}, 0);
+    \coordinate (P) at (-\CY, \x);
+    \coordinate (Q) at ({-\CY-\x}, \x);
+
+    \draw[thick, uclblue] (B) -- (C) -- (A) -- cycle;
+    \draw[thick, defgreen, fill=deflightgreen] (X) -- (Y) -- (P) -- (Q) -- cycle;
+
+    % Angle droit en A
+    \draw ($(A)!0.25cm!(B)$) -- ($(A)!0.25cm!(B)!0.25cm!90:(B)$) -- ($(A)!0.25cm!(C)$);
+    \pic [draw, uclaccent, "$\gamma$", angle radius=0.8cm, angle eccentricity=1.3] {angle = A--C--B};
+
+    \fill (A) circle (1.5pt) node[above] {$A$};
+    \fill (B) circle (1.5pt) node[left] {$B$};
+    \fill (C) circle (1.5pt) node[right] {$C$};
+    \fill (X) circle (1.3pt) node[below] {$X$};
+    \fill (Y) circle (1.3pt) node[below] {$Y$};
+    \fill (P) circle (1.3pt) node[above right] {$P$};
+    \fill (Q) circle (1.3pt) node[above left] {$Q$};
+    \node[defgreen!80!black] at ($(X)!0.5!(P)$) {$x$};
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Les triangles rectangles $AQP$ (rectangle en $A$), $XQB$ (rectangle en $X$) et $YPC$ (rectangle en $Y$) ont les mêmes angles aigus ($\gamma$ et $\frac{\pi}{2}-\gamma$) que $ABC$ : ils lui sont tous trois semblables ! La similitude entre $XQB$ et $YPC$ donne $\frac{\overline{BX}}{\overline{XQ}} = \frac{\overline{YP}}{\overline{CY}}$, et comme $\overline{XQ} = \overline{YP} = x$, il vient $\overline{BX}\cdot\overline{CY} = x^2$.
+    \item Dans $YPC$ ($\widehat{YCP}=\gamma$), on a $\tan\gamma = \frac{x}{\overline{CY}} \implies \overline{CY} = \frac{x}{\tan\gamma}$. Dans $XQB$ ($\widehat{XQB}=\gamma$), on a $\tan\gamma = \frac{\overline{BX}}{x} \implies \overline{BX} = x\tan\gamma$. Or $a = \overline{BX} + \overline{XY} + \overline{CY} = x\left(\tan\gamma + 1 + \frac{1}{\tan\gamma}\right)$, d'où :
+    \[
+        \boxed{x = \frac{a}{1 + \tan\gamma + \dfrac{1}{\tan\gamma}} = \frac{a}{1 + \dfrac{2}{\sin(2\gamma)}}}.
+    \]
+    \item Pour maximiser l'aire $x^2$, il faut maximiser $x$, donc minimiser le dénominateur $1 + \tan\gamma + \frac{1}{\tan\gamma} = 1 + \frac{2}{\sin(2\gamma)}$. Celui-ci est minimal lorsque $\sin(2\gamma)$ est maximal, c'est-à-dire $\sin(2\gamma) = 1 \iff \boxed{\gamma = \frac{\pi}{4} = 45\degree}$ (triangle rectangle isocèle, donnant $x_{\max} = \frac{a}{3}$).
+\end{enumerate}
+
+\medskip
+\textbf{3) Pliage d'une bande de papier (UCLouvain -- Juillet 2026, Question 2) :}\\
+\emph{Énoncé :} Une bande de papier rectangulaire de largeur $w$ est pliée de telle sorte que le coin supérieur droit $B$ vienne toucher le bord inférieur opposé au point $E$. La ligne de pli $[AC]$ fait un angle $\theta \in \left]0\degree, 45\degree\right[$ avec le bord supérieur $[AB]$. Exprimer la longueur du pli $L = \overline{AC}$ en fonction de $w$ et de $\theta$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05, >=Stealth]
+    \def\myW{2.4}
+    \pgfmathsetmacro{\myd}{\myW/sin(60)}
+    \def\myL{6.2}
+    \coordinate (B) at (\myL, \myW);
+    \coordinate (A) at ({\myL-\myd}, \myW);
+    \coordinate (C) at (\myL, {\myW - \myd*tan(30)});
+    \pgfmathsetmacro{\Ex}{\myL-\myd + \myd*cos(60)}
+    \pgfmathsetmacro{\Ey}{\myW - \myd*sin(60)}
+    \coordinate (E) at (\Ex, \Ey);
+
+    \draw[thick, gray!50] (0, \myW) -- (\myL, \myW) -- (\myL, 0) -- (0, 0);
+    \draw[thick] (0, \myW) -- (A);
+    \draw[thick] (0, 0) -- (\myL, 0);
+    \draw[thick, uclblue, fill=ucllightblue] (A) -- (C) -- (E) -- cycle;
+    \draw[very thick, warnred, dashed] (A) -- (C) node[midway, above right=-2pt] {$L$};
+    \draw[thick, dashed, gray] (A) -- (B) -- (C);
+
+    \fill (A) circle (1.5pt) node[above left] {$A$};
+    \fill[gray] (B) circle (1.5pt) node[above right] {$B$};
+    \fill (C) circle (1.5pt) node[right] {$C$};
+    \fill (E) circle (1.5pt) node[below] {$E$};
+
+    \draw[uclaccent, thick] (A) ++(0.85,0) arc (0:-30:0.85);
+    \path (A) ++(-15:1.1) node[uclaccent] {$\theta$};
+    \draw[uclaccent, thick] (A) ++(-30:0.7) arc (-30:-60:0.7);
+    \path (A) ++(-45:0.95) node[uclaccent] {$\theta$};
+    \draw[<->, thick, defgreen] (0.6, 0) -- (0.6, \myW) node[midway, left] {$w$};
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :}
+\begin{enumerate}
+    \item Par symétrie axiale du pliage autour de la droite $(AC)$, le triangle plié $AEC$ est isométrique au triangle initial $ABC$ (rectangle en $B$). On a donc $\overline{AE} = \overline{AB}$ et $\widehat{EAC} = \widehat{BAC} = \theta$.
+    \item Dans le triangle rectangle $ABC$, le côté adjacent à $\theta$ vaut $\overline{AB} = L\cos\theta$, d'où $\overline{AE} = L\cos\theta$.
+    \item Le segment $[AE]$ forme avec le bord supérieur horizontal $[AB]$ un angle total $\widehat{BAE} = \theta + \theta = 2\theta$. Or la projection verticale de $[AE]$ entre le bord supérieur ($A$) et le bord inférieur ($E$) est exactement la largeur $w$ de la bande ! Dans le triangle rectangle projetant $E$ verticalement sur $[AB]$, on a donc :
+    \[
+        w = \overline{AE}\sin(2\theta) = (L\cos\theta)\sin(2\theta) = 2L\sin\theta\cos^2\theta \implies \boxed{L = \frac{w}{\cos\theta\sin(2\theta)} = \frac{w}{2\sin\theta\cos^2\theta}}.
+    \]
+\end{enumerate}
+
+\medskip
+\textbf{4) Trois cercles mutuellement tangents posés sur le sol (UCLouvain -- Septembre 2025, Question 1c) :}\\
+\emph{Énoncé :} Trois cercles de centres $A, B, C$ et de rayons respectifs $x, y, z$ sont chacun tangents à une même droite horizontale ainsi que deux à deux entre eux ($C$ étant coincé entre $A$ et $B$). Exprimer $z$ en fonction de $x$ et $y$.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.045, >=Stealth]
+    \pgfmathsetmacro{\x}{85}
+    \pgfmathsetmacro{\y}{42}
+    \pgfmathsetmacro{\z}{\x*\y/(sqrt(\x)+sqrt(\y))^2}
+    \pgfmathsetmacro{\dxAC}{2*sqrt(\x*\z)}
+    \pgfmathsetmacro{\dxCB}{2*sqrt(\y*\z)}
+    \pgfmathsetmacro{\dxAB}{\dxAC+\dxCB}
+
+    \coordinate (Ap) at (0,0);
+    \coordinate (A) at (0,\x);
+    \coordinate (Cp) at (\dxAC,0);
+    \coordinate (C) at (\dxAC,\z);
+    \coordinate (Bp) at (\dxAB,0);
+    \coordinate (B) at (\dxAB,\y);
+    \coordinate (H) at (0,\y);
+
+    \draw[thick, darkgray] (-60,0) -- ({\dxAB+55},0);
+    \draw[thick, uclblue] (A) circle (\x);
+    \draw[thick, uclblue] (B) circle (\y);
+    \draw[thick, warnred] (C) circle (\z);
+
+    \draw[dashed, gray] (A)--(Ap) node[midway, left] {\small $x$};
+    \draw[dashed, gray] (B)--(Bp) node[midway, right] {\small $y$};
+    \draw[dashed, gray] (C)--(Cp);
+    \draw[thick, defgreen] (A)--(B) node[midway, above right] {\small $x+y$};
+    \draw[dashed, defgreen] (A)--(H)--(B);
+
+    \draw[<->, thick, uclaccent] (0,-18) -- (\dxAC,-18) node[midway, below] {\small $2\sqrt{xz}$};
+    \draw[<->, thick, uclaccent] (\dxAC,-18) -- (\dxAB,-18) node[midway, below] {\small $2\sqrt{yz}$};
+
+    \fill (A) circle (2) node[above left] {\small $A$};
+    \fill (B) circle (2) node[above right] {\small $B$};
+    \fill (C) circle (2) node[above] {\small $C$};
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :} Calculons d'abord la distance horizontale $d_{AB}$ entre les points de contact au sol de deux cercles tangents de rayons $x$ et $y$. Le segment $[AB]$ reliant leurs centres a pour longueur $x + y$ (somme des rayons au point de tangence), et la différence de hauteur entre $A$ et $B$ vaut $|x - y|$. Par le théorème de Pythagore dans le trapèze rectangle formé par les rayons verticaux :
+\[
+    d_{AB}^2 + (x - y)^2 = (x + y)^2 \implies d_{AB}^2 = (x+y)^2 - (x-y)^2 = 4xy \implies \boxed{d_{AB} = 2\sqrt{xy}}.
+\]
+En appliquant exactement la même formule aux paires de cercles tangents $(A,C)$ et $(C,B)$, leurs distances horizontales au sol valent $d_{AC} = 2\sqrt{xz}$ et $d_{CB} = 2\sqrt{yz}$. Comme le point de contact de $C$ est situé entre ceux de $A$ et de $B$ :
+\[
+    d_{AB} = d_{AC} + d_{CB} \iff 2\sqrt{xy} = 2\sqrt{xz} + 2\sqrt{yz} \iff \sqrt{z}(\sqrt{x} + \sqrt{y}) = \sqrt{xy} \iff \boxed{z = \frac{xy}{(\sqrt{x} + \sqrt{y})^2}}.
+\]
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Triangles quelconques : lois des sinus, des cosinus et formules d'aire}
+% ----------------------------------------------------------------------------
+
+Dans un triangle quelconque $ABC$ (qui n'est pas nécessairement rectangle), trois relations majeures permettent de déterminer tous les côtés et angles à partir de trois données indépendantes (dont au moins une longueur).
+
+\begin{theoreme}[Loi des cosinus, loi des sinus et formules de l'aire d'un triangle quelconque]
+Soit un triangle quelconque $ABC$ de côtés $a, b, c$, d'angles $\alpha = \widehat{A}$, $\beta = \widehat{B}$, $\gamma = \widehat{C}$, de demi-périmètre $p = \dfrac{a+b+c}{2}$, de rayon du cercle inscrit $r$ et de rayon du cercle circonscrit $R$ :
+\begin{enumerate}
+    \item \textbf{Loi des cosinus (Théorème de Pythagore généralisé ou d'Al-Kashi) :}
+    \begin{align}
+        \boxed{a^2 = b^2 + c^2 - 2bc\cos\alpha} \\
+        b^2 = a^2 + c^2 - 2ac\cos\beta \\
+        c^2 = a^2 + b^2 - 2ab\cos\gamma
+    \end{align}
+    \item \textbf{Loi des sinus (et lien avec le rayon du cercle circonscrit $R$) :}
+    \begin{equation}
+        \boxed{\frac{a}{\sin\alpha} = \frac{b}{\sin\beta} = \frac{c}{\sin\gamma} = 2R}
+    \end{equation}
+    \item \textbf{Formules de l'aire $S$ du triangle $ABC$ :}
+    \begin{itemize}
+        \item \emph{En fonction de deux côtés et de l'angle compris entre eux :}
+        \[
+            \boxed{S = \frac{1}{2}bc\sin\alpha = \frac{1}{2}ac\sin\beta = \frac{1}{2}ab\sin\gamma}
+        \]
+        \item \emph{En fonction du demi-périmètre $p = \frac{P}{2} = \frac{a+b+c}{2}$ et du rayon du cercle inscrit $r$ :} En décomposant $ABC$ en trois triangles $IAB, IBC, ICA$ de hauteur $r$ autour du centre $I$ du cercle inscrit :
+        \[
+            \boxed{S = \frac{1}{2}(a+b+c)r = p \cdot r \iff r = \frac{S}{p} = \frac{2S}{a+b+c}}
+        \]
+        \item \emph{Formule de Héron (en fonction des trois côtés uniquement) :}
+        \[
+            \boxed{S = \sqrt{p(p-a)(p-b)(p-c)}}
+        \]
+    \end{itemize}
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.15, >=Stealth]
+    % Figure 1 : Triangle quelconque et hauteur h = b sin alpha
+    \begin{scope}[shift={(0,0)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (4.5,0);
+        \coordinate (C) at (1.6,2.5);
+        \coordinate (H) at (1.6,0);
+
+        \draw[thick, uclblue, fill=ucllightblue!50] (A) -- (B) -- (C) -- cycle;
+        \draw[dashed, warnred, thick] (C) -- (H) node[midway, right] {\small $h = b\sin\alpha$};
+        \draw[warnred] (1.6,0.22) -- (1.82,0.22) -- (1.82,0);
+
+        \pic [draw, uclaccent, "$\alpha$", angle radius=0.6cm, angle eccentricity=1.3] {angle = B--A--C};
+        \pic [draw, uclaccent, "$\beta$", angle radius=0.6cm, angle eccentricity=1.3] {angle = C--B--A};
+        \pic [draw, uclaccent, "$\gamma$", angle radius=0.5cm, angle eccentricity=1.35] {angle = A--C--B};
+
+        \node[below] at ($(A)!0.5!(B)$) {$c$};
+        \node[above left] at ($(A)!0.5!(C)$) {$b$};
+        \node[above right] at ($(B)!0.5!(C)$) {$a$};
+        \fill (A) circle (1.3pt) node[below left] {$A$};
+        \fill (B) circle (1.3pt) node[below right] {$B$};
+        \fill (C) circle (1.3pt) node[above] {$C$};
+        \node[below] at (2.25,-0.55) {\small \textbf{(a)} $S = \frac{1}{2}c h = \frac{1}{2}bc\sin\alpha$};
+    \end{scope}
+
+    % Figure 2 : Cercle inscrit et S = p r
+    \begin{scope}[shift={(6.8,0)}]
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (4.5,0);
+        \coordinate (C) at (1.6,2.5);
+        % Incenter computation
+        \pgfmathsetmacro{\c}{4.5}
+        \pgfmathsetmacro{\b}{sqrt(1.6^2+2.5^2)}
+        \pgfmathsetmacro{\a}{sqrt((4.5-1.6)^2+2.5^2)}
+        \pgfmathsetmacro{\p}{(\a+\b+\c)/2}
+        \pgfmathsetmacro{\Area}{0.5*4.5*2.5}
+        \pgfmathsetmacro{\rin}{\Area/\p}
+        \pgfmathsetmacro{\Ix}{(\a*0 + \b*4.5 + \c*1.6)/(\a+\b+\c)}
+        \pgfmathsetmacro{\Iy}{(\a*0 + \b*0 + \c*2.5)/(\a+\b+\c)}
+        \coordinate (I) at (\Ix,\Iy);
+
+        \draw[thick, uclblue] (A) -- (B) -- (C) -- cycle;
+        \draw[dashed, gray] (I) -- (A) (I) -- (B) (I) -- (C);
+        \draw[thick, defgreen, fill=deflightgreen!60] (I) circle (\rin);
+        \draw[thick, warnred] (I) -- (\Ix,0) node[midway, right] {\small $r$};
+        \fill (I) circle (1.3pt) node[above] {\small $I$};
+        \fill (A) circle (1.3pt) node[below left] {$A$};
+        \fill (B) circle (1.3pt) node[below right] {$B$};
+        \fill (C) circle (1.3pt) node[above] {$C$};
+        \node[below] at (2.25,-0.55) {\small \textbf{(b)} Cercle inscrit : $S = \frac{a+b+c}{2}\cdot r = p\cdot r$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Aire d'un quadrilatère quelconque}
+
+Deux formules sur les quadrilatères ont fait l'objet de questions complètes aux examens de Septembre 2023 (Q2), Juillet 2025 (Q2) et Septembre 2026 (Q3a) :
+
+\begin{theoreme}[Aire d'un quadrilatère en fonction de ses diagonales]
+Soit $ABCD$ un quadrilatère quelconque (convexe ou concave) dont les diagonales mesurent $x = \overline{AC}$ et $y = \overline{BD}$, et dont les droites $(AC)$ et $(BD)$ forment un angle $\theta$. Alors son aire vaut :
+\[
+    \boxed{S_{ABCD} = \frac{1}{2} x y \sin\theta}.
+\]
+\end{theoreme}
+\begin{proof}[Démonstration (UCLouvain -- Septembre 2023 Q2a et Juillet 2025 Q2b-2c)]
+Dans le cas convexe, notons $O$ le point d'intersection des diagonales $[AC]$ et $[BD]$, et posons $a = \overline{OA}$, $c = \overline{OC}$ (avec $a+c = x$), $b = \overline{OB}$, $d = \overline{OD}$ (avec $b+d = y$). Les quatre angles en $O$ sont $\theta$, $\pi-\theta$, $\theta$, $\pi-\theta$, qui ont tous le même sinus $\sin(\pi-\theta) = \sin\theta$. En additionnant les aires des quatre triangles $OAB, OBC, OCD, ODA$ :
+\[
+    S = \frac{1}{2}ab\sin\theta + \frac{1}{2}bc\sin\theta + \frac{1}{2}cd\sin\theta + \frac{1}{2}da\sin\theta = \frac{1}{2}\sin\theta\bigl(a(b+d) + c(b+d)\bigr) = \frac{1}{2}(a+c)(b+d)\sin\theta = \frac{1}{2}xy\sin\theta.
+\]
+Dans le cas concave, la même factorisation s'obtient par différence des aires des triangles $ABD$ et $CBD$.
+\end{proof}
+
+% ----------------------------------------------------------------------------
+\section{Problèmes complets résolus des examens UCLouvain}
+% ----------------------------------------------------------------------------
+
+Étudions maintenant six problèmes complets tirés des annales récentes de l'UCLouvain pour illustrer la méthode de résolution attendue le jour de l'examen.
+
+\begin{exemple}[Problème 1 : Résolution d'un triangle avec $\widehat{A} = 2\widehat{B}$ (UCLouvain -- Septembre 2022, Question 2)]
+\emph{Énoncé :} On considère un triangle $ABC$ de côtés $a = \overline{BC}$, $b = \overline{AC}$ et $c = \overline{AB}$. Les longueurs $a$ et $b$ sont connues et on suppose que $\widehat{A} = 2\widehat{B}$.
+\begin{enumerate}
+    \item Calculez l'angle $\widehat{B}$ en fonction de $a$ et $b$ uniquement.
+    \item Trouvez la longueur $c = \overline{AB}$ en fonction de $a$ et $b$ uniquement.
+    \item Si $\widehat{B} \to 0$, calculez la limite du rapport $\dfrac{b}{a}$.
+\end{enumerate}
+\emph{Résolution :}
+\begin{enumerate}
+    \item Appliquons la \textbf{loi des sinus} aux côtés $a$ et $b$ en utilisant l'hypothèse $\widehat{A} = 2\widehat{B}$ et la formule de duplication $\sin(2\widehat{B}) = 2\sin\widehat{B}\cos\widehat{B}$ :
+    \[
+        \frac{b}{\sin\widehat{B}} = \frac{a}{\sin\widehat{A}} = \frac{a}{\sin(2\widehat{B})} = \frac{a}{2\sin\widehat{B}\cos\widehat{B}}.
+    \]
+    Puisque dans un triangle non dégénéré $\sin\widehat{B} \neq 0$, on simplifie par $\sin\widehat{B}$ :
+    \[
+        \cos\widehat{B} = \frac{a}{2b} \implies \boxed{\widehat{B} = \arccos\left(\frac{a}{2b}\right)}.
+    \]
+    \item Appliquons la \textbf{loi des cosinus} à l'angle $\widehat{B}$ et remplaçons $\cos\widehat{B}$ par $\frac{a}{2b}$ :
+    \[
+        b^2 = a^2 + c^2 - 2ac\cos\widehat{B} = a^2 + c^2 - 2ac\left(\frac{a}{2b}\right) = a^2 + c^2 - \frac{a^2 c}{b}.
+    \]
+    Regroupons les termes pour factoriser par $(b - c)$ :
+    \[
+        b^2 - c^2 = a^2\left(1 - \frac{c}{b}\right) \iff (b - c)(b + c) = \frac{a^2}{b}(b - c).
+    \]
+    Lorsque $\widehat{B}$ est quelconque ($\widehat{A} = 2\widehat{B} \neq \widehat{B} \implies a \neq b \implies b \neq c$), on divise par $(b-c)$ pour obtenir :
+    \[
+        b + c = \frac{a^2}{b} \implies \boxed{c = \frac{a^2}{b} - b = \frac{a^2 - b^2}{b}}.
+    \]
+    \item Lorsque $\widehat{B} \to 0$, on a $\cos\widehat{B} = \frac{a}{2b} \to \cos(0) = 1$, d'où immédiatement $\boxed{\lim_{\widehat{B}\to 0} \frac{b}{a} = \frac{1}{2}}$.
+\end{enumerate}
+\end{exemple}
+
+\begin{exemple}[Problème 2 : Partage d'un côté d'un triangle (UCLouvain -- Juillet 2023, Question 2)]
+\emph{Énoncé :} On considère un triangle $ABC$ et un point $M$ sur le segment $[BC]$ tel que $\dfrac{\overline{BC}}{\overline{BM}} = 3$.
+\begin{enumerate}
+    \item \textbf{(Sous-question 2a)} On suppose que $ABC$ est un triangle équilatéral. Calculez la valeur exacte de l'angle $\beta = \widehat{BAM}$.
+    \item \textbf{(Sous-question 2b)} Le triangle $ABC$ n'est plus équilatéral mais $\frac{\overline{BC}}{\overline{BM}} = 3$ reste vrai. On suppose que $\overline{AM} = \overline{BM} = y$ et $\overline{AB} = \sqrt{2}y$. Calculez la longueur $\overline{AC}$ en fonction de $y$.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1, >=Stealth]
+    % 2a : Equilatéral
+    \begin{scope}[shift={(0,0)}]
+        \coordinate (C) at (0,0);
+        \coordinate (B) at (3.6,0);
+        \coordinate (A) at (1.8,{3.6*sin(60)});
+        \coordinate (M) at (2.4,0);
+
+        \draw[thick, uclblue] (C) -- (B) -- (A) -- cycle;
+        \draw[thick, warnred] (A) -- (M) node[midway, left] {$h$};
+        \pic [draw, uclaccent, "$\beta$", angle radius=0.85cm, angle eccentricity=1.25] {angle = M--A--B};
+
+        \node[below] at (1.2,0) {$2x$};
+        \node[below] at (3.0,0) {$x$};
+        \node[above right] at ($(A)!0.5!(B)$) {$3x$};
+        \fill (A) circle (1.4pt) node[above] {$A$};
+        \fill (B) circle (1.4pt) node[right] {$B$};
+        \fill (C) circle (1.4pt) node[left] {$C$};
+        \fill (M) circle (1.4pt) node[below] {$M$};
+        \node[below] at (1.8,-0.55) {\small \textbf{(a)} Triangle équilatéral};
+    \end{scope}
+
+    % 2b : Triangle ABM isocèle rectangle
+    \begin{scope}[shift={(6.2,0)}]
+        \coordinate (C) at (0,0);
+        \coordinate (M) at (3.2,0);
+        \coordinate (B) at (4.8,0);
+        \coordinate (A) at (3.2,1.6);
+
+        \draw[thick, uclblue] (C) -- (B) -- (A) -- cycle;
+        \draw[thick, warnred] (A) -- (M) node[midway, left] {$y$};
+        \draw[warnred] (3.2,0.25) -- (2.95,0.25) -- (2.95,0);
+
+        \node[below] at (1.6,0) {$2y$};
+        \node[below] at (4.0,0) {$y$};
+        \node[above right] at ($(A)!0.5!(B)$) {$\sqrt{2}y$};
+        \node[above left] at ($(A)!0.5!(C)$) {$y\sqrt{5}$};
+        \fill (A) circle (1.4pt) node[above] {$A$};
+        \fill (B) circle (1.4pt) node[right] {$B$};
+        \fill (C) circle (1.4pt) node[left] {$C$};
+        \fill (M) circle (1.4pt) node[below] {$M$};
+        \node[below] at (2.4,-0.55) {\small \textbf{(b)} Cas $\overline{AM}=\overline{BM}=y$, $\overline{AB}=\sqrt{2}y$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :}
+\begin{enumerate}
+    \item \textbf{Attention au piège classique !} Beaucoup d'étudiants écrivent $\beta = \frac{1}{3}\cdot 60\degree = 20\degree$ sous prétexte que $\overline{BM} = \frac{1}{3}\overline{BC}$. \textbf{C'est totalement faux !} Une cévienne qui coupe un côté au tiers ne coupe pas l'angle au tiers.
+    Posons $x = \overline{BM}$, de sorte que $\overline{MC} = 2x$, $\overline{AB} = \overline{AC} = 3x$, $\widehat{B} = \widehat{C} = \frac{\pi}{3}$, $\widehat{BAM} = \beta$ et $\widehat{CAM} = \frac{\pi}{3} - \beta$. Notons $h = \overline{AM}$. En appliquant la \textbf{loi des sinus} dans les triangles $ABM$ et $ACM$ :
+    \[
+        \text{Dans } ABM : \frac{x}{\sin\beta} = \frac{h}{\sin(\pi/3)}, \qquad \text{et dans } ACM : \frac{2x}{\sin(\pi/3 - \beta)} = \frac{h}{\sin(\pi/3)}.
+    \]
+    En égalant les deux expressions de $\frac{h}{\sin(\pi/3)}$ et en développant $\sin(\frac{\pi}{3}-\beta)$ :
+    \[
+        \sin\left(\frac{\pi}{3} - \beta\right) = 2\sin\beta \iff \frac{\sqrt{3}}{2}\cos\beta - \frac{1}{2}\sin\beta = 2\sin\beta \iff \frac{5}{2}\sin\beta = \frac{\sqrt{3}}{2}\cos\beta \iff \tan\beta = \frac{\sqrt{3}}{5}.
+    \]
+    Comme $\beta \in \left]0, \frac{\pi}{3}\right[$, on conclut que $\boxed{\beta = \arctan\left(\frac{\sqrt{3}}{5}\right)}$ (ou $\arccos\left(\frac{5}{2\sqrt{7}}\right)$ par la loi des cosinus).
+    \item Dans le triangle $ABM$, on constate que $\overline{AM}^2 + \overline{BM}^2 = y^2 + y^2 = 2y^2 = (\sqrt{2}y)^2 = \overline{AB}^2$ ! Par la réciproque du théorème de Pythagore (ou la loi des cosinus), le triangle $ABM$ est \textbf{rectangle isocèle en $M$} ($\widehat{AMB} = \frac{\pi}{2}$). Dès lors, son angle supplémentaire $\widehat{AMC} = \pi - \frac{\pi}{2} = \frac{\pi}{2}$ est aussi droit ! Dans le triangle $AMC$ rectangle en $M$, avec $\overline{AM} = y$ et $\overline{MC} = 2\overline{BM} = 2y$, Pythagore donne immédiatement :
+    \[
+        \overline{AC} = \sqrt{\overline{AM}^2 + \overline{MC}^2} = \sqrt{y^2 + (2y)^2} = \boxed{y\sqrt{5}}.
+    \]
+\end{enumerate}
+\end{exemple}
+
+\begin{exemple}[Problème 3 : Cercle inscrit dans un triangle isocèle (UCLouvain -- Juillet 2024, Question 2)]
+\emph{Énoncé :} Soit un triangle isocèle $ABC$ avec $\overline{AB} = \overline{AC}$. Le cercle inscrit $\mathcal{C}$ à ce triangle est de rayon $r$ et l'angle à la base vaut $\widehat{ABC} = 2\theta$. Calculez l'aire $S$ du triangle $ABC$ en fonction de $r$ et de $\theta$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.15, >=Stealth]
+    \coordinate (P) at (0,0);
+    \coordinate (B) at (1.8,0);
+    \coordinate (C) at (-1.8,0);
+    \coordinate (A) at (0,3.2);
+    \pgfmathsetmacro{\angB}{atan(3.2/1.8)}
+    \pgfmathsetmacro{\th}{\angB/2}
+    \pgfmathsetmacro{\rin}{1.8*tan(\th)}
+    \coordinate (O) at (0,\rin);
+    \coordinate (Q) at ({1.8 - 1.8*cos(\angB)}, {1.8*sin(\angB)});
+
+    \draw[thick, uclblue] (C) -- (B) -- (A) -- cycle;
+    \draw[thick, defgreen, fill=deflightgreen!50] (O) circle (\rin);
+    \draw[dashed, gray] (A) -- (P);
+    \draw[thick, uclaccent] (O) -- (B);
+    \draw[thick, warnred] (O) -- (P) node[midway, left] {$r$};
+    \draw[thick, warnred] (O) -- (Q) node[midway, above left=-2pt] {$r$};
+
+    \node[below] at (-0.9,0) {$y$};
+    \node[below] at (0.9,0) {$y$};
+    \node[above left] at ($(A)!0.5!(C)$) {$x$};
+    \fill (A) circle (1.4pt) node[above] {$A$};
+    \fill (B) circle (1.4pt) node[right] {$B$};
+    \fill (C) circle (1.4pt) node[left] {$C$};
+    \fill (P) circle (1.4pt) node[below] {$P$};
+    \fill (O) circle (1.4pt) node[left] {$O$};
+    \fill (Q) circle (1.4pt) node[above right] {$Q$};
+    \node[uclaccent] at (1.15,0.22) {$\theta$};
+    \node[uclaccent] at (1.28,0.52) {$\theta$};
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :} Soit $P$ le milieu de la base $[BC]$ et $O$ le centre du cercle inscrit $\mathcal{C}$. Par symétrie du triangle isocèle, la hauteur $[AP]$ est perpendiculaire à $[BC]$ en $P$ et passe par $O$ ($[OP]$ est un rayon de longueur $r$).
+Posons $y = \overline{BP} = \overline{PC}$ (demi-base) et $h = \overline{AP}$ (hauteur).
+\begin{enumerate}
+    \item Le centre $O$ du cercle inscrit est à l'intersection des bissectrices des angles du triangle, donc la demi-droite $[BO)$ divise l'angle $\widehat{ABC} = 2\theta$ en deux angles égaux à $\theta$ : $\widehat{OBP} = \theta$.
+    \item Dans le triangle $OPB$ rectangle en $P$, on a $\tan\theta = \dfrac{\overline{OP}}{\overline{BP}} = \dfrac{r}{y} \implies y = r\cot\theta = \dfrac{r}{\tan\theta}$.
+    \item Dans le triangle $APB$ rectangle en $P$, avec $\widehat{ABP} = 2\theta$, on a $\tan(2\theta) = \dfrac{\overline{AP}}{\overline{BP}} = \dfrac{h}{y} \implies h = y\tan(2\theta)$.
+    \item L'aire $S$ du triangle $ABC$ vaut $\frac{1}{2} \cdot \text{base} \cdot \text{hauteur} = \frac{1}{2}(2y)h = y h = y^2\tan(2\theta)$, d'où :
+    \[
+        \boxed{S = r^2\cot^2(\theta)\tan(2\theta) = \frac{2r^2}{\tan\theta(1 - \tan^2\theta)}}.
+    \]
+\end{enumerate}
+\end{exemple}
+
+\begin{exemple}[Problème 4 : Satellite et station spatiale en orbite (UCLouvain -- Septembre 2025, Question 2)]
+\emph{Énoncé :} Un satellite $S$ et une station spatiale $T$ sont en orbite circulaire autour de la Terre (de centre $O$), dans un même plan, sur des cercles centrés en $O$ de rayons respectifs $R$ et $r$ ($r < R$). Un vaisseau spatial $V$ est situé en un point tel que : (i) les segments $[VS]$ et $[VT]$ sont tangents respectivement aux deux orbites en $S$ et $T$, et (ii) $\overline{OS} = \overline{SV}$.
+\begin{enumerate}
+    \item Déterminez une formule exprimant l'angle $\alpha = \widehat{TVO}$ en fonction de $r$ et $R$ uniquement.
+    \item En supposant $\alpha$ connu, exprimez la distance $\overline{ST}$ en fonction de $R$, $r$ et $\alpha$.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.6, >=Stealth]
+    \def\R{1.6}
+    \def\r{0.9}
+    \coordinate (O) at (0,0);
+    \coordinate (S) at (0,\R);
+    \coordinate (T) at ({\r*cos(65)},{\r*sin(65)});
+    \coordinate (V) at (-\R,\R);
+
+    \draw[thick, uclblue] (O) circle (\R);
+    \draw[thick, uclaccent] (O) circle (\r);
+
+    \draw[thick, uclblue] (O) -- (S) node[midway, left] {$R$};
+    \draw[thick, uclaccent] (O) -- (T) node[midway, below right=-2pt] {$r$};
+    \draw[thick, defgreen] (V) -- (S) node[midway, above] {$R$};
+    \draw[thick, defgreen] (V) -- (T);
+    \draw[thick, darkgray] (V) -- (O) node[midway, below left] {$R\sqrt{2}$};
+    \draw[very thick, warnred] (S) -- (T);
+
+    % Angle droit en S
+    \draw (-0.15,\R) -- (-0.15,{\R-0.15}) -- (0,{\R-0.15});
+    \pic [draw, uclaccent, "$\alpha$", angle radius=0.9cm, angle eccentricity=1.25] {angle = O--V--T};
+
+    \fill (O) circle (1.2pt) node[below] {$O$};
+    \fill (S) circle (1.2pt) node[above] {$S$};
+    \fill (T) circle (1.2pt) node[right] {$T$};
+    \fill (V) circle (1.2pt) node[left] {$V$};
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :}
+\begin{enumerate}
+    \item Comme $[VS]$ est tangent au cercle de rayon $R$ en $S$, le rayon $[OS]$ est perpendiculaire à $[VS]$ ($\widehat{OSV} = \frac{\pi}{2}$). De plus, $\overline{OS} = \overline{SV} = R$, donc le triangle $OSV$ est \textbf{rectangle isocèle en $S$}. Par Pythagore, son hypoténuse vaut $\overline{OV} = \sqrt{R^2 + R^2} = R\sqrt{2}$, et ses angles aigus valent $\widehat{SOV} = \widehat{SVO} = \frac{\pi}{4}$.
+    De même, comme $[VT]$ est tangent au cercle de rayon $r$ en $T$, le triangle $OTV$ est \textbf{rectangle en $T$} ($\widehat{OTV} = \frac{\pi}{2}$), d'hypoténuse $\overline{OV} = R\sqrt{2}$ et de côté opposé à $\alpha = \widehat{TVO}$ égal à $\overline{OT} = r$. On en tire :
+    \[
+        \sin\alpha = \frac{\overline{OT}}{\overline{OV}} = \frac{r}{R\sqrt{2}} \implies \boxed{\alpha = \arcsin\left(\frac{r}{R\sqrt{2}}\right)}.
+    \]
+    \item Dans le triangle rectangle $OTV$, l'angle en $O$ vaut $\widehat{TOV} = \frac{\pi}{2} - \alpha$. Or $\widehat{SOV} = \frac{\pi}{4}$, donc l'angle $\beta = \widehat{SOT}$ du triangle $SOT$ vaut $\beta = \widehat{TOV} - \widehat{SOV} = \left(\frac{\pi}{2} - \alpha\right) - \frac{\pi}{4} = \frac{\pi}{4} - \alpha$. En appliquant la \textbf{loi des cosinus} dans le triangle $SOT$ (où $\overline{OS} = R$, $\overline{OT} = r$ et $\widehat{SOT} = \frac{\pi}{4} - \alpha$) :
+    \[
+        \boxed{\overline{ST} = \sqrt{R^2 + r^2 - 2Rr\cos\left(\frac{\pi}{4} - \alpha\right)}}.
+    \]
+\end{enumerate}
+\end{exemple}
+
+\begin{exemple}[Problème 5 : Cercle inscrit dans un secteur circulaire (UCLouvain -- Septembre 2026, Question 2)]
+\emph{Énoncé :} Un secteur circulaire de centre $O$, de rayon $R$ et d'angle au centre $\theta \in \left]0, \pi\right[$ est donné. On inscrit un cercle de centre $C$ et de rayon $r$ à l'intérieur de ce secteur, de sorte qu'il soit tangent à l'arc du secteur ainsi qu'aux deux rayons qui le délimitent.
+\begin{enumerate}
+    \item Exprimez le rayon $r$ du cercle inscrit en fonction de $R$ et de $\theta$.
+    \item Déterminez la valeur de $\theta$ (en radians et en degrés) pour laquelle $\dfrac{r}{R} = \dfrac{1}{3}$.
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.15, >=Stealth]
+    \def\R{3.4}
+    \def\ang{30}
+    \pgfmathsetmacro{\r}{\R*sin(\ang)/(1+sin(\ang))}
+    \pgfmathsetmacro{\d}{\R - \r}
+
+    \coordinate (O) at (0,0);
+    \coordinate (C) at (\d,0);
+    \coordinate (A) at ({\R*cos(\ang)}, {\R*sin(\ang)});
+    \coordinate (B) at ({\R*cos(-\ang)}, {\R*sin(-\ang)});
+    \coordinate (T) at ({\d*cos(\ang)*cos(\ang)}, {\d*cos(\ang)*sin(\ang)});
+
+    \draw[thick, uclblue] (O) -- (A) arc (\ang:-\ang:\R) -- cycle;
+    \draw[thick, defgreen, fill=deflightgreen!60] (C) circle (\r);
+    \draw[dashed, uclaccent, thick] (O) -- (C) node[midway, below] {$R-r$};
+    \draw[thick, warnred] (C) -- (T) node[midway, above left=-2pt] {$r$};
+
+    \begin{scope}[shift={(T)}, rotate=\ang]
+        \draw[warnred] (-0.18,0) -- (-0.18,-0.18) -- (0,-0.18);
+    \end{scope}
+
+    \draw[uclaccent] (0.7,0) arc (0:\ang:0.7);
+    \node[uclaccent] at (0.95, 0.2) {$\theta/2$};
+    \draw[<->, gray] (0, -1.85) -- (\R, -1.85) node[midway, below] {$R$};
+
+    \fill (O) circle (1.3pt) node[left] {$O$};
+    \fill (C) circle (1.3pt) node[below right] {$C$};
+    \fill (T) circle (1.3pt) node[above left] {$T$};
+\end{tikzpicture}
+\end{center}
+
+\emph{Résolution :}
+\begin{enumerate}
+    \item Par symétrie, le centre $C$ du cercle inscrit se situe sur la bissectrice de l'angle au centre $\theta$, qui partage l'angle en deux angles égaux à $\frac{\theta}{2}$ et rencontre l'arc du secteur au point de tangence entre le cercle et l'arc. La distance entre $O$ et $C$ vaut donc $\overline{OC} = R - r$.
+    Soit $T$ le point de tangence du cercle avec l'un des deux rayons du secteur. Le rayon $[CT]$ de longueur $r$ est perpendiculaire à ce rayon en $T$, de sorte que le triangle $OTC$ est \textbf{rectangle en $T$}. Dans ce triangle rectangle :
+    \[
+        \sin\left(\frac{\theta}{2}\right) = \frac{\overline{CT}}{\overline{OC}} = \frac{r}{R - r} \iff r\left(1 + \sin\left(\frac{\theta}{2}\right)\right) = R\sin\left(\frac{\theta}{2}\right) \iff \boxed{r = \frac{R\sin(\theta/2)}{1 + \sin(\theta/2)}}.
+    \]
+    \item Pour que $\dfrac{r}{R} = \dfrac{1}{3}$, on résout :
+    \[
+        \frac{\sin(\theta/2)}{1 + \sin(\theta/2)} = \frac{1}{3} \iff 3\sin\left(\frac{\theta}{2}\right) = 1 + \sin\left(\frac{\theta}{2}\right) \iff \sin\left(\frac{\theta}{2}\right) = \frac{1}{2}.
+    \]
+    Comme $0 < \theta < \pi$, on a $0 < \frac{\theta}{2} < \frac{\pi}{2}$, d'où $\frac{\theta}{2} = \frac{\pi}{6}$, soit $\boxed{\theta = \frac{\pi}{3} \text{ rad} = 60\degree}$.
+\end{enumerate}
+\end{exemple}
+
+\begin{exemple}[Problème 6 : Point de Brocard d'un triangle (UCLouvain -- Mini-Blocus 2026, Question 2a)]
+\emph{Énoncé :} Soit $ABC$ un triangle non aplati de côtés $a, b, c$ et d'angles $\widehat{A}, \widehat{B}, \widehat{C}$. On considère un point $M$ intérieur au triangle tel que $\widehat{MAB} = \widehat{MBC} = \widehat{MCA} = \theta \in \left]0, \frac{\pi}{3}\right[$. On pose $x = \overline{MA}$, $y = \overline{MB}$ et $z = \overline{MC}$. Dans les triangles $MAB$, $MBC$ et $MCA$, exprimer $x, y, z$ en fonction de $a, b, c$, des angles $\widehat{A}, \widehat{B}, \widehat{C}$ et de $\theta$.\\
+\emph{Résolution :} Dans le triangle $MAB$, l'angle en $A$ vaut $\widehat{MAB} = \theta$ et l'angle en $B$ vaut $\widehat{ABM} = \widehat{B} - \widehat{MBC} = \widehat{B} - \theta$. Par conséquent, le troisième angle du triangle $MAB$ (en $M$) vaut :
+\[
+    \widehat{AMB} = \pi - \bigl(\theta + (\widehat{B} - \theta)\bigr) = \pi - \widehat{B}.
+\]
+En appliquant la \textbf{loi des sinus} dans le triangle $MAB$ (sachant que $\sin(\pi - \widehat{B}) = \sin\widehat{B}$) :
+\[
+    \frac{c}{\sin(\pi - \widehat{B})} = \frac{x}{\sin(\widehat{B} - \theta)} = \frac{y}{\sin\theta} \implies \boxed{x = \frac{c\sin(\widehat{B} - \theta)}{\sin\widehat{B}}}.
+\]
+Par permutation circulaire sur les triangles $MBC$ (où $\widehat{BMC} = \pi - \widehat{C}$) et $MCA$ (où $\widehat{CMA} = \pi - \widehat{A}$), on obtient immédiatement :
+\[
+    \boxed{y = \frac{a\sin(\widehat{C} - \theta)}{\sin\widehat{C}} \quad \text{(ou } y = \frac{c\sin\theta}{\sin\widehat{B}}\text{)} \qquad \text{et} \qquad z = \frac{b\sin(\widehat{A} - \theta)}{\sin\widehat{A}} \quad \text{(ou } z = \frac{a\sin\theta}{\sin\widehat{C}}\text{)}}.
+\]
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 4}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 4.\arabic* --}]
+    \item \textbf{(UCLouvain -- Septembre 2024, Q2 : Théorème de la bissectrice)} Soit un triangle quelconque $ABC$ de côtés $a = \overline{BC}$, $b = \overline{AC}$ et $c = \overline{AB}$. Soit $X$ le point du segment $[BC]$ tel que la demi-droite $[AX)$ soit la bissectrice de l'angle $\widehat{BAC}$ (c'est-à-dire $\widehat{BAX} = \widehat{XAC} = \alpha$). En appliquant la loi des sinus dans les triangles $ABX$ et $ACX$, exprimez la longueur $x = \overline{BX}$ en fonction de $a, b$ et $c$ uniquement.
+
+    \item \textbf{(UCLouvain -- Mini-Blocus 2026 Q1e, Septembre 2026 Q3e et Septembre 2023 Q3f : Cercles inscrit et circonscrit d'un triangle rectangle isocèle)} Soit un triangle rectangle isocèle dont l'hypoténuse mesure $c$ (et les deux côtés de l'angle droit mesurent $\frac{c}{\sqrt{2}}$). On note $r$ le rayon de son cercle inscrit et $R$ le rayon de son cercle circonscrit.
+    \begin{enumerate}
+        \item Calculez exactement le rapport $\dfrac{r}{R}$.
+        \item Si l'hypoténuse mesure $c = 1\text{ m}$, calculez la distance $d$ entre le centre du cercle inscrit et le centre du cercle circonscrit à ce triangle.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2026, Q3e et Septembre 2026, Q3a : Trapèzes à diagonales orthogonales)}
+    \begin{enumerate}
+        \item Soit $ABCD$ un trapèze \textbf{rectangle} en $A$ et $D$ dont les bases parallèles $[AB]$ et $[CD]$ mesurent respectivement $\overline{AB} = x$ et $\overline{CD} = y$. Les diagonales $[AC]$ et $[BD]$ se coupent perpendiculairement ($90\degree$). Déterminez la hauteur $h = \overline{AD}$ de ce trapèze en fonction de $x$ et $y$.
+        \item Soit $ABCD$ un trapèze \textbf{isocèle} dont les bases parallèles $[AB]$ et $[CD]$ mesurent $\overline{AB} = x$ et $\overline{CD} = y$, et dont les diagonales $[AC]$ et $[BD]$ se coupent à angle droit ($90\degree$). Déterminez l'aire de ce trapèze en fonction de $x$ et $y$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q3b : Trois cordes dans un cercle)} Dans un cercle, trois cordes de longueurs $2$, $3$ et $4$ déterminent respectivement des angles au centre $\alpha$, $\beta$ et $\alpha+\beta$ (avec $\alpha+\beta < \pi$). Calculez la valeur exacte de $\cos(\alpha)$.
+
+    \item \textbf{(UCLouvain -- Juillet 2021, Q3a, Q3c et Q3f)}
+    \begin{enumerate}
+        \item Soient deux polygones réguliers à $n$ côtés, l'un ($I$) inscrit dans un cercle de rayon $R$ et l'autre ($C$) circonscrit à ce même cercle. Calculez le rapport de leurs périmètres $\dfrac{P_C}{P_I}$ en fonction de $n$ uniquement.
+        \item Dans un triangle $ABC$, si $\cos^2(\widehat{A} - \widehat{B}) - \cos(2\widehat{A})\cos(2\widehat{B}) = \dfrac{1}{2}$ et que $\widehat{C}$ est un angle obtus, calculez l'angle $\widehat{C}$ en degrés.
+        \item Soit un triangle $ABC$ rectangle en $A$ dont le cercle circonscrit a pour rayon $R = 2$ et tel que $\overline{AB} = \sqrt{7}$. Calculez la valeur exacte de $\cos(\widehat{B} - \widehat{C})$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2024, Q3c et Septembre 2024, Q3c)}
+    \begin{enumerate}
+        \item Dans un triangle quelconque $ABC$, l'angle $\widehat{BAC} = \frac{\pi}{6}$, le côté $\overline{AC} = 2\text{ cm}$ et l'aire du triangle vaut $3\text{ cm}^2$. Calculez la valeur exacte de la longueur du côté $\overline{BC}$.
+        \item Dans un triangle $ABC$, sachant que $\widehat{A} = 60\degree$ et $\widehat{B} = 45\degree$, calculez la valeur exacte de $\sqrt{2}(\sqrt{3}+1)\dfrac{a+b}{c}$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2025 / Recueil 2025, Q3.5)} Considérons le cercle $\mathcal{C}$ de centre $O$ et de rayon $1$, passant par deux points $A$ et $B$ tels que $\widehat{AOB} = \dfrac{\pi}{3}$. Sur la droite $d$ passant par $A$ et $B$, on place le point $C$ (du côté de $B$) tel que $\overline{AB} = \overline{BC}$. Déterminez la valeur exacte de l'angle $\widehat{BOC}$.
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q2 : Carrés et rectangle inscrits dans un cercle)} On considère un cercle $\mathcal{C}$ de centre $O$ et de rayon $1$, et un carré $ABCD$ inscrit dans ce cercle.
+    \begin{enumerate}
+        \item Calculez la longueur $\overline{AB}$ du côté du carré $ABCD$.
+        \item On construit un petit carré $EFGH$ à l'extérieur du côté $[AB]$ mais à l'intérieur du cercle $\mathcal{C}$, avec $E, F \in [AB]$ et $G, H \in \mathcal{C}$. Calculez la valeur exacte du rapport $\dfrac{\overline{AB}}{\overline{HE}}$.
+        \item On construit de même un rectangle $IJKL$ de l'autre côté, avec $I, J \in [CD]$ et $K, L \in \mathcal{C}$. Exprimez l'aire $A$ du rectangle $IJKL$ en fonction de $y = \overline{JK}$, et déterminez la valeur du rapport $\dfrac{\overline{DC}}{\overline{JK}}$ qui maximise cette aire.
+    \end{enumerate}
+
+    \item \textbf{(ULiège -- Juillet 2008, Q3 : Trois cordes équidistantes dans un demi-cercle)} Dans un demi-cercle de rayon $R$, on trace trois cordes parallèles au diamètre de base, de longueurs respectives $C_1 = 8\text{ m}$, $C_2 = 16\text{ m}$ et $C_3 = 20\text{ m}$, telles que la distance $h$ entre $C_1$ et $C_2$ soit égale à la distance $h$ entre $C_2$ et $C_3$. Calculez la valeur exacte de $h$ ainsi que le rayon $R$ du demi-cercle.
+
+    \item \textbf{(ULiège -- Septembre 2006, Q2 : Théorème de Ménélaüs par la loi des sinus)} Soit un triangle $ABC$ et soit une droite $\mathcal{D}$ qui coupe le côté $[AB]$ en $F$, le côté $[AC]$ en $E$ et le prolongement du côté $[BC]$ (au-delà de $C$) en un point $D$. Sachant que $\dfrac{\overline{FA}}{\overline{FB}} = \dfrac{1}{3}$ et $\dfrac{\overline{EA}}{\overline{EC}} = \dfrac{2}{3}$, calculez la valeur exacte du rapport $\dfrac{\overline{DC}}{\overline{DB}}$.
+\end{enumerate}

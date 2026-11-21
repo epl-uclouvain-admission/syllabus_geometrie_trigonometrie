@@ -1,0 +1,639 @@
+% ============================================================================
+% CHAPITRE 3 : ÉQUATIONS ET INÉQUATIONS TRIGONOMÉTRIQUES
+% ============================================================================
+\chapter{Équations et Inéquations Trigonométriques}
+
+La première grande question de l'examen d'entrée en trigonométrie (commune aux quatre facultés polytechniques de la Fédération Wallonie-Bruxelles) porte systématiquement sur la \textbf{résolution complète d'une équation trigonométrique dans $\R$}, souvent accompagnée de la représentation de ses solutions sur le cercle trigonométrique. Ce chapitre expose de manière structurée toutes les techniques permettant de ramener n'importe quelle équation d'examen aux trois équations élémentaires de base.
+
+% ----------------------------------------------------------------------------
+\section{Principes d'équivalence fondamentaux et équations élémentaires}
+% ----------------------------------------------------------------------------
+
+Une équation trigonométrique admet généralement une \textbf{infinité de solutions} réparties en une ou plusieurs familles périodiques (indexées par un entier $k \in \Z$). Les solutions appartenant à l'intervalle $[0, 2\pi[$ (ou $[-\pi, \pi[$ selon l'énoncé) sont appelées \textbf{solutions fondamentales}.
+
+À partir des propriétés des angles associés vues au Chapitre 1 (deux angles ont le même cosinus ssi ils sont égaux ou opposés à $2k\pi$ près ; le même sinus ssi ils sont égaux ou supplémentaires à $2k\pi$ près ; la même tangente ssi ils sont égaux à $k\pi$ près), on établit les trois principes d'équivalence fondamentaux :
+
+\begin{theoreme}[Les trois équations trigonométriques élémentaires ($k \in \Z$)]
+\begin{enumerate}
+    \item \textbf{Égalité de deux cosinus :}
+    \[
+        \boxed{\cos u = \cos a \iff u = a + 2k\pi \quad \text{ou} \quad u = -a + 2k\pi \qquad (k \in \Z)}
+    \]
+    \emph{Écriture condensée :} $u = \pm a + 2k\pi$ ($k \in \Z$).
+    \begin{itemize}
+        \item \emph{Cas particuliers (une seule famille) :} $\cos u = 1 \iff u = 2k\pi$ ; \quad $\cos u = -1 \iff u = \pi + 2k\pi$ ; \quad $\cos u = 0 \iff u = \dfrac{\pi}{2} + k\pi$.
+    \end{itemize}
+
+    \item \textbf{Égalité de deux sinus :}
+    \[
+        \boxed{\sin u = \sin a \iff u = a + 2k\pi \quad \text{ou} \quad u = \pi - a + 2k\pi \qquad (k \in \Z)}
+    \]
+    \begin{itemize}
+        \item \emph{Cas particuliers (une seule famille) :} $\sin u = 1 \iff u = \dfrac{\pi}{2} + 2k\pi$ ; \quad $\sin u = -1 \iff u = -\dfrac{\pi}{2} + 2k\pi$ ; \quad $\sin u = 0 \iff u = k\pi$.
+    \end{itemize}
+
+    \item \textbf{Égalité de deux tangentes (ou cotangentes) :}
+    \[
+        \boxed{\tan u = \tan a \iff \begin{cases} u = a + k\pi \quad (k \in \Z) \\ \text{CE : } u \neq \frac{\pi}{2} + m\pi,\; a \neq \frac{\pi}{2} + m\pi \end{cases}}
+    \]
+    \begin{itemize}
+        \item \emph{De même pour la cotangente :} $\cot u = \cot a \iff u = a + k\pi$ ($k \in \Z$), sous les CE $u, a \neq m\pi$.
+    \end{itemize}
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.55, >=Stealth]
+    % Cosinus
+    \begin{scope}[shift={(0,0)}]
+        \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, uclblue] (0,0) circle (1);
+        \def\a{50}
+        \draw[dashed, exorange, thick] ({cos(\a)},-1.05) -- ({cos(\a)},1.05);
+        \draw[thick, uclaccent] (0,0) -- (\a:1) node[above right] {\small $a$};
+        \draw[thick, uclaccent] (0,0) -- (-\a:1) node[below right] {\small $-a$};
+        \fill[warnred] (\a:1) circle (1.5pt);
+        \fill[warnred] (-\a:1) circle (1.5pt);
+        \node[below] at (0,-1.35) {\small \textbf{(a)} $\cos u = \cos a$};
+    \end{scope}
+
+    % Sinus
+    \begin{scope}[shift={(3.4,0)}]
+        \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, uclblue] (0,0) circle (1);
+        \def\a{35}
+        \draw[dashed, warnred, thick] (-1.05,{sin(\a)}) -- (1.05,{sin(\a)});
+        \draw[thick, uclaccent] (0,0) -- (\a:1) node[above right] {\small $a$};
+        \draw[thick, uclaccent] (0,0) -- ({180-\a}:1) node[above left] {\small $\pi-a$};
+        \fill[warnred] (\a:1) circle (1.5pt);
+        \fill[warnred] ({180-\a}:1) circle (1.5pt);
+        \node[below] at (0,-1.35) {\small \textbf{(b)} $\sin u = \sin a$};
+    \end{scope}
+
+    % Tangente
+    \begin{scope}[shift={(6.8,0)}]
+        \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, uclblue] (0,0) circle (1);
+        \draw[thick, defgreen] (1,-1.15) -- (1,1.2) node[above] {\small $t$};
+        \def\a{40}
+        \draw[thick, uclaccent] ({180+\a}:1) -- (1,{tan(\a)});
+        \fill[defgreen] (1,{tan(\a)}) circle (1.4pt) node[right] {\small $\tan a$};
+        \fill[warnred] (\a:1) circle (1.5pt) node[above left] {\small $a$};
+        \fill[warnred] ({180+\a}:1) circle (1.5pt) node[below left] {\small $a+\pi$};
+        \node[below] at (0,-1.35) {\small \textbf{(c)} $\tan u = \tan a$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{attention}[Deux réflexes vitaux à l'examen : Conditions d'Existence (CE) et non-simplification]
+\begin{enumerate}
+    \item \textbf{Conditions d'existence (CE) :} Dès qu'une équation contient une fraction, une tangente ($\tan u \implies \cos u \neq 0 \iff u \neq \frac{\pi}{2}+k\pi$), une cotangente ($\cot u \implies \sin u \neq 0 \iff u \neq k\pi$), une sécante ou une cosécante, \textbf{écrivez les CE en tout premier lieu} (cela vaut souvent 1 à 2 points sur le barème officiel !) et vérifiez à la fin que vos solutions respectent ces CE.
+    \item \textbf{Ne divisez jamais par un facteur dépendant de $x$ sans vérifier s'il peut s'annuler :} Simplifier $2\sin x = \sin x$ par $\sin x$ fait perdre toute la famille de solutions $\sin x = 0 \iff x = k\pi$ ! \textbf{Mettez toujours le facteur commun en évidence} : $\sin x(2-1) = 0 \iff \sin x = 0$.
+\end{enumerate}
+\end{attention}
+
+% ----------------------------------------------------------------------------
+\section{Équations réductibles et comptage des solutions sur le cercle}
+% ----------------------------------------------------------------------------
+
+\subsection{Équations du type $\sin(nx) = c$, $\sin(\alpha x) = \sin(\beta x)$ et $\sin(\alpha x) = \cos(\beta x)$}
+
+\begin{itemize}
+    \item \textbf{Pour $\sin(nx) = \sin a$ (ou $\cos(nx) = \cos a$, $\tan(nx) = \tan a$) :} On applique d'abord le principe d'équivalence à l'argument $nx$, \textbf{puis} on divise toute l'égalité (y compris la période $2k\pi$ ou $k\pi$ !) par $n$ :
+    \begin{align*}
+        \sin(3x) = \frac{\sqrt{3}}{2} = \sin\frac{\pi}{3} &\iff 3x = \frac{\pi}{3} + 2k\pi \quad \text{ou} \quad 3x = \frac{2\pi}{3} + 2k\pi \\
+        &\iff x = \frac{\pi}{9} + \frac{2k\pi}{3} \quad \text{ou} \quad x = \frac{2\pi}{9} + \frac{2k\pi}{3} \qquad (k\in\Z).
+    \end{align*}
+    Pour obtenir toutes les \textbf{solutions fondamentales dans $[0, 2\pi[$}, il suffit de donner à l'entier $k$ les $n$ valeurs consécutives $k = 0, 1, 2, \dots, n-1$ dans chaque famille !
+    \item \textbf{Pour $\sin(u) = \cos(v)$ :} On transforme le cosinus en sinus (ou l'inverse) grâce aux angles complémentaires :
+    \[
+        \boxed{\sin(u) = \cos(v) \iff \cos\left(\frac{\pi}{2} - u\right) = \cos(v) \quad \text{ou} \quad \sin(u) = \sin\left(\frac{\pi}{2} - v\right)}.
+    \]
+    De même, pour $-\sin(u) = \cos(v)$, on utilise $\cos\left(\frac{\pi}{2} + u\right) = -\sin(u)$ : l'équation devient $\cos\left(\frac{\pi}{2} + u\right) = \cos(v)$.
+\end{itemize}
+
+\begin{exemple}[Équations réductibles et dénombrement : Questions d'examen UCLouvain]
+\textbf{1) UCLouvain -- Septembre 2022, Question 3c :}\\
+\emph{Énoncé :} Combien y a-t-il de solutions sur le cercle trigonométrique à l'équation $\tan(3x) = -\sqrt{3}$ ?\\
+\emph{Résolution :} $\tan(3x) = -\sqrt{3} = \tan\left(-\frac{\pi}{3}\right) \iff 3x = -\frac{\pi}{3} + k\pi \iff x = -\frac{\pi}{9} + k\frac{\pi}{3}$ ($k \in \Z$).
+Puisque le pas entre deux solutions consécutives est $\frac{\pi}{3}$, il y a exactement $\frac{2\pi}{\pi/3} = \boxed{6 \text{ solutions}}$ distinctes sur le cercle trigonométrique (pour $k = 0, 1, 2, 3, 4, 5$).
+
+\medskip
+\textbf{2) UCLouvain -- Juillet 2023, Question 3c :}\\
+\emph{Énoncé :} Combien y a-t-il de solutions pour $x \in [0, 2\pi[$ à l'équation $\cos(x/3) = \sin(2x)$ ?\\
+\emph{Résolution :} En écrivant $\sin(2x) = \cos\left(\frac{\pi}{2} - 2x\right)$, l'équation devient $\cos\left(\frac{x}{3}\right) = \cos\left(\frac{\pi}{2} - 2x\right)$, ce qui équivaut à :
+\begin{itemize}
+    \item \emph{Famille 1 :} $\dfrac{x}{3} = \dfrac{\pi}{2} - 2x + 2k\pi \iff \dfrac{7x}{3} = \dfrac{\pi}{2} + 2k\pi \iff x = \dfrac{(3 + 12k)\pi}{14}$,
+    \item \emph{Famille 2 :} $\dfrac{x}{3} = -\dfrac{\pi}{2} + 2x + 2k\pi \iff -\dfrac{5x}{3} = -\dfrac{\pi}{2} + 2k\pi \iff x = \dfrac{(3 + 12k)\pi}{10}$.
+\end{itemize}
+Cherchons les entiers $k \in \Z$ tels que $x \in [0, 2\pi[$ :
+\begin{itemize}
+    \item Dans la Famille 1 ($0 \le 3 + 12k < 28$) : $k = 0, 1, 2$ donnent $x \in \left\{\frac{3\pi}{14}, \frac{15\pi}{14}, \frac{27\pi}{14}\right\}$ (3 solutions).
+    \item Dans la Famille 2 ($0 \le 3 + 12k < 20$) : $k = 0, 1$ donnent $x \in \left\{\frac{3\pi}{10}, \frac{15\pi}{10} = \frac{3\pi}{2}\right\}$ (2 solutions).
+\end{itemize}
+Aucune solution n'est commune aux deux familles (dénominateurs irréductibles $14$ vs $10$ et $2$), soit un total de $3 + 2 = \boxed{5 \text{ solutions}}$.
+
+\medskip
+\textbf{3) UCLouvain -- Juillet 2025 Q3d, Juillet 2026 Q3b et Septembre 2026 Q3b :}\\
+\begin{itemize}
+    \item \emph{Solutions de $\sin(3x) = -\frac{\sqrt{2}}{2}$ dans $[0, \pi]$ (Juillet 2025, Q3d) :} $3x = -\frac{\pi}{4} + 2k\pi$ ou $3x = \frac{5\pi}{4} + 2k\pi$, soit $x = -\frac{\pi}{12} + \frac{2k\pi}{3}$ ou $x = \frac{5\pi}{12} + \frac{2k\pi}{3}$. Dans $[0, \pi] = [0, \frac{12\pi}{12}]$, la première famille ($k=1$) donne $x = \frac{7\pi}{12}$ et la seconde ($k=0$) donne $x = \frac{5\pi}{12}$. D'où $S = \boxed{\left\{\frac{5\pi}{12}, \frac{7\pi}{12}\right\}}$.
+    \item \emph{Solutions de $\sin(2x) = -\frac{1}{2}$ dans $[0, \pi]$ (Juillet 2026, Q3b) :} $2x = \frac{7\pi}{6} + 2k\pi$ ou $2x = \frac{11\pi}{6} + 2k\pi \iff x = \frac{7\pi}{12} + k\pi$ ou $x = \frac{11\pi}{12} + k\pi$. Dans $[0, \pi]$, on obtient $S = \boxed{\left\{\frac{7\pi}{12}, \frac{11\pi}{12}\right\}}$.
+    \item \emph{Solutions de $\sin(2x) = \cos x$ dans $[0, 2\pi[$ (Septembre 2026, Q3b) :} On développe $\sin(2x) = 2\sin x\cos x$ et on factorise : $\cos x(2\sin x - 1) = 0 \iff \cos x = 0$ ou $\sin x = \frac{1}{2}$. Dans $[0, 2\pi[$, cela donne immédiatement $S = \boxed{\left\{\frac{\pi}{6}, \frac{\pi}{2}, \frac{5\pi}{6}, \frac{3\pi}{2}\right\}}$.
+\end{itemize}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Les 6 grandes familles d'équations de l'examen d'entrée}
+% ----------------------------------------------------------------------------
+
+À l'examen d'admission, l'équation trigonométrique principale se ramène toujours, après quelques transformations, à l'une des six grandes structures suivantes.
+
+\subsection{Famille 1 : Équations polynomiales en $\sin x$, $\cos x$ ou $\tan x$ (Substitution)}
+
+Lorsqu'une équation peut s'exprimer à l'aide d'un seul nombre trigonométrique (par exemple $\cos x$, $\sin x$, $\cos^2 x$, $\cos(2x)$ ou $\tan x$), on pose une variable auxiliaire $y = \cos x$ (ou $y = \sin x$, $y = \sin^2 x$, etc.) pour obtenir une \textbf{équation algébrique polynomiale $P(y) = 0$}.
+\begin{itemize}
+    \item Si l'équation mélange $\sin^2 x$ et $\cos x$, on remplace $\sin^2 x$ par $1 - \cos^2 x$ pour n'avoir que du $\cos x$.
+    \item Si $P(y)$ est de degré 3, cherchez toujours une \textbf{racine évidente} parmi $y \in \{1, -1, 2, -2, \frac{1}{2}\}$ pour factoriser $P(y)$ par $(y - y_0)$ (division polynomiale ou schéma de Horner).
+    \item \textbf{Filtre de validité :} Si $y = \cos x$ ou $y = \sin x$, toute racine $y$ telle que $|y| > 1$ est impossible dans $\R$ et doit être rejetée ! Si $y = \sin^2 x$ ou $\cos^2 x$, on doit avoir $0 \le y \le 1$.
+\end{itemize}
+
+\begin{exemple}[Polynômes trigonométriques : UCLouvain -- Juillet 2023 Q1, Juillet 2025 Q1, Juillet 2026 Q1, Septembre 2026 Q1]
+\textbf{1) UCLouvain -- Juillet 2023, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $2\cos(3x) - 14\cos(2x) + 34\cos(x) - 22 = 0$.\\
+\emph{Résolution :} Exprimons tout en fonction de $\cos x$ grâce aux formules de duplication et de triplication :
+\[
+    \cos(2x) = 2\cos^2 x - 1 \qquad \text{et} \qquad \cos(3x) = 4\cos^3 x - 3\cos x.
+\]
+En substituant dans l'équation :
+\begin{align*}
+    2(4\cos^3 x - 3\cos x) - 14(2\cos^2 x - 1) + 34\cos x - 22 = 0 \\
+    \iff 8\cos^3 x - 28\cos^2 x + 28\cos x - 8 = 0.
+\end{align*}
+Divisons par $4$ et posons $y = \cos x$ :
+\[
+    P(y) = 2y^3 - 7y^2 + 7y - 2 = 0.
+\]
+On remarque que la somme des coefficients est nulle ($2 - 7 + 7 - 2 = 0$), donc $y = 1$ est racine évidente ! En factorisant par $(y-1)$ :
+\[
+    P(y) = (y - 1)(2y^2 - 5y + 2) = (y - 1)(y - 2)(2y - 1) = 0.
+\]
+Les racines sont $y_1 = 1$, $y_2 = \frac{1}{2}$ et $y_3 = 2$. Comme $y = \cos x \in [-1, 1]$, la racine $y_3 = 2 > 1$ est rejetée. Il reste :
+\[
+    \cos x = 1 \iff x = 2k\pi \qquad \text{ou} \qquad \cos x = \frac{1}{2} \iff x = \pm\frac{\pi}{3} + 2k\pi \qquad (k \in \Z).
+\]
+D'où l'ensemble des solutions : $S = \boxed{\{2k\pi \mid k \in \Z\} \cup \left\{\pm\frac{\pi}{3} + 2k\pi \;\middle|\; k \in \Z\right\}}$.
+
+\medskip
+\textbf{2) UCLouvain -- Juillet 2026, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\sin(3x) - \cos(2x) + 3\sin(x) + 1 = 0$ et représenter les solutions appartenant à $[-\pi, \pi[$ sur le cercle trigonométrique.\\
+\emph{Résolution :} Exprimons tout en fonction de $\sin x$ à l'aide de $\sin(3x) = 3\sin x - 4\sin^3 x$ et de la formule de Carnot $1 - \cos(2x) = 2\sin^2 x$ :
+\[
+    (3\sin x - 4\sin^3 x) + 2\sin^2 x + 3\sin x = 0 \iff -4\sin^3 x + 2\sin^2 x + 6\sin x = 0.
+\]
+En posant $y = \sin x$ et en divisant par $-2$, on factorise immédiatement :
+\[
+    y(2y^2 - y - 3) = 0 \iff y(y + 1)\left(2y - 3\right) = 0.
+\]
+La racine $y = \frac{3}{2} > 1$ est impossible pour un sinus. Il reste :
+\begin{itemize}
+    \item $\sin x = 0 \iff x = k\pi$ ($k \in \Z$),
+    \item $\sin x = -1 \iff x = -\dfrac{\pi}{2} + 2k\pi$ ($k \in \Z$).
+\end{itemize}
+Dans l'intervalle $[-\pi, \pi[$, il y a exactement \textbf{3 solutions} : $\boxed{x \in \left\{-\pi, -\frac{\pi}{2}, 0\right\}}$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.25, >=Stealth]
+    \draw[->, thick, gray] (-1.3,0) -- (1.35,0) node[right, black] {\small $\cos x$};
+    \draw[->, thick, gray] (0,-1.35) -- (0,1.3) node[above, black] {\small $\sin x$};
+    \draw[thick, uclblue] (0,0) circle (1);
+    \fill[warnred] (1,0) circle (2.2pt) node[above right] {\small $0$};
+    \fill[warnred] (0,-1) circle (2.2pt) node[below right] {\small $-\frac{\pi}{2}$};
+    \fill[warnred] (-1,0) circle (2.2pt) node[above left] {\small $-\pi$};
+    \node[below left] at (0,0) {\small $O$};
+\end{tikzpicture}
+\end{center}
+
+\medskip
+\textbf{3) UCLouvain -- Juillet 2025, Question 1 (Une équation, quatre méthodes !) :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\sin^6 x - \cos^6 x = 3\cos^2 x \sin^2 x$.\\
+\emph{Résolution (Méthode la plus directe : substitution $y = \sin^2 x$) :} Comme seuls des exposants pairs apparaissent, posons $y = \sin^2 x$, de sorte que $\cos^2 x = 1 - y$. L'équation devient :
+\begin{align*}
+    y^3 - (1 - y)^3 = 3y(1 - y) &\iff y^3 - (1 - 3y + 3y^2 - y^3) = 3y - 3y^2 \\
+    &\iff 2y^3 - 3y^2 + 3y - 1 = 3y - 3y^2.
+\end{align*}
+Les termes en $y^2$ et en $y$ s'annulent miraculeusement ! Il reste :
+\[
+    2y^3 - 1 = 0 \iff y = \sin^2 x = \sqrt[3]{\frac{1}{2}} \in [0, 1] \iff \sin x = \pm \sqrt{\sqrt[3]{\frac{1}{2}}} = \pm 2^{-1/6}.
+\]
+Puisque $\sin x$ peut prendre la valeur positive ou négative, les quatre points sur le cercle sont deux à deux opposés et supplémentaires, ce qui se résume par :
+\[
+    S = \boxed{\left\{ \pm\arcsin\left(\sqrt{\sqrt[3]{\frac{1}{2}}}\right) + k\pi \;\middle|\; k \in \Z \right\}}.
+\]
+\emph{Note :} En posant $u = \cos(2x)$ via Carnot ($\sin^2 x = \frac{1-u}{2}$, $\cos^2 x = \frac{1+u}{2}$), on trouve de façon équivalente $(u+1)^3 = 4 \iff \cos(2x) = \sqrt[3]{4} - 1$, soit $x = \pm\frac{1}{2}\arccos(\sqrt[3]{4}-1) + k\pi$.
+
+\medskip
+\textbf{4) UCLouvain -- Septembre 2026, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\sin^2(4x) + \cos^4(2x) = 1$.\\
+\emph{Résolution :} Par duplication, $\sin(4x) = 2\sin(2x)\cos(2x)$, donc $\sin^2(4x) = 4\sin^2(2x)\cos^2(2x)$. Posons $u = \cos^2(2x)$ (d'où $\sin^2(2x) = 1 - u$) :
+\[
+    4u(1-u) + u^2 = 1 \iff 3u^2 - 4u + 1 = 0 \iff (3u - 1)(u - 1) = 0 \iff u = 1 \text{ ou } u = \frac{1}{3}.
+\]
+\begin{itemize}
+    \item $u = 1 \iff \cos^2(2x) = 1 \iff \sin(2x) = 0 \iff 2x = k\pi \iff x = \dfrac{k\pi}{2}$ ($k \in \Z$).
+    \item $u = \frac{1}{3} \iff \cos(2x) = \pm\frac{1}{\sqrt{3}} \iff 2x = \pm\arccos\left(\frac{1}{\sqrt{3}}\right) + k\pi \iff x = \pm\frac{1}{2}\arccos\left(\frac{1}{\sqrt{3}}\right) + \frac{k\pi}{2}$ ($k \in \Z$).
+\end{itemize}
+\end{exemple}
+
+\subsection{Famille 2 : Mise en évidence et identités algébriques remarquables}
+
+Avant de développer aveuglément une équation, observez toujours si un facteur commun peut être \textbf{mis en évidence}, éventuellement après avoir utilisé une identité algébrique comme :
+\[
+    a^2 - b^2 = (a-b)(a+b), \qquad a^3 - b^3 = (a-b)(a^2 + ab + b^2), \qquad a^3 + b^3 = (a+b)(a^2 - ab + b^2).
+\]
+
+\begin{exemple}[Factorisation : UCLouvain -- Septembre 2021 Q1 et Septembre 2025 Q3]
+\textbf{1) UCLouvain -- Septembre 2021, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\cos^3(x) - \sin^3(x) = \dfrac{3}{5}\bigl(\cos(x) - \sin(x)\bigr)$.\\
+\emph{Résolution :} Utilisons $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$ avec $a = \cos x$ et $b = \sin x$, et regroupons tout dans le membre de gauche pour mettre $(\cos x - \sin x)$ en évidence :
+\[
+    \bigl(\cos x - \sin x\bigr)\Bigl(\underbrace{\cos^2 x + \sin^2 x}_{=1} + \cos x \sin x - \frac{3}{5}\Bigr) = 0 \iff \bigl(\cos x - \sin x\bigr)\Bigl(\cos x \sin x + \frac{2}{5}\Bigr) = 0.
+\]
+Par la règle du produit nul, l'équation se scinde en deux équations simples :
+\begin{itemize}
+    \item \emph{1\up{re} famille :} $\cos x - \sin x = 0 \iff \tan x = 1 \iff \boxed{x = \frac{\pi}{4} + k\pi}$ ($k \in \Z$).
+    \item \emph{2\up{e} famille :} $\cos x \sin x = -\frac{2}{5} \iff \sin(2x) = -\frac{4}{5}$. Comme $\left|-\frac{4}{5}\right| \le 1$, on obtient :
+    \[
+        2x = -\arcsin\left(\frac{4}{5}\right) + 2k\pi \quad \text{ou} \quad 2x = \pi + \arcsin\left(\frac{4}{5}\right) + 2k\pi,
+    \]
+    soit $\boxed{x = -\frac{1}{2}\arcsin\left(\frac{4}{5}\right) + k\pi \quad \text{ou} \quad x = \frac{\pi}{2} + \frac{1}{2}\arcsin\left(\frac{4}{5}\right) + k\pi}$ ($k \in \Z$).
+\end{itemize}
+
+\medskip
+\textbf{2) UCLouvain -- Septembre 2025, Question 3 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\sin(3x) - 4\sin(x) + \tan(x) = 0$.\\
+\emph{Résolution :}
+\begin{itemize}
+    \item \textbf{Conditions d'existence (CE) :} La présence de $\tan x$ impose $\cos x \neq 0 \iff x \neq \frac{\pi}{2} + k\pi$ ($k \in \Z$).
+    \item \textbf{Transformation et factorisation :} Remplaçons $\sin(3x) = 3\sin x - 4\sin^3 x$ et $\tan x = \frac{\sin x}{\cos x}$ :
+    \[
+        (3\sin x - 4\sin^3 x) - 4\sin x + \frac{\sin x}{\cos x} = 0 \iff \sin x\left(-1 - 4\sin^2 x + \frac{1}{\cos x}\right) = 0.
+    \]
+    \item \emph{1\up{er} facteur :} $\sin x = 0 \iff \boxed{x = k\pi}$ ($k \in \Z$), compatible avec les CE.
+    \item \emph{2\up{e} facteur :} Sous la CE $\cos x \neq 0$, multiplions la parenthèse par $\cos x$ et remplaçons $\sin^2 x = 1 - \cos^2 x$ :
+    \[
+        -\cos x - 4(1 - \cos^2 x)\cos x + 1 = 0 \iff 4\cos^3 x - 5\cos x + 1 = 0.
+    \]
+    En posant $y = \cos x$, le polynôme $4y^3 - 5y + 1 = 0$ admet la racine évidente $y = 1$ (qui donne $\cos x = 1 \iff x = 2k\pi$, déjà incluse dans $x = k\pi$). En factorisant par $(y-1)$ :
+    \[
+        (y - 1)(4y^2 + 4y - 1) = 0 \implies y = \frac{-4 \pm \sqrt{16 + 16}}{8} = \frac{-1 \pm \sqrt{2}}{2}.
+    \]
+    La racine $\frac{-1-\sqrt{2}}{2} \approx -1,207 < -1$ est rejetée. La racine $\frac{-1+\sqrt{2}}{2} \in [-1, 1]$ donne la seconde famille :
+    \[
+        \boxed{x = \pm\arccos\left(\frac{\sqrt{2}-1}{2}\right) + 2k\pi \qquad (k \in \Z)}.
+    \]
+\end{itemize}
+\end{exemple}
+
+\subsection{Famille 3 : Équations linéaires en $\sin x$ et $\cos x$ ($a\sin x + b\cos x = c$)}
+
+Il s'agit des équations de la forme :
+\begin{equation}
+    a\sin x + b\cos x = c \qquad (a, b \in \R^*)
+\end{equation}
+Deux méthodes équivalentes permettent de la ramener en deux lignes à une équation élémentaire :
+
+\begin{theoreme}[Résolution de l'équation linéaire $a\sin x + b\cos x = c$]
+\textbf{Condition d'existence de solutions réelles :} L'équation admet des solutions dans $\R$ si et seulement si :
+\[
+    \boxed{c^2 \le a^2 + b^2 \iff -\sqrt{a^2+b^2} \le c \le \sqrt{a^2+b^2}}.
+\]
+\begin{enumerate}
+    \item \textbf{Méthode 1 (Méthode de l'angle auxiliaire $\tan\phi = \frac{b}{a}$) :}
+    On divise par $a$ et on pose $\tan\phi = \frac{b}{a}$ (c'est-à-dire $\phi = \arctan(b/a) \in \left]-\frac{\pi}{2}, \frac{\pi}{2}\right[$) :
+    \[
+        \sin x + \frac{b}{a}\cos x = \frac{c}{a} \iff \sin x + \frac{\sin\phi}{\cos\phi}\cos x = \frac{c}{a} \iff \sin x\cos\phi + \cos x\sin\phi = \frac{c}{a}\cos\phi,
+    \]
+    ce qui se réduit par la formule d'addition à :
+    \[
+        \boxed{\sin(x + \phi) = \frac{c}{a}\cos\phi}.
+    \]
+    \item \textbf{Méthode 2 (Méthode de l'amplitude $r = \sqrt{a^2+b^2}$) :}
+    On divise toute l'équation par $r = \sqrt{a^2 + b^2}$. Comme $\left(\frac{a}{r}\right)^2 + \left(\frac{b}{r}\right)^2 = 1$, il existe un unique angle $\theta \in [0, 2\pi[$ tel que $\cos\theta = \frac{a}{r}$ et $\sin\theta = \frac{b}{r}$ (ou $\sin\theta = \frac{a}{r}$ et $\cos\theta = \frac{b}{r}$). L'équation devient :
+    \[
+        \frac{a}{r}\sin x + \frac{b}{r}\cos x = \frac{c}{r} \iff \boxed{\sin(x + \theta) = \frac{c}{\sqrt{a^2+b^2}} \quad \text{ou} \quad \cos(x - \theta') = \frac{c}{\sqrt{a^2+b^2}}}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{exemple}[Équations linéaires : UCLouvain -- Juillet 2024 Q1 et Septembre 2024 Q1]
+\textbf{1) UCLouvain -- Septembre 2024, Question 1 :}\\
+\emph{Énoncé :} (a) Pour quelles valeurs du réel $m$ l'équation $\sqrt{3}\cos(2x) - \sin(2x) = m$ admet-elle des solutions dans $\R$ ? (b) Résoudre cette équation dans $\R$ lorsque $m = \sqrt{3}$.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Calculons l'amplitude $r = \sqrt{(\sqrt{3})^2 + (-1)^2} = \sqrt{3 + 1} = 2$. En divisant les deux membres par $2$, on fait apparaître les valeurs remarquables de $\frac{\pi}{6}$ :
+    \[
+        \frac{\sqrt{3}}{2}\cos(2x) - \frac{1}{2}\sin(2x) = \frac{m}{2} \iff \cos\left(\frac{\pi}{6}\right)\cos(2x) - \sin\left(\frac{\pi}{6}\right)\sin(2x) = \frac{m}{2},
+    \]
+    soit $\cos\left(2x + \frac{\pi}{6}\right) = \frac{m}{2}$. Cette équation admet des solutions réelles ssi $\left|\frac{m}{2}\right| \le 1 \iff \boxed{-2 \le m \le 2}$.
+    \item Pour $m = \sqrt{3}$, on obtient :
+    \[
+        \cos\left(2x + \frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} = \cos\left(\frac{\pi}{6}\right) \iff 2x + \frac{\pi}{6} = \pm\frac{\pi}{6} + 2k\pi \iff \boxed{x = k\pi \quad \text{ou} \quad x = -\frac{\pi}{6} + k\pi} \quad (k\in\Z).
+    \]
+\end{enumerate}
+
+\medskip
+\textbf{2) UCLouvain -- Juillet 2024, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $2\sin(2x) + \cos(2x) = -2$.\\
+\emph{Résolution (Méthode de l'angle auxiliaire) :} C'est une équation linéaire en $\sin(2x)$ et $\cos(2x)$. Posons $\tan y = 2$ (c'est-à-dire $y = \arctan(2)$). L'équation s'écrit :
+\[
+    \tan(y)\sin(2x) + \cos(2x) = -\tan(y) \iff \sin(y)\sin(2x) + \cos(y)\cos(2x) = -\sin(y).
+\]
+Le membre de gauche est $\cos(2x - y)$ et le membre de droite est $\sin(-y) = \cos\left(\frac{\pi}{2} + y\right)$. Dès lors :
+\[
+    \cos(2x - y) = \cos\left(\frac{\pi}{2} + y\right) \iff 2x - y = \frac{\pi}{2} + y + 2k\pi \quad \text{ou} \quad 2x - y = -\frac{\pi}{2} - y + 2k\pi,
+\]
+ce qui donne :
+\[
+    \boxed{x = \frac{\pi}{4} + \arctan(2) + k\pi \quad \text{ou} \quad x = -\frac{\pi}{4} + k\pi \qquad (k \in \Z)}.
+\]
+\emph{Méthode alternative (équation homogène) :} En développant $\sin(2x) = 2\sin x\cos x$, $\cos(2x) = \cos^2 x - \sin^2 x$ et $-2 = -2(\cos^2 x + \sin^2 x)$, on obtient $\tan^2 x + 4\tan x + 3 = 0 \iff (\tan x + 1)(\tan x + 3) = 0$, soit $x = -\frac{\pi}{4} + k\pi$ ou $x = \arctan(-3) + k\pi$ (qui est identique à $\frac{\pi}{4} + \arctan(2) + k\pi$ comme démontré à l'Exemple du Chapitre 2 !).
+\end{exemple}
+
+\subsection{Famille 4 : Équations homogènes en $\sin x$ et $\cos x$}
+
+\begin{definition}[Équation homogène et méthode de résolution]
+Une équation est \textbf{homogène de degré $d$} en $\sin x$ et $\cos x$ si elle peut s'écrire sous la forme $P(\cos x, \sin x) = 0$ où chaque terme non nul est du type $a_{m,n} \sin^m x \cos^n x$ avec une \textbf{somme des exposants $m + n = d$ constante}.
+
+\textbf{Méthode de résolution :}
+\begin{enumerate}
+    \item Mettre d'abord en évidence tout facteur éventuel $\sin x$ ou $\cos x$ commun à tous les termes.
+    \item Vérifier que $\cos x = 0$ n'est pas solution de l'équation restante, puis \textbf{diviser tous les termes par $\cos^d x$} afin d'obtenir une équation polynomiale de degré $d$ en l'inconnue $t = \tan x$.
+\end{enumerate}
+\emph{Astuce d'homogénéisation :} Si une équation contient des termes de degré $2$ (ou $4, 6$) et une constante $c$ au second membre, on peut la rendre homogène en multipliant la constante $c$ par $(\cos^2 x + \sin^2 x)^k = 1$ !
+\end{definition}
+
+\begin{exemple}[Équations homogènes : UCLouvain -- Juillet 2018 et Mini-Blocus 2026 Q3]
+\textbf{1) UCLouvain -- Mini-Blocus 2026, Question 3 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $3\sin(2x)\cos(2x) - \cos^2(2x) = 2\sin^2(2x)$.\\
+\emph{Résolution :} Tous les termes sont de degré $2$ en $\sin(2x)$ et $\cos(2x)$. Comme $\cos(2x) = 0$ impliquerait $\sin(2x) = 0$ (impossible), on divise par $\cos^2(2x)$ :
+\[
+    3\tan(2x) - 1 = 2\tan^2(2x) \iff 2\tan^2(2x) - 3\tan(2x) + 1 = 0 \iff \bigl(2\tan(2x) - 1\bigr)\bigl(\tan(2x) - 1\bigr) = 0.
+\]
+On a donc $\tan(2x) = \frac{1}{2}$ ou $\tan(2x) = 1$, d'où :
+\[
+    \boxed{x = \frac{1}{2}\arctan\left(\frac{1}{2}\right) + \frac{k\pi}{2} \quad \text{ou} \quad x = \frac{\pi}{8} + \frac{k\pi}{2} \qquad (k \in \Z)}.
+\]
+
+\medskip
+\textbf{2) UCLouvain -- Juillet 2018, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation homogène $\sin^3 x + 2\cos^3 x = 3\sin^2 x \cos x$.\\
+\emph{Résolution :} L'équation est homogène de degré $3$. Comme $\cos x = 0$ donnerait $\sin^3 x = 0$ (impossible), divisons les deux membres par $\cos^3 x$ et posons $t = \tan x$ :
+\[
+    \tan^3 x + 2 = 3\tan^2 x \iff t^3 - 3t^2 + 2 = 0.
+\]
+On remarque que $t = 1$ est racine évidente ($1 - 3 + 2 = 0$). En factorisant par $(t-1)$ :
+\[
+    (t - 1)(t^2 - 2t - 2) = 0 \iff t = 1 \quad \text{ou} \quad t = 1 \pm \sqrt{3}.
+\]
+D'où les trois familles de solutions : $x = \frac{\pi}{4} + k\pi$, $x = \arctan(1+\sqrt{3}) + k\pi = \frac{5\pi}{12} + k\pi$, et $x = \arctan(1-\sqrt{3}) + k\pi = -\frac{\pi}{12} + k\pi$ ($k \in \Z$).
+\end{exemple}
+
+\subsection{Famille 5 : Équations symétriques en $\sin x$ et $\cos x$}
+
+\begin{definition}[Équation symétrique et changement de variable $x = y + \frac{\pi}{4}$]
+Une équation est \textbf{symétrique en $\sin x$ et $\cos x$} si elle reste inchangée lorsqu'on permute $\sin x$ et $\cos x$ (elle ne dépend que de la somme $S = \sin x + \cos x$ et du produit $P = \sin x \cos x$).
+
+\textbf{Méthode 1 (Changement de variable universel $x = y + \frac{\pi}{4}$) :}
+En posant $\boxed{x = y + \dfrac{\pi}{4}}$ (soit $y = x - \frac{\pi}{4}$), les formules d'addition donnent :
+\[
+    \boxed{\sin x = \frac{\sqrt{2}}{2}(\cos y + \sin y) \qquad \text{et} \qquad \cos x = \frac{\sqrt{2}}{2}(\cos y - \sin y)}.
+\]
+En particulier, la somme et le produit deviennent des expressions en $\cos y$ uniquement :
+\[
+    \sin x + \cos x = \sqrt{2}\cos y \qquad \text{et} \qquad \sin x \cos x = \frac{1}{2}(\cos^2 y - \sin^2 y) = \cos^2 y - \frac{1}{2}.
+\]
+
+\textbf{Méthode 2 (Variable somme $u = \sin x + \cos x$) :}
+En posant $u = \sin x + \cos x = \sqrt{2}\sin\left(x + \frac{\pi}{4}\right)$ (avec $|u| \le \sqrt{2}$), on a $u^2 = \sin^2 x + \cos^2 x + 2\sin x\cos x = 1 + 2\sin x\cos x$, d'où $\sin x \cos x = \dfrac{u^2 - 1}{2}$.
+\end{definition}
+
+\begin{exemple}[Équation symétrique : UCLouvain -- Juillet 2022, Question 1]
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\cos(x) + \sin(x) = \sqrt{2}\cos(x)\sin(x)$.\\
+\emph{Résolution :} L'équation est symétrique en $\sin x$ et $\cos x$. Posons $x = y + \frac{\pi}{4}$. On a :
+\[
+    \cos x + \sin x = \sqrt{2}\cos y \qquad \text{et} \qquad \cos x \sin x = \frac{1}{2}(2\cos^2 y - 1).
+\]
+En substituant dans l'équation :
+\[
+    \sqrt{2}\cos y = \frac{\sqrt{2}}{2}(2\cos^2 y - 1) \iff 2\cos^2 y - 2\cos y - 1 = 0.
+\]
+Les racines de ce trinôme du second degré en $\cos y$ sont :
+\[
+    \cos y = \frac{2 \pm \sqrt{4 + 8}}{4} = \frac{1 \pm \sqrt{3}}{2}.
+\]
+Comme $\frac{1+\sqrt{3}}{2} \approx 1,366 > 1$, cette racine est rejetée. En revanche, $\frac{1-\sqrt{3}}{2} \approx -0,366 \in [-1, 1]$ est valide et donne :
+\[
+    y = \pm\arccos\left(\frac{1-\sqrt{3}}{2}\right) + 2k\pi \implies \boxed{x = \frac{\pi}{4} \pm \arccos\left(\frac{1-\sqrt{3}}{2}\right) + 2k\pi \qquad (k \in \Z)}.
+\]
+\end{exemple}
+
+\subsection{Famille 6 : Équations résolubles par Simpson ou par mise au même dénominateur}
+
+Lorsqu'une équation contient une somme ou une différence de sinus/cosinus d'arguments multiples ($x, 2x, 3x, 4x, 5x\dots$), il faut regrouper astucieusement deux termes dont la demi-somme (moyenne) ou la demi-différence fait apparaître l'argument d'un troisième terme, afin de pouvoir \textbf{factoriser grâce aux formules de Simpson}.
+
+\begin{exemple}[Simpson et fractions en tangentes : UCLouvain -- Juillet 2021 Q1, Septembre 2022 Q1, Septembre 2023 Q1]
+\textbf{1) UCLouvain -- Juillet 2021, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\cos(x) - \cos(2x) - \sin(3x) = 0$.\\
+\emph{Résolution :} Appliquons Simpson à la différence $\cos(x) - \cos(2x)$ (moyenne $\frac{3x}{2}$, demi-écart $-\frac{x}{2}$) et la formule de duplication à $\sin(3x) = \sin\left(2\cdot\frac{3x}{2}\right) = 2\sin\left(\frac{3x}{2}\right)\cos\left(\frac{3x}{2}\right)$ :
+\[
+    -2\sin\left(\frac{3x}{2}\right)\sin\left(-\frac{x}{2}\right) - 2\sin\left(\frac{3x}{2}\right)\cos\left(\frac{3x}{2}\right) = 0 \iff 2\sin\left(\frac{3x}{2}\right)\left[\sin\left(\frac{x}{2}\right) - \cos\left(\frac{3x}{2}\right)\right] = 0.
+\]
+\begin{itemize}
+    \item \emph{1\up{er} facteur :} $\sin\left(\frac{3x}{2}\right) = 0 \iff \frac{3x}{2} = k\pi \iff \boxed{x = \frac{2k\pi}{3}}$ ($k \in \Z$).
+    \item \emph{2\up{e} facteur :} $\cos\left(\frac{3x}{2}\right) = \sin\left(\frac{x}{2}\right) = \cos\left(\frac{\pi}{2} - \frac{x}{2}\right)$, ce qui équivaut à :
+    \[
+        \frac{3x}{2} = \frac{\pi}{2} - \frac{x}{2} + 2k\pi \quad \text{ou} \quad \frac{3x}{2} = -\frac{\pi}{2} + \frac{x}{2} + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi \quad \text{ou} \quad x = -\frac{\pi}{2} + 2k\pi} \quad (k\in\Z).
+    \]
+\end{itemize}
+
+\medskip
+\textbf{2) UCLouvain -- Septembre 2022, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\dfrac{\tan(x)}{\tan(2x)} = \dfrac{\tan(2x)}{\tan(x)}$ et donner les solutions dans $[0, 2\pi[$.\\
+\emph{Résolution :}
+\begin{itemize}
+    \item \textbf{Conditions d'existence (CE) :} Il faut que $\tan x$ et $\tan(2x)$ existent et soient non nulles (car toutes deux figurent au dénominateur) :
+    \[
+        \begin{cases}
+            \cos x \neq 0 \implies x \neq \frac{\pi}{2} + k\pi \\
+            \cos(2x) \neq 0 \implies x \neq \frac{\pi}{4} + k\frac{\pi}{2} \\
+            \sin x \neq 0 \implies x \neq k\pi \\
+            \sin(2x) \neq 0 \implies x \neq k\frac{\pi}{2}
+        \end{cases}
+        \iff \boxed{\text{CE : } x \neq k\frac{\pi}{4} \quad (k \in \Z)}.
+    \]
+    \item \textbf{Résolution :} Sous ces CE, l'équation équivaut à $\tan^2(2x) = \tan^2(x) \iff \tan(2x) = \pm\tan(x) = \tan(\pm x)$.
+    \begin{itemize}
+        \item $\tan(2x) = \tan(x) \iff 2x = x + k\pi \iff x = k\pi$, \textbf{à rejeter intégralement} car exclu par les CE !
+        \item $\tan(2x) = \tan(-x) \iff 2x = -x + k\pi \iff x = \dfrac{k\pi}{3}$ ($k \in \Z$). En retirant les multiples de $\pi$ ($k$ multiple de $3$) qui violent la CE $x \neq m\frac{\pi}{4}$, il reste dans $[0, 2\pi[$ les \textbf{4 solutions} :
+        \[
+            \boxed{S_{[0, 2\pi[} = \left\{\frac{\pi}{3}, \frac{2\pi}{3}, \frac{4\pi}{3}, \frac{5\pi}{3}\right\}}.
+        \]
+    \end{itemize}
+\end{itemize}
+
+\medskip
+\textbf{3) UCLouvain -- Septembre 2023, Question 1 :}\\
+\emph{Énoncé :} Résoudre dans $\R$ l'équation $\tan(x) - \tan(3x) = 2$.\\
+\emph{Résolution :}
+\begin{itemize}
+    \item \textbf{CE :} $\cos x \neq 0$ et $\cos(3x) \neq 0 \iff x \neq \frac{\pi}{2} + k\pi$ et $x \neq \frac{\pi}{6} + k\frac{\pi}{3}$ ($k \in \Z$).
+    \item \textbf{Transformation :} Utilisons la formule de la différence de deux tangentes $\tan p - \tan q = \frac{\sin(p-q)}{\cos p \cos q}$ :
+    \[
+        \tan x - \tan(3x) = \frac{\sin(x - 3x)}{\cos x \cos(3x)} = \frac{\sin(-2x)}{\cos x \cos(3x)} = \frac{-2\sin x \cos x}{\cos x \cos(3x)}.
+    \]
+    Puisque $\cos x \neq 0$ par les CE, on simplifie par $\cos x$ :
+    \[
+        \frac{-2\sin x}{\cos(3x)} = 2 \iff \cos(3x) = -\sin(x) = \cos\left(\frac{\pi}{2} + x\right).
+    \]
+    On résout enfin cette équation élémentaire en cosinus :
+    \[
+        3x = \frac{\pi}{2} + x + 2k\pi \quad \text{ou} \quad 3x = -\frac{\pi}{2} - x + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi \quad \text{ou} \quad x = -\frac{\pi}{8} + \frac{k\pi}{2}} \quad (k\in\Z),
+    \]
+    toutes compatibles avec les CE.
+\end{itemize}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Inéquations trigonométriques}
+% ----------------------------------------------------------------------------
+
+La résolution d'une \textbf{inéquation trigonométrique} repose toujours sur l'étude du signe sur le \textbf{cercle trigonométrique} :
+\begin{enumerate}
+    \item Préciser les éventuelles conditions d'existence (CE).
+    \item Ramener l'inéquation à l'étude du signe d'un facteur simple (du type $\sin(u) \ge a$, $\cos(u) \le a$, $\tan(u) > a$) ou d'un produit/quotient de facteurs simples.
+    \item Résoudre l'équation associée pour trouver les bornes sur le cercle trigonométrique, puis lire l'arc (ou les arcs) solution dans le \textbf{sens trigonométrique positif} en veillant à ce que la borne inférieure de chaque intervalle soit toujours strictement inférieure à la borne supérieure !
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.5, >=Stealth]
+    % sin u >= 1/2
+    \begin{scope}[shift={(0,0)}]
+        \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, gray!60] (0,0) circle (1);
+        \draw[dashed, warnred] (-1.1,0.5) -- (1.1,0.5);
+        \draw[ultra thick, defgreen] (30:1) arc (30:150:1);
+        \fill[defgreen] (30:1) circle (1.5pt) node[right] {\small $\frac{\pi}{6}$};
+        \fill[defgreen] (150:1) circle (1.5pt) node[left] {\small $\frac{5\pi}{6}$};
+        \node[below, align=center] at (0,-1.35) {\small $\sin x \ge \frac{1}{2}$\\[-2pt]\footnotesize $\frac{\pi}{6}+2k\pi \le x \le \frac{5\pi}{6}+2k\pi$};
+    \end{scope}
+
+    % cos u >= 1/2
+    \begin{scope}[shift={(4.2,0)}]
+        \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, gray!60] (0,0) circle (1);
+        \draw[dashed, exorange] (0.5,-1.1) -- (0.5,1.1);
+        \draw[ultra thick, defgreen] (-60:1) arc (-60:60:1);
+        \fill[defgreen] (60:1) circle (1.5pt) node[above right] {\small $\frac{\pi}{3}$};
+        \fill[defgreen] (-60:1) circle (1.5pt) node[below right] {\small $-\frac{\pi}{3}$};
+        \node[below, align=center] at (0,-1.35) {\small $\cos x \ge \frac{1}{2}$\\[-2pt]\footnotesize $-\frac{\pi}{3}+2k\pi \le x \le \frac{\pi}{3}+2k\pi$};
+    \end{scope}
+
+    % sin u >= -1/2
+    \begin{scope}[shift={(8.4,0)}]
+        \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
+        \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
+        \draw[thick, gray!60] (0,0) circle (1);
+        \draw[dashed, warnred] (-1.1,-0.5) -- (1.1,-0.5);
+        \draw[ultra thick, defgreen] (-30:1) arc (-30:210:1);
+        \fill[defgreen] (-30:1) circle (1.5pt) node[below right] {\small $-\frac{\pi}{6}$};
+        \fill[defgreen] (210:1) circle (1.5pt) node[below left] {\small $\frac{7\pi}{6}$};
+        \node[below, align=center] at (0,-1.35) {\small $\sin x \ge -\frac{1}{2}$\\[-2pt]\footnotesize $-\frac{\pi}{6}+2k\pi \le x \le \frac{7\pi}{6}+2k\pi$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Inéquation trigonométrique : ULiège -- Juillet 2004, Question 2]
+\emph{Énoncé :} Résoudre dans $\R$ l'inéquation $\cot x - \tan x - 2\tan(2x) - 4\tan(4x) > 8\sqrt{3}$.\\
+\emph{Résolution :}
+\begin{itemize}
+    \item \textbf{CE :} $\sin x \neq 0$, $\cos x \neq 0$, $\cos(2x) \neq 0$, $\cos(4x) \neq 0$, ce qui se résume par $\sin(8x) \neq 0 \iff x \neq \frac{k\pi}{8}$ ($k\in\Z$).
+    \item \textbf{Simplification télescopique :} Remarquons l'identité classique :
+    \[
+        \cot x - \tan x = \frac{1}{\tan x} - \tan x = \frac{1 - \tan^2 x}{\tan x} = 2\cdot\frac{1 - \tan^2 x}{2\tan x} = \frac{2}{\tan(2x)} = 2\cot(2x).
+    \]
+    En appliquant cette identité trois fois en cascade :
+    \begin{align*}
+        \underbrace{\cot x - \tan x}_{=2\cot(2x)} - 2\tan(2x) - 4\tan(4x) &= 2\bigl(\cot(2x) - \tan(2x)\bigr) - 4\tan(4x) \\
+        &= 4\bigl(\cot(4x) - \tan(4x)\bigr) = 8\cot(8x).
+    \end{align*}
+    \item \textbf{Résolution de l'inéquation de base :} L'inéquation se réduit donc à $8\cot(8x) > 8\sqrt{3} \iff \cot(8x) > \sqrt{3}$. Sur le cercle trigonométrique (où la cotangente est de période $\pi$), $\cot u > \sqrt{3}$ ssi $u$ est compris strictement entre $k\pi$ et $\frac{\pi}{6} + k\pi$ ($k \in \Z$) :
+    \[
+        k\pi < 8x < \frac{\pi}{6} + k\pi \iff \boxed{\frac{k\pi}{8} < x < \frac{\pi}{48} + \frac{k\pi}{8} \qquad (k \in \Z)},
+    \]
+    qui respecte automatiquement la CE $x \neq \frac{k\pi}{8}$.
+\end{itemize}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 3}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 3.\arabic* --}]
+    \item \textbf{(UCLouvain -- Mini-Blocus 2026, Q1a et Juillet 2024, Q3a)}
+    \begin{enumerate}
+        \item Trouvez toutes les solutions dans $[0, 2\pi[$ de l'équation $\sin x + \cos x = \sqrt{2}$.
+        \item Trouvez toutes les solutions dans l'intervalle $]0, \pi[$ de l'équation $\sin(x) + \sin(2x) + \sin(3x) = 0$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2019, Q1)} Résoudre dans $\R$ les deux équations trigonométriques suivantes (issues des deux variantes de la session de Septembre 2019) :
+    \begin{enumerate}
+        \item $\sin(x) - 2\sin(3x) + \sin(5x) = -\cos(2x) + \cos(4x)$
+        \item $\dfrac{\cos(x) - \cos(3x)}{\sin(x)} = \cos(x)$
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2019, Q1 et Juillet 2020, Q1)} Résoudre dans $\R$ les équations symétriques suivantes :
+    \begin{enumerate}
+        \item $4\bigl(\sin(x) + \cos(x)\bigr) - 8\sin(x)\cos(x) = 5$
+        \item $3\bigl(\sin(x) + \cos(x)\bigr) - 4\bigl(\sin^3(x) + \cos^3(x)\bigr) = 0$
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2020, Q1)} Résoudre dans $\R$ l'équation suivante en précisant ses conditions d'existence :
+    \[
+        \tan^2(x) - 3\frac{\tan(x)}{\cos(x)} - \frac{1}{\cos^2(x)} = 1.
+    \]
+
+    \item \textbf{(ULiège -- Septembre 2002 Q2, Juillet 2003 Q3 et Juillet 2008 Q2)} Résoudre dans $\R$ les équations suivantes :
+    \begin{enumerate}
+        \item $\dfrac{\cot x - \cos x}{\cot x + \cos x} = 2(1 - \sin x)$
+        \item $\cos(2x) + \cos(6x) = 1 + \cos(8x)$
+        \item $\sin x + \sin(2x) + \sin(3x) = \sqrt{2}\bigl(1 + \cos x + \cos(2x)\bigr)$
+    \end{enumerate}
+
+    \item \textbf{(ULiège -- Septembre 2005 Q2, Juillet 2006 Q4 et Septembre 2009 Q2)} Résoudre dans $\R$ les équations suivantes en précisant les conditions d'existence :
+    \begin{enumerate}
+        \item $\tan^3 x - 3\tan^2 x - 3\tan x + 1 = 0$
+        \item $\left(\dfrac{1 + \tan(x/2)}{1 - \tan(x/2)}\right)^2 + \sin x = 0$
+        \item $\tan x + \tan(2x) + \tan(3x) = 0$
+    \end{enumerate}
+
+    \item \textbf{(ULiège -- Juillet 2005 Q2, Juillet 2007 Q2 et Juillet 2010 Q2)} Résoudre dans $\R$ les équations suivantes :
+    \begin{enumerate}
+        \item $\sin^6 x + \cos^6 x = \dfrac{5}{8}$
+        \item $\cos^6 x + \sin^6 x = \dfrac{7}{16}$
+        \item $\sin^4 x + \cos^4 x = \sin x \cos x$
+    \end{enumerate}
+
+    \item \textbf{(Inéquations trigonométriques -- Inspiré d'ULiège)} Résoudre dans $\R$ les inéquations suivantes et représenter les solutions sur le cercle trigonométrique :
+    \begin{enumerate}
+        \item $\sin(2x) \le -\dfrac{\sqrt{3}}{2}$
+        \item $\sin\left(x - \dfrac{\pi}{3}\right) > \sin x$
+        \item $2\cos^2 x - \cos x - 1 \ge 0$
+    \end{enumerate}
+\end{enumerate}

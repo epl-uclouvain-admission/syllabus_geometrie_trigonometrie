@@ -1,0 +1,430 @@
+% ============================================================================
+% CHAPITRE 6 : GÉOMÉTRIE ANALYTIQUE PLANE : DROITES, CERCLES ET CONIQUES
+% ============================================================================
+\chapter[Géométrie Analytique Plane et Coniques]{Géométrie Analytique Plane : Droites, Cercles et Coniques}
+
+La première question de la partie géométrie de l'examen d'admission à l'UCLouvain porte systématiquement sur la \textbf{géométrie analytique dans le plan} muni d'un repère orthonormé $(O;\vec{i},\vec{j})$. Ce chapitre couvre l'ensemble du programme de 5\ieme{} et 6\ieme{} secondaire : le calcul vectoriel et le produit scalaire dans le plan, les droites, les médiatrices, la distance d'un point à une droite, les cercles, ainsi que l'étude complète des \textbf{coniques} (ellipse, hyperbole, parabole) et de leurs tangentes.
+
+% ----------------------------------------------------------------------------
+\section{Vecteurs, produit scalaire, droites et distances dans le plan}
+% ----------------------------------------------------------------------------
+
+\subsection{Vecteurs, milieu, distance et produit scalaire dans $\R^2$}
+
+Dans le plan muni d'un repère orthonormé $(O;\vec{i},\vec{j})$, soient deux points $A(x_A, y_A)$ et $B(x_B, y_B)$, et deux vecteurs $\vec{u} = (u_x, u_y)$ et $\vec{v} = (v_x, v_y)$ :
+
+\begin{theoreme}[Formulaire vectoriel et métrique dans le plan]
+\begin{enumerate}
+    \item \textbf{Vecteur $\overrightarrow{AB}$, distance et point milieu $M$ de $[AB]$ :}
+    \[
+        \overrightarrow{AB} = (x_B - x_A,\; y_B - y_A), \qquad |AB| = \|\overrightarrow{AB}\| = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2},
+    \]
+    \[
+        M = \left(\frac{x_A+x_B}{2},\; \frac{y_A+y_B}{2}\right).
+    \]
+    \item \textbf{Colinéarité (alignement ou parallélisme) :} Deux vecteurs non nuls $\vec{u} = (u_x, u_y)$ et $\vec{v} = (v_x, v_y)$ sont colinéaires ($\vec{u} \parallel \vec{v}$) ssi leur déterminant est nul :
+    \[
+        \vec{u} \parallel \vec{v} \iff \exists k \in \R : \vec{v} = k\vec{u} \iff \det(\vec{u},\vec{v}) = \begin{vmatrix} u_x & v_x \\ u_y & v_y \end{vmatrix} = u_x v_y - u_y v_x = 0.
+    \]
+    \item \textbf{Produit scalaire et angle $\theta$ entre deux vecteurs :}
+    \[
+        \boxed{\vec{u} \cdot \vec{v} = u_x v_x + u_y v_y = \|\vec{u}\|\,\|\vec{v}\|\cos\theta} \implies \cos\theta = \frac{u_x v_x + u_y v_y}{\sqrt{u_x^2+u_y^2}\sqrt{v_x^2+v_y^2}}.
+    \]
+    \item \textbf{Condition d'orthogonalité ($\vec{u} \perp \vec{v}$) :}
+    \[
+        \boxed{\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y = 0}.
+    \]
+    \emph{Astuce immédiate dans le plan :} Pour obtenir un vecteur orthogonal à $\vec{u} = (a, b)$, il suffit d'échanger ses deux composantes et de changer un signe : $\vec{u}_\perp = (-b, a)$ (ou $(b, -a)$).
+\end{enumerate}
+\end{theoreme}
+
+\subsection{Équations d'une droite, médiatrice et distance d'un point à une droite}
+
+\begin{theoreme}[Équations d'une droite et distance point--droite dans le plan]
+\begin{enumerate}
+    \item \textbf{Équations paramétriques} de la droite $d$ passant par $A(x_A, y_A)$ et de vecteur directeur $\vec{d} = (u, v)$ :
+    \[
+        d \equiv \begin{cases} x = x_A + t\,u \\ y = y_A + t\,v \end{cases} \quad (t \in \R).
+    \]
+    \item \textbf{Équation cartésienne générale :}
+    \[
+        \boxed{d \equiv ax + by + c = 0} \qquad \text{avec} \quad \begin{cases} \vec{n} = (a, b) & \text{\textbf{vecteur normal} (perpendiculaire à $d$)} \\ \vec{d} = (-b, a) & \text{\textbf{vecteur directeur} (parallèle à $d$)} \end{cases}.
+    \]
+    \item \textbf{Forme réduite (pente -- ordonnée à l'origine)} lorsque $b \neq 0$ (droite non verticale) :
+    \[
+        y = mx + p \qquad \text{où } m = -\frac{a}{b} = \frac{y_B - y_A}{x_B - x_A} = \tan\alpha \text{ est le \textbf{coefficient directeur (pente)}}.
+    \]
+    \begin{itemize}
+        \item Deux droites $y = m_1 x + p_1$ et $y = m_2 x + p_2$ sont \textbf{parallèles} ssi $m_1 = m_2$.
+        \item Elles sont \textbf{perpendiculaires} ssi $\boxed{m_1 \cdot m_2 = -1}$ (soit $m_2 = -\frac{1}{m_1}$).
+    \end{itemize}
+    \item \textbf{Médiatrice $m$ d'un segment $[AB]$ :} C'est la droite passant par le milieu $M = \frac{A+B}{2}$ et ayant le vecteur $\overrightarrow{AB}$ comme \textbf{vecteur normal} (ou, de façon équivalente, le lieu des points $P(x,y)$ tels que $|PA|^2 = |PB|^2$).
+    \item \textbf{Distance d'un point $P(x_0, y_0)$ à une droite $d \equiv ax + by + c = 0$ :}
+    \[
+        \boxed{d(P, d) = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{exemple}[Calcul d'aire par distance point--droite (UCLouvain -- Septembre 2024, Question 1b)]
+\emph{Énoncé :} Dans un repère orthonormé, on donne les points $A(4, 5)$ et $B(7, 2)$. Sachant que l'aire du triangle $ABC$ vaut $6$ et que l'ordonnée du point $C$ vaut $4$, déterminer toutes les valeurs possibles de l'abscisse $x$ du point $C(x, 4)$.\\
+\emph{Résolution :}
+\begin{enumerate}
+    \item \textbf{Longueur de la base $[AB]$ et équation de la droite $(AB)$ :} On a $\overrightarrow{AB} = (7-4, 2-5) = (3, -3)$, donc la base mesure $|AB| = \sqrt{3^2 + (-3)^2} = 3\sqrt{2}$. Un vecteur normal à $(AB)$ est $\vec{n} = (1, 1)$, et comme $A(4,5) \in (AB)$ ($4+5=9$), la droite $(AB)$ a pour équation cartésienne :
+    \[
+        (AB) \equiv x + y - 9 = 0.
+    \]
+    \item \textbf{Hauteur $h_C = d(C, (AB))$ :} La distance du point $C(x, 4)$ à la droite $(AB)$ vaut :
+    \[
+        h_C = d\bigl(C, (AB)\bigr) = \frac{|x + 4 - 9|}{\sqrt{1^2 + 1^2}} = \frac{|x - 5|}{\sqrt{2}}.
+    \]
+    \item \textbf{Aire du triangle :} $\text{Aire}(\triangle ABC) = \frac{1}{2}|AB|\cdot h_C = \frac{1}{2}\cdot 3\sqrt{2} \cdot \frac{|x-5|}{\sqrt{2}} = \frac{3}{2}|x-5|$. En imposant que cette aire vaut $6$ :
+    \[
+        \frac{3}{2}|x - 5| = 6 \iff |x - 5| = 4 \iff x - 5 = \pm 4 \iff x = 9 \quad\text{ou}\quad x = 1.
+    \]
+    Il y a donc deux points possibles : $\boxed{C(1, 4) \text{ ou } C(9, 4)}$.
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Le cercle en géométrie analytique}
+% ----------------------------------------------------------------------------
+
+\begin{theoreme}[Équation cartésienne d'un cercle]
+Le cercle $\mathcal{C}$ de centre $\Omega(x_0, y_0)$ et de rayon $R > 0$ est le lieu des points $M(x,y)$ situés à distance $R$ de $\Omega$ :
+\[
+    \boxed{\mathcal{C} \equiv (x - x_0)^2 + (y - y_0)^2 = R^2}.
+\]
+Sous forme développée, une équation $x^2 + y^2 + \alpha x + \beta y + \gamma = 0$ se ramène à la forme canonique en \textbf{complétant les carrés} : $\left(x + \frac{\alpha}{2}\right)^2 + \left(y + \frac{\beta}{2}\right)^2 = \frac{\alpha^2+\beta^2}{4} - \gamma$ (c'est un cercle réel ssi le membre de droite est strictement positif).
+\end{theoreme}
+
+\begin{astuce}[Trois problèmes classiques sur les cercles aux examens UCLouvain]
+\begin{enumerate}
+    \item \textbf{Cercle circonscrit à trois points $A, B, C$ (Juillet 2024 Q1b et Septembre 2022 Q1) :} Le centre $\Omega$ du cercle passant par $A, B, C$ est équidistant des trois sommets : c'est donc le \textbf{point d'intersection des médiatrices} de deux des segments $[AB]$ et $[AC]$ ! Une fois $\Omega$ trouvé, le rayon vaut $R = |\Omega A|$.
+    \item \textbf{Cercle de centre connu $\Omega$ tangent à une droite $d$ (Juillet 2021 Q3b) :} Le rayon $R$ d'un cercle centré en $\Omega(x_0, y_0)$ et tangent à une droite $d \equiv ax + by + c = 0$ est égal à la distance du centre à la droite : $R = d(\Omega, d) = \frac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}$.
+    \item \textbf{Cercle de rayon connu $R$ tangent à deux droites $d_1$ et $d_2$ (Septembre 2021 Q1c) :} Le centre $\Omega(x_0, y_0)$ vérifie le système $d(\Omega, d_1) = R$ et $d(\Omega, d_2) = R$ (il se situe sur les bissectrices des deux droites).
+\end{enumerate}
+\end{astuce}
+
+\begin{exemple}[Cercle passant par trois points (UCLouvain -- Juillet 2024, Question 1b)]
+\emph{Énoncé :} Déterminer les coordonnées du centre $\Omega$ ainsi que l'aire du cercle $\mathcal{C}$ contenant les trois points $A(6, -4)$, $B(9, -5)$ et $C(6, -8)$.\\
+\emph{Résolution :}
+\begin{itemize}
+    \item \textbf{Médiatrice $m_1$ de $[AC]$ :} Les points $A(6, -4)$ et $C(6, -8)$ ont la même abscisse $x = 6$ (segment vertical). Leur milieu est $M_1(6, -6)$, donc la médiatrice $m_1$ est la droite horizontale d'équation $\mathbf{y = -6}$.
+    \item \textbf{Médiatrice $m_2$ de $[AB]$ :} Le milieu de $A(6, -4)$ et $B(9, -5)$ est $M_2\left(\frac{15}{2}, -\frac{9}{2}\right)$, et le vecteur normal est $\overrightarrow{AB} = (3, -1)$. L'équation cartésienne de $m_2$ est donc $3\left(x - \frac{15}{2}\right) - 1\left(y + \frac{9}{2}\right) = 0 \iff \mathbf{3x - y - 18 = 0}$.
+    \item \textbf{Intersection $\Omega = m_1 \cap m_2$ :} En remplaçant $y = -6$ dans $3x - y - 18 = 0$, on obtient $3x + 6 - 18 = 0 \implies x = 4$... Attention! Vérifions le calcul : $3(x - \frac{15}{2}) - (y + \frac{9}{2}) = 3x - y - \frac{45}{2} - \frac{9}{2} = 3x - y - 27 = 0$ ! En remplaçant $y = -6$ dans $3x - y - 27 = 0$, on trouve $3x + 6 - 27 = 0 \implies 3x = 21 \implies x = 7$.\\
+    Le centre du cercle est donc $\Omega = \boxed{(7, -6)}$.
+    \item \textbf{Rayon et aire :} Le carré du rayon vaut $R^2 = |\Omega A|^2 = (7-6)^2 + (-6 - (-4))^2 = 1^2 + (-2)^2 = 5$. L'aire du disque vaut donc $\pi R^2 = \boxed{5\pi}$.
+\end{itemize}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Les coniques : l'ellipse, l'hyperbole et la parabole}
+% ----------------------------------------------------------------------------
+
+En 6\ieme{} secondaire, les \textbf{coniques} (courbes obtenues en coupant un cône de révolution par un plan, ou lieux géométriques du second degré en $x$ et $y$) sont étudiées sous deux angles complémentaires : leur \textbf{définition géométrique par foyer et directrice} (ou bifocale) et leur \textbf{équation cartésienne réduite}.
+
+\subsection{Définition monofocale par foyer, directrice et excentricité}
+
+\begin{definition}[Définition par foyer, directrice et excentricité]
+Soit $F$ un point fixe appelé \textbf{foyer}, $d$ une droite fixe (ne contenant pas $F$) appelée \textbf{directrice}, et $e > 0$ un réel strictement positif appelé \textbf{excentricité}. Le lieu géométrique des points $M(x,y)$ du plan dont le rapport de la distance au foyer $F$ à la distance à la directrice $d$ est constant et égal à $e$ :
+\[
+    \boxed{\frac{d(M, F)}{d(M, d)} = e \iff d(M, F) = e \cdot d(M, d)}
+\]
+est une \textbf{conique} :
+\begin{itemize}
+    \item Si $\mathbf{0 < e < 1}$ : la conique est une \textbf{ellipse} (et si $e = 0$, c'est un cercle).
+    \item Si $\mathbf{e = 1}$ : la conique est une \textbf{parabole} ($d(M, F) = d(M, d)$ : points équidistants du foyer et de la directrice).
+    \item Si $\mathbf{e > 1}$ : la conique est une \textbf{hyperbole}.
+\end{itemize}
+\end{definition}
+
+\begin{exemple}[Conique définie par foyer et directrice (UCLouvain -- Septembre 2024, Question 1a)]
+\emph{Énoncé :} Donner l'équation cartésienne et le nom de la conique rassemblant tous les points $M(x,y)$ dont la distance à la droite $d \equiv x = 1$ est la moitié de la distance au point $F(4, 0)$.\\
+\emph{Résolution :} La distance à la droite verticale $x = 1$ est $d_1 = d(M, d) = |x - 1|$, et la distance au foyer $F(4,0)$ est $d_2 = d(M, F) = \sqrt{(x-4)^2 + y^2}$. La condition $d_1 = \frac{1}{2}d_2$ s'écrit $d_2 = 2\,d_1$ (excentricité $e = 2 > 1$, c'est donc une \textbf{hyperbole} !). En élevant au carré :
+\[
+    (x - 4)^2 + y^2 = 4(x - 1)^2 \iff x^2 - 8x + 16 + y^2 = 4x^2 - 8x + 4 \iff 3x^2 - y^2 = 12 \iff \boxed{\frac{x^2}{4} - \frac{y^2}{12} = 1}.
+\]
+\end{exemple}
+
+\subsection{Étude complète de l'ellipse, de l'hyperbole et de la parabole}
+
+Lorsqu'une équation du second degré sans terme rectangle en $xy$ ($Ax^2 + By^2 + Cx + Dy + E = 0$) vous est donnée à l'examen, la première étape consiste toujours à \textbf{compléter les carrés} en $x$ et en $y$ pour identifier le centre (ou sommet) $(x_0, y_0)$ et ramener l'équation à l'une des trois formes réduites suivantes.
+
+\begin{theoreme}[1. L'Ellipse d'axes parallèles aux axes du repère]
+Soit l'ellipse $\mathcal{E}$ de \textbf{centre $C(x_0, y_0)$} et de demi-axes $a > 0$ (horizontal) et $b > 0$ (vertical) :
+\[
+    \boxed{\mathcal{E} \equiv \frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} = 1}.
+\]
+Elle possède 4 sommets : $S_{1,2}(x_0 \pm a, y_0)$ et $S_{3,4}(x_0, y_0 \pm b)$. La position des deux foyers $F_1, F_2$ dépend de celui des deux demi-axes qui est le plus grand (\textbf{grand axe = axe focal}) :
+\begin{enumerate}
+    \item \textbf{Cas 1 : Grand axe horizontal ($a > b$)} (axe focal $y = y_0$, longueur du grand axe $2a$, petit axe $2b$) :
+    \begin{itemize}
+        \item \textbf{Distance focale $c$ :} $\boxed{c = \sqrt{a^2 - b^2}}$ \quad (relation pythagoricienne $a^2 = b^2 + c^2$).
+        \item \textbf{Foyers :} $F_1(x_0 - c,\; y_0)$ et $F_2(x_0 + c,\; y_0)$. \quad (\emph{Propriété bifocale :} $|MF_1| + |MF_2| = 2a$.)
+        \item \textbf{Excentricité et directrices :} $e = \dfrac{c}{a} < 1$ \quad et \quad $d_{1,2} \equiv x = x_0 \pm \dfrac{a^2}{c} = x_0 \pm \dfrac{a}{e}$.
+    \end{itemize}
+    \item \textbf{Cas 2 : Grand axe vertical ($b > a$)} (axe focal $x = x_0$, longueur du grand axe $2b$, petit axe $2a$) :
+    \begin{itemize}
+        \item \textbf{Distance focale $c$ :} $\boxed{c = \sqrt{b^2 - a^2}}$ \quad (ici $b^2 = a^2 + c^2$).
+        \item \textbf{Foyers :} $F_1(x_0,\; y_0 - c)$ et $F_2(x_0,\; y_0 + c)$.
+        \item \textbf{Excentricité et directrices :} $e = \dfrac{c}{b} < 1$ \quad et \quad $d_{1,2} \equiv y = y_0 \pm \dfrac{b^2}{c} = y_0 \pm \dfrac{b}{e}$.
+    \end{itemize}
+\end{enumerate}
+\end{theoreme}
+
+\begin{theoreme}[2. L'Hyperbole d'axes parallèles aux axes du repère]
+Soit l'hyperbole $\mathcal{H}$ de \textbf{centre $C(x_0, y_0)$} :
+\begin{enumerate}
+    \item \textbf{Axe focal horizontal (le signe $+$ est devant $(x-x_0)^2$) :}
+    \[
+        \boxed{\mathcal{H} \equiv \frac{(x - x_0)^2}{a^2} - \frac{(y - y_0)^2}{b^2} = 1}.
+    \]
+    \begin{itemize}
+        \item \textbf{Sommets :} $S_1(x_0 - a, y_0)$ et $S_2(x_0 + a, y_0)$ (sur l'axe focal $y = y_0$).
+        \item \textbf{Distance focale $c$ :} $\boxed{c = \sqrt{a^2 + b^2}}$ \quad (\emph{Attention au signe $+$ : pour l'hyperbole, $c > a$!}).
+        \item \textbf{Foyers :} $F_1(x_0 - c,\; y_0)$ et $F_2(x_0 + c,\; y_0)$. \quad (\emph{Propriété bifocale :} $\bigl||MF_1| - |MF_2|\bigr| = 2a$.)
+        \item \textbf{Excentricité et directrices :} $e = \dfrac{c}{a} > 1$ \quad et \quad $\boxed{d_{1,2} \equiv x = x_0 \pm \dfrac{a^2}{c}}$.
+        \item \textbf{Asymptotes :} Les deux droites passant par le centre $C(x_0,y_0)$ d'équations :
+        \[
+            \boxed{y - y_0 = \pm \frac{b}{a}(x - x_0)} \qquad \left(\text{obtenues en remplaçant $1$ par $0$ dans l'équation réduite!}\right).
+        \]
+    \end{itemize}
+    \item \textbf{Axe focal vertical (le signe $+$ est devant $(y-y_0)^2$) :} $-\dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = 1$.\\
+    Les sommets sont $(x_0, y_0 \pm b)$, la distance focale reste $c = \sqrt{a^2+b^2}$, les foyers sont $(x_0, y_0 \pm c)$, les directrices sont $y = y_0 \pm \frac{b^2}{c}$ et les asymptotes restent $y - y_0 = \pm \frac{b}{a}(x - x_0)$.
+\end{enumerate}
+\end{theoreme}
+
+\begin{theoreme}[3. La Parabole d'axe parallèle à l'un des axes du repère]
+Soit une parabole $\mathcal{P}$ de \textbf{sommet $S(x_0, y_0)$} et de paramètre focal $p > 0$ (distance foyer--directrice) :
+\begin{enumerate}
+    \item \textbf{Axe de symétrie vertical $x = x_0$ ($y$ en fonction de $x^2$) :}
+    \[
+        \boxed{(x - x_0)^2 = \pm 2p(y - y_0) \quad \Longleftrightarrow \quad y - y_0 = a(x - x_0)^2} \quad \left(\text{avec } |a| = \frac{1}{2p}\right).
+    \]
+    \begin{itemize}
+        \item Si $a > 0$ (concave vers les $y$ croissants, signe $+$) : \textbf{Foyer} $F\left(x_0,\; y_0 + \frac{p}{2}\right) = \left(x_0,\; y_0 + \frac{1}{4a}\right)$ et \textbf{Directrice} $d \equiv y = y_0 - \frac{p}{2} = y_0 - \frac{1}{4a}$.
+        \item Si $a < 0$ (concave vers les $y$ décroissants, signe $-$) : Foyer $F\left(x_0,\; y_0 - \frac{p}{2}\right)$ et Directrice $d \equiv y = y_0 + \frac{p}{2}$.
+    \end{itemize}
+    \item \textbf{Axe de symétrie horizontal $y = y_0$ ($x$ en fonction de $y^2$) :}
+    \[
+        \boxed{(y - y_0)^2 = \pm 2p(x - x_0) \quad \Longleftrightarrow \quad x - x_0 = a(y - y_0)^2}.
+    \]
+    Foyer $F\left(x_0 \pm \frac{p}{2},\; y_0\right)$ et Directrice $d \equiv x = x_0 \mp \frac{p}{2}$.
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.82]
+    % Figure 1 : Ellipse
+    \begin{scope}[shift={(0,0)}]
+        \draw[->, gray] (-2.6,0) -- (2.6,0) node[right, black] {\small $x$};
+        \draw[->, gray] (0,-1.8) -- (0,1.8) node[above, black] {\small $y$};
+        \draw[thick, uclblue] (0,0) ellipse (2.0 and 1.2);
+        \draw[dashed, defgreen] (2.5,-1.7) -- (2.5,1.7) node[above] {\tiny $x=\frac{a^2}{c}$};
+        \draw[dashed, defgreen] (-2.5,-1.7) -- (-2.5,1.7);
+        \fill[warnred] (-1.6,0) circle (1.8pt) node[below] {\small $F_1$};
+        \fill[warnred] (1.6,0) circle (1.8pt) node[below] {\small $F_2$};
+        \fill[uclblue] (2.0,0) circle (1.5pt) node[below right] {\tiny $a$};
+        \fill[uclblue] (0,1.2) circle (1.5pt) node[above left] {\tiny $b$};
+        \node[below, align=center] at (0,-2.0) {\small \textbf{(a)} Ellipse ($e = \frac{c}{a} < 1$)\\[-2pt]\small $c = \sqrt{a^2-b^2}$};
+    \end{scope}
+
+    % Figure 2 : Hyperbole
+    \begin{scope}[shift={(6.2,0)}]
+        \draw[->, gray] (-2.6,0) -- (2.6,0) node[right, black] {\small $x$};
+        \draw[->, gray] (0,-1.8) -- (0,1.8) node[above, black] {\small $y$};
+        \draw[dashed, gray] (-2.3,-1.61) -- (2.3,1.61) node[above right, black] {\tiny $y=\frac{b}{a}x$};
+        \draw[dashed, gray] (-2.3,1.61) -- (2.3,-1.61);
+        \draw[thick, uclblue, domain=-1.15:1.15, samples=40] plot ({1.1*cosh(\x)}, {0.77*sinh(\x)});
+        \draw[thick, uclblue, domain=-1.15:1.15, samples=40] plot ({-1.1*cosh(\x)}, {0.77*sinh(\x)});
+        \fill[warnred] (-1.55,0) circle (1.8pt) node[below] {\small $F_1$};
+        \fill[warnred] (1.55,0) circle (1.8pt) node[below] {\small $F_2$};
+        \fill[uclblue] (1.1,0) circle (1.5pt) node[below right] {\tiny $a$};
+        \node[below, align=center] at (0,-2.0) {\small \textbf{(b)} Hyperbole ($e = \frac{c}{a} > 1$)\\[-2pt]\small $c = \sqrt{a^2+b^2}$};
+    \end{scope}
+
+    % Figure 3 : Parabole
+    \begin{scope}[shift={(12.2,0)}]
+        \draw[->, gray] (-2.2,0) -- (2.2,0) node[right, black] {\small $x$};
+        \draw[->, gray] (0,-1.8) -- (0,1.8) node[above, black] {\small $y$};
+        \draw[thick, uclblue, domain=-1.8:1.8, samples=40] plot (\x, {0.5*\x*\x - 0.4});
+        \draw[dashed, defgreen] (-2.0,-0.9) -- (2.0,-0.9) node[right] {\tiny $d : y = y_0 - \frac{p}{2}$};
+        \fill[warnred] (0,0.1) circle (1.8pt) node[above right] {\small $F$};
+        \fill[uclblue] (0,-0.4) circle (1.5pt) node[below right] {\small $S$};
+        \node[below, align=center] at (0,-2.0) {\small \textbf{(c)} Parabole ($e = 1$)\\[-2pt]\small $(x-x_0)^2 = 2p(y-y_0)$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Quatre problèmes d'examen UCLouvain sur les coniques]
+\textbf{1) Réduction d'une hyperbole, directrices et aire (UCLouvain -- Juillet 2026, Question 1) :}\\
+\emph{Énoncé :} On considère la conique $\mathcal{C} \equiv x^2 - y^2 + 2y = 4$. (a) Mettre cette équation sous forme réduite, déterminer sa nature et ses directrices. (b) Calculer l'aire du triangle formé par les deux foyers $F_1, F_2$ et l'origine $O(0,0)$.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Complétons le carré en $y$ : $x^2 - (y^2 - 2y) = 4 \iff x^2 - \bigl((y-1)^2 - 1\bigr) = 4 \iff x^2 - (y-1)^2 = 3$. En divisant par $3$, on obtient l'équation réduite :
+    \[
+        \boxed{\frac{x^2}{3} - \frac{(y-1)^2}{3} = 1}.
+    \]
+    C'est une \textbf{hyperbole} (équilatère) de centre $C(0, 1)$, d'axe focal horizontal $y = 1$, avec $a^2 = b^2 = 3$. La distance focale vaut $c = \sqrt{a^2 + b^2} = \sqrt{3 + 3} = \sqrt{6}$. Les deux directrices (verticales) ont pour équations :
+    \[
+        x = x_0 \pm \frac{a^2}{c} = 0 \pm \frac{3}{\sqrt{6}} = \boxed{\pm \frac{\sqrt{6}}{2}}.
+    \]
+    \item Les deux foyers sont $F_1(-\sqrt{6}, 1)$ et $F_2(\sqrt{6}, 1)$. Le segment $[F_1 F_2]$ est horizontal (sur la droite $y = 1$), de longueur $|F_1 F_2| = 2c = 2\sqrt{6}$, et sa hauteur par rapport à l'origine $O(0,0)$ vaut $h = 1$. L'aire du triangle $O F_1 F_2$ vaut donc $\frac{1}{2} \times 2\sqrt{6} \times 1 = \boxed{\sqrt{6}}$.
+\end{enumerate}
+
+\medskip
+\textbf{2) Réduction d'une ellipse et intersection avec une droite (UCLouvain -- Septembre 2026, Question 1) :}\\
+\emph{Énoncé :} On considère la conique $\mathcal{C} \equiv 9x^2 + 4y^2 - 36x + 8y + 4 = 0$. (a) Déterminer sa forme réduite, sa nature et ses foyers $F_1, F_2$. (b) Déterminer ses points d'intersection $A$ et $B$ avec la droite $y = x - 1$.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Factorisons par $9$ les termes en $x$ et par $4$ les termes en $y$ pour compléter les carrés :
+    \begin{align*}
+        9(x^2 - 4x) + 4(y^2 + 2y) + 4 = 0 &\iff 9\bigl((x-2)^2 - 4\bigr) + 4\bigl((y+1)^2 - 1\bigr) + 4 = 0 \\
+        &\iff 9(x-2)^2 + 4(y+1)^2 = 36.
+    \end{align*}
+    En divisant par $36$, on obtient :
+    \[
+        \boxed{\frac{(x-2)^2}{4} + \frac{(y+1)^2}{9} = 1}.
+    \]
+    C'est une \textbf{ellipse} de centre $C(2, -1)$, avec $a^2 = 4$ ($a=2$) et $b^2 = 9$ ($b=3$). Comme $b > a$, le \textbf{grand axe est vertical} ($x = 2$), et $c = \sqrt{b^2 - a^2} = \sqrt{9 - 4} = \sqrt{5}$. Les foyers sont donc :
+    \[
+        \boxed{F_1(2,\; -1 - \sqrt{5}) \quad \text{et} \quad F_2(2,\; -1 + \sqrt{5})}.
+    \]
+    \item Remplaçons $y = x - 1$ (c'est-à-dire $y + 1 = x$) dans $9(x-2)^2 + 4(y+1)^2 = 36$ :
+    \[
+        9(x^2 - 4x + 4) + 4x^2 = 36 \iff 13x^2 - 36x = 0 \implies x = 0 \;\text{ ou }\; x = \frac{36}{13}.
+    \]
+    Avec $y = x - 1$, on obtient les deux points d'intersection : $\boxed{A(0, -1) \text{ et } B\left(\frac{36}{13}, \frac{23}{13}\right)}$.
+\end{enumerate}
+
+\medskip
+\textbf{3) Hyperbole à partir de ses asymptotes (UCLouvain -- Septembre 2025, Question 1a) :}\\
+\emph{Énoncé :} Une hyperbole $\mathcal{C}$ centrée à l'origine $O(0,0)$ a pour asymptotes les droites $y = \pm \frac{x}{2}$ et passe par le point $A(2, 0)$. Donner son équation réduite et ses foyers.\\
+\emph{Résolution :} Puisque le sommet $A(2,0)$ est sur l'axe $Ox$, l'équation réduite est $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ avec $a = 2$ ($a^2 = 4$). La pente des asymptotes vaut $\frac{b}{a} = \frac{1}{2}$, d'où $b = \frac{a}{2} = 1$ ($b^2 = 1$). L'équation est donc $\boxed{\frac{x^2}{4} - y^2 = 1}$, et avec $c = \sqrt{a^2+b^2} = \sqrt{4+1} = \sqrt{5}$, les foyers sont $\boxed{F_1(-\sqrt{5}, 0) \text{ et } F_2(\sqrt{5}, 0)}$.
+
+\medskip
+\textbf{4) Trajectoire parabolique d'un projectile (UCLouvain -- Septembre 2023, Question 1a) :}\\
+\emph{Énoncé :} Un projectile lancé depuis $(0, 11)$ décrit une parabole $\mathcal{P}$ dont le point culminant est à $36\text{ m}$ au-dessus du sol ($y_{\max} = 36$) et qui retombe au sol en $(11, 0)$. Déterminer l'équation cartésienne de $\mathcal{P}$.\\
+\emph{Résolution :} Le sommet de la parabole a pour ordonnée $y_0 = 36$, donc son équation canonique s'écrit $y = 36 - a(x - x_0)^2$ avec $a > 0$. En exprimant qu'elle passe par $(0, 11)$ et $(11, 0)$ :
+\[
+    \begin{cases} 11 = 36 - a x_0^2 \iff a x_0^2 = 25 \\ 0 = 36 - a(11 - x_0)^2 \iff a(11 - x_0)^2 = 36 \end{cases} \implies \frac{11 - x_0}{x_0} = \frac{6}{5} \implies x_0 = 5 \text{ et } a = 1.
+\]
+D'où l'équation de la parabole : $\boxed{y = 36 - (x-5)^2 = -x^2 + 10x + 11}$.
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Tangentes à une conique et angles d'intersection}
+% ----------------------------------------------------------------------------
+
+\begin{theoreme}[Condition de tangence droite--conique ($\Delta = 0$) et vecteur tangent]
+\begin{enumerate}
+    \item \textbf{Méthode du discriminant nul ($\Delta = 0$) pour la tangence :} Pour déterminer si une droite $d$ (d'équation $y = mx + p$) coupe ou est tangente à une conique $\mathcal{C}$, on substitue $y = mx + p$ dans l'équation de $\mathcal{C}$. On obtient une équation du second degré $Ax^2 + Bx + C = 0$ de discriminant $\Delta = B^2 - 4AC$ :
+    \begin{itemize}
+        \item $\Delta > 0 \iff$ la droite est \textbf{sécante} (2 points d'intersection distincts) ;
+        \item $\boxed{\Delta = 0 \iff \text{la droite est \textbf{tangente} à la conique (1 point de contact double)}}$ ;
+        \item $\Delta < 0 \iff$ la droite est \textbf{extérieure} (aucun point d'intersection).
+    \end{itemize}
+    \item \textbf{Équation directe de la tangente en un point $M_1(x_1, y_1) \in \mathcal{C}$ (Règle de dédoublement) :}
+    \begin{itemize}
+        \item Pour l'ellipse $\frac{(x-x_0)^2}{a^2} + \frac{(y-y_0)^2}{b^2} = 1$ : la tangente en $(x_1, y_1)$ est $\dfrac{(x_1-x_0)(x-x_0)}{a^2} + \dfrac{(y_1-y_0)(y-y_0)}{b^2} = 1$.
+        \item Pour l'hyperbole $\frac{(x-x_0)^2}{a^2} - \frac{(y-y_0)^2}{b^2} = 1$ : la tangente en $(x_1, y_1)$ est $\dfrac{(x_1-x_0)(x-x_0)}{a^2} - \dfrac{(y_1-y_0)(y-y_0)}{b^2} = 1$.
+        \item Pour une courbe $y = f(x)$ (par exemple une parabole $y = ax^2 + bx + c$) : la pente de la tangente au point d'abscisse $x_1$ est la dérivée $f'(x_1)$, et un \textbf{vecteur directeur de la tangente} est $\boxed{\vec{t} = \bigl(1,\; f'(x_1)\bigr)}$.
+    \end{itemize}
+\end{enumerate}
+\end{theoreme}
+
+\begin{exemple}[Problèmes de tangence aux examens UCLouvain (Juillet 2025 Q1b et Juillet 2023 Q1c)]
+\textbf{1) Pentes limites d'une droite coupant une ellipse (UCLouvain -- Juillet 2025, Question 1) :}\\
+\emph{Énoncé :} Soit l'ellipse $4x^2 - 32x + 64 + y^2 = 4 \iff \frac{(x-4)^2}{1} + \frac{y^2}{4} = 1$. Une droite passant par l'origine, d'équation $y = mx$, coupe cette ellipse. Déterminer les coefficients directeurs maximum $m_{\max}$ et minimum $m_{\min}$ permettant que la droite coupe l'ellipse.\\
+\emph{Résolution :} Substituons $y = mx$ dans l'équation de l'ellipse $4(x-4)^2 + y^2 = 4$ :
+\[
+    4(x^2 - 8x + 16) + m^2 x^2 = 4 \iff (4 + m^2)x^2 - 32x + 60 = 0.
+\]
+Cette équation du second degré en $x$ admet au moins une solution réelle (les cas limites correspondant aux deux tangentes issues de l'origine) si et seulement si son discriminant $\Delta$ est positif ou nul :
+\[
+    \Delta = (-32)^2 - 4(4 + m^2)(60) \ge 0 \iff 64 - 240m^2 \ge 0 \iff m^2 \le \frac{64}{240} = \frac{4}{15}.
+\]
+D'où les deux pentes limites : $\boxed{m_{\min} = -\frac{2}{\sqrt{15}} \quad \text{et} \quad m_{\max} = \frac{2}{\sqrt{15}}}$.
+
+\medskip
+\textbf{2) Angles d'intersection entre une droite et une parabole (UCLouvain -- Juillet 2023, Question 1) :}\\
+\emph{Énoncé :} Soit la parabole $\mathcal{L} \equiv (x+2)^2 - 2y = 8 \iff y = \frac{1}{2}(x+2)^2 - 4$ et la droite $d \equiv x - 2y = 0$. (a) Trouver les points d'intersection de $\mathcal{L}$ et $d$. (b) Calculer les angles $\varphi_1$ et $\varphi_2$ entre la droite $d$ et les tangentes à $\mathcal{L}$ en ces deux points.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item En remplaçant $2y = x$ dans $(x+2)^2 - 2y = 8$, on obtient $x^2 + 4x + 4 - x - 8 = 0 \iff x^2 + 3x - 4 = 0 \iff (x+4)(x-1) = 0$. Les deux points d'intersection sont donc $\boxed{P_1(-4, -2) \text{ et } P_2\left(1, \frac{1}{2}\right)}$.
+    \item La droite $d \equiv y = \frac{1}{2}x$ a pour vecteur directeur $\vec{d} = (2, 1)$ (de norme $\|\vec{d}\| = \sqrt{5}$). La dérivée de $y(x) = \frac{1}{2}(x+2)^2 - 4$ est $y'(x) = x + 2$, donc le vecteur directeur de la tangente au point d'abscisse $x$ est $\vec{t} = (1, x+2)$ :
+    \begin{itemize}
+        \item En $P_1$ ($x = -4$) : $\vec{t}_1 = (1, -2)$. On constate que $\vec{d} \cdot \vec{t}_1 = 2(1) + 1(-2) = 0$, donc $\vec{d} \perp \vec{t}_1$ et $\boxed{\varphi_1 = 90\degree}$.
+        \item En $P_2$ ($x = 1$) : $\vec{t}_2 = (1, 3)$ (de norme $\|\vec{t}_2\| = \sqrt{10}$). Par le produit scalaire :
+        \[
+            \cos\varphi_2 = \frac{\vec{d} \cdot \vec{t}_2}{\|\vec{d}\|\,\|\vec{t}_2\|} = \frac{2(1) + 1(3)}{\sqrt{5}\sqrt{10}} = \frac{5}{5\sqrt{2}} = \frac{\sqrt{2}}{2} \implies \boxed{\varphi_2 = 45\degree}.
+        \]
+    \end{itemize}
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 6}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 6.\arabic* --}, leftmargin=*]
+
+    \item \textbf{(UCLouvain -- Septembre 2023, Q1b : Alignement et orthogonalité dans le plan)}
+    On donne les points $A(4, -3)$ et $B(1, -2)$, ainsi que la droite $d \equiv y = 1 + x$. Déterminez les coordonnées des deux points $C \in d$ et $D \in d$ tels que :
+    \begin{enumerate}[label=(\alph*)]
+        \item les trois points $A, B, C$ soient alignés ;
+        \item les segments $[AB]$ et $[BD]$ soient perpendiculaires.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2021, Q1 : Droites perpendiculaires et cercle tangent)}
+    Soit la droite $\mathcal{A} \equiv 3x + y + 12 = 0$ et le point $P(2, -2)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Déterminez l'équation cartésienne de la droite $\mathcal{B}$ perpendiculaire à $\mathcal{A}$ et passant par $P$.
+        \item Un cercle $\mathcal{C}$ de rayon $R = \sqrt{10}$ est tangent simultanément aux deux droites $\mathcal{A}$ et $\mathcal{B}$, et son centre possède une abscisse négative et une ordonnée positive (situé dans le quadrant supérieur/droit par rapport au point d'intersection de $\mathcal{A}$ et $\mathcal{B}$, du côté de l'origine). Calculez les coordonnées exactes du centre de $\mathcal{C}$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2022, Q1 : Médiatrice, cercle circonscrit et cercle tangent)}
+    Dans un repère orthonormé, on considère le triangle de sommets $E(-2, -4)$, $F(3, 1)$ et $G(-5, 5)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Déterminez l'équation cartésienne de la médiatrice $m$ du segment $[EG]$.
+        \item Déterminez l'équation cartésienne du cercle $\mathcal{C}$ circonscrit au triangle $EFG$.
+        \item Calculez le rayon $r$ du plus grand cercle $\mathcal{B}$ que l'on puisse inscrire dans la région comprise à l'extérieur du triangle $EFG$ (du côté du segment $[EG]$) et à l'intérieur du cercle circonscrit $\mathcal{C}$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2021, Q3 : Cercle tangent à une droite et tangente à une parabole)}
+    On considère la droite $d \equiv \dfrac{x}{3} + \dfrac{y}{4} = 1$, le cercle $\mathcal{C} \equiv \dfrac{x^2}{a} + \dfrac{y^2}{a} = 1$ (avec $a > 0$) et la parabole $\mathcal{P} \equiv \dfrac{x}{6} + \dfrac{y^2}{27} = -\dfrac{1}{2}$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Calculez la valeur exacte du paramètre $a$ qui rend le cercle $\mathcal{C}$ tangent à la droite $d$.
+        \item Déterminez l'équation cartésienne de la droite $m$ qui est perpendiculaire à la droite $d$ et tangente à la parabole $\mathcal{P}$, ainsi que les coordonnées du point de tangence.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q2 : Médiatrice et ellipse tangente à une droite)}
+    On donne les points $C\left(-\frac{12}{5}, \frac{6}{5}\right)$ et $D(5, -3)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Donnez une équation paramétrique (et cartésienne) de la médiatrice $m$ du segment $[CD]$.
+        \item Déterminez l'équation cartésienne de l'ellipse $\mathcal{E}$ centrée à l'origine, d'axes parallèles aux axes du repère, sachant qu'elle passe par le point $C$ et qu'elle est tangente à la droite $d \equiv 8x + 9y = 30$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2024, Q1a : Réduction et foyers d'une ellipse)}
+    Mettez l'équation cartésienne $4x^2 - 8x + y^2 = 0$ sous sa forme réduite, précisez la nature de la conique, son centre, les longueurs de son grand axe et de son petit axe, ses foyers, son excentricité et ses directrices.
+
+    \item \textbf{(UCLouvain -- Septembre 2025, Q1b : Médiatrice et intersection avec une hyperbole)}
+    On considère l'hyperbole $\mathcal{C} \equiv \dfrac{x^2}{4} - y^2 = 1$ et les deux points $A(2, 0)$ et $B(2, 2)$. Déterminez l'équation cartésienne de la médiatrice du segment $[AB]$, ainsi que les coordonnées de ses deux points d'intersection $C$ et $D$ avec l'hyperbole $\mathcal{C}$.
+
+    \item \textbf{(UCLouvain -- Juillet 2023, Q1a : Éléments caractéristiques d'une parabole)}
+    Pour la parabole $\mathcal{L} \equiv (x+2)^2 - 2y = 8$, déterminez les coordonnées de son sommet $S$, de son foyer $F$, l'équation de sa directrice $d$, ainsi que ses points d'intersection avec l'axe des abscisses $Ox$.
+
+    \item \textbf{(Classification et réduction de coniques)}
+    Pour chacune des deux équations suivantes, complétez les carrés pour obtenir l'équation réduite, identifiez la nature de la conique, son centre (ou sommet), ses foyers, son excentricité et, le cas échéant, ses asymptotes :
+    \begin{enumerate}[label=(\alph*)]
+        \item $4x^2 - 9y^2 - 16x - 18y - 29 = 0$
+        \item $y^2 - 6y - 8x + 17 = 0$
+    \end{enumerate}
+
+    \item \textbf{(Propriété optique et lieu géométrique bifocal)}
+    Déterminez l'équation cartésienne réduite de l'ellipse dont les foyers sont $F_1(-3, 0)$ et $F_2(3, 0)$ et dont la somme des distances de tout point $M$ aux deux foyers vaut $|MF_1| + |MF_2| = 10$. Déterminez ensuite les équations des deux tangentes à cette ellipse qui sont parallèles à la droite $4x + 3y = 0$.
+
+\end{enumerate}

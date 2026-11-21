@@ -1,0 +1,396 @@
+% ============================================================================
+% CHAPITRE 7 : GÉOMÉTRIE ANALYTIQUE ET VECTORIELLE DANS L'ESPACE
+% ============================================================================
+\chapter[Géométrie Analytique dans l'Espace]{Géométrie Analytique et Vectorielle dans l'Espace}
+
+La deuxième question de la partie géométrie de l'examen d'admission à l'UCLouvain est consacrée à la \textbf{géométrie analytique dans l'espace à trois dimensions} muni d'un repère orthonormé $(O;\vec{i},\vec{j},\vec{k})$. Qu'il s'agisse de programmer le bras d'un robot charpentier (Juillet 2026), de creuser des galeries minières (Septembre 2026), de suivre un éboulement rocheux sur un versant (Juillet 2025), de calculer la réflexion d'un rayon lumineux sur une verrière (Septembre 2025) ou la descente en rappel d'une alpiniste (Juillet 2021), tous ces problèmes se résolvent à l'aide d'un petit nombre d'outils vectoriels fondamentaux.
+
+% ----------------------------------------------------------------------------
+\section{Calcul vectoriel dans l'espace : produit scalaire, produit vectoriel et déterminant}
+% ----------------------------------------------------------------------------
+
+Dans l'espace muni d'un repère orthonormé $(O;\vec{i},\vec{j},\vec{k})$, soient deux points $A(x_A, y_A, z_A)$ et $B(x_B, y_B, z_B)$, et trois vecteurs $\vec{u} = (u_x, u_y, u_z)$, $\vec{v} = (v_x, v_y, v_z)$ et $\vec{w} = (w_x, w_y, w_z)$.
+
+\begin{theoreme}[Outils vectoriels fondamentaux dans $\R^3$]
+\begin{enumerate}
+    \item \textbf{Vecteur $\overrightarrow{AB}$, distance $|AB|$ et point milieu $M$ de $[AB]$ :}
+    \[
+        \overrightarrow{AB} = (x_B - x_A,\; y_B - y_A,\; z_B - z_A), \qquad |AB| = \|\overrightarrow{AB}\| = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2 + (z_B-z_A)^2},
+    \]
+    \[
+        M = \left(\frac{x_A+x_B}{2},\; \frac{y_A+y_B}{2},\; \frac{z_A+z_B}{2}\right).
+    \]
+    \item \textbf{Produit scalaire $\vec{u} \cdot \vec{v}$ et angle $\theta \in [0,\pi]$ entre deux vecteurs :}
+    \[
+        \boxed{\vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z = \|\vec{u}\|\,\|\vec{v}\|\cos\theta} \implies \cos\theta = \frac{u_x v_x + u_y v_y + u_z v_z}{\sqrt{u_x^2+u_y^2+u_z^2}\sqrt{v_x^2+v_y^2+v_z^2}}.
+    \]
+    En particulier, deux vecteurs non nuls sont \textbf{orthogonaux} ssi leur produit scalaire est nul :
+    \[
+        \boxed{\vec{u} \perp \vec{v} \iff \vec{u} \cdot \vec{v} = u_x v_x + u_y v_y + u_z v_z = 0}.
+    \]
+    \item \textbf{Produit vectoriel $\vec{u} \wedge \vec{v}$ (pour construire un vecteur perpendiculaire à $\vec{u}$ et à $\vec{v}$) :}
+    Le produit vectoriel de $\vec{u}$ et $\vec{v}$ est le vecteur $\vec{n} = \vec{u} \wedge \vec{v}$ simultanément orthogonal à $\vec{u}$ et à $\vec{v}$ (de norme $\|\vec{u}\wedge\vec{v}\| = \|\vec{u}\|\,\|\vec{v}\|\sin\theta$, égale à l'aire du parallélogramme construit sur $\vec{u}$ et $\vec{v}$) :
+    \[
+        \boxed{\vec{u} \wedge \vec{v} = \begin{vmatrix} \vec{i} & u_x & v_x \\ \vec{j} & u_y & v_y \\ \vec{k} & u_z & v_z \end{vmatrix} = \bigl(u_y v_z - u_z v_y,\;\; u_z v_x - u_x v_z,\;\; u_x v_y - u_y v_x\bigr)}.
+    \]
+    \item \textbf{Produit mixte (déterminant $3 \times 3$) et condition de coplanarité :}
+    Trois vecteurs $\vec{u}, \vec{v}, \vec{w}$ sont \textbf{coplanaires} (appartiennent à un même plan vectoriel) ssi leur déterminant est nul :
+    \[
+        \boxed{\vec{u}, \vec{v}, \vec{w} \text{ coplanaires} \iff \det(\vec{u}, \vec{v}, \vec{w}) = \begin{vmatrix} u_x & v_x & w_x \\ u_y & v_y & w_y \\ u_z & v_z & w_z \end{vmatrix} = (\vec{u} \wedge \vec{v}) \cdot \vec{w} = 0}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+% ----------------------------------------------------------------------------
+\section{Droites et plans dans l'espace : équations et représentations}
+% ----------------------------------------------------------------------------
+
+\subsection{Équations paramétriques et cartésiennes d'une droite dans $\R^3$}
+
+\begin{theoreme}[Représentations d'une droite $d$ dans l'espace]
+Soit $d$ la droite passant par le point $A(x_A, y_A, z_A)$ et de \textbf{vecteur directeur} $\vec{u} = (a, b, c) \neq \vec{0}$ :
+\begin{enumerate}
+    \item \textbf{Équations paramétriques (la forme la plus pratique pour tous les calculs !) :}
+    \[
+        \boxed{d \equiv \begin{cases} x = x_A + t\,a \\ y = y_A + t\,b \\ z = z_A + t\,c \end{cases} \quad (t \in \R) \qquad \Longleftrightarrow \qquad \overrightarrow{OM}(t) = \overrightarrow{OA} + t\,\vec{u}}.
+    \]
+    \emph{Remarque importante :} Le paramètre $t$ mesure le déplacement le long de la droite en unités de $\|\vec{u}\|$ ! Ainsi, la distance entre le point initial $A$ ($t=0$) et le point $M(t)$ vaut directement :
+    \[
+        \boxed{|AM(t)| = |t| \cdot \|\vec{u}\| = |t|\sqrt{a^2 + b^2 + c^2}}.
+    \]
+    \item \textbf{Équations cartésiennes (intersection de deux plans sécants) :} Si $a,b,c \neq 0$, en isolant $t$ :
+    \[
+        \frac{x - x_A}{a} = \frac{y - y_A}{b} = \frac{z - z_A}{c}, \qquad \text{ou sous forme d'un système : } d \equiv \begin{cases} a_1 x + b_1 y + c_1 z + d_1 = 0 \\ a_2 x + b_2 y + c_2 z + d_2 = 0 \end{cases}.
+    \]
+    \emph{Astuce :} Lorsqu'une droite $d$ est donnée comme l'intersection de deux plans de vecteurs normaux $\vec{n}_1$ et $\vec{n}_2$, son vecteur directeur est $\vec{u} = \vec{n}_1 \wedge \vec{n}_2$ (ou on pose simplement $z = t$ et on exprime $x$ et $y$ en fonction de $t$, comme en Septembre 2022 Q2a!).
+\end{enumerate}
+\end{theoreme}
+
+\subsection{Équation cartésienne d'un plan et plan médiateur}
+
+\begin{theoreme}[Équation cartésienne et paramétrique d'un plan $\Pi$]
+\begin{enumerate}
+    \item \textbf{Par un point $A(x_A, y_A, z_A)$ et un vecteur normal $\vec{n} = (a, b, c) \neq \vec{0}$ :}
+    Un point $M(x,y,z)$ appartient au plan $\Pi$ ssi $\overrightarrow{AM} \perp \vec{n} \iff \vec{n} \cdot \overrightarrow{AM} = 0$, ce qui donne l'\textbf{équation cartésienne du plan} :
+    \[
+        \boxed{\Pi \equiv a(x - x_A) + b(y - y_A) + c(z - z_A) = 0 \quad \Longleftrightarrow \quad ax + by + cz + d = 0}
+    \]
+    où les coefficients $\mathbf{(a, b, c)}$ de $x, y, z$ forment toujours un \textbf{vecteur normal $\vec{n}$} (perpendiculaire) au plan $\Pi$ !
+    \item \textbf{Par un point $A$ et deux vecteurs directeurs non colinéaires $\vec{u}$ et $\vec{v}$ (ou par 3 points $A, B, C$) :}
+    \begin{itemize}
+        \item \emph{Équation paramétrique :} $\overrightarrow{OM} = \overrightarrow{OA} + r\,\vec{u} + s\,\vec{v}$ ($r, s \in \R$).
+        \item \emph{Passage à l'équation cartésienne :} Soit on calcule le vecteur normal $\vec{n} = \vec{u} \wedge \vec{v}$ (ou on résout $\vec{n}\cdot\vec{u} = 0$ et $\vec{n}\cdot\vec{v} = 0$), soit on annule le déterminant de coplanarité :
+        \[
+            M(x,y,z) \in \Pi \iff \det(\overrightarrow{AM}, \vec{u}, \vec{v}) = \begin{vmatrix} x - x_A & u_x & v_x \\ y - y_A & u_y & v_y \\ z - z_A & u_z & v_z \end{vmatrix} = 0.
+        \]
+    \end{itemize}
+    \item \textbf{Plan médiateur d'un segment $[AB]$ (Septembre 2021 Q2a et Septembre 2024 Q2b) :}
+    Le lieu géométrique des points de l'espace équidistants de deux points $A$ et $B$ est le \textbf{plan médiateur} de $[AB]$ : c'est le plan qui passe par le \textbf{milieu $M = \frac{A+B}{2}$} et qui a pour \textbf{vecteur normal $\vec{n} = \overrightarrow{AB}$}.
+\end{enumerate}
+\end{theoreme}
+
+\begin{exemple}[Équations de plans et droites d'appui (UCLouvain -- Juillet 2024 Q2 et Septembre 2022 Q2)]
+\textbf{1) Plan contenant une droite et droite s'appuyant sur deux droites (UCLouvain -- Juillet 2024, Question 2) :}\\
+\emph{Énoncé :} Dans l'espace muni d'un repère orthonormé, on considère les deux droites :
+\[
+    d_1 \equiv \begin{cases} x = 5r + 1 \\ y = -r - 1 \\ z = 4 \end{cases} \quad (r \in \R) \qquad \text{et} \qquad d_2 \equiv \begin{cases} x = s \\ y = 3s + 2 \\ z = -2s - 2 \end{cases} \quad (s \in \R).
+\]
+(a) Déterminer une équation cartésienne du plan $\Pi$ qui contient l'origine $O(0,0,0)$ ainsi que la droite $d_1$.\\
+(b) Déterminer un vecteur directeur de la droite $d$ qui passe par l'origine $O$ et qui s'appuie à la fois sur $d_1$ et sur $d_2$ (c'est-à-dire qui coupe $d_1$ et $d_2$).\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item La droite $d_1$ passe par le point $A(1, -1, 4)$ (pour $r=0$) et a pour vecteur directeur $\vec{u}_1 = (5, -1, 0)$. Comme le plan $\Pi$ contient $O(0,0,0)$ et toute la droite $d_1$, il passe par $O$ et est dirigé par les deux vecteurs $\vec{u}_1 = (5, -1, 0)$ et $\overrightarrow{OA} = (1, -1, 4)$. Leur produit vectoriel donne un vecteur normal $\vec{n}$ à $\Pi$ :
+    \[
+        \vec{n} = \vec{u}_1 \wedge \overrightarrow{OA} = \begin{vmatrix} \vec{i} & 5 & 1 \\ \vec{j} & -1 & -1 \\ \vec{k} & 0 & 4 \end{vmatrix} = (-4,\; -20,\; -4) = -4(1,\; 5,\; 1).
+    \]
+    Comme $\Pi$ passe par l'origine $O(0,0,0)$, son équation cartésienne est immédiatement $\boxed{\Pi \equiv x + 5y + z = 0}$.
+    \item \emph{Astuce géométrique lumineuse :} Toute droite $d$ passant par l'origine $O$ et coupant la droite $d_1$ est nécessairement \textbf{contenue dans le plan $\Pi$} (qui est justement le plan formé par $O$ et $d_1$)! Pour que cette droite $d \subset \Pi$ coupe également la droite $d_2$, elle doit passer par le \textbf{point de percée $P$ de $d_2$ dans le plan $\Pi$}.\\
+    Substituons les équations paramétriques de $d_2$ dans $\Pi \equiv x + 5y + z = 0$ :
+    \[
+        s + 5(3s + 2) + (-2s - 2) = 0 \iff 14s + 8 = 0 \implies s = -\frac{4}{7}.
+    \]
+    Le point d'intersection $P \in d_2 \cap \Pi$ a donc pour coordonnées $P\left(-\frac{4}{7},\; \frac{2}{7},\; -\frac{6}{7}\right) = -\frac{2}{7}(2,\; -1,\; 3)$. La droite $d = (OP)$ a donc pour vecteur directeur $\boxed{\vec{v} = (2,\; -1,\; 3)}$.
+\end{enumerate}
+
+\medskip
+\textbf{2) Plan parallèle à une droite et angle droit sur une droite (UCLouvain -- Septembre 2022, Question 2) :}\\
+\emph{Énoncé :} On donne les points $A(-4, 2, 1)$ et $B(-1, 0, 3)$, ainsi que la droite $d \equiv \begin{cases} x - y + z = 0 \\ x + 2z - 5 = 0 \end{cases}$.\\
+(a) Donner l'équation cartésienne du plan $\Pi$ contenant $A$ et $B$ et parallèle à $d$.\\
+(b) Déterminer les coordonnées du point $C \in d$ tel que l'angle $\widehat{ACB}$ soit droit ($90\degree$).\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Trouvons d'abord une représentation paramétrique de $d$ en posant $z = k$ : la seconde équation donne $x = 5 - 2k$, et la première donne $y = x + z = 5 - k$. Ainsi :
+    \[
+        d \equiv \begin{cases} x = 5 - 2k \\ y = 5 - k \\ z = k \end{cases} \quad (k \in \R), \qquad \text{de vecteur directeur } \vec{u} = (-2, -1, 1).
+    \]
+    Le plan $\Pi$ contient $A$ et $B$, donc le vecteur $\overrightarrow{AB} = (3, -2, 2)$ est parallèle à $\Pi$, tout comme $\vec{u} = (-2, -1, 1)$. Leur produit vectoriel fournit la normale à $\Pi$ :
+    \[
+        \vec{n} = \overrightarrow{AB} \wedge \vec{u} = \begin{vmatrix} \vec{i} & 3 & -2 \\ \vec{j} & -2 & -1 \\ \vec{k} & 2 & 1 \end{vmatrix} = (0,\; -7,\; -7) = -7(0, 1, 1).
+    \]
+    L'équation de $\Pi$ est donc de la forme $y + z + d = 0$. Comme $A(-4, 2, 1) \in \Pi$, on a $2 + 1 + d = 0 \implies d = -3$, soit $\boxed{\Pi \equiv y + z - 3 = 0}$.
+    \item Un point quelconque $C \in d$ a pour coordonnées $C(5-2k,\; 5-k,\; k)$. Formons les vecteurs $\overrightarrow{AC}$ et $\overrightarrow{BC}$ :
+    \[
+        \overrightarrow{AC} = (9-2k,\; 3-k,\; k-1) \qquad \text{et} \qquad \overrightarrow{BC} = (6-2k,\; 5-k,\; k-3).
+    \]
+    L'angle $\widehat{ACB}$ est droit ssi $\overrightarrow{AC} \cdot \overrightarrow{BC} = 0$ :
+    \[
+        (9-2k)(6-2k) + (3-k)(5-k) + (k-1)(k-3) = 0 \iff 6k^2 - 42k + 72 = 0 \iff k^2 - 7k + 12 = 0,
+    \]
+    dont les racines sont $k = 3$ et $k = 4$, donnant les deux points $\boxed{C_1(-1, 2, 3) \text{ et } C_2(-3, 1, 4)}$.
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Positions relatives, projections, distances, sphère et réflexion}
+% ----------------------------------------------------------------------------
+
+\subsection{Parallélisme, orthogonalité, intersections et distances dans l'espace}
+
+\begin{theoreme}[Positions relatives et distances dans l'espace]
+Soient une droite $d$ (de vecteur directeur $\vec{u}$) et deux plans $\Pi_1$ (de normale $\vec{n}_1 \equiv (a,b,c)$) et $\Pi_2$ (de normale $\vec{n}_2$) :
+\begin{enumerate}
+    \item \textbf{Attention à l'inversion entre droite et plan !} Une droite est définie par son \emph{vecteur directeur} $\vec{u}$, tandis qu'un plan est défini par son \emph{vecteur normal} $\vec{n}$. Par conséquent :
+    \begin{itemize}
+        \item \textbf{Droite parallèle à un plan ($d \parallel \Pi_1$) :} $\boxed{\vec{u} \perp \vec{n}_1 \iff \vec{u} \cdot \vec{n}_1 = 0}$ \quad (Juillet 2025 Q2b).
+        \item \textbf{Droite perpendiculaire à un plan ($d \perp \Pi_1$) :} $\boxed{\vec{u} \parallel \vec{n}_1 \iff \exists k \in \R^* : \vec{u} = k\,\vec{n}_1}$ \quad (Septembre 2023 Q2a).
+        \item \textbf{Deux plans parallèles ($\Pi_1 \parallel \Pi_2$) :} $\vec{n}_1 \parallel \vec{n}_2$.
+        \item \textbf{Deux plans perpendiculaires ($\Pi_1 \perp \Pi_2$) :} $\boxed{\vec{n}_1 \perp \vec{n}_2 \iff \vec{n}_1 \cdot \vec{n}_2 = 0}$ \quad (Juillet 2022 Q1c).
+    \end{itemize}
+    \item \textbf{Angle entre une droite $d$ et la normale $\vec{n}$ au plan (angle d'incidence $\theta$) :}
+    \[
+        \cos\theta = \frac{|\vec{u} \cdot \vec{n}|}{\|\vec{u}\|\,\|\vec{n}\|} \qquad \left(\text{et l'angle $\alpha = \frac{\pi}{2}-\theta$ entre la droite et le plan vérifie } \sin\alpha = \frac{|\vec{u}\cdot\vec{n}|}{\|\vec{u}\|\,\|\vec{n}\|}\right).
+    \]
+    \item \textbf{Distance d'un point $A(x_A, y_A, z_A)$ à un plan $\Pi \equiv ax + by + cz + d = 0$ :}
+    \[
+        \boxed{d(A, \Pi) = \frac{|ax_A + by_A + cz_A + d|}{\sqrt{a^2 + b^2 + c^2}}}.
+    \]
+    \item \textbf{Sphère $\mathcal{S}$ de centre $A(x_A, y_A, z_A)$ et de rayon $R$ :}
+    \[
+        \boxed{\mathcal{S} \equiv (x - x_A)^2 + (y - y_A)^2 + (z - z_A)^2 = R^2} \quad \text{(et boule fermée : $\le R^2$, ouverte : $< R^2$)}.
+    \]
+    \textbf{Intersection d'une sphère $\mathcal{S}(A, R)$ et d'un plan $\Pi$ (Juillet 2022 Q1b) :} Si la distance $d = d(A, \Pi)$ du centre de la sphère au plan est inférieure à $R$ ($d < R$), alors l'intersection $\mathcal{S} \cap \Pi$ est un \textbf{cercle} (ou un disque pour la boule) dont le rayon $r$ est donné par le théorème de Pythagore :
+    \[
+        \boxed{r = \sqrt{R^2 - d(A, \Pi)^2} \implies \text{Aire du disque de section} = \pi r^2 = \pi\bigl(R^2 - d(A,\Pi)^2\bigr)}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\subsection{Projection orthogonale, translation de droite et réflexion sur un miroir plan}
+
+\begin{theoreme}[Trois constructions géométriques récurrentes à l'examen]
+\begin{enumerate}
+    \item \textbf{Pied $P$ de la perpendiculaire abaissée d'un point $C$ sur une droite $d \equiv A + t\vec{u}$ (Projeté orthogonal, Juillet 2023 Q2a et Septembre 2024 Q2a) :}
+    On écrit les coordonnées génériques d'un point de la droite $P(t) = A + t\vec{u}$ et on détermine l'unique valeur de $t \in \R$ telle que le vecteur $\overrightarrow{CP(t)}$ soit orthogonal au vecteur directeur $\vec{u}$ :
+    \[
+        \boxed{P(t) = A + t\vec{u} \quad \text{avec} \quad \overrightarrow{CP(t)} \cdot \vec{u} = 0}.
+    \]
+    La distance du point $C$ à la droite $d$ est alors simplement la norme $|CP|$.
+    \item \textbf{Droite $d_2$ parallèle à $d_1 \equiv A + t\vec{u}$, située à une distance $D$ dans une direction orthogonale $\vec{v} \perp \vec{u}$ (Juillet 2026 Q2a, Septembre 2026 Q2a, Juillet 2023 Q2c) :}
+    On norme le vecteur de direction transversale $\vec{v}$ et on le multiplie par la distance $D$ souhaitée pour obtenir un point $B$ de la seconde droite :
+    \[
+        \boxed{B = A + D\,\frac{\vec{v}}{\|\vec{v}\|} \qquad \text{et} \qquad d_2 \equiv B + t\,\vec{u} \quad (t \in \R)}.
+    \]
+    \item \textbf{Réflexion d'un rayon lumineux sur un miroir plan $\Pi$ de vecteur normal $\vec{n}$ (Septembre 2025 Q2b) :}
+    Lorsqu'un rayon incident de vecteur directeur $\vec{v}_{\text{inc}}$ frappe un miroir plan en un point $B$, sa composante tangentielle (parallèle au miroir) est conservée tandis que sa composante normale $\vec{v}_{\perp} = \frac{\vec{v}_{\text{inc}}\cdot\vec{n}}{\|\vec{n}\|^2}\vec{n}$ est inversée ($-\vec{v}_\perp$). Le vecteur directeur du \textbf{rayon réfléchi} est donc donné par la formule de Householder :
+    \[
+        \boxed{\vec{v}_{\text{réf}} = \vec{v}_{\text{inc}} - 2\,\frac{\vec{v}_{\text{inc}} \cdot \vec{n}}{\|\vec{n}\|^2}\,\vec{n}}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.05]
+    % Figure 1 : Section sphère - plan
+    \begin{scope}[shift={(0,0)}]
+        \draw[thick, uclblue] (0,0) circle (1.5);
+        \draw[thick, uclaccent, fill=ucllightblue!70] (0,0.75) ellipse (1.3 and 0.35);
+        \coordinate (A) at (0,0);
+        \coordinate (H) at (0,0.75);
+        \coordinate (M) at (1.3,0.75);
+        \draw[thick, warnred] (A) -- (H) node[midway, left] {\small $d$};
+        \draw[thick, defgreen] (H) -- (M) node[midway, above] {\small $r$};
+        \draw[thick, uclblue] (A) -- (M) node[midway, below right] {\small $R$};
+        \pic[draw=warnred, angle radius=0.18cm] {right angle = A--H--M};
+        \fill (A) circle (1.3pt) node[below left] {\small $A$};
+        \fill (H) circle (1.3pt) node[above left] {\small $H$};
+        \fill (M) circle (1.3pt) node[right] {\small $M$};
+        \node[below, align=center] at (0,-1.75) {\small \textbf{(a)} Section d'une sphère par un plan :\\[-2pt]\small $r = \sqrt{R^2 - d^2}$};
+    \end{scope}
+
+    % Figure 2 : Réflexion d'un rayon sur un plan
+    \begin{scope}[shift={(6.2,-0.5)}]
+        \draw[thick, uclblue, fill=ucllightblue!40] (-2.4,0) -- (1.8,0) -- (2.6,0.9) -- (-1.6,0.9) -- cycle;
+        \node[below right, uclblue] at (1.3,0.35) {\small $\Pi$};
+        \coordinate (B) at (0,0.45);
+        \coordinate (A) at (-1.5, 2.1);
+        \coordinate (C) at (1.5, 2.1);
+        \coordinate (N) at (0, 2.2);
+        \draw[->, very thick, exorange] (A) -- (B) node[midway, above left] {\small $\vec{v}_{\text{inc}}$};
+        \draw[->, very thick, defgreen] (B) -- (C) node[midway, above right] {\small $\vec{v}_{\text{réf}}$};
+        \draw[->, thick, warnred] (B) -- (N) node[above] {\small $\vec{n}$};
+        \draw[dashed, gray] (0,0.45) -- (0,-0.6);
+        \pic[draw=exorange, angle radius=0.55cm, "$\theta$", angle eccentricity=1.35] {angle = N--B--A};
+        \fill (B) circle (1.5pt) node[below] {\small $B$};
+        \node[below, align=center] at (0,-1.25) {\small \textbf{(b)} Réflexion sur un miroir plan :\\[-2pt]\small $\vec{v}_{\text{réf}} = \vec{v}_{\text{inc}} - 2\frac{\vec{v}_{\text{inc}}\cdot\vec{n}}{\|\vec{n}\|^2}\vec{n}$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Trois problèmes complets d'examen UCLouvain dans l'espace]
+\textbf{1) Robot charpentier et toiture en 3D (UCLouvain -- Juillet 2026, Question 2) :}\\
+\emph{Énoncé :} Dans un repère orthonormé $(O;\vec{i},\vec{j},\vec{k})$ (unité : le mètre, sol en $z=0$), l'arête supérieure du premier mur d'une maison est portée par la droite $d_1$ passant par $A(2, -1, 3)$ et de vecteur directeur $\vec{u} = (4, 2, 0)$. Le second mur est parallèle au premier, à la même altitude ($z=3$), situé du côté des $y$ positifs à une distance de $2\sqrt{5}\text{ m}$ du premier mur. Le bâtiment forme un rectangle $ABCD$ de longueur $|AB| = 4\sqrt{5}\text{ m}$ (avec $B \in d_1$ dans le sens de $\vec{u}$, et $C, D \in d_2$ en face de $B, A$).
+\begin{enumerate}[label=(\alph*)]
+    \item Déterminer une équation paramétrique de la droite $d_2$ portant l'arête supérieure du second mur.
+    \item La poutre de faîtage $[EF]$ a ses extrémités $E$ et $F$ situées à la verticale des milieux des segments $[AD]$ et $[BC]$. Sachant que les chevrons $[AE]$ et $[DE]$ ont une longueur maximale de $5\text{ m}$, déterminer la hauteur maximale $H$ du faîtage par rapport au sol ($z=0$) et les coordonnées du point $E$.
+    \item Le bras du robot est fixé au point $G(4, -2, 3)$. Déterminer la longueur minimale $L = |GC|$ du bras pour atteindre le point le plus éloigné $C$.
+\end{enumerate}
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Cherchons un vecteur horizontal ($z=0$) perpendiculaire à $\vec{u} = (4, 2, 0)$ et orienté vers les $y > 0$ : le vecteur $\vec{v} = (-2, 4, 0)$ vérifie $\vec{u} \cdot \vec{v} = -8 + 8 + 0 = 0$ et sa norme vaut justement $\|\vec{v}\| = \sqrt{(-2)^2 + 4^2} = \sqrt{20} = 2\sqrt{5}\text{ m}$ (qui est exactement la distance entre les deux murs!). Le point $D$ en face de $A$ sur le second mur est donc :
+    \[
+        D = A + \vec{v} = (2, -1, 3) + (-2, 4, 0) = (0, 3, 3).
+    \]
+    Comme $d_2$ passe par $D(0,3,3)$ et a le même vecteur directeur $\vec{u} = (4,2,0)$, son équation paramétrique est :
+    \[
+        \boxed{d_2 \equiv \begin{cases} x = 4t \\ y = 3 + 2t \\ z = 3 \end{cases} \quad (t \in \R)}.
+    \]
+    \item Le projeté horizontal $M$ de $E$ à l'altitude des murs ($z=3$) est le milieu de $A(2,-1,3)$ et $D(0,3,3)$, soit $M = \left(\frac{2+0}{2}, \frac{-1+3}{2}, 3\right) = (1, 1, 3)$. La demi-distance entre les deux murs vaut $|AM| = \frac{1}{2}|AD| = \sqrt{5}\text{ m}$.\\
+    Dans le triangle rectangle formé par $A, M$ et $E$ (de hauteur $h = |ME|$ au-dessus des murs et d'hypoténuse $|AE| = 5\text{ m}$), Pythagore donne :
+    \[
+        h = \sqrt{5^2 - (\sqrt{5})^2} = \sqrt{20} = 2\sqrt{5}\text{ m}.
+    \]
+    Comme les murs sont à l'altitude $z=3$, la hauteur maximale par rapport au sol vaut $H = \boxed{3 + 2\sqrt{5}\text{ m}}$ et $\boxed{E(1,\; 1,\; 3 + 2\sqrt{5})}$.
+    \item Le vecteur directeur $\vec{u} = (4, 2, 0)$ a pour norme $\|\vec{u}\| = 2\sqrt{5}\text{ m}$. Comme la longueur du mur est $|AB| = 4\sqrt{5} = 2\|\vec{u}\|$, on a $\overrightarrow{AB} = 2\vec{u} = (8, 4, 0)$, d'où $B = A + 2\vec{u} = (10, 3, 3)$ et $C = B + \overrightarrow{AD} = (10, 3, 3) + (-2, 4, 0) = (8, 7, 3)$. La distance entre $G(4, -2, 3)$ et $C(8, 7, 3)$ vaut donc :
+    \[
+        L = |GC| = \sqrt{(8-4)^2 + (7 - (-2))^2 + (3-3)^2} = \sqrt{16 + 81 + 0} = \boxed{\sqrt{97}\text{ m}}.
+    \]
+\end{enumerate}
+
+\medskip
+\textbf{2) Galeries minières et filon de minerai (UCLouvain -- Septembre 2026, Question 2) :}\\
+\emph{Énoncé :} Une galerie principale est modélisée par la droite $d_1$ passant par son point d'entrée $A(0, 0, -5)$ et de vecteur directeur $\vec{u} = (2, 1, 2)$. Une galerie secondaire $d_2$ est creusée parallèlement à $d_1$, à une distance de $2\sqrt{5}\text{ m}$ dans la direction du vecteur $\vec{v} = (1, -2, 0)$. Le filon de minerai est modélisé par le plan $\pi \equiv x + y + z = 4$. (a) Donner une équation paramétrique de la galerie secondaire $d_2$. (b) Déterminer le point de rencontre $C$ de la galerie principale $d_1$ avec le filon $\pi$, et la longueur $L = |AC|$ à creuser.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Vérifions que $\vec{v} = (1, -2, 0)$ est bien orthogonal à $\vec{u} = (2, 1, 2)$ : $\vec{u}\cdot\vec{v} = 2 - 2 + 0 = 0$. Comme $\|\vec{v}\| = \sqrt{1^2+(-2)^2+0^2} = \sqrt{5}$, le déplacement de distance $D = 2\sqrt{5}$ dans la direction de $\vec{v}$ est $2\vec{v} = (2, -4, 0)$. La galerie secondaire passe donc par $B = A + 2\vec{v} = (2, -4, -5)$ avec le vecteur directeur $\vec{u} = (2, 1, 2)$ :
+    \[
+        \boxed{d_2 \equiv \begin{cases} x = 2 + 2t \\ y = -4 + t \\ z = -5 + 2t \end{cases} \quad (t \in \R)}.
+    \]
+    \item La galerie principale a pour équations $x = 2t, y = t, z = -5 + 2t$. En substituant dans $\pi \equiv x + y + z = 4$ :
+    \[
+        2t + t + (-5 + 2t) = 4 \iff 5t = 9 \implies t = \frac{9}{5}.
+    \]
+    D'où le point d'intersection $\boxed{C\left(\frac{18}{5},\; \frac{9}{5},\; -\frac{7}{5}\right)}$. Comme $\|\vec{u}\| = \sqrt{2^2+1^2+2^2} = \sqrt{9} = 3$, la longueur à creuser depuis $A$ ($t=0$) vaut directement $L = |t|\cdot\|\vec{u}\| = \frac{9}{5} \times 3 = \boxed{\frac{27}{5}\text{ m}}$.
+\end{enumerate}
+
+\medskip
+\textbf{3) Réflexion d'un rayon lumineux dans un bâtiment passif (UCLouvain -- Septembre 2025, Question 2) :}\\
+\emph{Énoncé :} Un rayon lumineux part d'un puits de lumière en $A(2, 0, 4)$ et frappe une paroi vitrée plane $\Pi \equiv x + 2y + 2z = 14$ au point $B(6, 2, 2)$. (a) Calculer le cosinus de l'angle $\theta$ entre le rayon incident et la normale au plan. (b) Déterminer l'équation paramétrique du rayon réfléchi issu de $B$.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le vecteur incident est $\vec{v}_{\text{inc}} = \overrightarrow{AB} = (6-2,\; 2-0,\; 2-4) = (4, 2, -2)$, de norme $\|\vec{v}_{\text{inc}}\| = \sqrt{16+4+4} = \sqrt{24} = 2\sqrt{6}$. Le vecteur normal au plan $\Pi$ est $\vec{n} = (1, 2, 2)$, de norme $\|\vec{n}\| = \sqrt{1+4+4} = 3$. Leur produit scalaire vaut $\vec{v}_{\text{inc}} \cdot \vec{n} = 4(1) + 2(2) + (-2)(2) = 4$. Dès lors :
+    \[
+        \cos\theta = \frac{\vec{v}_{\text{inc}} \cdot \vec{n}}{\|\vec{v}_{\text{inc}}\|\,\|\vec{n}\|} = \frac{4}{3\sqrt{24}} = \boxed{\frac{2}{3\sqrt{6}}}.
+    \]
+    \item Par la formule de réflexion :
+    \begin{align*}
+        \vec{v}_{\text{réf}} &= \vec{v}_{\text{inc}} - 2\,\frac{\vec{v}_{\text{inc}}\cdot\vec{n}}{\|\vec{n}\|^2}\,\vec{n} = (4, 2, -2) - 2\cdot\frac{4}{9}\cdot(1, 2, 2) \\
+        &= \left(4 - \frac{8}{9},\; 2 - \frac{16}{9},\; -2 - \frac{16}{9}\right) = \frac{1}{9}(28,\; 2,\; -34).
+    \end{align*}
+    Le rayon réfléchi partant de $B(6, 2, 2)$ a donc pour équation paramétrique (avec $s = \frac{t}{9}$) :
+    \[
+        \boxed{\begin{cases} x = 6 + \frac{28}{9}t \\ y = 2 + \frac{2}{9}t \\ z = 2 - \frac{34}{9}t \end{cases} \quad \text{ou} \quad \begin{cases} x = 6 + 28s \\ y = 2 + 2s \\ z = 2 - 34s \end{cases}}.
+    \]
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 7}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 7.\arabic* --}, leftmargin=*]
+
+    \item \textbf{(UCLouvain -- Juillet 2025, Q2 : Éboulement rocheux et condition de non-décrochage)}
+    La pente d'un versant montagneux est modélisée par le plan $\Pi \equiv z = -0,6x + 0,8y + 85$. Un rocher se détache du point $A(10, 20, 100)$ et suit une trajectoire rectiligne de vecteur directeur $\vec{v} = (4, -2, -4)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Un village se situe à l'altitude $z = 80$. Déterminez les coordonnées du point $M$ où la trajectoire du rocher atteint cette altitude, ainsi que la distance $|AM|$ parcourue par le rocher.
+        \item Pour une trajectoire quelconque de vecteur directeur $\vec{w} = (a, b, c)$, quelle relation algébrique doivent vérifier $a, b, c$ pour que la trajectoire suive le plan $\Pi$ sans décrochage ?
+        \item Observe-t-on un décrochage (décollage par rapport au versant $\Pi$) pour la trajectoire observée $\vec{v} = (4, -2, -4)$ ?
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2024, Q2 : Projeté orthogonal et point équidistant sur une droite)}
+    On considère dans l'espace les trois points $A(-7, 10, 5)$, $B(2, 4, 2)$ et $C(3, 10, 7)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Déterminez les coordonnées du point $P$ appartenant à la droite $(AB)$ tel que le vecteur $\overrightarrow{CP}$ soit perpendiculaire au vecteur $\overrightarrow{AB}$.
+        \item Déterminez les coordonnées du point $Q$ appartenant à la droite $(BC)$ qui est équidistant des points $A$ et $C$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2023, Q2 : Point de percée et distance entre deux droites parallèles)}
+    Dans l'espace orthonormé $Oxyz$, on considère le plan $\Pi \equiv -2x + y - 3z + 4 = 0$ et le point $A(5, -1, 7)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Donnez des équations paramétriques de la droite $d_1$ passant par $A$ et perpendiculaire au plan $\Pi$, ainsi que les coordonnées de son point de percée $B$ dans le plan $\Pi$.
+        \item Calculez la distance qui sépare la droite $d_1$ de la droite $d_2$ parallèle à $d_1$ et passant par le point $C(-6, 5, -7)$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2023, Q2 : Droites perpendiculaires, plan et distance dans un plan)}
+    Soit la droite $d_1 \equiv \begin{cases} x = t - 3 \\ y = 3t - 4 \\ z = -t + 5 \end{cases}$ ($t \in \R$) et le point $A(1, 1, 2)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Déterminez une équation paramétrique de la droite $d_2$ contenant $A$ et perpendiculaire à $d_1$ en leur point d'intersection $B$ (dont on déterminera les coordonnées).
+        \item Donnez une équation cartésienne du plan $\mathcal{P}$ contenant les droites $d_1$ et $d_2$.
+        \item Déterminez les coordonnées des deux points $C$ possibles situés à l'intersection du plan $\mathcal{P}$ et du plan $\mathcal{S} \equiv x = 2z$, tels que la distance de $C$ à la droite $d_1$ vaille $\sqrt{6}$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q1 : Sphère, section par un plan et plans inclinés)}
+    Soit le point $A(7, -2, 8)$ (coordonnées en mètres) et le plan $p \equiv 3x - 6y + 2z = -7$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Donnez l'inéquation cartésienne de la boule ouverte $\mathcal{L}$ rassemblant tous les points situés à moins de $10\text{ m}$ du point $A$.
+        \item Calculez la distance du centre $A$ au plan $p$, et déduisez-en l'aire exacte du disque obtenu par l'intersection de $\mathcal{L}$ avec le plan $p$.
+        \item Déterminez l'équation cartésienne $x + ay + bz = c$ du plan $q$ contenant $A$, perpendiculaire au plan $p$, formant un angle de $45\degree$ avec tout plan horizontal ($z = \text{cte}$), et tel que le point $B(5,5,5)$ se situe en dessous de $q$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2021, Q4 : Descente en rappel d'une alpiniste)}
+    Une alpiniste descend en rappel le long d'une trajectoire rectiligne ($t$ en minutes, coordonnées en mètres) définie par :
+    \[
+        x(t) = -t - 50, \qquad y(t) = 6t - 100, \qquad z(t) = -18t + 144.
+    \]
+    \begin{enumerate}[label=(\alph*)]
+        \item Quelle est la distance totale parcourue par l'alpiniste entre $t = 0$ et l'instant où elle touche le sol ($z = 0$) ?
+        \item Déterminez un vecteur directeur d'une droite $h$ qui est à la fois horizontale et perpendiculaire à la trajectoire de l'alpiniste.
+        \item La paroi de la montagne est le plan qui contient la trajectoire de l'alpiniste et qui est parallèle à la droite $h$. Donnez une équation cartésienne de ce plan.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2021, Q2 : Les sommets d'une pyramide)}
+    Les points $A, B, C, D$ sont les quatre sommets d'une pyramide tels que :
+    \begin{itemize}
+        \item la base $ABC$ est contenue dans le plan horizontal $z = 0$, avec $B(-3, -1, 0)$ et $C(4, 0, 0)$ ;
+        \item le sommet $D$ appartient au plan horizontal $z = 5$ et est équidistant des trois sommets $A, B$ et $C$ ($|DA| = |DB| = |DC|$) ;
+        \item l'une des faces latérales est contenue dans le plan $\Pi \equiv -3x + y + z - 8 = 0$.
+    \end{itemize}
+    \begin{enumerate}[label=(\alph*)]
+        \item Donnez l'équation cartésienne du plan médiateur $\mathcal{L}$ rassemblant tous les points équidistants de $B$ et $C$.
+        \item En remarquant que $C \notin \Pi$ (donc $D \in \Pi$ et $A \in \Pi$), calculez les coordonnées du sommet $D$.
+        \item Déduisez-en les coordonnées du sommet $A$.
+    \end{enumerate}
+
+    \item \textbf{(Symétrique d'un point par rapport à un plan et distance point--plan)}
+    Soit le plan $\Pi \equiv 2x - y + 2z - 6 = 0$ et le point $A(5, -3, 7)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Calculez la distance $d(A, \Pi)$ à l'aide de la formule de distance point--plan.
+        \item Déterminez les coordonnées du projeté orthogonal $H$ de $A$ sur $\Pi$, ainsi que celles du point $A'$ symétrique de $A$ par rapport au plan $\Pi$.
+    \end{enumerate}
+
+    \item \textbf{(Intersection de deux plans et distance d'un point à une droite)}
+    On considère les deux plans $\Pi_1 \equiv x + y - z = 1$ et $\Pi_2 \equiv 2x - y + z = 2$, ainsi que le point $P(3, 1, 0)$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Déterminez une représentation paramétrique de la droite $d = \Pi_1 \cap \Pi_2$.
+        \item Déterminez le projeté orthogonal $H$ de $P$ sur $d$ et la distance $d(P, d)$.
+    \end{enumerate}
+
+    \item \textbf{(Sphère tangente à un plan et plan tangent à une sphère)}
+    \begin{enumerate}[label=(\alph*)]
+        \item Déterminez l'équation cartésienne de la sphère $\mathcal{S}$ de centre $\Omega(1, -2, 3)$ qui est tangente au plan $\Pi \equiv 2x + 3y - 6z + 5 = 0$.
+        \item Soit la sphère $\mathcal{S}' \equiv (x-2)^2 + (y-1)^2 + (z+1)^2 = 14$. Vérifiez que le point $T(3, 3, 2)$ appartient à $\mathcal{S}'$ et déterminez l'équation cartésienne du plan tangent à $\mathcal{S}'$ en $T$.
+    \end{enumerate}
+
+\end{enumerate}

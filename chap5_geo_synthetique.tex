@@ -1,0 +1,635 @@
+% ============================================================================
+% CHAPITRE 5 : GÉOMÉTRIE SYNTHÉTIQUE PLANE ET DANS L'ESPACE
+% ============================================================================
+\chapter[Géométrie Synthétique Plane et Spatiale]{Géométrie Synthétique Plane et dans l'Espace}
+
+Avec la fusion des épreuves de trigonométrie et de géométrie à l'examen d'admission de l'École Polytechnique de Louvain (UCLouvain), la maîtrise de la \textbf{géométrie synthétique} (c'est-à-dire la géométrie pure, sans recours obligatoire à un système d'axes cartésiens) constitue un atout décisif. Les questions de géométrie synthétique de l'examen évaluent votre capacité à observer une figure, à tracer une droite auxiliaire judicieuse (hauteur, médiatrice, rayon au point de tangence, parallèle) et à enchaîner des déductions rigoureuses appuyées sur les théorèmes classiques du secondaire (angles dans le cercle, puissance d'un point, triangles semblables, découpages d'aires et sections planes de solides).
+
+% ----------------------------------------------------------------------------
+\section{Géométrie du cercle : angles, cordes, tangentes et quadrilatères inscriptibles}
+% ----------------------------------------------------------------------------
+
+\subsection{Cordes, médiatrices et tangentes à un cercle}
+
+Commençons par trois propriétés élémentaires mais omniprésentes dans les questions d'examen (notamment en Juillet 2024, Juillet 2026 et Septembre 2026) :
+
+\begin{theoreme}[Propriétés fondamentales des cordes et des tangentes]
+Soit $\mathcal{C}$ un cercle de centre $O$ et de rayon $r$ :
+\begin{enumerate}
+    \item \textbf{Médiatrice d'une corde :} Toute corde $[AB]$ forme avec le centre $O$ un triangle isocèle $OAB$ ($|OA| = |OB| = r$). Par conséquent, la droite reliant le centre $O$ au milieu $M$ de la corde $[AB]$ est la \textbf{médiatrice} de $[AB]$ (elle est perpendiculaire à $[AB]$ en $M$) et la \textbf{bissectrice} de l'angle au centre $\widehat{AOB}$ :
+    \[
+        M \text{ milieu de } [AB] \implies (OM) \perp (AB) \quad \text{et} \quad |OM|^2 + |AM|^2 = r^2.
+    \]
+    \item \textbf{Égalité des cordes et des arcs :} Dans un même cercle, deux arcs ont la même longueur si et seulement si les cordes qui les sous-tendent ont la même longueur :
+    \[
+        \text{longueur}(\wideparen{AB}) = \text{longueur}(\wideparen{CD}) \iff |AB| = |CD| \iff |\widehat{AOB}| = |\widehat{COD}|.
+    \]
+    \item \textbf{Tangente à un cercle et cercles tangents :}
+    \begin{itemize}
+        \item La tangente à $\mathcal{C}$ en un point $T \in \mathcal{C}$ est \textbf{perpendiculaire} au rayon $[OT]$.
+        \item Si d'un point extérieur $P$ on mène les deux tangentes au cercle $\mathcal{C}$ aux points $T_1$ et $T_2$, alors $|PT_1| = |PT_2|$ et la demi-droite $[PO)$ est bissectrice de $\widehat{T_1 P T_2}$.
+        \item Si deux cercles de centres $O_1, O_2$ et de rayons $r_1, r_2$ sont tangents en un point $T$, alors les trois points $O_1, O_2, T$ sont \textbf{alignés}, avec $|O_1 O_2| = r_1 + r_2$ (tangence extérieure) ou $|O_1 O_2| = |r_1 - r_2|$ (tangence intérieure).
+    \end{itemize}
+\end{enumerate}
+\end{theoreme}
+
+\subsection{Théorème de l'angle inscrit, de l'angle au centre et quadrilatère inscriptible}
+
+\begin{theoreme}[Théorème de l'angle inscrit et de l'angle au centre]
+Soient $A, B, M$ trois points distincts sur un cercle $\mathcal{C}$ de centre $O$ :
+\begin{enumerate}
+    \item \textbf{Relation angle inscrit -- angle au centre :} L'amplitude d'un angle inscrit $\widehat{AMB}$ est égale à la \textbf{moitié} de l'amplitude de l'angle au centre $\widehat{AOB}$ qui intercepte le même arc $\wideparen{AB}$ :
+    \[
+        \boxed{|\widehat{AMB}| = \frac{1}{2}|\widehat{AOB}|}.
+    \]
+    \item \textbf{Invariance de l'angle inscrit :} Deux angles inscrits $\widehat{AMB}$ et $\widehat{ANB}$ qui interceptent le même arc $\wideparen{AB}$ (situés du même côté de la corde $[AB]$) ont la \textbf{même amplitude} : $|\widehat{AMB}| = |\widehat{ANB}|$.
+    \item \textbf{Angle tangentiel :} L'angle formé par une corde $[AB]$ et la tangente $(AT)$ au cercle en $A$ a la même amplitude que tout angle inscrit $\widehat{AMB}$ interceptant l'arc $\wideparen{AB}$.
+    \item \textbf{Triangle inscrit dans un demi-cercle (Théorème de Thalès du cercle) :} Tout angle inscrit qui intercepte un diamètre $[AB]$ est un \textbf{angle droit} ($90\degree = \frac{\pi}{2}$) :
+    \[
+        [AB] \text{ est un diamètre de } \mathcal{C} \text{ et } M \in \mathcal{C} \setminus \{A,B\} \iff \widehat{AMB} = 90\degree.
+    \]
+    \item \textbf{Quadrilatère inscriptible (cocyclique) :} Un quadrilatère convexe $ABCD$ est inscriptible dans un cercle si et seulement si ses \textbf{angles opposés sont supplémentaires} :
+    \[
+        \boxed{|\widehat{ABC}| + |\widehat{ADC}| = 180\degree \iff |\widehat{DAB}| + |\widehat{DCB}| = 180\degree}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.15]
+    % Figure 1 : Angle inscrit et angle au centre
+    \begin{scope}[shift={(0,0)}]
+        \draw[thick, uclblue] (0,0) circle (1.6);
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (-130:1.6);
+        \coordinate (B) at (-30:1.6);
+        \coordinate (M) at (105:1.6);
+        \coordinate (N) at (50:1.6);
+
+        \draw[thick, warnred] (A) -- (O) -- (B);
+        \draw[thick, uclaccent] (A) -- (M) -- (B);
+        \draw[thick, defgreen, dashed] (A) -- (N) -- (B);
+
+        \pic[draw=warnred, fill=warnred!15, angle radius=0.35cm, "$2\alpha$", angle eccentricity=1.5] {angle = A--O--B};
+        \pic[draw=uclaccent, fill=uclaccent!15, angle radius=0.45cm, "$\alpha$", angle eccentricity=1.4] {angle = A--M--B};
+        \pic[draw=defgreen, fill=defgreen!15, angle radius=0.45cm, "$\alpha$", angle eccentricity=1.4] {angle = A--N--B};
+
+        \fill (O) circle (1.3pt) node[above] {\small $O$};
+        \fill (A) circle (1.3pt) node[below left] {\small $A$};
+        \fill (B) circle (1.3pt) node[below right] {\small $B$};
+        \fill (M) circle (1.3pt) node[above left] {\small $M$};
+        \fill (N) circle (1.3pt) node[above right] {\small $N$};
+        \node[below, align=center] at (0,-1.85) {\small \textbf{(a)} Angle inscrit $|\widehat{AMB}| = |\widehat{ANB}| = \alpha$\\[-2pt]\small et angle au centre $|\widehat{AOB}| = 2\alpha$};
+    \end{scope}
+
+    % Figure 2 : Quadrilatère inscriptible
+    \begin{scope}[shift={(5.2,0)}]
+        \draw[thick, uclblue] (0,0) circle (1.6);
+        \coordinate (A) at (145:1.6);
+        \coordinate (B) at (-135:1.6);
+        \coordinate (C) at (-25:1.6);
+        \coordinate (D) at (55:1.6);
+
+        \draw[thick, uclaccent] (A) -- (B) -- (C) -- (D) -- cycle;
+        \pic[draw=uclaccent, fill=uclaccent!15, angle radius=0.4cm, "$\beta$", angle eccentricity=1.45] {angle = C--B--A};
+        \pic[draw=warnred, fill=warnred!15, angle radius=0.35cm, "$\pi-\beta$", angle eccentricity=1.65] {angle = A--D--C};
+
+        \fill (A) circle (1.3pt) node[above left] {\small $A$};
+        \fill (B) circle (1.3pt) node[below left] {\small $B$};
+        \fill (C) circle (1.3pt) node[below right] {\small $C$};
+        \fill (D) circle (1.3pt) node[above right] {\small $D$};
+        \node[below, align=center] at (0,-1.85) {\small \textbf{(b)} Quadrilatère inscriptible :\\[-2pt]\small $|\widehat{B}| + |\widehat{D}| = 180\degree = \pi$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Problèmes d'examen UCLouvain sur les cercles et angles inscrits]
+\textbf{1) Rayon d'un cercle à partir d'une corde partagée (UCLouvain -- Septembre 2026, Question 3) :}\\
+\emph{Énoncé :} Dans un cercle de centre $O$ et de rayon $r$, on trace une corde $[AB]$ sur laquelle se situe un point $P$ tel que $|AP| = 3\text{ cm}$, $|PB| = 7\text{ cm}$ et $|OP| = 6\text{ cm}$. Déterminer le rayon $r$ du cercle.\\
+\emph{Résolution :} Soit $M$ le milieu de la corde $[AB]$.
+\begin{enumerate}
+    \item La longueur totale de la corde vaut $|AB| = |AP| + |PB| = 3 + 7 = 10\text{ cm}$, donc le demi-segment mesure $|AM| = |MB| = 5\text{ cm}$, et la distance entre $P$ et le milieu $M$ vaut $|PM| = |AM| - |AP| = 5 - 3 = 2\text{ cm}$.
+    \item Puisque $M$ est le milieu de la corde $[AB]$ et que $|OA| = |OB| = r$, la droite $(OM)$ est la médiatrice de $[AB]$, donc $(OM) \perp (AB)$.
+    \item Dans le triangle $OMP$ rectangle en $M$, le théorème de Pythagore donne $|OM|^2 = |OP|^2 - |PM|^2 = 6^2 - 2^2 = 36 - 4 = 32\text{ cm}^2$.
+    \item Dans le triangle $OMA$ rectangle en $M$, Pythagore donne enfin $r^2 = |OA|^2 = |AM|^2 + |OM|^2 = 5^2 + 32 = 25 + 32 = 57$, d'où $r = \boxed{\sqrt{57}\text{ cm}}$.
+\end{enumerate}
+
+\medskip
+\textbf{2) Le rayon du triple arc (UCLouvain -- Juillet 2026, Question 4) :}\\
+\emph{Énoncé :} Sur un demi-cercle de centre $O$ et de diamètre $[PQ]$, les trois arcs $\wideparen{PA}$, $\wideparen{AB}$ et $\wideparen{BC}$ ont la même longueur. Le point $T$ est le pied de la perpendiculaire à la corde $[PC]$ abaissée depuis $A$. Sachant que $|PT| = 7\text{ cm}$ et $|TC| = 15\text{ cm}$, déterminer : (a) la longueur de la corde $|PB|$, (b) l'égalité des angles $|\widehat{BPC}| = |\widehat{BOM}|$ où $M$ est le milieu de $[BC]$, et (c) le rayon $r$ du demi-cercle.
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \draw[thick, uclblue] (-2.5,0) -- (2.5,0);
+    \draw[thick, uclblue] (2.5,0) arc (0:180:2.5);
+    \coordinate (O) at (0,0);
+    \coordinate (P) at (-2.5,0);
+    \coordinate (Q) at (2.5,0);
+    \coordinate (A) at (130:2.5);
+    \coordinate (B) at (80:2.5);
+    \coordinate (C) at (30:2.5);
+    \coordinate (M) at ($0.5*(B)+0.5*(C)$);
+
+    \draw[thick] (P) -- (A) -- (B) -- (C);
+    \draw[thick, uclaccent] (P) -- (C);
+    \draw[thick, warnred] (P) -- (B);
+    \draw[thick, defgreen] (O) -- (B) (O) -- (M);
+
+    \coordinate (T) at ($(P)!(A)!(C)$);
+    \coordinate (N) at ($(P)!(B)!(C)$);
+    \draw[dashed] (A) -- (T) node[below] {\small $T$};
+    \draw[dashed, uclaccent] (B) -- (N) node[below right] {\small $N$};
+    \pic[draw, angle radius=0.18cm] {right angle = A--T--C};
+    \pic[draw, angle radius=0.18cm] {right angle = B--N--P};
+
+    \fill (O) circle (1.3pt) node[below] {\small $O$};
+    \fill (P) circle (1.3pt) node[below left] {\small $P$};
+    \fill (Q) circle (1.3pt) node[below right] {\small $Q$};
+    \fill (A) circle (1.3pt) node[above left] {\small $A$};
+    \fill (B) circle (1.3pt) node[above] {\small $B$};
+    \fill (C) circle (1.3pt) node[right] {\small $C$};
+    \fill (M) circle (1.3pt) node[above right] {\small $M$};
+\end{tikzpicture}
+\end{center}
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Puisque les trois arcs $\wideparen{PA}$, $\wideparen{AB}$ et $\wideparen{BC}$ ont la même longueur, les trois cordes ont la même longueur $c = |PA| = |AB| = |BC|$. Soit $N$ le pied de la perpendiculaire à $[PC]$ passant par $B$. Par symétrie orthogonale de la trapèze isocèle $PABC$ par rapport à la médiatrice de $[PC]$, on a $|NC| = |PT| = 7\text{ cm}$ et $ABNT$ est un rectangle. Dès lors, $c = |AB| = |TN| = |TC| - |NC| = 15 - 7 = 8\text{ cm}$, et $|BC| = 8\text{ cm}$.
+    \begin{itemize}
+        \item Dans le triangle $BNC$ rectangle en $N$ : $|BN|^2 = |BC|^2 - |NC|^2 = 8^2 - 7^2 = 64 - 49 = 15 \implies |BN| = \sqrt{15}\text{ cm}$.
+        \item Dans le triangle $PBN$ rectangle en $N$ (où $|PN| = |PT| + |TN| = 7 + 8 = 15\text{ cm}$) : $|PB|^2 = |PN|^2 + |BN|^2 = 15^2 + 15 = 240 \implies |PB| = \boxed{4\sqrt{15}\text{ cm}}$.
+    \end{itemize}
+    \item L'angle inscrit $\widehat{BPC}$ et l'angle au centre $\widehat{BOC}$ interceptent le même arc $\wideparen{BC}$, donc $|\widehat{BOC}| = 2|\widehat{BPC}|$. Or $M$ est le milieu de la corde $[BC]$ dans le triangle isocèle $OBC$ ($|OB| = |OC| = r$), donc $(OM)$ est la médiatrice de $[BC]$ et la bissectrice de $\widehat{BOC}$, c'est-à-dire $|\widehat{BOC}| = 2|\widehat{BOM}|$. On conclut que $|\widehat{BPC}| = |\widehat{BOM}|$.
+    \item Dans le triangle $PBN$ rectangle en $N$, $\sin\widehat{BPC} = \frac{|BN|}{|PB|} = \frac{\sqrt{15}}{4\sqrt{15}} = \frac{1}{4}$. Dans le triangle $BOM$ rectangle en $M$ (où $|BM| = \frac{1}{2}|BC| = 4\text{ cm}$ et $|OB| = r$), $\sin\widehat{BOM} = \frac{|BM|}{|OB|} = \frac{4}{r}$. Puisque $\widehat{BPC} = \widehat{BOM}$, on a $\frac{4}{r} = \frac{1}{4}$, soit $r = \boxed{16\text{ cm}}$.
+\end{enumerate}
+
+\medskip
+\textbf{3) Un théorème (modifié) d'Archimède (UCLouvain -- Septembre 2022, Question 3) :}\\
+\emph{Énoncé :} Soit $A$ le milieu d'un demi-cercle de diamètre $[BC]$. Une demi-droite d'origine $B$ coupe le segment $[AC]$ en $D$ et le demi-cercle en $Q$ ($Q \neq B$). Soit $P$ le pied de la perpendiculaire à $(BQ)$ issue de $A$, et soit $R$ le point extérieur au demi-cercle sur la demi-droite $[BQ)$ tel que $|QR| = |QC|$. (a) Calculer l'amplitude de $\widehat{AQC}$. (b) Montrer que $|AC| = |AR|$. (c) En déduire que $|BP| = |PQ| + |QC|$ (indépendamment de la position de $D$ !).\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Le triangle $ABC$ est inscrit dans le demi-cercle de diamètre $[BC]$ et $A$ est le milieu de l'arc $\wideparen{BC}$, donc $ABC$ est rectangle isocèle en $A$, ce qui donne $|\widehat{ABC}| = 45\degree$. Or le quadrilatère $ABCQ$ est inscrit dans le cercle, donc ses angles opposés $\widehat{ABC}$ et $\widehat{AQC}$ sont supplémentaires : $|\widehat{AQC}| = 180\degree - 45\degree = \boxed{135\degree}$.
+    \item L'angle inscrit $\widehat{BQC}$ intercepte le diamètre $[BC]$, donc $|\widehat{BQC}| = 90\degree$, et son supplément sur la droite $(BR)$ vaut $|\widehat{CQR}| = 90\degree$. Comme le tour complet autour de $Q$ vaut $360\degree$, on a $|\widehat{AQR}| = 360\degree - |\widehat{AQC}| - |\widehat{CQR}| = 360\degree - 135\degree - 90\degree = 135\degree = |\widehat{AQC}|$. Les triangles $AQC$ et $AQR$ ont le côté $[AQ]$ commun, $|QC| = |QR|$ par construction, et l'angle compris égal ($135\degree$) : ils sont donc \textbf{isométriques} (cas CAC), d'où $|AC| = |AR|$.
+    \item Comme $|AB| = |AC|$ (triangle rectangle isocèle $ABC$) et $|AC| = |AR|$, on a $|AB| = |AR|$ : le triangle $ABR$ est donc \textbf{isocèle en $A$}. Sa hauteur $(AP) \perp (BR)$ est aussi la médiatrice de la base $[BR]$! Par conséquent, $P$ est le milieu de $[BR]$, soit $|BP| = |PR| = |PQ| + |QR| = |PQ| + |QC|$.
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Puissance d'un point par rapport à un cercle et relations métriques}
+% ----------------------------------------------------------------------------
+
+Les deux sessions de l'examen d'entrée 2025 (Juillet 2025 Questions 3 et 4, Septembre 2025 Question 3) ont porté directement sur un théorème classique de la géométrie du cercle : la \textbf{puissance d'un point par rapport à un cercle}.
+
+\begin{theoreme}[Puissance d'un point par rapport à un cercle]
+Soit $\mathcal{C}$ un cercle de centre $O$ et de rayon $r$, et soit $P$ un point quelconque du plan. Si l'on trace par $P$ une droite sécante qui coupe $\mathcal{C}$ en deux points $A$ et $B$, alors le produit des distances $|PA| \cdot |PB|$ est \textbf{constant} (indépendant de l'orientation de la sécante issue de $P$) :
+\begin{enumerate}
+    \item \textbf{Si $P$ est extérieur au cercle ($|PO| > r$) :} Pour deux sécantes $PAB$ et $PA'B'$, et pour une tangente $(PT)$ issue de $P$ (où $T$ est le point de tangence) :
+    \[
+        \boxed{|PA| \cdot |PB| = |PA'| \cdot |PB'| = |PT|^2 = |PO|^2 - r^2}.
+    \]
+    \item \textbf{Si $P$ est intérieur au cercle ($|PO| < r$) :} Pour deux cordes $[AB]$ et $[A'B']$ qui se croisent en $P$ :
+    \[
+        \boxed{|PA| \cdot |PB| = |PA'| \cdot |PB'| = r^2 - |PO|^2}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    % Figure 1 : Point extérieur
+    \begin{scope}[shift={(0,0)}]
+        \draw[thick, uclblue] (0,0) circle (1.4);
+        \coordinate (O) at (0,0);
+        \coordinate (P) at (-3.0,0);
+        \coordinate (A) at (152:1.4);
+        \coordinate (B) at (28:1.4);
+        % recalc B on line PA:
+        % Let's place A and B cleanly on a secant from P(-3,0):
+        % Line y = 0.38*(x+3) -> at circle x^2 + y^2 = 1.96
+        \coordinate (A) at (-1.28, 0.56);
+        \coordinate (B) at (0.86, 1.10);
+        \coordinate (Ap) at (-1.15, -0.80);
+        \coordinate (Bp) at (1.15, -0.80);
+        \coordinate (T) at (-0.653, 1.238);
+
+        \draw[thick, uclaccent] (P) -- (B);
+        \draw[thick, uclaccent] (P) -- (Bp);
+        \draw[thick, warnred] (P) -- (T);
+        \draw[dashed, gray] (A) -- (Bp) (Ap) -- (B);
+        \draw[dashed, warnred] (O) -- (T);
+        \draw[dotted] (P) -- (O);
+
+        \fill (O) circle (1.3pt) node[above right] {\small $O$};
+        \fill (P) circle (1.3pt) node[left] {\small $P$};
+        \fill (A) circle (1.3pt) node[above left] {\small $A$};
+        \fill (B) circle (1.3pt) node[above right] {\small $B$};
+        \fill (Ap) circle (1.3pt) node[below left] {\small $A'$};
+        \fill (Bp) circle (1.3pt) node[below right] {\small $B'$};
+        \fill (T) circle (1.3pt) node[above] {\small $T$};
+        \node[below, align=center] at (-0.8,-1.65) {\small \textbf{(a)} Point extérieur :\\[-2pt]\small $|PA|\cdot|PB| = |PT|^2 = |PO|^2 - r^2$};
+    \end{scope}
+
+    % Figure 2 : Point intérieur
+    \begin{scope}[shift={(5.0,0)}]
+        \draw[thick, uclblue] (0,0) circle (1.4);
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (150:1.4);
+        \coordinate (B) at (-20:1.4);
+        \coordinate (Ap) at (-125:1.4);
+        \coordinate (Bp) at (55:1.4);
+        \coordinate (P) at (intersection of A--B and Ap--Bp);
+
+        \draw[thick, uclaccent] (A) -- (B);
+        \draw[thick, warnred] (Ap) -- (Bp);
+        \draw[dashed, gray] (A) -- (Ap) (B) -- (Bp);
+        \draw[dotted] (O) -- (P);
+
+        \fill (O) circle (1.3pt) node[below right] {\small $O$};
+        \fill (P) circle (1.3pt) node[above left] {\small $P$};
+        \fill (A) circle (1.3pt) node[above left] {\small $A$};
+        \fill (B) circle (1.3pt) node[below right] {\small $B$};
+        \fill (Ap) circle (1.3pt) node[below left] {\small $A'$};
+        \fill (Bp) circle (1.3pt) node[above right] {\small $B'$};
+        \node[below, align=center] at (0,-1.65) {\small \textbf{(b)} Point intérieur :\\[-2pt]\small $|PA|\cdot|PB| = |PA'|\cdot|PB'| = r^2 - |PO|^2$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\begin{proof}[Démonstration (UCLouvain -- Juillet 2025 Q3 et Septembre 2025 Q3)]
+\begin{enumerate}
+    \item \textbf{Cas extérieur ($|PO| > r$) :} Considérons deux sécantes $PAB$ et $PA'B'$. Les triangles $PAB'$ et $PA'B$ possèdent l'angle $\widehat{P}$ en commun, et leurs angles inscrits $\widehat{AB'P}$ et $\widehat{A'BP}$ interceptent le même arc $\wideparen{AA'}$, donc $|\widehat{AB'P}| = |\widehat{A'BP}|$. Les triangles $PAB'$ et $PA'B$ sont donc \textbf{semblables}, ce qui entraîne :
+    \[
+        \frac{|PA|}{|PA'|} = \frac{|PB'|}{|PB|} \iff |PA| \cdot |PB| = |PA'| \cdot |PB'|.
+    \]
+    En choisissant comme sécante particulière la droite $(PO)$ qui coupe le cercle en $A''$ (du côté de $P$) et $B''$ (de l'autre côté), on a $|PA''| = |PO| - r$ et $|PB''| = |PO| + r$, d'où :
+    \[
+        |PA| \cdot |PB| = |PA''| \cdot |PB''| = (|PO| - r)(|PO| + r) = |PO|^2 - r^2.
+    \]
+    Enfin, pour la tangente $(PT)$ en $T$, le triangle $POT$ est rectangle en $T$, donc par Pythagore $|PT|^2 = |PO|^2 - |OT|^2 = |PO|^2 - r^2$.
+    \item \textbf{Cas intérieur ($|PO| < r$) :} Pour deux cordes $[AB]$ et $[A'B']$ sécantes en $P$, les triangles $PAA'$ et $PB'B$ ont leurs angles en $P$ opposés par le sommet ($|\widehat{APA'}| = |\widehat{B'PB}|$) et leurs angles inscrits $\widehat{PAA'}$ et $\widehat{PB'B}$ interceptent le même arc $\wideparen{A'B}$, donc $|\widehat{PAA'}| = |\widehat{PB'B}|$. Par similitude, $\frac{|PA|}{|PB'|} = \frac{|PA'|}{|PB|} \iff |PA|\cdot|PB| = |PA'|\cdot|PB'|$. Sur le diamètre passant par $P$ et $O$, les distances aux deux extrémités valent $r - |PO|$ et $r + |PO|$, dont le produit vaut $(r - |PO|)(r + |PO|) = r^2 - |PO|^2$.
+\end{enumerate}
+\end{proof}
+
+\begin{exemple}[Application de la puissance d'un point : limite géométrique (UCLouvain -- Juillet 2025, Question 4)]
+\emph{Énoncé :} L'hypoténuse $[AB]$ d'un triangle $ABO$ rectangle isocèle en $O$ (avec $|OA| = |OB| = 1$) est divisée en $2n+1$ petits segments de même longueur $[P_i P_{i+1}]$ pour $i = 0, \dots, 2n$ (où $A = P_0$ et $B = P_{2n+1}$). On considère le cercle de rayon $r_n$ tangent aux deux côtés de l'angle droit $[OA]$ et $[OB]$ qui passe par les deux extrémités $P_n$ et $P_{n+1}$ du segment central de l'hypoténuse. (a) Calculer $r_n$ en fonction de $n$. (b) En déduire $r = \lim_{n\to\infty} r_n$.\\
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Soit $Q$ le point de tangence du cercle avec le côté $[OA]$. Comme le cercle de rayon $r_n$ est tangent aux deux côtés perpendiculaires $[OA]$ et $[OB]$, son centre est à coordonnées $(r_n, r_n)$ et le point de tangence $Q$ est à distance $|OQ| = r_n$ de l'origine $O$. La distance entre le sommet $A$ et le point de tangence $Q$ vaut donc $|AQ| = |OA| - |OQ| = 1 - r_n$.\\
+    Or la droite $(AB)$ est une sécante issue de $A$ qui coupe le cercle aux points $P_n$ et $P_{n+1}$, tandis que $(AQ)$ est tangente au cercle en $Q$ ! Par le théorème de la \textbf{puissance du point $A$ par rapport au cercle} :
+    \[
+        |AQ|^2 = |AP_n| \cdot |AP_{n+1}|.
+    \]
+    L'hypoténuse $[AB]$ a pour longueur $\sqrt{1^2+1^2} = \sqrt{2}$, donc chaque petit segment mesure $\frac{\sqrt{2}}{2n+1}$. Ainsi $|AP_n| = \frac{n\sqrt{2}}{2n+1}$ et $|AP_{n+1}| = \frac{(n+1)\sqrt{2}}{2n+1}$, ce qui donne :
+    \[
+        (1 - r_n)^2 = \frac{n\sqrt{2}}{2n+1} \cdot \frac{(n+1)\sqrt{2}}{2n+1} = \frac{2n(n+1)}{(2n+1)^2}.
+    \]
+    Comme $0 \le r_n \le 1$, on prend la racine carrée positive : $r_n = \boxed{1 - \frac{\sqrt{2n(n+1)}}{2n+1}}$.
+    \item Lorsque $n \to \infty$, le segment central $[P_n P_{n+1}]$ se réduit au point milieu $P$ de l'hypoténuse $[AB]$ (à distance $\frac{\sqrt{2}}{2}$ de $A$) et le cercle devient tangent à l'hypoténuse en $P$ (cercle inscrit!). Par égalité des deux tangentes issues de $A$, $|AQ| = |AP| \iff 1 - r = \frac{\sqrt{2}}{2}$, soit $r = \boxed{1 - \frac{\sqrt{2}}{2}}$.
+\end{enumerate}
+\end{exemple}
+
+\subsection{Relations métriques dans le triangle rectangle}
+
+Lorsque l'on abaisse la hauteur $[CH]$ relative à l'hypoténuse $[AB]$ d'un triangle $ABC$ rectangle en $C$, on découpe le triangle rectangle en deux petits triangles rectangles $ACH$ et $CBH$ qui sont tous deux \textbf{semblables} au grand triangle $ABC$.
+
+\begin{theoreme}[Relations métriques dans le triangle rectangle]
+Soit $ABC$ un triangle rectangle en $C$, et soit $H$ le pied de la hauteur issue de $C$ sur l'hypoténuse $[AB]$. Notons $c = |AB|$, $a = |BC|$, $b = |AC|$, $h = |CH|$, et $p = |AH|$, $q = |BH|$ les projections orthogonales des deux cathètes sur l'hypoténuse ($p + q = c$). Alors :
+\begin{enumerate}
+    \item \textbf{Théorème de la hauteur :} Le carré de la hauteur relative à l'hypoténuse est égal au produit des deux segments qu'elle détermine sur l'hypoténuse :
+    \[
+        \boxed{h^2 = p \cdot q \qquad \left(\text{c'est-à-dire } |CH|^2 = |AH| \cdot |HB|\right)}.
+    \]
+    \item \textbf{Théorème des cathètes (d'Euclide) :} Le carré de chaque côté de l'angle droit est égal au produit de l'hypoténuse entière par sa projection orthogonale sur l'hypoténuse :
+    \[
+        \boxed{b^2 = c \cdot p \quad \text{et} \quad a^2 = c \cdot q}.
+    \]
+    \item \textbf{Produit des cathètes :} En exprimant le double de l'aire du triangle de deux façons, on a $a \cdot b = c \cdot h$.
+\end{enumerate}
+\end{theoreme}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (5,0);
+    \coordinate (C) at (1.8, 2.4);
+    \coordinate (H) at (1.8, 0);
+
+    \draw[thick, uclblue] (A) -- (B) -- (C) -- cycle;
+    \draw[thick, warnred] (C) -- (H) node[midway, right] {\small $h$};
+    \draw[dashed, gray] (2.5,0) arc (0:180:2.5);
+    \pic[draw, angle radius=0.22cm] {right angle = A--C--B};
+    \pic[draw=warnred, angle radius=0.22cm] {right angle = C--H--B};
+
+    \node[below] at (0.9, 0) {\small $p = |AH|$};
+    \node[below] at (3.4, 0) {\small $q = |HB|$};
+    \node[above left] at (0.9, 1.2) {\small $b$};
+    \node[above right] at (3.4, 1.2) {\small $a$};
+
+    \fill (A) circle (1.3pt) node[below left] {\small $A$};
+    \fill (B) circle (1.3pt) node[below right] {\small $B$};
+    \fill (C) circle (1.3pt) node[above] {\small $C$};
+    \fill (H) circle (1.3pt) node[below] {\small $H$};
+\end{tikzpicture}
+\end{center}
+
+\begin{exemple}[Un problème géométrique de Fermat (UCLouvain -- Juillet 2022, Question 3)]
+\emph{Énoncé :} Soit $ABCD$ un rectangle de côtés $L = |AB| = |DC|$ et $\ell = |BC| = |AD|$ tels que $L^2 = 2\ell^2$. À l'extérieur du rectangle, on trace un demi-cercle de diamètre $[AB]$ sur lequel on choisit un point quelconque $P$. Les segments $[PC]$ et $[PD]$ coupent $[AB]$ respectivement en $X$ et $Y$. Enfin, la perpendiculaire à $[DC]$ issue de $P$ coupe $[AB]$ en $Q$ et $[DC]$ en $R$. On pose $h = |PQ|$.
+\begin{enumerate}[label=(\alph*)]
+    \item Exprimer $|XY|^2$ en fonction de $\ell$ et $h$.
+    \item Exprimer le produit $|DR| \cdot |RC|$ en fonction de $h$.
+    \item Démontrer que $|XY|^2 = 2\,|AY|\cdot|BX|$ (ce qui équivaut à $|AB|^2 = |AX|^2 + |BY|^2$, indépendamment de la position de $P$ sur le demi-cercle!).
+\end{enumerate}
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Comme $(AB) \parallel (DC)$, le triangle $PXY$ (de hauteur $h = |PQ|$) est semblable au triangle $PDC$ (de base $|DC| = L$ et de hauteur $|PR| = |PQ| + |QR| = h + \ell$). Par Thalès :
+    \[
+        \frac{|XY|}{|DC|} = \frac{h}{h+\ell} \implies |XY|^2 = \frac{h^2 L^2}{(h+\ell)^2} = \boxed{\frac{2h^2\ell^2}{(h+\ell)^2}} \quad (\text{car } L^2 = 2\ell^2).
+    \]
+    \item Le point $P$ appartient au demi-cercle de diamètre $[AB]$, donc le triangle $APB$ est \textbf{rectangle en $P$}, et $[PQ]$ est la hauteur relative à l'hypoténuse $[AB]$. Par le théorème de la hauteur :
+    \[
+        h^2 = |AQ| \cdot |QB|.
+    \]
+    Or $AQRD$ et $QRCB$ sont des rectangles, donc $|DR| = |AQ|$ et $|RC| = |QB|$. Il vient immédiatement $|DR| \cdot |RC| = \boxed{h^2}$.
+    \item Par Thalès dans le triangle $PRD$ (où $(AY) \parallel (DR)$) et dans le triangle $PRC$ (où $(BX) \parallel (RC)$) :
+    \[
+        \frac{|AY|}{|DR|} = \frac{\ell}{h+\ell} \implies |AY| = \frac{\ell\,|DR|}{h+\ell}, \qquad \text{et} \qquad \frac{|BX|}{|RC|} = \frac{\ell}{h+\ell} \implies |BX| = \frac{\ell\,|RC|}{h+\ell}.
+    \]
+    En multipliant ces deux égalités et en utilisant $|DR|\cdot|RC| = h^2$ ainsi que (a) :
+    \[
+        2\,|AY|\cdot|BX| = \frac{2\ell^2\,|DR|\cdot|RC|}{(h+\ell)^2} = \frac{2\ell^2 h^2}{(h+\ell)^2} = |XY|^2.
+    \]
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Similitudes, rapports d'aires, polygones et découpages géométriques}
+% ----------------------------------------------------------------------------
+
+\subsection{Rapports de similitude, rapports d'aires et propriété du parallélogramme}
+
+\begin{theoreme}[Principes fondamentaux pour le calcul de longueurs et d'aires]
+\begin{enumerate}
+    \item \textbf{Rapport des aires de deux figures semblables :} Si deux triangles (ou polygones) sont semblables avec un rapport de similitude $\rho = \frac{L_2}{L_1}$ sur les longueurs homologues, alors le rapport de leurs \textbf{aires} est égal au \textbf{carré} du rapport de similitude :
+    \[
+        \boxed{\frac{\text{Aire}(\triangle_2)}{\text{Aire}(\triangle_1)} = \rho^2 = \left(\frac{L_2}{L_1}\right)^2}.
+    \]
+    \item \textbf{Triangles partageant la même hauteur (ou la même base) :} Si deux triangles ont un sommet commun et leurs bases situées sur une même droite, ils possèdent la \textbf{même hauteur} $h$. Le rapport de leurs aires est alors simplement égal au rapport de leurs bases :
+    \[
+        \boxed{\text{Même hauteur } h \implies \frac{\text{Aire}(\triangle_1)}{\text{Aire}(\triangle_2)} = \frac{\text{base}_1}{\text{base}_2}}.
+    \]
+    En particulier, une \textbf{médiane} d'un triangle partage toujours celui-ci en deux triangles d'aires égales !
+    \item \textbf{Identité du parallélogramme (UCLouvain -- Juillet 2024, Question 4a) :} Dans tout parallélogramme $ABCD$ de côtés $a = |AB| = |CD|$ et $b = |BC| = |DA|$, la somme des carrés des longueurs des deux diagonales est égale à la somme des carrés des longueurs des quatre côtés :
+    \[
+        \boxed{|AC|^2 + |BD|^2 = 2\bigl(|AB|^2 + |BC|^2\bigr) = 2(a^2 + b^2)}.
+    \]
+    \emph{Démonstration :} Par la loi des cosinus dans $ABC$ (d'angle $\beta$) et $BAD$ (d'angle $\alpha = \pi - \beta$, d'où $\cos\alpha = -\cos\beta$), on a $|BD|^2 = a^2 + b^2 - 2ab\cos\alpha$ et $|AC|^2 = a^2 + b^2 - 2ab\cos\beta$. En additionnant, les termes en $\cos\alpha + \cos\beta = 0$ s'annulent.
+\end{enumerate}
+\end{theoreme}
+
+\begin{exemple}[Cinq problèmes d'examen UCLouvain sur les similitudes et les aires]
+\textbf{1) Trois carrés inscrits dans un triangle (UCLouvain -- Septembre 2026, Question 4) :}\\
+\emph{Énoncé :} Dans un triangle $ABC$, trois carrés $M_1 R_2 P_2 P_1$ (d'aire $4\text{ cm}^2$, donc de côté $2\text{ cm}$), $M_2 N_2 Q_2 P_2$ (d'aire $36\text{ cm}^2$, donc de côté $6\text{ cm}$) et $S_2 N_1 Q_1 Q_2$ (d'aire $9\text{ cm}^2$, donc de côté $3\text{ cm}$) sont posés côte à côte sur la base $[BC]$, avec $M_1, M_2 \in [AC]$ et $N_1, N_2 \in [AB]$. Calculer : (a) la longueur de la base $|BC|$, (b) la hauteur $|AO|$ du petit triangle supérieur $AM_2 N_2$, et (c) l'aire totale du triangle $ABC$.
+\begin{center}
+\begin{tikzpicture}[scale=0.45]
+    \coordinate (C) at (0,0);
+    \coordinate (P1) at (1,0);
+    \coordinate (P2) at (3,0);
+    \coordinate (Q2) at (9,0);
+    \coordinate (Q1) at (12,0);
+    \coordinate (B) at (15,0);
+    \coordinate (A) at (5,10);
+
+    \draw[fill=ucllightblue, thick, uclblue] (P1) rectangle (3,2);
+    \draw[fill=deflightgreen, thick, defgreen] (P2) rectangle (9,6);
+    \draw[fill=exlightorange, thick, exorange] (Q2) rectangle (12,3);
+    \draw[thick, uclblue] (C) -- (B) -- (A) -- cycle;
+    \draw[dashed, warnred] (A) -- (5,6);
+    \fill[warnred] (5,6) circle (3pt) node[below right] {\small $O$};
+
+    \node at (2,1) {\small $2\times 2$};
+    \node at (6,3) {\small $6\times 6$};
+    \node at (10.5,1.5) {\small $3\times 3$};
+    \node[below] at (C) {\small $C$};
+    \node[below] at (P1) {\small $P_1$};
+    \node[below] at (P2) {\small $P_2$};
+    \node[below] at (Q2) {\small $Q_2$};
+    \node[below] at (Q1) {\small $Q_1$};
+    \node[below] at (B) {\small $B$};
+    \node[above] at (A) {\small $A$};
+    \node[above left] at (1,2) {\small $M_1$};
+    \node[above left] at (3,6) {\small $M_2$};
+    \node[above right] at (9,6) {\small $N_2$};
+    \node[above right] at (12,3) {\small $N_1$};
+\end{tikzpicture}
+\end{center}
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item Les côtés des carrés étant parallèles et perpendiculaires à $(BC)$, les triangles rectangles $C P_1 M_1$ et $M_1 R_2 M_2$ sont \textbf{semblables} (angles correspondants égaux). Comme $|P_1 M_1| = |M_1 R_2| = 2\text{ cm}$ et $|R_2 M_2| = 6 - 2 = 4\text{ cm}$, on a :
+    \[
+        \frac{|CP_1|}{|P_1 M_1|} = \frac{|M_1 R_2|}{|R_2 M_2|} \implies |CP_1| = \frac{2 \times 2}{4} = 1\text{ cm}.
+    \]
+    De même, à droite, les triangles rectangles $Q_1 B N_1$ et $S_2 N_1 N_2$ sont semblables, avec $|Q_1 N_1| = |S_2 N_1| = 3\text{ cm}$ et $|S_2 N_2| = 6 - 3 = 3\text{ cm}$, d'où :
+    \[
+        \frac{|Q_1 B|}{|Q_1 N_1|} = \frac{|S_2 N_1|}{|S_2 N_2|} \implies |Q_1 B| = \frac{3 \times 3}{3} = 3\text{ cm}.
+    \]
+    La base totale vaut donc $|BC| = |CP_1| + |P_1 P_2| + |P_2 Q_2| + |Q_2 Q_1| + |Q_1 B| = 1 + 2 + 6 + 3 + 3 = \boxed{15\text{ cm}}$.
+    \item Soit $O$ le pied de la hauteur issue de $A$ sur le côté supérieur $[M_2 N_2]$ du grand carré (de longueur $6\text{ cm}$), et posons $x = |M_2 O|$ (de sorte que $|O N_2| = 6 - x$).
+    \begin{itemize}
+        \item Par similitude entre $M_2 O A$ et $M_1 R_2 M_2$ : $\frac{|AO|}{|M_2 O|} = \frac{|R_2 M_2|}{|M_1 R_2|} = \frac{4}{2} = 2 \implies |AO| = 2x$.
+        \item Par similitude entre $A O N_2$ et $N_2 S_2 N_1$ : $\frac{|AO|}{|O N_2|} = \frac{|N_2 S_2|}{|S_2 N_1|} = \frac{3}{3} = 1 \implies |AO| = 6 - x$.
+    \end{itemize}
+    En égalant ces deux expressions : $2x = 6 - x \implies x = 2\text{ cm}$, d'où $|AO| = 4\text{ cm}$.
+    \item La hauteur totale du triangle $ABC$ vaut $H = |AO| + 6 = 4 + 6 = 10\text{ cm}$, et son aire vaut :
+    \[
+        \text{Aire}(\triangle ABC) = \frac{1}{2} \times |BC| \times H = \frac{1}{2} \times 15 \times 10 = \boxed{75\text{ cm}^2}.
+    \]
+\end{enumerate}
+
+\medskip
+\textbf{2) Le « triangle arrondi » et égalité d'aires (UCLouvain -- Septembre 2025, Question 4) :}\\
+\emph{Énoncé :} Dans un demi-cercle de centre $O$, de rayon $r = 4\text{ cm}$ et de diamètre $[AB]$, on trace une corde $[AQ]$ telle que $|\widehat{BAQ}| = \frac{\pi}{6}\text{ rad}$. Par le milieu $P$ de $[AQ]$, on trace le segment $[PB]$. Calculer l'aire $S$ de la région délimitée par les segments $[PQ]$, $[PB]$ et l'arc $\wideparen{QB}$.\\
+\emph{Résolution :}
+\begin{enumerate}
+    \item Comparons l'aire des triangles $PQB$ et $OQB$ à celle du grand triangle $AQB$ :
+    \begin{itemize}
+        \item Les triangles $PQB$ et $AQB$ ont le sommet $B$ en commun et leurs bases $[PQ]$ et $[AQ]$ alignées avec $|PQ| = \frac{1}{2}|AQ|$ ($P$ milieu de $[AQ]$), donc $\text{Aire}(\triangle PQB) = \frac{1}{2}\text{Aire}(\triangle AQB)$.
+        \item Les triangles $OQB$ et $AQB$ ont le sommet $Q$ en commun et leurs bases $[OB]$ et $[AB]$ alignées avec $|OB| = \frac{1}{2}|AB|$ ($O$ milieu du diamètre $[AB]$), donc $\text{Aire}(\triangle OQB) = \frac{1}{2}\text{Aire}(\triangle AQB)$.
+    \end{itemize}
+    Par conséquent, $\text{Aire}(\triangle PQB) = \text{Aire}(\triangle OQB)$!
+    \item Comme la région cherchée d'aire $S$ est la réunion du triangle $PQB$ et du segment circulaire sous l'arc $\wideparen{QB}$, tandis que le secteur circulaire $OQB$ est la réunion du triangle $OQB$ et de ce même segment circulaire, on a exactement :
+    \[
+        S = \text{Aire}(\text{secteur } OQB) = \frac{1}{2}r^2 \cdot |\widehat{BOQ}|.
+    \]
+    Or l'angle au centre $\widehat{BOQ}$ intercepte le même arc $\wideparen{BQ}$ que l'angle inscrit $\widehat{BAQ} = \frac{\pi}{6}$, donc $|\widehat{BOQ}| = 2 \cdot \frac{\pi}{6} = \frac{\pi}{3}\text{ rad}$. D'où $S = \frac{1}{2} \cdot 4^2 \cdot \frac{\pi}{3} = \boxed{\frac{8\pi}{3}\text{ cm}^2}$.
+\end{enumerate}
+
+\medskip
+\textbf{3) La lunule d'Hippocrate (UCLouvain -- Septembre 2024, Question 4) :}\\
+\emph{Énoncé :} Soit $ABO$ un triangle rectangle isocèle en $O$ d'aire $T = 8\text{ cm}^2$. On construit la lunule délimitée par l'arc $\wideparen{AB}$ du cercle de centre $O$ passant par $A$ et $B$, et le demi-cercle de diamètre $[AB]$ extérieur à $O$. Calculer l'aire $L$ de cette lunule.\\
+\emph{Résolution :} Notons $R = |OA| = |OB|$ le rayon du grand cercle de centre $O$, et $r = \frac{|AB|}{2}$ le rayon du demi-cercle de diamètre $[AB]$. Par Pythagore dans $ABO$, $|AB|^2 = 2R^2 \implies (2r)^2 = 2R^2 \implies r^2 = \frac{R^2}{2}$.\\
+L'aire du demi-disque de diamètre $[AB]$ vaut $D = \frac{1}{2}\pi r^2 = \frac{1}{4}\pi R^2$, ce qui est \textbf{exactement égal} à l'aire $Q = \frac{1}{4}\pi R^2$ du quart de disque de centre $O$ et de rayon $R$ ! Dès lors :
+\[
+    L = (T + D) - Q = T + (D - Q) = T = \boxed{8\text{ cm}^2}.
+\]
+
+\medskip
+\textbf{4) Ligne brisée orthogonale dans un rectangle (UCLouvain -- Septembre 2023, Question 4 et Juillet 2023, Question 4a) :}\\
+\emph{Énoncé (Septembre 2023, Q4) :} Dans un rectangle $ABCD$ de largeur $\ell = |AD| = 15$, une ligne brisée $A M N O P C$ reliant les sommets opposés $A$ et $C$ possède uniquement des angles droits (alternés), avec $|AM| = 10$, $|MN| = 3$, $|NO| = 8$, $|OP| = 4$ et $|PC| = 6$. Calculer la longueur $L = |DC|$ du rectangle.\\
+\emph{Résolution :} Les segments $[AM]$, $[NO]$ et $[PC]$ sont tous trois parallèles entre eux (car perpendiculaires à $(MN)$ et $(OP)$), et les segments $[MN]$ et $[OP]$ leur sont perpendiculaires. En projetant toute la ligne brisée sur ces deux directions orthogonales, la diagonale $[AC]$ du rectangle $ABCD$ est aussi l'hypoténuse d'un grand triangle rectangle dont les deux cathètes mesurent :
+\[
+    X = |AM| + |NO| + |PC| = 10 + 8 + 6 = 24 \qquad \text{et} \qquad Y = |MN| + |OP| = 3 + 4 = 7.
+\]
+Par Pythagore, le carré de la diagonale vaut $|AC|^2 = 24^2 + 7^2 = 576 + 49 = 625 = 25^2$. Or, dans le rectangle $ABCD$, $|AC|^2 = \ell^2 + L^2$, d'où $L = \sqrt{25^2 - 15^2} = \sqrt{625 - 225} = \sqrt{400} = \boxed{20}$.
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Géométrie synthétique dans l'espace : solides et coupes planes}
+% ----------------------------------------------------------------------------
+
+Les problèmes de géométrie synthétique dans l'espace portent principalement sur des assemblages de \textbf{sphères, cônes, cylindres ou pyramides}. La règle méthodologique essentielle consiste toujours à \textbf{se ramener à une figure plane} en effectuant une \textbf{coupe bien choisie} (section par un plan de symétrie ou un plan contenant l'axe de révolution, appelée \emph{coupe méridienne}).
+
+\begin{theoreme}[Formulaire des volumes et aires des solides classiques]
+\begin{enumerate}
+    \item \textbf{Cylindre droit} de rayon de base $R$ et de hauteur $h$ :
+    \[
+        V_{\text{cylindre}} = \pi R^2 h, \qquad A_{\text{latérale}} = 2\pi R h, \qquad A_{\text{totale}} = 2\pi R h + 2\pi R^2.
+    \]
+    \item \textbf{Cône droit de révolution} de rayon de base $R$, de hauteur $h$ et d'apothème (génératrice) $a = \sqrt{R^2 + h^2}$ :
+    \[
+        \boxed{V_{\text{cône}} = \frac{1}{3}\pi R^2 h}, \qquad A_{\text{latérale}} = \pi R a = \pi R\sqrt{R^2+h^2}.
+    \]
+    \item \textbf{Pyramide} quelconque d'aire de base $\mathcal{B}$ et de hauteur $h$ :
+    \[
+        V_{\text{pyramide}} = \frac{1}{3}\,\mathcal{B}\cdot h.
+    \]
+    \item \textbf{Sphère et boule} de rayon $r$ :
+    \[
+        \boxed{V_{\text{sphère}} = \frac{4}{3}\pi r^3}, \qquad \boxed{A_{\text{sphère}} = 4\pi r^2}.
+    \]
+\end{enumerate}
+\end{theoreme}
+
+\begin{exemple}[Sphère inscrite dans un cône droit (UCLouvain -- Septembre 2023, Question 3)]
+\emph{Énoncé :} Dans un cône droit de sommet $A$, de hauteur $h$ et de base de centre $M$ et de rayon $R$, est inscrite une sphère de centre $O$ et de rayon $r$, tangente à la base et à la surface latérale du cône.
+\begin{enumerate}[label=(\alph*)]
+    \item Représenter une coupe passant par l'axe de rotation $(AM)$ et exprimer le rayon $r$ de la sphère en fonction de $h$ et $R$.
+    \item Calculer le rapport $\dfrac{V_{\text{cône}}}{V_{\text{sphère}}}$ lorsque $3h = 4R$.
+\end{enumerate}
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+    \coordinate (M) at (0,0);
+    \coordinate (B) at (-2.25,0);
+    \coordinate (C) at (2.25,0);
+    \coordinate (A) at (0,3);
+    % For R=2.25, h=3, a = 3.75, r = R*(a-R)/h = 2.25*1.5/3 = 1.125
+    \coordinate (O) at (0,1.125);
+    \coordinate (P) at ($(A)!(O)!(B)$);
+    \coordinate (N) at ($(A)!(O)!(C)$);
+
+    \draw[thick, uclblue] (B) -- (C) -- (A) -- cycle;
+    \draw[thick, uclaccent, fill=ucllightblue!50] (O) circle (1.125);
+    \draw[dashed, uclblue] (A) -- (M);
+    \draw[thick, warnred] (O) -- (P) node[midway, above right] {\small $r$};
+    \draw[thick, warnred] (O) -- (M) node[midway, right] {\small $r$};
+    \pic[draw=warnred, angle radius=0.18cm] {right angle = A--P--O};
+    \pic[draw, angle radius=0.18cm] {right angle = A--M--C};
+
+    \fill (A) circle (1.3pt) node[above] {\small $A$};
+    \fill (B) circle (1.3pt) node[below left] {\small $B$};
+    \fill (C) circle (1.3pt) node[below right] {\small $C$};
+    \fill (M) circle (1.3pt) node[below] {\small $M$};
+    \fill (O) circle (1.3pt) node[left] {\small $O$};
+    \fill (P) circle (1.3pt) node[above left] {\small $P$};
+\end{tikzpicture}
+\end{center}
+\emph{Résolution :}
+\begin{enumerate}[label=(\alph*)]
+    \item La coupe méridienne du cône par un plan contenant l'axe $(AM)$ est un triangle isocèle $ABC$ de base $|BC| = 2R$ (milieu $M$) et de hauteur $|AM| = h$, dans lequel la sphère apparaît comme le \textbf{cercle inscrit} de centre $O$ et de rayon $r$. Soit $P$ le point de tangence du cercle avec la génératrice $[AB]$.
+    \begin{itemize}
+        \item Dans le triangle $AMB$ rectangle en $M$, l'apothème vaut $|AB| = \sqrt{h^2 + R^2}$.
+        \item Les segments $[BM]$ et $[BP]$ sont tous deux tangents au cercle issus du point $B$, donc $|BP| = |BM| = R$, et par suite $|AP| = |AB| - |BP| = \sqrt{h^2+R^2} - R$ (et $|AO| = h - r$).
+        \item Les triangles rectangles $APO$ (rectangle en $P$) et $AMB$ (rectangle en $M$) partagent l'angle aigu en $A$ : ils sont donc \textbf{semblables} ! Dès lors :
+        \[
+            \frac{|OP|}{|AP|} = \frac{|BM|}{|AM|} \iff \frac{r}{\sqrt{h^2+R^2}-R} = \frac{R}{h} \implies r = \boxed{\frac{R\bigl(\sqrt{h^2+R^2}-R\bigr)}{h}}.
+        \]
+    \end{itemize}
+    \item Lorsque $3h = 4R$, posons $h = 4a$ et $R = 3a$ (triangle pythagoricien $3-4-5$ : $\sqrt{h^2+R^2} = 5a$). La formule (a) donne $r = \frac{3a(5a-3a)}{4a} = \frac{3}{2}a$. Le rapport des volumes vaut alors :
+    \[
+        \frac{V_{\text{cône}}}{V_{\text{sphère}}} = \frac{\frac{1}{3}\pi R^2 h}{\frac{4}{3}\pi r^3} = \frac{R^2 h}{4r^3} = \frac{(3a)^2(4a)}{4\left(\frac{3}{2}a\right)^3} = \frac{36a^3}{\frac{27}{2}a^3} = \boxed{\frac{8}{3}}.
+    \]
+\end{enumerate}
+\end{exemple}
+
+% ----------------------------------------------------------------------------
+\section{Exercices du Chapitre 5}
+% ----------------------------------------------------------------------------
+
+\emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
+
+\begin{enumerate}[label=\textbf{Exercice 5.\arabic* --}, leftmargin=*]
+
+    \item \textbf{(UCLouvain -- Juillet 2026, Q3 : Carré, arc de cercle et milieu d'un segment)}
+    Dans un carré $ABCD$ de côté $c$, on trace le quart de cercle de centre $A$ passant par $B$ et $D$. On trace ensuite un segment $[DY]$ où $Y \in [BC]$, qui coupe l'arc de cercle en un point $X$. Sachant que $X$ est exactement le milieu du segment $[DY]$, calculez l'amplitude (en degrés) de l'angle $\widehat{ADY}$. \emph{(Indice : tracez la parallèle à $(AD)$ passant par $X$.)}
+
+    \item \textbf{(UCLouvain -- Juillet 2024, Q3 : Tangence inscrite dans un demi-cercle)}
+    Un cercle $\mathcal{C}$ de centre $C$ et de rayon $r$ est inscrit dans un demi-cercle $\mathcal{D}$ de centre $O$, de diamètre $[AB]$ et de rayon $R$ (de sorte que $\mathcal{C}$ est tangent au diamètre $[AB]$ en un point $S$ et à l'arc du demi-cercle en un point $T$). On construit les deux segments tangents à $\mathcal{C}$ perpendiculaires à $[AB]$, qui coupent $[AB]$ en $P$ (du côté de $A$) et $Q$ (du côté de $B$). Sachant que $|AP| = 2$ et $|QB| = 8$ :
+    \begin{enumerate}[label=(\alph*)]
+        \item Exprimez le rayon $R$ du demi-cercle en fonction du rayon $r$ du cercle $\mathcal{C}$.
+        \item En utilisant le triangle rectangle $OSC$, déterminez la valeur exacte de $r$ puis celle de $R$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2023, Q3 : La surface cachée de l'hexagone)}
+    Un hexagone régulier $ABCDEF$ de côté $c$ est inscrit dans un rectangle $MNPQ$ de telle sorte que $A \in [MQ]$, $B \in [MN]$ et $D \in [NP]$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Démontrez que l'angle $\widehat{ABD}$ est droit ($90\degree$) et que les triangles rectangles $MAB$ et $NBD$ sont semblables.
+        \item Calculez le rapport $r = \dfrac{\text{Aire}(\triangle NBD)}{\text{Aire}(\triangle MAB)}$.
+        \item Sachant que $\text{Aire}(\triangle MAB) = 20$ et que l'aire du quadrilatère concave $NBCD$ vaut $24$, déduisez-en l'aire totale de l'hexagone régulier $ABCDEF$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2024, Q3 : Rapport d'aires paramétré)}
+    Dans un carré $ABCD$ de côté $c$, le point $N$ du côté $[AD]$ est situé à distance $|AN| = \lambda c$ du sommet $A$ (avec $0 < \lambda < 1$). On construit un rectangle $BPDM$ (avec $M$ sur la droite $(BN)$ au-delà de $N$, et $P$ de l'autre côté) de telle sorte que le segment $[BN]$ soit inclus dans le côté $[BM]$ du rectangle et que le côté opposé $[DP]$ lui soit parallèle et coupe $[BC]$ en un point $O$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Calculez l'aire $\mathcal{Q}$ du parallélogramme $NBOD$ en fonction de $c$ et $\lambda$.
+        \item Montrez que les triangles rectangles $ABN$ et $MDN$ sont semblables et calculez leur rapport de similitude $\rho(\lambda) = \dfrac{|MD|}{|AB|}$.
+        \item Déduisez-en le rapport $R(\lambda) = \dfrac{\text{Aire}(BPDM)}{\text{Aire}(ABCD)}$ en fonction de $\lambda$ uniquement.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2024, Q4b : Carré, quarts de cercle et optimisation)}
+    Dans un carré $ABCD$ de côté $c$, on trace les deux quarts de cercle de centres respectifs $B$ et $D$ reliant les sommets $A$ et $C$. Soit $P$ un point du quart de cercle centré en $B$, situé à une distance $d = |DP|$ du sommet $D$. Symétriquement, on place le point $Q$ sur le quart de cercle centré en $D$ tel que $(DP) \parallel (QB)$ et $|QB| = d$.
+    \begin{enumerate}[label=(\alph*)]
+        \item En appliquant l'identité du parallélogramme au quadrilatère $DQBP$, exprimez la longueur $\ell = |PQ|$ en fonction de $d$ uniquement.
+        \item Déterminez la valeur minimale $m(c)$ de la longueur $\ell$ en fonction de $c$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2022, Q4 : Sélection « Top Cheffe » et cylindres tangents)}
+    On entoure quatre cylindres identiques de rayon $r$ et de longueur $\ell$ (quatre asperges tangentes deux à deux disposées en carré) à l'aide d'une pâte rectangulaire de longueur $\ell$ et de largeur $L$ qui fait exactement \emph{deux fois} le tour du grand cylindre extérieur de rayon $R$ circonscrit aux quatre petits cylindres.
+    \begin{enumerate}[label=(\alph*)]
+        \item Calculez le rapport $\dfrac{r}{R}$.
+        \item Exprimez le volume $V$ de l'espace vide à l'intérieur du grand cylindre (entre le grand cylindre et les quatre petits cylindres) en fonction de $\ell$ et $L$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2022, Q4 : Tangence équilatérale)}
+    À l'extérieur d'un petit triangle équilatéral de côté $2a$, on trace trois demi-cercles ayant chacun un des côtés du triangle pour diamètre. Un plus grand triangle équilatéral, homothétique au premier, a ses trois côtés tangents à chaque paire de demi-cercles. Calculez en fonction de $a$ :
+    \begin{enumerate}[label=(\alph*)]
+        \item La longueur $L$ d'un côté du grand triangle équilatéral.
+        \item L'aire totale $S$ des trois régions comprises entre chaque sommet du grand triangle et le demi-cercle le plus proche.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2021, Q1 et Q2 : Hexagone et petits calculs d'aires)}
+    \begin{enumerate}[label=(\alph*)]
+        \item Dans un hexagone régulier $ABCDEF$, on construit un rectangle $AGDH$ ayant la diagonale $[AD]$ de l'hexagone pour diagonale (avec $|AG| \le |AB|$). Que vaut l'angle $\alpha = \widehat{DGC}$ ?
+        \item Soit un anneau compris entre deux cercles concentriques de rayons $r < R$. Une corde $[AB]$ du grand cercle, de longueur $2L$, est tangente au petit cercle. Exprimez l'aire $\mathcal{A}$ de l'anneau en fonction de $L$.
+        \item Dans un carré $ABCD$ de côté $4$ et de centre $M$, on note $N$ le milieu de $[AD]$, $E$ le milieu de $[NM]$ et $F$ le milieu de $[EB]$. Calculez l'aire $\mathcal{T}$ du triangle $AEF$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Septembre 2021, Q3 et Q4 : Carrés adjacents et partage d'un carré)}
+    \begin{enumerate}[label=(\alph*)]
+        \item Dans un triangle équilatéral $ABC$ de côté $|AB| = 2$, on trace la hauteur $[AM]$ (où $M \in [BC]$), que l'on partage en son milieu $F$ pour construire deux petits carrés adjacents $ADEF$ et $FEGM$ (avec $G \in [MB]$). La diagonale $[DH]$ du rectangle $ADGM$ coupe le côté $[AB]$ en $H$. Calculez $|AM|$, $|AH|$ et l'angle $\alpha = \widehat{MHA}$.
+        \item Dans un carré $ABCD$ de centre $M$, on place les milieux $E$ de $[AM]$ et $F$ de $[MC]$. La droite $(BE)$ coupe $[AD]$ en $G$ et la droite $(DF)$ coupe $[BC]$ en $H$. Calculez le rapport $r = \frac{\text{Aire}(\triangle AEG)}{\text{Aire}(\triangle GEM)}$, le rapport $\frac{|BH|}{|HC|}$ et la fraction $f$ de l'aire du carré $ABCD$ occupée par le parallélogramme $GBHD$.
+    \end{enumerate}
+
+    \item \textbf{(UCLouvain -- Juillet 2023, Q4a et Q4b : Carré et égalité d'aires dans un rectangle)}
+    \begin{enumerate}[label=(\alph*)]
+        \item Dans un carré $ABCD$, deux segments $[AX]$ et $[CY]$ sont tous deux perpendiculaires à un même segment $[XY]$ situé à l'intérieur du carré (avec $A$ et $C$ de part et d'autre de $(XY)$). Sachant que $|AX| = 13$, $|XY| = 3$ et $|YC| = 8$, calculez le côté $c$ du carré $ABCD$.
+        \item Dans un rectangle de largeur $\ell$ et de longueur $L$, on trace les deux quarts de cercle de rayon $\ell$ centrés sur les deux sommets supérieurs du rectangle. Soit $A$ la région commune aux deux quarts de disque et $B$ la région du rectangle extérieure aux deux quarts de disque. Sachant que $\text{Aire}(A) = \text{Aire}(B)$, exprimez $L$ en fonction de $\ell$.
+    \end{enumerate}
+
+\end{enumerate}
