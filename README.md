@@ -55,7 +55,7 @@ Le fichier généré s'intitule `main.pdf`.
 
 ## 👥 Auteurs, direction et sources
 
-- **Direction artistique & *Prompt Engineering*** : **Hadrien Rattez**, **Jean-François Remacle** et **Pierre Schaus** (équipe trigonométrie & géométrie de l'examen d'admission à l'EPL — UCLouvain).
+- **Direction artistique & *Prompt Engineering*** : **Thomas Peters**, **Hadrien Rattez**, **Jean-François Remacle** et **Pierre Schaus** (équipe trigonométrie & géométrie de l'examen d'admission à l'EPL — UCLouvain).
 - **Rédaction et mise en forme $\LaTeX$ / TikZ** : assistée par Intelligence Artificielle sous la supervision des enseignants.
 - **Sources** :
   - L'excellent syllabus *« Synthèse de trigonométrie »* rédigé par **Yvan Haine** et **Pierre Joris** (Août 2012, Université de Liège — ULiège), suite à une suggestion du Professeur E. Delhez, a servi de source principale pour structurer et inspirer la partie trigonométrique.
