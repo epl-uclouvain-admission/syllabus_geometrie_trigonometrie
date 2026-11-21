@@ -48,11 +48,11 @@ Dans le plan muni d'un repère orthonormé $(O;\vec{i},\vec{j})$, soient deux po
     \]
     \item \textbf{Équation cartésienne générale :}
     \[
-        \boxed{d \equiv ax + by + c = 0} \qquad \text{avec} \quad \begin{cases} \vec{n} = (a, b) & \text{\textbf{vecteur normal} (perpendiculaire à $d$)} \\ \vec{d} = (-b, a) & \text{\textbf{vecteur directeur} (parallèle à $d$)} \end{cases}.
+        \boxed{d \equiv ax + by + c = 0} \quad \text{avec} \quad \begin{cases} \vec{n} = (a, b) & \text{\textbf{vecteur normal} ($\perp d$)} \\ \vec{d} = (-b, a) & \text{\textbf{vecteur directeur} ($\parallel d$)} \end{cases}.
     \]
     \item \textbf{Forme réduite (pente -- ordonnée à l'origine)} lorsque $b \neq 0$ (droite non verticale) :
     \[
-        y = mx + p \qquad \text{où } m = -\frac{a}{b} = \frac{y_B - y_A}{x_B - x_A} = \tan\alpha \text{ est le \textbf{coefficient directeur (pente)}}.
+        y = mx + p \quad \text{où } m = -\frac{a}{b} = \frac{y_B - y_A}{x_B - x_A} = \tan\alpha \text{ est le \textbf{coefficient directeur (pente)}}.
     \]
     \begin{itemize}
         \item Deux droites $y = m_1 x + p_1$ et $y = m_2 x + p_2$ sont \textbf{parallèles} ssi $m_1 = m_2$.
@@ -143,7 +143,7 @@ est une \textbf{conique} :
 \emph{Énoncé :} Donner l'équation cartésienne et le nom de la conique rassemblant tous les points $M(x,y)$ dont la distance à la droite $d \equiv x = 1$ est la moitié de la distance au point $F(4, 0)$.\\
 \emph{Résolution :} La distance à la droite verticale $x = 1$ est $d_1 = d(M, d) = |x - 1|$, et la distance au foyer $F(4,0)$ est $d_2 = d(M, F) = \sqrt{(x-4)^2 + y^2}$. La condition $d_1 = \frac{1}{2}d_2$ s'écrit $d_2 = 2\,d_1$ (excentricité $e = 2 > 1$, c'est donc une \textbf{hyperbole} !). En élevant au carré :
 \[
-    (x - 4)^2 + y^2 = 4(x - 1)^2 \iff x^2 - 8x + 16 + y^2 = 4x^2 - 8x + 4 \iff 3x^2 - y^2 = 12 \iff \boxed{\frac{x^2}{4} - \frac{y^2}{12} = 1}.
+    (x - 4)^2 + y^2 = 4(x - 1)^2 \iff x^2 - 8x + 16 + y^2 = 4x^2 - 8x + 4 \iff \boxed{\frac{x^2}{4} - \frac{y^2}{12} = 1}.
 \]
 \end{exemple}
 
@@ -187,7 +187,7 @@ Soit l'hyperbole $\mathcal{H}$ de \textbf{centre $C(x_0, y_0)$} :
         \item \textbf{Excentricité et directrices :} $e = \dfrac{c}{a} > 1$ \quad et \quad $\boxed{d_{1,2} \equiv x = x_0 \pm \dfrac{a^2}{c}}$.
         \item \textbf{Asymptotes :} Les deux droites passant par le centre $C(x_0,y_0)$ d'équations :
         \[
-            \boxed{y - y_0 = \pm \frac{b}{a}(x - x_0)} \qquad \left(\text{obtenues en remplaçant $1$ par $0$ dans l'équation réduite!}\right).
+            \boxed{y - y_0 = \pm \frac{b}{a}(x - x_0)} \quad \left(\text{en remplaçant $1$ par $0$ dans l'équation réduite}\right).
         \]
     \end{itemize}
     \item \textbf{Axe focal vertical (le signe $+$ est devant $(y-y_0)^2$) :} $-\dfrac{(x-x_0)^2}{a^2} + \dfrac{(y-y_0)^2}{b^2} = 1$.\\
@@ -215,7 +215,7 @@ Soit une parabole $\mathcal{P}$ de \textbf{sommet $S(x_0, y_0)$} et de paramètr
 \end{theoreme}
 
 \begin{center}
-\begin{tikzpicture}[scale=0.82]
+\begin{tikzpicture}[scale=0.76]
     % Figure 1 : Ellipse
     \begin{scope}[shift={(0,0)}]
         \draw[->, gray] (-2.6,0) -- (2.6,0) node[right, black] {\small $x$};
@@ -370,7 +370,7 @@ D'où les deux pentes limites : $\boxed{m_{\min} = -\frac{2}{\sqrt{15}} \quad \t
 
 \emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
 
-\begin{enumerate}[label=\textbf{Exercice 6.\arabic* --}, leftmargin=*]
+\begin{enumerate}[label=\textbf{Exercice 6.\arabic* --}, align=left, leftmargin=*]
 
     \item \textbf{(UCLouvain -- Septembre 2023, Q1b : Alignement et orthogonalité dans le plan)}
     On donne les points $A(4, -3)$ et $B(1, -2)$, ainsi que la droite $d \equiv y = 1 + x$. Déterminez les coordonnées des deux points $C \in d$ et $D \in d$ tels que :

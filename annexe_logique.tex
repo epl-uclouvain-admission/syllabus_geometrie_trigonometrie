@@ -25,7 +25,7 @@ Soient $P$ et $Q$ deux assertions :
     \item \textbf{Disjonction (« $P \text{ ou } Q$ », notée $P \vee Q$) :} Vraie dès qu'\textbf{au moins une} des deux assertions $P$ ou $Q$ est vraie (le « ou » mathématique est toujours inclusif).
     \item \textbf{Lois de De Morgan (négation d'un « et » et d'un « ou ») :}
     \[
-        \boxed{\text{non}(P \text{ ou } Q) \iff (\text{non } P) \text{ et } (\text{non } Q)} \qquad \text{et} \qquad \boxed{\text{non}(P \text{ et } Q) \iff (\text{non } P) \text{ ou } (\text{non } Q)}.
+        \boxed{\text{non}(P \text{ ou } Q) \iff (\text{non } P) \text{ et } (\text{non } Q)} \ , \ \boxed{\text{non}(P \text{ et } Q) \iff (\text{non } P) \text{ ou } (\text{non } Q)}
     \]
 \end{enumerate}
 \end{theoreme}
@@ -34,12 +34,12 @@ Soient $P$ et $Q$ deux assertions :
 \begin{itemize}
     \item Lorsqu'on résout une équation produit $A(x)\cdot B(x) = 0$ ou $\cos^2 x = 1$, les solutions sont reliées par \textbf{« ou »} (ce qui correspond à l'\textbf{union} $\cup$ des ensembles de solutions). On écrit :
     \[
-        \cos^2 x = 1 \iff \cos x = 1 \text{ \textbf{ou} } \cos x = -1, \qquad \text{mais \textbf{JAMAIS} } \cancel{\cos^2 x = 1 \iff \begin{cases} \cos x = 1 \\ \cos x = -1 \end{cases}},
+        \cos^2 x = 1 \iff \cos x = 1 \text{ \textbf{ou} } \cos x = -1 \quad \left(\text{jamais } \cancel{\begin{cases} \cos x = 1 \\ \cos x = -1 \end{cases}}\right),
     \]
     car l'accolade signifie \textbf{« et »} (et aucun réel $x$ ne peut avoir son cosinus égal à $1$ et à $-1$ en même temps !).
     \item Inversement, pour les \textbf{conditions d'existence} d'une fraction $\frac{1}{A(x)\cdot B(x)}$ (où le dénominateur ne peut pas s'annuler), la loi de De Morgan transforme le « ou » en \textbf{« et »} :
     \[
-        A(x)\cdot B(x) \neq 0 \iff \text{non}\bigl(A(x) = 0 \text{ ou } B(x) = 0\bigr) \iff A(x) \neq 0 \text{ \textbf{et} } B(x) \neq 0 \iff \begin{cases} A(x) \neq 0 \\ B(x) \neq 0 \end{cases}.
+        A(x)\cdot B(x) \neq 0 \iff A(x) \neq 0 \text{ \textbf{et} } B(x) \neq 0 \iff \begin{cases} A(x) \neq 0 \\ B(x) \neq 0 \end{cases}.
     \]
 \end{itemize}
 \end{attention}

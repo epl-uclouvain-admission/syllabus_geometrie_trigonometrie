@@ -314,7 +314,7 @@ Deux méthodes équivalentes permettent de la ramener en deux lignes à une équ
     \item \textbf{Méthode 1 (Méthode de l'angle auxiliaire $\tan\phi = \frac{b}{a}$) :}
     On divise par $a$ et on pose $\tan\phi = \frac{b}{a}$ (c'est-à-dire $\phi = \arctan(b/a) \in \left]-\frac{\pi}{2}, \frac{\pi}{2}\right[$) :
     \[
-        \sin x + \frac{b}{a}\cos x = \frac{c}{a} \iff \sin x + \frac{\sin\phi}{\cos\phi}\cos x = \frac{c}{a} \iff \sin x\cos\phi + \cos x\sin\phi = \frac{c}{a}\cos\phi,
+        \sin x + \frac{b}{a}\cos x = \frac{c}{a} \iff \sin x + \frac{\sin\phi}{\cos\phi}\cos x = \frac{c}{a} \iff \sin x\cos\phi + \cos x\sin\phi = \frac{c}{a}\cos\phi
     \]
     ce qui se réduit par la formule d'addition à :
     \[
@@ -338,9 +338,9 @@ Deux méthodes équivalentes permettent de la ramener en deux lignes à une équ
         \frac{\sqrt{3}}{2}\cos(2x) - \frac{1}{2}\sin(2x) = \frac{m}{2} \iff \cos\left(\frac{\pi}{6}\right)\cos(2x) - \sin\left(\frac{\pi}{6}\right)\sin(2x) = \frac{m}{2},
     \]
     soit $\cos\left(2x + \frac{\pi}{6}\right) = \frac{m}{2}$. Cette équation admet des solutions réelles ssi $\left|\frac{m}{2}\right| \le 1 \iff \boxed{-2 \le m \le 2}$.
-    \item Pour $m = \sqrt{3}$, on obtient :
+    \item Pour $m = \sqrt{3}$, on obtient $\cos\left(2x + \frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} = \cos\left(\frac{\pi}{6}\right)$, soit :
     \[
-        \cos\left(2x + \frac{\pi}{6}\right) = \frac{\sqrt{3}}{2} = \cos\left(\frac{\pi}{6}\right) \iff 2x + \frac{\pi}{6} = \pm\frac{\pi}{6} + 2k\pi \iff \boxed{x = k\pi \quad \text{ou} \quad x = -\frac{\pi}{6} + k\pi} \quad (k\in\Z).
+        2x + \frac{\pi}{6} = \pm\frac{\pi}{6} + 2k\pi \iff \boxed{x = k\pi \quad \text{ou} \quad x = -\frac{\pi}{6} + k\pi} \quad (k\in\Z).
     \]
 \end{enumerate}
 
@@ -380,7 +380,7 @@ Une équation est \textbf{homogène de degré $d$} en $\sin x$ et $\cos x$ si el
 \emph{Énoncé :} Résoudre dans $\R$ l'équation $3\sin(2x)\cos(2x) - \cos^2(2x) = 2\sin^2(2x)$.\\
 \emph{Résolution :} Tous les termes sont de degré $2$ en $\sin(2x)$ et $\cos(2x)$. Comme $\cos(2x) = 0$ impliquerait $\sin(2x) = 0$ (impossible), on divise par $\cos^2(2x)$ :
 \[
-    3\tan(2x) - 1 = 2\tan^2(2x) \iff 2\tan^2(2x) - 3\tan(2x) + 1 = 0 \iff \bigl(2\tan(2x) - 1\bigr)\bigl(\tan(2x) - 1\bigr) = 0.
+    2\tan^2(2x) - 3\tan(2x) + 1 = 0 \iff (2\tan(2x) - 1)(\tan(2x) - 1) = 0.
 \]
 On a donc $\tan(2x) = \frac{1}{2}$ ou $\tan(2x) = 1$, d'où :
 \[
@@ -448,14 +448,15 @@ Lorsqu'une équation contient une somme ou une différence de sinus/cosinus d'ar
 \textbf{1) UCLouvain -- Juillet 2021, Question 1 :}\\
 \emph{Énoncé :} Résoudre dans $\R$ l'équation $\cos(x) - \cos(2x) - \sin(3x) = 0$.\\
 \emph{Résolution :} Appliquons Simpson à la différence $\cos(x) - \cos(2x)$ (moyenne $\frac{3x}{2}$, demi-écart $-\frac{x}{2}$) et la formule de duplication à $\sin(3x) = \sin\left(2\cdot\frac{3x}{2}\right) = 2\sin\left(\frac{3x}{2}\right)\cos\left(\frac{3x}{2}\right)$ :
-\[
-    -2\sin\left(\frac{3x}{2}\right)\sin\left(-\frac{x}{2}\right) - 2\sin\left(\frac{3x}{2}\right)\cos\left(\frac{3x}{2}\right) = 0 \iff 2\sin\left(\frac{3x}{2}\right)\left[\sin\left(\frac{x}{2}\right) - \cos\left(\frac{3x}{2}\right)\right] = 0.
-\]
+\begin{align*}
+    -2\sin\left(\frac{3x}{2}\right)\sin\left(-\frac{x}{2}\right) - 2\sin\left(\frac{3x}{2}\right)\cos\left(\frac{3x}{2}\right) = 0 \\
+    \iff 2\sin\left(\frac{3x}{2}\right)\left[\sin\left(\frac{x}{2}\right) - \cos\left(\frac{3x}{2}\right)\right] = 0.
+\end{align*}
 \begin{itemize}
     \item \emph{1\up{er} facteur :} $\sin\left(\frac{3x}{2}\right) = 0 \iff \frac{3x}{2} = k\pi \iff \boxed{x = \frac{2k\pi}{3}}$ ($k \in \Z$).
     \item \emph{2\up{e} facteur :} $\cos\left(\frac{3x}{2}\right) = \sin\left(\frac{x}{2}\right) = \cos\left(\frac{\pi}{2} - \frac{x}{2}\right)$, ce qui équivaut à :
     \[
-        \frac{3x}{2} = \frac{\pi}{2} - \frac{x}{2} + 2k\pi \quad \text{ou} \quad \frac{3x}{2} = -\frac{\pi}{2} + \frac{x}{2} + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi \quad \text{ou} \quad x = -\frac{\pi}{2} + 2k\pi} \quad (k\in\Z).
+        \frac{3x}{2} = \pm\left(\frac{\pi}{2} - \frac{x}{2}\right) + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi \quad \text{ou} \quad x = -\frac{\pi}{2} + 2k\pi} \quad (k\in\Z).
     \]
 \end{itemize}
 
@@ -500,7 +501,7 @@ Lorsqu'une équation contient une somme ou une différence de sinus/cosinus d'ar
     \]
     On résout enfin cette équation élémentaire en cosinus :
     \[
-        3x = \frac{\pi}{2} + x + 2k\pi \quad \text{ou} \quad 3x = -\frac{\pi}{2} - x + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi \quad \text{ou} \quad x = -\frac{\pi}{8} + \frac{k\pi}{2}} \quad (k\in\Z),
+        3x = \pm\left(\frac{\pi}{2} + x\right) + 2k\pi \iff \boxed{x = \frac{\pi}{4} + k\pi \quad \text{ou} \quad x = -\frac{\pi}{8} + \frac{k\pi}{2}} \quad (k\in\Z),
     \]
     toutes compatibles avec les CE.
 \end{itemize}
@@ -518,7 +519,7 @@ La résolution d'une \textbf{inéquation trigonométrique} repose toujours sur l
 \end{enumerate}
 
 \begin{center}
-\begin{tikzpicture}[scale=1.5, >=Stealth]
+\begin{tikzpicture}[scale=1.35, >=Stealth]
     % sin u >= 1/2
     \begin{scope}[shift={(0,0)}]
         \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
@@ -532,7 +533,7 @@ La résolution d'une \textbf{inéquation trigonométrique} repose toujours sur l
     \end{scope}
 
     % cos u >= 1/2
-    \begin{scope}[shift={(4.2,0)}]
+    \begin{scope}[shift={(3.8,0)}]
         \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
         \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
         \draw[thick, gray!60] (0,0) circle (1);
@@ -544,7 +545,7 @@ La résolution d'une \textbf{inéquation trigonométrique} repose toujours sur l
     \end{scope}
 
     % sin u >= -1/2
-    \begin{scope}[shift={(8.4,0)}]
+    \begin{scope}[shift={(7.6,0)}]
         \draw[->, gray] (-1.25,0) -- (1.3,0) node[right, black] {\small $\cos$};
         \draw[->, gray] (0,-1.25) -- (0,1.3) node[above, black] {\small $\sin$};
         \draw[thick, gray!60] (0,0) circle (1);
@@ -585,7 +586,7 @@ La résolution d'une \textbf{inéquation trigonométrique} repose toujours sur l
 
 \emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
 
-\begin{enumerate}[label=\textbf{Exercice 3.\arabic* --}]
+\begin{enumerate}[label=\textbf{Exercice 3.\arabic* --}, align=left, leftmargin=*]
     \item \textbf{(UCLouvain -- Mini-Blocus 2026, Q1a et Juillet 2024, Q3a)}
     \begin{enumerate}
         \item Trouvez toutes les solutions dans $[0, 2\pi[$ de l'équation $\sin x + \cos x = \sqrt{2}$.

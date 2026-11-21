@@ -384,20 +384,22 @@ Les \textbf{angles associés} à un angle $\alpha$ permettent de ramener le calc
     \]
     \item \textbf{Angles supplémentaires ($\alpha$ et $\pi - \alpha$, symétrie par rapport à l'axe $Oy$) :}
     \[
-        \cos(\pi-\alpha) = -\cos\alpha, \quad \sin(\pi-\alpha) = \sin\alpha, \quad \tan(\pi-\alpha) = -\tan\alpha, \quad \cot(\pi-\alpha) = -\cot\alpha.
+        \cos(\pi-\alpha) = -\cos\alpha, \;\; \sin(\pi-\alpha) = \sin\alpha, \;\; \tan(\pi-\alpha) = -\tan\alpha, \;\; \cot(\pi-\alpha) = -\cot\alpha.
     \]
     \item \textbf{Angles antisupplémentaires ($\alpha$ et $\pi + \alpha$, symétrie centrale par rapport à $O$) :}
     \[
-        \cos(\pi+\alpha) = -\cos\alpha, \quad \sin(\pi+\alpha) = -\sin\alpha, \quad \tan(\pi+\alpha) = \tan\alpha, \quad \cot(\pi+\alpha) = \cot\alpha.
+        \cos(\pi+\alpha) = -\cos\alpha, \;\; \sin(\pi+\alpha) = -\sin\alpha, \;\; \tan(\pi+\alpha) = \tan\alpha, \;\; \cot(\pi+\alpha) = \cot\alpha.
     \]
     \item \textbf{Angles complémentaires ($\alpha$ et $\frac{\pi}{2} - \alpha$, symétrie par rapport à la bissectrice $y=x$) :}
-    \[
-        \cos\left(\frac{\pi}{2}-\alpha\right) = \sin\alpha, \quad \sin\left(\frac{\pi}{2}-\alpha\right) = \cos\alpha, \quad \tan\left(\frac{\pi}{2}-\alpha\right) = \cot\alpha, \quad \cot\left(\frac{\pi}{2}-\alpha\right) = \tan\alpha.
-    \]
+    \begin{align*}
+        \cos\left(\frac{\pi}{2}-\alpha\right) &= \sin\alpha, & \sin\left(\frac{\pi}{2}-\alpha\right) &= \cos\alpha, \\
+        \tan\left(\frac{\pi}{2}-\alpha\right) &= \cot\alpha, & \cot\left(\frac{\pi}{2}-\alpha\right) &= \tan\alpha.
+    \end{align*}
     \item \textbf{Angles anticomplémentaires ($\alpha$ et $\frac{\pi}{2} + \alpha$, rotation d'un quart de tour $+\frac{\pi}{2}$) :}
-    \[
-        \cos\left(\frac{\pi}{2}+\alpha\right) = -\sin\alpha, \quad \sin\left(\frac{\pi}{2}+\alpha\right) = \cos\alpha, \quad \tan\left(\frac{\pi}{2}+\alpha\right) = -\cot\alpha, \quad \cot\left(\frac{\pi}{2}+\alpha\right) = -\tan\alpha.
-    \]
+    \begin{align*}
+        \cos\left(\frac{\pi}{2}+\alpha\right) &= -\sin\alpha, & \sin\left(\frac{\pi}{2}+\alpha\right) &= \cos\alpha, \\
+        \tan\left(\frac{\pi}{2}+\alpha\right) &= -\cot\alpha, & \cot\left(\frac{\pi}{2}+\alpha\right) &= -\tan\alpha.
+    \end{align*}
 \end{enumerate}
 \end{theoreme}
 
@@ -481,7 +483,7 @@ En associant à tout réel $x \in \R$ (interprété comme une mesure d'angle en 
 \begin{center}
 \begin{tikzpicture}
 \begin{axis}[
-    width=14cm, height=5.5cm,
+    width=13.5cm, height=5.5cm,
     axis lines=middle,
     xmin=-6.6, xmax=6.6,
     ymin=-1.4, ymax=1.4,
@@ -545,9 +547,10 @@ Pour simplifier une expression du type $\cos(\arcsin u)$ ou $\sin(\arctan u)$ (l
 \textbf{1) UCLouvain -- Septembre 2025, Question 1b (et Septembre 2023, Question 3c) :}\\
 \emph{Énoncé :} Simplifier $\cos(\arcsin(x))$ (Septembre 2025) et $\cos(\arcsin(x^{2023}))$ pour $|x| \le 1$ (Septembre 2023) afin qu'il n'apparaisse plus de fonction trigonométrique.\\
 \emph{Résolution :} Soit $\theta = \arcsin(u)$ avec $u \in [-1, 1]$. Par définition, $\sin\theta = u$ et $\theta \in [-\frac{\pi}{2}, \frac{\pi}{2}]$. Sur cet intervalle, le cosinus est toujours positif ou nul ($\cos\theta \ge 0$). La relation fondamentale $\cos^2\theta + \sin^2\theta = 1$ donne donc :
-\[
-    \cos(\arcsin(x)) = \sqrt{1 - x^2} \quad \text{et, pour } u = x^{2023} : \quad \cos\bigl(\arcsin(x^{2023})\bigr) = \sqrt{1 - (x^{2023})^2} = \sqrt{1 - x^{4046}}.
-\]
+\begin{align*}
+    \cos(\arcsin(x)) &= \sqrt{1 - x^2}, \\
+    \cos\bigl(\arcsin(x^{2023})\bigr) &= \sqrt{1 - (x^{2023})^2} = \sqrt{1 - x^{4046}}.
+\end{align*}
 
 \medskip
 \textbf{2) UCLouvain -- Mini-Blocus 2026, Question 1d :}\\
@@ -565,7 +568,7 @@ Pour simplifier une expression du type $\cos(\arcsin u)$ ou $\sin(\arctan u)$ (l
 
 \emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
 
-\begin{enumerate}[label=\textbf{Exercice 1.\arabic* --}]
+\begin{enumerate}[label=\textbf{Exercice 1.\arabic* --}, align=left, leftmargin=*]
     \item \textbf{(Inspiré d'ULiège -- La rosace hexagonale)} On considère une rosace tracée à l'intérieur d'un cercle de rayon $R = 3\text{ cm}$, dont les six pétales relient les sommets $A, B, C, D, E, F$ d'un hexagone régulier inscrit dans ce cercle (chaque arc de la rosace est centré sur un des sommets de l'hexagone et passe par le centre $O$ du cercle et les deux sommets voisins).
     \begin{enumerate}
         \item Calculer la longueur du plus petit arc $\overset{\frown}{AB}$ sur le cercle extérieur.

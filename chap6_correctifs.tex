@@ -19,7 +19,7 @@ Ce chapitre rassemble les solutions complètes et commentées de tous les exerci
     \[
         L_{\text{rosace}} = 12 \times \left(R\cdot\frac{\pi}{3}\right) = 4\pi R = \boxed{12\pi\text{ cm} \approx 37,70\text{ cm}}.
     \]
-    \item Un demi-segment circulaire d'angle $\theta = \frac{\pi}{3}$ et de rayon $R$ a pour aire $A_{\text{seg}} = \frac{1}{2}R^2\left(\frac{\pi}{3} - \sin\frac{\pi}{3}\right) = \frac{R^2}{2}\left(\frac{\pi}{3} - \frac{\sqrt{3}}{2}\right)$. Un pétale complet est la réunion de deux tels segments accolés le long de leur corde de longueur $R$, et la rosace comporte $6$ pétales (soit $12$ segments circulaires d'angle $\frac{\pi}{3}$) :
+    \item Un demi-segment circulaire d'angle $\theta = \frac{\pi}{3}$ et de rayon $R$ a une aire $A_{\text{seg}} = \frac{1}{2}R^2\left(\frac{\pi}{3} - \sin\frac{\pi}{3}\right) = \frac{R^2}{2}\left(\frac{\pi}{3} - \frac{\sqrt{3}}{2}\right)$. Un pétale complet est la réunion de deux tels segments accolés le long de leur corde de longueur $R$, et la rosace comporte $6$ pétales (soit $12$ segments circulaires d'angle $\frac{\pi}{3}$) :
     \[
         A_{\text{rosace}} = 12 \times \frac{R^2}{2}\left(\frac{\pi}{3} - \frac{\sqrt{3}}{2}\right) = R^2(2\pi - 3\sqrt{3}) = \boxed{9(2\pi - 3\sqrt{3})\text{ cm}^2 \approx 9,78\text{ cm}^2}.
     \]
@@ -119,7 +119,7 @@ En additionnant les deux termes, $\pm\frac{1}{2}\sin(20\degree)$ s'éliminent et
 \begin{enumerate}[label=(\alph*)]
     \item Par Carnot, $\cos(2x) = 1 - 2\sin^2 x = 1 - 2\left(\frac{\sqrt{5}-1}{4}\right)^2 = 1 - 2\cdot\frac{6 - 2\sqrt{5}}{16} = 1 - \frac{3-\sqrt{5}}{4} = \frac{1+\sqrt{5}}{4}$ (qui est la valeur de $\cos 36\degree$, liée au nombre d'or !). Puis en appliquant une seconde fois la duplication :
     \[
-        \cos(4x) + \frac{1}{4} = \bigl(2\cos^2(2x) - 1\bigr) + \frac{1}{4} = 2\left(\frac{1+\sqrt{5}}{4}\right)^2 - \frac{3}{4} = \frac{6+2\sqrt{5}}{8} - \frac{3}{4} = \frac{3+\sqrt{5}-3}{4} = \boxed{\frac{\sqrt{5}}{4}}.
+        \cos(4x) + \frac{1}{4} = 2\cos^2(2x) - 1 + \frac{1}{4} = 2\left(\frac{1+\sqrt{5}}{4}\right)^2 - \frac{3}{4} = \frac{6+2\sqrt{5}}{8} - \frac{3}{4} = \boxed{\frac{\sqrt{5}}{4}}.
     \]
     \item Appliquons Simpson à $\sin(36\degree+x) - \sin(36\degree-x) = 2\sin(x)\cos(36\degree)$ et à $\sin(72\degree-x) - \sin(72\degree+x) = -2\sin(x)\cos(72\degree)$. En factorisant $2\sin(x)$ et en utilisant $\cos(72\degree) = 2\cos^2(36\degree) - 1$ :
     \begin{align*}
@@ -165,7 +165,7 @@ Pour $(x+y) \in [0, \pi]$, l'unique solution est $\boxed{x + y = \dfrac{\pi}{4}}
     \]
     \item Par Carnot $\sin^2 u = \frac{1-\cos(2u)}{2}$ puis Simpson sur la somme des deux derniers cosinus, qui vaut $2\cos(2x)\cos\left(\frac{4\pi}{3}\right) = -\cos(2x)$ :
     \[
-        \text{MG} = \frac{1}{2}\left[3 - \cos(2x) - \left(\cos\left(2x+\frac{4\pi}{3}\right) + \cos\left(2x-\frac{4\pi}{3}\right)\right)\right] = \frac{1}{2}\bigl(3 - \cos(2x) + \cos(2x)\bigr) = \frac{3}{2}.
+        \text{MG} = \frac{1}{2}\left[3 - \cos(2x) - \cos\left(2x+\frac{4\pi}{3}\right) - \cos\left(2x-\frac{4\pi}{3}\right)\right] = \frac{1}{2}\bigl(3 - \cos(2x) + \cos(2x)\bigr) = \frac{3}{2}.
     \]
 \end{enumerate}
 
@@ -178,7 +178,8 @@ Pour $(x+y) \in [0, \pi]$, l'unique solution est $\boxed{x + y = \dfrac{\pi}{4}}
     Par télescopage, pour $a \neq \frac{k\pi}{8}$ :
     \begin{align*}
         \csc a + \csc(2a) + \csc(4a) + \csc(8a) &= \left(\cot\frac{a}{2} - \cot a\right) + (\cot a - \cot 2a) \\
-        &\quad + (\cot 2a - \cot 4a) + (\cot 4a - \cot 8a) = \boxed{\cot\left(\frac{a}{2}\right) - \cot(8a)}.
+        &\quad + (\cot 2a - \cot 4a) + (\cot 4a - \cot 8a) \\
+        &= \boxed{\cot\left(\frac{a}{2}\right) - \cot(8a)}.
     \end{align*}
     \item Regroupons les angles complémentaires deux à deux ($9\degree + 81\degree = 90\degree$ et $27\degree + 63\degree = 90\degree$) grâce à $\tan a + \tan b = \frac{\sin(a+b)}{\cos a\cos b}$ et Simpson $2\cos a\cos b = \cos(a+b) + \cos(a-b)$ :
     \begin{align*}
@@ -198,7 +199,8 @@ Pour $(x+y) \in [0, \pi]$, l'unique solution est $\boxed{x + y = \dfrac{\pi}{4}}
     \item Par Simpson et Carnot ($\cos(2C) = 2\cos^2 C - 1 = 2\cos^2(A+B) - 1$ et $\cos(A+B) = -\cos C$) :
     \begin{align*}
         \cos(2A) + \cos(2B) + \cos(2C) &= 2\cos(A+B)\cos(A-B) + 2\cos^2(A+B) - 1 \\
-        &= -1 + 2\cos(A+B)\bigl(\cos(A-B) + \cos(A+B)\bigr) = -1 - 4\cos A\cos B\cos C.
+        &= -1 + 2\cos(A+B)\bigl(\cos(A-B) + \cos(A+B)\bigr) \\
+        &= -1 - 4\cos A\cos B\cos C.
     \end{align*}
     \item Par Simpson sur le membre de droite et sachant que $\frac{B+C}{2} = \frac{\pi}{2} - \frac{A}{2}$ :
     \[
@@ -277,7 +279,7 @@ Comme $\sin x = 2$ est impossible, il reste $\sin x = -\frac{1}{2} \iff \boxed{x
 \begin{enumerate}[label=(\alph*)]
     \item \textbf{CE :} $\sin x \neq 0$ et $\cot x + \cos x = \cos x\left(\frac{1+\sin x}{\sin x}\right) \neq 0 \iff x \neq k\frac{\pi}{2}$ ($k\in\Z$). Sous ces CE, on simplifie la fraction par $\frac{\cos x}{\sin x}$ :
     \[
-        \frac{1 - \sin x}{1 + \sin x} = 2(1 - \sin x) \iff (1 - \sin x)\left(\frac{-1-2\sin x}{1+\sin x}\right) = 0 \iff \sin x = 1 \text{ ou } \sin x = -\frac{1}{2}.
+        \frac{1 - \sin x}{1 + \sin x} = 2(1 - \sin x) \iff (1 - \sin x)\frac{-1-2\sin x}{1+\sin x} = 0 \iff \sin x = 1 \text{ ou } \sin x = -\frac{1}{2}.
     \]
     La solution $\sin x = 1$ ($x = \frac{\pi}{2}+2k\pi$) est \textbf{rejetée} par les CE ! Il reste $\sin x = -\frac{1}{2} \iff \boxed{x = -\frac{\pi}{6} + 2k\pi \text{ ou } x = \frac{7\pi}{6} + 2k\pi}$ ($k\in\Z$).
     \item Par Simpson à gauche ($\cos 2x + \cos 6x = 2\cos 4x\cos 2x$) et Carnot à droite ($1 + \cos 8x = 2\cos^2 4x$) :
@@ -536,7 +538,7 @@ Tracons par le point $X$ (milieu de $[DY]$) la droite parallèle à $(AD)$, qui 
 \begin{enumerate}[label=(\alph*)]
     \item Puisque $(DP) \parallel (QB)$ et $|DP| = |QB| = d$, le quadrilatère $DQBP$ est un \textbf{parallélogramme} dont les côtés mesurent $|DP| = |QB| = d$ et $|DQ| = |BP| = c$ (car $Q$ est sur le cercle de centre $D$ et de rayon $c$, et $P$ sur le cercle de centre $B$ et de rayon $c$). Ses deux diagonales sont $[DB]$ (diagonale du carré, de longueur $c\sqrt{2}$) et $[PQ]$ (de longueur $\ell$). Par l'identité du parallélogramme :
     \[
-        |DB|^2 + |PQ|^2 = 2\bigl(|DQ|^2 + |DP|^2\bigr) \iff 2c^2 + \ell^2 = 2(c^2 + d^2) \implies \ell^2 = 2d^2 \implies \boxed{\ell(d) = \sqrt{2}\,d}.
+        |DB|^2 + |PQ|^2 = 2(|DQ|^2 + |DP|^2) \iff 2c^2 + \ell^2 = 2(c^2 + d^2) \implies \boxed{\ell(d) = \sqrt{2}\,d}.
     \]
     \item La longueur $\ell = \sqrt{2}\,d$ est minimale lorsque la distance $d = |DP|$ entre $D$ et un point $P$ de l'arc de centre $B$ et de rayon $c$ est minimale, ce qui se produit lorsque $P$ (et $Q$) se situe sur la diagonale $[BD]$ ! En ce point, $d_{\min} = |BD| - c = (\sqrt{2}-1)c$, et la distance entre $P$ et $Q$ sur la diagonale $[BD]$ vaut $m(c) = |BD| - 2d_{\min} = \sqrt{2}c - 2(\sqrt{2}-1)c = \boxed{(2-\sqrt{2})c}$ (note : par continuité de la formule $\ell = \sqrt{2}d_{\min} = (2-\sqrt{2})c$, les deux approches donnent exactement le même résultat !).
 \end{enumerate}
@@ -749,7 +751,11 @@ L'annulation du discriminant réduit $\Delta' = (-300k)^2 - 544 \cdot 9(25k^2 - 
         \vec{d}_1 \cdot \overrightarrow{BA} = 1(4-t) + 3(5-3t) - 1(t-3) = 22 - 11t = 0 \implies t = 2.
     \]
     On a donc $B(-1, 2, 3)$ et $\vec{d}_2 = \overrightarrow{BA} = (2, -1, -1)$, d'où $\boxed{d_2 \equiv \begin{cases} x = -1 + 2s \\ y = 2 - s \\ z = 3 - s \end{cases}}$.
-    \item Le plan $\mathcal{P}$ contenant $d_1$ et $d_2$ a pour vecteur normal $\vec{n} = \vec{d}_1 \wedge \vec{d}_2 = (1, 3, -1) \wedge (2, -1, -1) = (-4, -1, -7) = -(4, 1, 7)$ et passe par $A(1, 1, 2)$ ($4(1)+1+7(2)=19$), d'où $\boxed{\mathcal{P} \equiv 4x + y + 7z = 19}$.
+    \item Le plan $\mathcal{P}$ contenant $d_1$ et $d_2$ a pour vecteur normal :
+    \[
+        \vec{n} = \vec{d}_1 \wedge \vec{d}_2 = (1, 3, -1) \wedge (2, -1, -1) = (-4, -1, -7) = -(4, 1, 7),
+    \]
+    et passe par $A(1, 1, 2)$ ($4(1)+1+7(2)=19$), d'où $\boxed{\mathcal{P} \equiv 4x + y + 7z = 19}$.
     \item Dans le plan $\mathcal{P}$, le vecteur $\vec{d}_2 = (2, -1, -1)$ est perpendiculaire à $d_1$ et sa norme vaut justement $\|\vec{d}_2\| = \sqrt{4+1+1} = \sqrt{6}$ ! Par conséquent, l'ensemble des points de $\mathcal{P}$ situés à distance $\sqrt{6}$ de $d_1$ est formé des deux droites $B + r\vec{d}_1 \pm \vec{d}_2$ :
     \begin{itemize}
         \item \emph{1\ier{} cas ($+\vec{d}_2$) :} $C = (-1+r+2,\; 2+3r-1,\; 3-r-1) = (1+r,\; 1+3r,\; 2-r)$. L'intersection avec $x = 2z$ donne $1+r = 2(2-r) \implies r = 1 \implies \boxed{C_1(2, 4, 1)}$.

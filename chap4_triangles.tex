@@ -24,7 +24,7 @@ Dans un triangle rectangle d'hypoténuse $H$, pour tout angle aigu $\theta$ :
     \item \textbf{Théorème de Pythagore :} Le carré de la longueur de l'hypoténuse est égal à la somme des carrés des longueurs des deux côtés de l'angle droit (cathètes).
     \item \textbf{Nombres trigonométriques (moyen mnémotechnique \textcolor{warnred}{SOH -- CAH -- TOA}) :}
     \[
-        \boxed{\textbf{\textcolor{warnred}{S}OH : } \sin\theta = \frac{\text{\textcolor{warnred}{O}pposé}}{\text{\textcolor{warnred}{H}ypoténuse}}, \qquad \textbf{\textcolor{warnred}{C}AH : } \cos\theta = \frac{\text{\textcolor{warnred}{A}djacent}}{\text{\textcolor{warnred}{H}ypoténuse}}, \qquad \textbf{\textcolor{warnred}{T}OA : } \tan\theta = \frac{\text{\textcolor{warnred}{O}pposé}}{\text{\textcolor{warnred}{A}djacent}}}.
+        \boxed{\textbf{\textcolor{warnred}{S}OH : } \sin\theta = \frac{\text{\textcolor{warnred}{O}pp.}}{\text{\textcolor{warnred}{H}yp.}}, \qquad \textbf{\textcolor{warnred}{C}AH : } \cos\theta = \frac{\text{\textcolor{warnred}{A}dj.}}{\text{\textcolor{warnred}{H}yp.}}, \qquad \textbf{\textcolor{warnred}{T}OA : } \tan\theta = \frac{\text{\textcolor{warnred}{O}pp.}}{\text{\textcolor{warnred}{A}dj.}}}.
     \]
 \end{enumerate}
 \end{theoreme}
@@ -64,11 +64,11 @@ Soit un triangle $ABC$, et soient $D \in (AB)$ et $E \in (AC)$ deux points tels 
 \emph{Énoncé (Juillet 2021, Q2) :} On désire mesurer la hauteur $H$ d'un grand arbre dont le pied $P$ n'est pas accessible. Deux graphomètres $A$ et $B$, placés au niveau du sol horizontal, alignés avec le pied de l'arbre et séparés d'une distance connue $\overline{AB} = d$, visent le sommet $S$ de l'arbre sous des angles d'élévation respectifs $\widehat{A}$ et $\widehat{B}$ (avec $A$ plus proche de l'arbre que $B$, donc $\widehat{A} > \widehat{B}$). Exprimer $H$ en fonction de $d = \overline{AB}$, $\widehat{A}$ et $\widehat{B}$.\\
 \emph{Résolution :} Notons $x = \overline{PA}$ la distance inconnue entre le pied de l'arbre et le point $A$. Dans les triangles rectangles $SPA$ et $SPB$ (rectangles en $P$), on a :
 \[
-    \tan\widehat{A} = \frac{H}{x} \implies x = \frac{H}{\tan\widehat{A}} = H\cot\widehat{A}, \qquad \text{et} \qquad \tan\widehat{B} = \frac{H}{x + d} \implies x + d = \frac{H}{\tan\widehat{B}} = H\cot\widehat{B}.
+    \tan\widehat{A} = \frac{H}{x} \implies x = \frac{H}{\tan\widehat{A}} = H\cot\widehat{A}, \quad \tan\widehat{B} = \frac{H}{x + d} \implies x + d = \frac{H}{\tan\widehat{B}} = H\cot\widehat{B}.
 \]
 En soustrayant la première équation de la seconde pour éliminer l'inconnue intermédiaire $x$ :
 \[
-    d = H\left(\frac{1}{\tan\widehat{B}} - \frac{1}{\tan\widehat{A}}\right) = H\left(\frac{\tan\widehat{A} - \tan\widehat{B}}{\tan\widehat{A}\tan\widehat{B}}\right) \implies \boxed{H = d\,\frac{\tan\widehat{A}\tan\widehat{B}}{\tan\widehat{A} - \tan\widehat{B}} = \frac{d}{\cot\widehat{B} - \cot\widehat{A}}}.
+    d = H\left(\frac{1}{\tan\widehat{B}} - \frac{1}{\tan\widehat{A}}\right) = H\,\frac{\tan\widehat{A} - \tan\widehat{B}}{\tan\widehat{A}\tan\widehat{B}} \implies \boxed{H = \frac{d\,\tan\widehat{A}\tan\widehat{B}}{\tan\widehat{A} - \tan\widehat{B}} = \frac{d}{\cot\widehat{B} - \cot\widehat{A}}}.
 \]
 \emph{Application numérique (Septembre 2024, Q3e) :} Pour un château entouré de douves avec $d = 30\text{ m}$, $\widehat{A} = 60\degree$, $\widehat{B} = 30\degree$ et $\sqrt{3} \simeq 1,7$ : $H = \frac{30}{\cot 30\degree - \cot 60\degree} = \frac{30}{\sqrt{3} - \frac{1}{\sqrt{3}}} = 15\sqrt{3} \simeq \boxed{25,5\text{ m}}$.
 
@@ -165,7 +165,7 @@ En soustrayant la première équation de la seconde pour éliminer l'inconnue in
     \item Dans le triangle rectangle $ABC$, le côté adjacent à $\theta$ vaut $\overline{AB} = L\cos\theta$, d'où $\overline{AE} = L\cos\theta$.
     \item Le segment $[AE]$ forme avec le bord supérieur horizontal $[AB]$ un angle total $\widehat{BAE} = \theta + \theta = 2\theta$. Or la projection verticale de $[AE]$ entre le bord supérieur ($A$) et le bord inférieur ($E$) est exactement la largeur $w$ de la bande ! Dans le triangle rectangle projetant $E$ verticalement sur $[AB]$, on a donc :
     \[
-        w = \overline{AE}\sin(2\theta) = (L\cos\theta)\sin(2\theta) = 2L\sin\theta\cos^2\theta \implies \boxed{L = \frac{w}{\cos\theta\sin(2\theta)} = \frac{w}{2\sin\theta\cos^2\theta}}.
+        w = \overline{AE}\sin(2\theta) = L\cos\theta\sin(2\theta) \implies \boxed{L = \frac{w}{\cos\theta\sin(2\theta)} = \frac{w}{2\sin\theta\cos^2\theta}}.
     \]
 \end{enumerate}
 
@@ -216,7 +216,7 @@ En soustrayant la première équation de la seconde pour éliminer l'inconnue in
 \]
 En appliquant exactement la même formule aux paires de cercles tangents $(A,C)$ et $(C,B)$, leurs distances horizontales au sol valent $d_{AC} = 2\sqrt{xz}$ et $d_{CB} = 2\sqrt{yz}$. Comme le point de contact de $C$ est situé entre ceux de $A$ et de $B$ :
 \[
-    d_{AB} = d_{AC} + d_{CB} \iff 2\sqrt{xy} = 2\sqrt{xz} + 2\sqrt{yz} \iff \sqrt{z}(\sqrt{x} + \sqrt{y}) = \sqrt{xy} \iff \boxed{z = \frac{xy}{(\sqrt{x} + \sqrt{y})^2}}.
+    d_{AB} = d_{AC} + d_{CB} \iff \sqrt{xy} = \sqrt{z}(\sqrt{x} + \sqrt{y}) \iff \boxed{z = \frac{xy}{(\sqrt{x} + \sqrt{y})^2}}.
 \]
 \end{exemple}
 
@@ -323,10 +323,12 @@ Soit $ABCD$ un quadrilatère quelconque (convexe ou concave) dont les diagonales
 \]
 \end{theoreme}
 \begin{proof}[Démonstration (UCLouvain -- Septembre 2023 Q2a et Juillet 2025 Q2b-2c)]
-Dans le cas convexe, notons $O$ le point d'intersection des diagonales $[AC]$ et $[BD]$, et posons $a = \overline{OA}$, $c = \overline{OC}$ (avec $a+c = x$), $b = \overline{OB}$, $d = \overline{OD}$ (avec $b+d = y$). Les quatre angles en $O$ sont $\theta$, $\pi-\theta$, $\theta$, $\pi-\theta$, qui ont tous le même sinus $\sin(\pi-\theta) = \sin\theta$. En additionnant les aires des quatre triangles $OAB, OBC, OCD, ODA$ :
-\[
-    S = \frac{1}{2}ab\sin\theta + \frac{1}{2}bc\sin\theta + \frac{1}{2}cd\sin\theta + \frac{1}{2}da\sin\theta = \frac{1}{2}\sin\theta\bigl(a(b+d) + c(b+d)\bigr) = \frac{1}{2}(a+c)(b+d)\sin\theta = \frac{1}{2}xy\sin\theta.
-\]
+\mbox{}\\
+Dans le cas convexe, soit $O$ le point d'intersection des diagonales $[AC]$ et $[BD]$, et posons $a = \overline{OA}$, $c = \overline{OC}$ (avec $a+c = x$), $b = \overline{OB}$, $d = \overline{OD}$ (avec $b+d = y$). Les quatre angles en $O$ sont $\theta$, $\pi-\theta$, $\theta$, $\pi-\theta$, qui ont tous le même sinus $\sin(\pi-\theta) = \sin\theta$. En additionnant les aires des quatre triangles $OAB, OBC, OCD, ODA$ :
+\begin{align*}
+    S &= \frac{1}{2}ab\sin\theta + \frac{1}{2}bc\sin\theta + \frac{1}{2}cd\sin\theta + \frac{1}{2}da\sin\theta \\
+      &= \frac{1}{2}\sin\theta\bigl(a(b+d) + c(b+d)\bigr) = \frac{1}{2}(a+c)(b+d)\sin\theta = \frac{1}{2}xy\sin\theta.
+\end{align*}
 Dans le cas concave, la même factorisation s'obtient par différence des aires des triangles $ABD$ et $CBD$.
 \end{proof}
 
@@ -432,9 +434,9 @@ Dans le cas concave, la même factorisation s'obtient par différence des aires 
     \]
     En égalant les deux expressions de $\frac{h}{\sin(\pi/3)}$ et en développant $\sin(\frac{\pi}{3}-\beta)$ :
     \[
-        \sin\left(\frac{\pi}{3} - \beta\right) = 2\sin\beta \iff \frac{\sqrt{3}}{2}\cos\beta - \frac{1}{2}\sin\beta = 2\sin\beta \iff \frac{5}{2}\sin\beta = \frac{\sqrt{3}}{2}\cos\beta \iff \tan\beta = \frac{\sqrt{3}}{5}.
+        \sin\left(\frac{\pi}{3} - \beta\right) = 2\sin\beta \iff \frac{\sqrt{3}}{2}\cos\beta - \frac{1}{2}\sin\beta = 2\sin\beta \iff \frac{5}{2}\sin\beta = \frac{\sqrt{3}}{2}\cos\beta,
     \]
-    Comme $\beta \in \left]0, \frac{\pi}{3}\right[$, on conclut que $\boxed{\beta = \arctan\left(\frac{\sqrt{3}}{5}\right)}$ (ou $\arccos\left(\frac{5}{2\sqrt{7}}\right)$ par la loi des cosinus).
+    soit $\tan\beta = \frac{\sqrt{3}}{5}$. Comme $\beta \in \left]0, \frac{\pi}{3}\right[$, on conclut que $\boxed{\beta = \arctan\left(\frac{\sqrt{3}}{5}\right)}$ (ou $\arccos\left(\frac{5}{2\sqrt{7}}\right)$ par la loi des cosinus).
     \item Dans le triangle $ABM$, on constate que $\overline{AM}^2 + \overline{BM}^2 = y^2 + y^2 = 2y^2 = (\sqrt{2}y)^2 = \overline{AB}^2$ ! Par la réciproque du théorème de Pythagore (ou la loi des cosinus), le triangle $ABM$ est \textbf{rectangle isocèle en $M$} ($\widehat{AMB} = \frac{\pi}{2}$). Dès lors, son angle supplémentaire $\widehat{AMC} = \pi - \frac{\pi}{2} = \frac{\pi}{2}$ est aussi droit ! Dans le triangle $AMC$ rectangle en $M$, avec $\overline{AM} = y$ et $\overline{MC} = 2\overline{BM} = 2y$, Pythagore donne immédiatement :
     \[
         \overline{AC} = \sqrt{\overline{AM}^2 + \overline{MC}^2} = \sqrt{y^2 + (2y)^2} = \boxed{y\sqrt{5}}.
@@ -586,7 +588,7 @@ Posons $y = \overline{BP} = \overline{PC}$ (demi-base) et $h = \overline{AP}$ (h
     \item Par symétrie, le centre $C$ du cercle inscrit se situe sur la bissectrice de l'angle au centre $\theta$, qui partage l'angle en deux angles égaux à $\frac{\theta}{2}$ et rencontre l'arc du secteur au point de tangence entre le cercle et l'arc. La distance entre $O$ et $C$ vaut donc $\overline{OC} = R - r$.
     Soit $T$ le point de tangence du cercle avec l'un des deux rayons du secteur. Le rayon $[CT]$ de longueur $r$ est perpendiculaire à ce rayon en $T$, de sorte que le triangle $OTC$ est \textbf{rectangle en $T$}. Dans ce triangle rectangle :
     \[
-        \sin\left(\frac{\theta}{2}\right) = \frac{\overline{CT}}{\overline{OC}} = \frac{r}{R - r} \iff r\left(1 + \sin\left(\frac{\theta}{2}\right)\right) = R\sin\left(\frac{\theta}{2}\right) \iff \boxed{r = \frac{R\sin(\theta/2)}{1 + \sin(\theta/2)}}.
+        \sin\left(\frac{\theta}{2}\right) = \frac{\overline{CT}}{\overline{OC}} = \frac{r}{R - r} \iff r\bigl(1 + \sin(\theta/2)\bigr) = R\sin(\theta/2) \iff \boxed{r = \frac{R\sin(\theta/2)}{1 + \sin(\theta/2)}}.
     \]
     \item Pour que $\dfrac{r}{R} = \dfrac{1}{3}$, on résout :
     \[
@@ -618,7 +620,7 @@ Par permutation circulaire sur les triangles $MBC$ (où $\widehat{BMC} = \pi - \
 
 \emph{Les corrigés complets de tous ces exercices se trouvent au Chapitre 9, en fin d'ouvrage.}
 
-\begin{enumerate}[label=\textbf{Exercice 4.\arabic* --}]
+\begin{enumerate}[label=\textbf{Exercice 4.\arabic* --}, align=left, leftmargin=*]
     \item \textbf{(UCLouvain -- Septembre 2024, Q2 : Théorème de la bissectrice)} Soit un triangle quelconque $ABC$ de côtés $a = \overline{BC}$, $b = \overline{AC}$ et $c = \overline{AB}$. Soit $X$ le point du segment $[BC]$ tel que la demi-droite $[AX)$ soit la bissectrice de l'angle $\widehat{BAC}$ (c'est-à-dire $\widehat{BAX} = \widehat{XAC} = \alpha$). En appliquant la loi des sinus dans les triangles $ABX$ et $ACX$, exprimez la longueur $x = \overline{BX}$ en fonction de $a, b$ et $c$ uniquement.
 
     \item \textbf{(UCLouvain -- Mini-Blocus 2026 Q1e, Septembre 2026 Q3e et Septembre 2023 Q3f : Cercles inscrit et circonscrit d'un triangle rectangle isocèle)} Soit un triangle rectangle isocèle dont l'hypoténuse mesure $c$ (et les deux côtés de l'angle droit mesurent $\frac{c}{\sqrt{2}}$). On note $r$ le rayon de son cercle inscrit et $R$ le rayon de son cercle circonscrit.
